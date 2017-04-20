@@ -32,8 +32,8 @@
 #' # load library
 #' require(MBSStools)
 #' #open data
-#' data.PHI <- load("./data/MBSS.PHI.rda")
-#' #data.PHI <- read.delim("./inst/data-raw/data.PHI.tab")
+#' #data.PHI <- load("./data/MBSS.PHI.rda")
+#' data.PHI <- MBSS.PHI
 #' # names
 #' # calculate PHI
 #' PHI <- PHIcalc(data.PHI)

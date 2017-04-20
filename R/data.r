@@ -6,3 +6,12 @@
 #'
 #'
 "MBSS.PHI"
+
+#' MBSS.flow
+#'
+#' MBSS flow data.
+#'
+#' @format a data frame with 2,686 observations and 5 variables:
+#'
+#'
+"MBSS.flow"

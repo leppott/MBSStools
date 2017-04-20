@@ -2,16 +2,31 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-04-20 09:44:13
+    #> Last Update: 2017-04-20 11:05:42
 
 Version history.
 
 Planned Updates
 ===============
 
--   Each tool to be a separate branch before merging into master.
+-   Each tool to be a separate version.
 
 -   PHI; need to update included data.
+
+v0.0.0.9002
+===========
+
+2017-04-20
+
+-   Flow sum calculation completed. Included Channel Number as grouping variable but sum across channels to get the total site flow.
+
+-   PHI, edit script for outlining in RStudio.
+
+-   PHI.calc() to PHIcalc().
+
+-   Data.R and folder "data-raw".
+
+-   PHI, tweak for created data. Using Excel to build rda rather than txt file from the Excel.
 
 v0.0.0.9001
 ===========
