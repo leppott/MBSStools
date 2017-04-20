@@ -1,0 +1,43 @@
+---
+title: "NEWS-MBSStools"
+output: github_document
+  #md_document:
+   # variant: markdown_github
+---
+
+<!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "NEWS-"
+)
+```
+
+```{r, echo = FALSE}
+cat(paste0("Last Update: ",Sys.time()))
+```
+
+Version history.
+
+# Planned Updates
+
+* Each tool to be a separate branch before merging into master.
+
+* PHI; need to update included data.
+
+# v0.0.0.9001
+2017-03-29
+
+* Completed PHI calculation.
+
+
+# v0.0.0.9000
+2017-03-27
+
+* Created GitHub repository.
+
+* Added ReadME.RMD and NEWS.RMD
+
+* PHI calculation started.

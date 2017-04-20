@@ -1,0 +1,39 @@
+---
+title: "README-MBSStools"
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+```{r, echo = FALSE}
+cat(paste0("Last Update: ",Sys.time()))
+```
+
+Suite of tools for data manipulation and calculations for Maryland DNR MBSS program.
+
+Installation
+------------
+library(devtools)  #install if needed
+
+install_github("leppott/MBSStools")
+
+Purpose
+------------
+To aid MBSS staff with calculations and data manipulations.
+
+Status
+------------
+Development stage.  
+
+
+Usage
+------------
+
