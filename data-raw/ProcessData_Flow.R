@@ -26,7 +26,7 @@ wd <- getwd()  # assume package root.
 # 1. Get data and process#####
 # 1.1. Import Data
 myFile <- "tblSumFlow15.xls"
-data.import <- read_excel(file.path(getwd(),"data-raw",myFile),sheet="Access Export")
+data.import <- read_excel(file.path(getwd(),"data-raw",myFile),sheet="AccessExport_fixed")
 # 1.2. Process Data
 ## Cols to keep
 head(data.import)

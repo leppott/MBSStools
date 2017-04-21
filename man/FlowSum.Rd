@@ -15,16 +15,18 @@ FlowSum(df, df.names = c("SITEYR", "ChannelNum", "Lat_Loc_m", "Depth_m",
 \item{returnType}{Returns the original data with cell velocity (cell) or a summary table of the sample velocities (sample); "sample" is the default.}
 }
 \value{
-Returns the requested dataframe; the original data with the area velocity by cell or by sample (default).
+Returns the requested dataframe; the original data with the discharge by cell or by sample (default).
 }
 \description{
 Calculate flow from field measurements.  All measurements are in meters and meters per second.
 The final flow measurement is reports as cms and cubic feet per second (cfs).
+Generates error message for blank (null) entries for inputs for Lateral Location, Depth, and Velocity.
+In addition it checks for samples with more than one channel but have the same Channel Number.
 }
 \examples{
 #open data
+data(MBSS.flow)
 data.flow <-MBSS.flow
-#data.flow <- load("./data/MBSS.flow.rda")
 # names
 # calculate flow
 flow.cell <- FlowSum(data.flow,returnType="cell")

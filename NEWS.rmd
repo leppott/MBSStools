@@ -23,9 +23,12 @@ Version history.
 
 # Planned Updates
 
-* Each tool to be a separate version.
+* Entered issues on GitHub for remaining planned functions (Fish maps, CORE trend data handling, ion matrix, and IBI calculation).
 
-* PHI; need to update included data.
+# v0.0.0.9003
+2017-04-21
+
+* FlowSum().  Added Error Handling for misidentified Channels.  Updated data MBSS.flow.
 
 # v0.0.0.9002
 2017-04-20

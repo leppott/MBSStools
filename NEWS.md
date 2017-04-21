@@ -2,7 +2,7 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-04-20 11:05:42
+    #> Last Update: 2017-04-21 09:33:19
 
 Version history.
 
@@ -12,6 +12,13 @@ Planned Updates
 -   Each tool to be a separate version.
 
 -   PHI; need to update included data.
+
+v0.0.0.9003
+===========
+
+2017-04-21
+
+-   FlowSum(). Added Error Handling for misidentified Channels. Updated data MBSS.flow.
 
 v0.0.0.9002
 ===========

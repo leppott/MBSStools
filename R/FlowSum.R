@@ -2,6 +2,8 @@
 #'
 #' Calculate flow from field measurements.  All measurements are in meters and meters per second.
 #' The final flow measurement is reports as cms and cubic feet per second (cfs).
+#' Generates error message for blank (null) entries for inputs for Lateral Location, Depth, and Velocity.
+#' In addition it checks for samples with more than one channel but have the same Channel Number.
 #'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Erik.Leppo@tetratech.com (EWL)
@@ -15,12 +17,12 @@
 # @param Lat..Loc.m. Cross section profile distance measured in meters.
 # @param Depth..m. Measured depth in meters.
 # @param Velocity..m.s. Measured velocity in m/s.
-#' @return Returns the requested dataframe; the original data with the area velocity by cell or by sample (default).
+#' @return Returns the requested dataframe; the original data with the discharge by cell or by sample (default).
 #' @keywords MBSS, flow
 #' @examples
 #' #open data
+#' data(MBSS.flow)
 #' data.flow <-MBSS.flow
-#' #data.flow <- load("./data/MBSS.flow.rda")
 #' # names
 #' # calculate flow
 #' flow.cell <- FlowSum(data.flow,returnType="cell")
@@ -42,42 +44,66 @@ FlowSum <- function(df, df.names = c("SITEYR"
   # 0.1. QC column names
   # test names
   #names(df) %in% df.names
-  msg <- paste0(c("The names in the data frame do not include all of the names provided. ",names(df) %in% df.names))
-  try(if(FALSE %in% (names(df) %in% df.names)) stop(msg))
+  msg <- paste0(c("The names in the data frame do not include all of the names provided. ",df.names %in% names(df)))
+  try(if(FALSE %in% (df.names %in% names(df))) stop(msg))
   # 0.2. Assign Names
   # create name parameters to be used in the code.
-  name.SampID   <- df.names[1]
-  name.ChanNum  <- df.names[2]
-  name.LatLoc   <- df.names[3]
-  name.Depth    <- df.names[4]
-  name.Velocity <- df.names[5]
-  name.Width    <- "Width_m"
-  name.VelCell  <- "Vel_Cell_cms"
-  name.Vel.cms  <- "Vel_cms"
-  name.Vel.cfs.calc <- "Vel_cfs_calc"
-  name.Vel.cfs  <- "Vel_cfs"
+  name.SampID   <- df.names[1] # Sample ID (SITEYR)
+  name.ChanNum  <- df.names[2] # Channel Number
+  name.LatLoc   <- df.names[3] # Lateral Location (m)
+  name.Depth    <- df.names[4] # Depth (m)
+  name.Velocity <- df.names[5] # Velocity (m/s)
+  name.Width    <- "Width_m"   # Width (m)
+  name.DisCell  <- "Discharge_Cell_cms"
+  name.Dis.cms  <- "Discharge_cms"
+  name.Dis.cfs.calc <- "Discharge_cfs_calc"
+  name.Dis.cfs  <- "Discharge_cfs"
   name.SampRep  <- "Samp_Rep"
   # 0.3. Error Checking on Inputs
   returnType  <- toupper(returnType)
-  #
-  # 1.0. Calculation ####
+  # 0.4. Potential errors in data
   data.calc <- df
   # Combine SampID and ChannelNum
   data.calc[,name.SampRep] <- paste0(data.calc[,name.SampID],"_",data.calc[,name.ChanNum])
+  # 0.4.1. Check for blanks (Lat, Depth, Vel)
+  msg.blank.LatLoc   <- paste0("There are blank entries in the data in column '",name.LatLoc,"'. Please correct then retry.")
+  msg.blank.Depth    <- paste0("There are blank entries in the data in column '",name.Depth,"'. Please correct then retry.")
+  msg.blank.Velocity <- paste0("There are blank entries in the data in column '",name.Velocity,"'. Please correct then retry.")
+  try(if(TRUE %in% is.na(data.calc[,name.LatLoc])) stop(msg.blank.LatLoc))
+  try(if(TRUE %in% is.na(data.calc[,name.Depth])) stop(msg.blank.Depth))
+  try(if(TRUE %in% is.na(data.calc[,name.Velocity])) stop(msg.blank.Velocity))
+  # 0.4.2. Check for and stop if have duplicate Channels for a given SITEYR
+  ## Find Samp_Rep with more than 1 zero for LatLoc
+  Dist.zero <- data.calc[data.calc[,name.LatLoc]==0,c(name.SampRep,name.LatLoc)]
+  tbl.zero <- as.data.frame(table(Dist.zero[,name.SampRep]))
+  dupChan <- as.vector(tbl.zero[tbl.zero[,2]>1,1]) # more than one entry and only the Samp_Rep
+  # Number of SampRep and SampRep & LatLoc=0
+  SampRep.calc <- length(unique(data.calc[,name.SampRep])) # Number of Unique SampReps in data
+  SampRep.zero <- nrow(Dist.zero) # Number of SampRep and LatLoc=0
+  # stop if lists aren't the same size
+  msg.dupChan <- paste0("\n\nMore than one zero value for Lateral Distance ('",name.LatLoc,"').
+\nThis indicates more than one channel ('",name.ChanNum,"') per sample ('",name.SampID,"'). Or an error in the data.
+\nPlease correct then retry.  Sample and Channel IDs are presented below:
+\n('",name.SampID,"' _ '",name.ChanNum,"') \n \n"
+,paste0(dupChan,collapse="\n"))
+  #try(if(SampRep.calc!=SampRep.zero) stop(msg.dupChan)) # not right if min value is not zero
+  try(if(sum(tbl.zero$Freq)!=nrow(tbl.zero)) stop(msg.dupChan))
+  #
+  # 1.0. Calculation ####
   # 1.1. Calculate Width by SampleID
   #http://stackoverflow.com/questions/14846547/calculating-difference-row-values-by-group-in-r
   # move change c(0,diff(x)) to c(diff(x),0) to subtract previous not following row.
   #data.calc$width <- ave(fun.df$Lat..Loc..m., fun.df$SITEYR, FUN=function(x) c(diff(x),0))
   data.calc[,name.Width] <- ave(data.calc[,name.LatLoc], data.calc[,name.SampRep], FUN=function(x) c(diff(x),0))
   # 1.2. Calculate Cell Flow
-  data.calc[,name.VelCell] <- with(data.calc, data.calc[,name.Width] * data.calc[,name.Depth] * data.calc[,name.Velocity])
+  data.calc[,name.DisCell] <- (data.calc[,name.Width] * data.calc[,name.Depth] * data.calc[,name.Velocity])
   #View(data.calc)
   # 1. 3. Summarize flow by SampID
-  data.agg <- aggregate(data.calc[,name.VelCell] ~ data.calc[,name.SampID], data=data.calc, FUN="sum")
-  names(data.agg) <- c(name.SampID, name.Vel.cms)
-  #names(data.agg)[names(data.agg)==name.VelCell] <- name.Vel.cms
-  data.agg[,name.Vel.cfs.calc] <- 35.314*data.agg[,name.Vel.cms]
-  data.agg[,name.Vel.cfs] <- round(data.agg[,name.Vel.cfs.calc],2)
+  data.agg <- aggregate(data.calc[,name.DisCell] ~ data.calc[,name.SampID], data=data.calc, FUN="sum")
+  names(data.agg) <- c(name.SampID, name.Dis.cms)
+  #names(data.agg)[names(data.agg)==name.DisCell] <- name.Dis.cms
+  data.agg[,name.Dis.cfs.calc] <- 35.314*data.agg[,name.Dis.cms]
+  data.agg[,name.Dis.cfs] <- round(data.agg[,name.Dis.cfs.calc],2)
   #View(data.agg)
   #
   # 2.0. Return result dataframe dependant upon returnType ####
