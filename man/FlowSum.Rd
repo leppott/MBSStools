@@ -24,20 +24,18 @@ Generates error message for blank (null) entries for inputs for Lateral Location
 In addition it checks for samples with more than one channel but have the same Channel Number.
 }
 \examples{
-#open data
-data(MBSS.flow)
-data.flow <-MBSS.flow
-# names
+#' # data
+data("MBSS.flow")
 # calculate flow
-flow.cell <- FlowSum(data.flow,returnType="cell")
-flow.sample <- FlowSum(data.flow)
+flow.cell <- FlowSum(MBSS.flow,returnType="cell")
+flow.sample <- FlowSum(MBSS.flow)
 # examine data
 View(flow.cell)
 View(flow.sample)
-# Save file (tab delimited text file)
-datetime <- format(Sys.time(),"\%Y\%m\%d_\%H\%M\%S")
-myYear <- "15"
-write.table(flow.sample,paste0("SumFlow",myYear,"_",datetime,".tab"),row.names=FALSE,sep="\\t")
+# Example Save file (tab delimited text file)
+#datetime <- format(Sys.time(),"\%Y\%m\%d_\%H\%M\%S")
+#myYear <- "15"
+#write.table(flow.sample,paste0("SumFlow",myYear,"_",datetime,".tab"),row.names=FALSE,sep="\\t")
 }
 \keyword{MBSS,}
 \keyword{flow}

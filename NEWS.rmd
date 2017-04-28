@@ -25,6 +25,11 @@ Version history.
 
 * Entered issues on GitHub for remaining planned functions (Fish maps, CORE trend data handling, ion matrix, and IBI calculation).
 
+# v0.0.0.9004
+2017-04-28 (not complete)
+
+* Address issues with PHIcalc from testing.  Removed extra rows from Excel import for data MBSS.PHI.  Added line to convert values to numeric inside MBSS.PHI.
+
 # v0.0.0.9003
 2017-04-21
 

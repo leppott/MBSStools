@@ -29,19 +29,15 @@
 #' @return Returns a dataframe of the original data with the metric scoring and PHI values.
 #' @keywords MBSS, PHI
 #' @examples
-#' # load library
-#' require(MBSStools)
-#' #open data
-#' #data.PHI <- load("./data/MBSS.PHI.rda")
-#' data.PHI <- MBSS.PHI
-#' # names
+#' # data
+#' data("MBSS.PHI")
 #' # calculate PHI
-#' PHI <- PHIcalc(data.PHI)
+#' PHI <- PHIcalc(MBSS.PHI)
 #' # examine data
 #' View(PHI)
-#' # Save file
-#' datetime <- format(Sys.time(),"%Y%m%d_%H%M%S")
-#' write.table(PHI,paste0("PHI_",datetime,".tab"),row.names=FALSE,sep="\t")
+#' # Example Save file
+#' #datetime <- format(Sys.time(),"%Y%m%d_%H%M%S")
+#' #write.table(PHI,paste0("PHI_",datetime,".tab"),row.names=FALSE,sep="\t")
 #' @export
 PHIcalc <- function(fun.df,fun.names=c("SampID"
                                         , "BioRegion"
@@ -107,8 +103,11 @@ PHIcalc <- function(fun.df,fun.names=c("SampID"
   name.Erosn_SevR_02 <- "Erosn_SevR_02"
   name.Erosn_SevL_02 <- "Erosn_SevL_02"
   #
-  # 0.2. Error Checking field boundaries
+  # 0.2. Error Checking field boundaries ####
   # Not implemented.  For now PHI will calculate with NA data not contributing.
+  # 20170428, ensure numeric values.  if not get error
+  ## will still get error if have a real "character" value (but that is ok)
+  fun.df[,names.df[3:17]] <- sapply(fun.df[,names.df[3:17]], as.numeric)
   #
   # 0.2.1. BioRegion (highlands, piedmont, coastalplain)
   # Don't need to check.  If not the proper names then no PHI will be calculated.

@@ -2,16 +2,21 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-04-21 09:33:19
+    #> Last Update: 2017-04-28 14:17:37
 
 Version history.
 
 Planned Updates
 ===============
 
--   Each tool to be a separate version.
+-   Entered issues on GitHub for remaining planned functions (Fish maps, CORE trend data handling, ion matrix, and IBI calculation).
 
--   PHI; need to update included data.
+v0.0.0.9004
+===========
+
+2017-04-28 (not complete)
+
+-   Address issues with PHIcalc from testing. Removed extra rows from Excel import for data MBSS.PHI. Added line to convert values to numeric inside MBSS.PHI.
 
 v0.0.0.9003
 ===========

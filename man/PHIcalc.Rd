@@ -22,19 +22,15 @@ Returns a dataframe of the original data with the metric scoring and PHI values.
 Calculate MBSS Physical Habitat Index (PHI), Paul et al. 2003.
 }
 \examples{
-# load library
-require(MBSStools)
-#open data
-#data.PHI <- load("./data/MBSS.PHI.rda")
-data.PHI <- MBSS.PHI
-# names
+# data
+data("MBSS.PHI")
 # calculate PHI
-PHI <- PHIcalc(data.PHI)
+PHI <- PHIcalc(MBSS.PHI)
 # examine data
 View(PHI)
-# Save file
-datetime <- format(Sys.time(),"\%Y\%m\%d_\%H\%M\%S")
-write.table(PHI,paste0("PHI_",datetime,".tab"),row.names=FALSE,sep="\\t")
+# Example Save file
+#datetime <- format(Sys.time(),"\%Y\%m\%d_\%H\%M\%S")
+#write.table(PHI,paste0("PHI_",datetime,".tab"),row.names=FALSE,sep="\\t")
 }
 \keyword{MBSS,}
 \keyword{PHI}
