@@ -2,7 +2,7 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-04-28 14:17:37
+    #> Last Update: 2017-06-23 09:13:06
 
 Version history.
 
@@ -10,6 +10,24 @@ Planned Updates
 ===============
 
 -   Entered issues on GitHub for remaining planned functions (Fish maps, CORE trend data handling, ion matrix, and IBI calculation).
+
+v0.0.0.9006
+===========
+
+2017-06-23
+
+-   Modified vignette.
+
+-   Modified data-raw Process data R files (wd).
+
+-   Added IonContrib.R
+
+v0.0.0.9005
+===========
+
+2017-06-14
+
+-   Added vignette for documentation of each function and the library as a whole.
 
 v0.0.0.9004
 ===========

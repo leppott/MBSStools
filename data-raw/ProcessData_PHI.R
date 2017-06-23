@@ -17,7 +17,7 @@ wd <- getwd()
 # 1. Get data and process#####
 # 1.1. Import Data
 myFile <- "PHI Worksheet_from MP (Erik20170329).xls"
-data.import <- read_excel(file.path(getwd(),"inst","extdata",myFile),sheet="R_Data",skip=4)
+data.import <- read_excel(file.path(wd,"inst","extdata",myFile),sheet="R_Data",skip=4)
 # 1.2. Process Data
 View(data.import)
 ## Cols to keep

@@ -1,0 +1,196 @@
+---
+title: "MBSStools Vignette"
+author: "Erik Leppo"
+date: "2017-06-14"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{MBSStools Vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+# Introduction
+MBSStools was created by Tetra Tech in 2017 to meet the needs of Maryland Department of Natural Resources (DNR), Maryland Biological Stream Survey (MBSS) staff to complete data manipulations in an efficient and reproducible manner.
+
+# Install
+
+The R library is saved on GitHub for ease of updating and distribution.  Issues can be tracked and then fixed.  Current users can update the library using the same code used to install the library (see below).
+
+```{r, eval=FALSE}
+devtools::install_github("leppott/MBSStools")
+```
+
+To contact the author directly email Erik.Leppo@tetratech.com.
+
+# Contents
+Main functions:
+
+1. Index of Biological Integrity (IBI) calculations for fish and benthic macroinvertebrates.
+
+2. Taxonomic distribution maps for fish.
+
+3. Stream discharge calculation.
+
+4. Ion contribution to conductivity.
+
+5. Physical Habitat Index (PHI) calculation.
+
+Example data included with each function.
+
+## IBI
+
+MBSStools calculates both the benthic macroinvertebrate IBI (BIBI) and fish IBI (FIBI).
+
+### IBI, Benthic Macroinvertebrates
+```{r, eval=FALSE}
+#example code
+```
+### IBI, Fish
+```{r, eval=FALSE}
+#example code
+```
+## Fish Distribution Maps
+
+## Stream Discharge
+```{r, eval=FALSE}
+# data
+data("MBSS.flow")
+# calculate flow
+flow.cell <- FlowSum(MBSS.flow,returnType="cell")
+flow.sample <- FlowSum(MBSS.flow)
+# examine data
+View(flow.cell)
+View(flow.sample)
+# Example Save file (tab delimited text file)
+datetime <- format(Sys.time(),"%Y%m%d_%H%M%S")
+myYear <- "15"
+write.table(flow.sample,paste0("SumFlow",myYear,"_",datetime,".tab"),row.names=FALSE,sep="\t")
+```
+## Ion Matrix
+Data will need to be in "wide" format.  That is, a single record for each sample and the ions to be analyzed in columns.
+```{r, eval=FALSE} 
+#echo=FALSE, results='asis'
+#knitr::kable(MBSS.Ion.Ref)
+```
+
+The columns for the ions need to match the reference table names.  The function IonContrib() includes a reference table that is used by default but the user can supply their own reference table.
+
+```{r, eval=FALSE} 
+#echo=FALSE, results='asis'
+#knitr::kable(head(MBSS.Ion.Data))
+```
+
+Example
+```{r, eval=FALSE}
+# Load Data
+data.ion <- MBSS.Ion.Data
+# Load Reference Table
+ref.ion <- MBSS.Ion.Ref
+# Calculate Percent Contribution by Ion
+contrib.ion <- IonContrib(data.calc, ref.ion)
+View(contrib.ion)
+# Save Results
+#write.table
+# Plot Results
+#dotchart()
+```
+
+Dot charts are a good way to display the data.  * user has to decide needs for plotting *
+
+* show example plots
+
+
+## PHI
+Based on document.
+Provide link.
+
+Calculates the proper pre-/post-2000 index.
+
+Requirements
+
+1. StationID
+
+1. BioRegion
+
+1. All other data fields.
+
+
+data
+```{r, echo=FALSE, results='asis'}
+x <- data("MBSS.PHI")
+knitr::kable(head(x))
+```
+
+Loading example data and performing calculation.  The results will have to be saved.
+```{r, eval=FALSE}
+# data
+data("MBSS.PHI")
+# calculate PHI
+PHI <- PHIcalc(MBSS.PHI)
+# examine data
+View(PHI)
+# Example Save file
+datetime <- format(Sys.time(),"%Y%m%d_%H%M%S")
+write.table(PHI,paste0("PHI_",datetime,".tab"),row.names=FALSE,sep="\t")
+```
+
+Result
+```{r, echo=FALSE, results='asis'}
+# data
+#data(MBSS.PHI)
+# calculate PHI
+#PHI <- PHIcalc(MBSS.PHI)
+#knitr::kable(head(PHI))
+```
+# Vignette Text
+
+Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+
+- Never uses retina figures
+- Has a smaller default figure size
+- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+
+## Vignette Info
+
+Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
+
+## Styles
+
+The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
+
+    output: 
+      rmarkdown::html_vignette:
+        css: mystyles.css
+
+## Figures
+
+The figure sizes have been customised so that you can easily put two images side-by-side. 
+
+```{r, fig.show='hold'}
+plot(1:10)
+plot(10:1)
+```
+
+You can enable figure captions by `fig_caption: yes` in YAML:
+
+    output:
+      rmarkdown::html_vignette:
+        fig_caption: yes
+
+Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+
+## More Examples
+
+You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+
+```{r, echo=FALSE, results='asis'}
+knitr::kable(head(mtcars, 10))
+```
+
+Also a quote using `>`:
+
+> "He who gives up [code] safety for [code] speed deserves neither."
+([via](https://twitter.com/hadleywickham/status/504368538874703872))
+
+
+
