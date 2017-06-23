@@ -1,7 +1,9 @@
 Package: MBSStools
 Title: MBSS tool suite for calculations and data manipulation.
-Version: 0.0.0.9006
-Authors@R: person("Erik", "Leppo", email="Erik.Leppo@tetratech.com",role=c("aut","cre"))
+Version: 0.0.0.9007
+Authors@R: c(
+  person("Erik", "Leppo", email="Erik.Leppo@tetratech.com", role=c("aut","cre")),
+  person("Ann","Roseberry Lincoln", role="ctb"))
 Description: Suite of tools for data manipulation and calculations for Maryland DNR MBSS program.
 Depends: R (>= 3.3.2)
 License: GPL-2
@@ -11,3 +13,4 @@ RoxygenNote: 5.0.1
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
+LazyData: true

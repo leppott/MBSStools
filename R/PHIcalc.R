@@ -29,8 +29,6 @@
 #' @return Returns a dataframe of the original data with the metric scoring and PHI values.
 #' @keywords MBSS, PHI
 #' @examples
-#' # data
-#' data("MBSS.PHI")
 #' # calculate PHI
 #' PHI <- PHIcalc(MBSS.PHI)
 #' # examine data

@@ -20,8 +20,6 @@
 #' @return Returns the requested dataframe; the original data with the discharge by cell or by sample (default).
 #' @keywords MBSS, flow
 #' @examples
-#' #' # data
-#' data("MBSS.flow")
 #' # calculate flow
 #' flow.cell <- FlowSum(MBSS.flow,returnType="cell")
 #' flow.sample <- FlowSum(MBSS.flow)

@@ -25,6 +25,11 @@ Version history.
 
 * Entered issues on GitHub for remaining planned functions (Fish maps, CORE trend data handling, ion matrix, and IBI calculation).
 
+# v0.0.0.9007
+2017-06-23
+
+* Added "LazyData: true" to DESCRIPTION.  Data was not being loaded properly.  Issue #9.  20170623.
+
 # v0.0.0.9006
 2017-06-23
 

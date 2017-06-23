@@ -2,7 +2,7 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-06-23 09:13:06
+    #> Last Update: 2017-06-23 14:12:46
 
 Version history.
 
@@ -10,6 +10,13 @@ Planned Updates
 ===============
 
 -   Entered issues on GitHub for remaining planned functions (Fish maps, CORE trend data handling, ion matrix, and IBI calculation).
+
+v0.0.0.9007
+===========
+
+2017-06-23
+
+-   Added "LazyData: true" to DESCRIPTION. Data was not being loaded properly. Issue \#9. 20170623.
 
 v0.0.0.9006
 ===========

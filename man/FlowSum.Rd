@@ -24,8 +24,6 @@ Generates error message for blank (null) entries for inputs for Lateral Location
 In addition it checks for samples with more than one channel but have the same Channel Number.
 }
 \examples{
-#' # data
-data("MBSS.flow")
 # calculate flow
 flow.cell <- FlowSum(MBSS.flow,returnType="cell")
 flow.sample <- FlowSum(MBSS.flow)
