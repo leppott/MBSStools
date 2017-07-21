@@ -2,4 +2,5 @@
 
 export(FlowSum)
 export(IonContrib)
+export(MapTaxaObs)
 export(PHIcalc)

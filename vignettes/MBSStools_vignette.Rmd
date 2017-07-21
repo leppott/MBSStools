@@ -1,7 +1,7 @@
 ---
 title: "MBSStools Vignette"
 author: "Erik Leppo"
-date: "2017-06-14"
+date: "2017-07-21"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{MBSStools Vignette}
@@ -14,7 +14,7 @@ MBSStools was created by Tetra Tech in 2017 to meet the needs of Maryland Depart
 
 # Install
 
-The R library is saved on GitHub for ease of updating and distribution.  Issues can be tracked and then fixed.  Current users can update the library using the same code used to install the library (see below).
+The R library is saved on GitHub for ease of updating and distribution.  Issues can be tracked and then fixed.  Current users can update the library using the same code used to install the library (see below).  Devtools is required.
 
 ```{r, eval=FALSE}
 devtools::install_github("leppott/MBSStools")
@@ -50,6 +50,44 @@ MBSStools calculates both the benthic macroinvertebrate IBI (BIBI) and fish IBI 
 #example code
 ```
 ## Fish Distribution Maps
+Will need GIS files for State, County, and Water as well as Excel files for taxa and map names.  These are all included in the MBSStools library and can be copied to the current directory with the code below.
+```{r, eval=FALSE}
+# Set Working Directory
+wd <- getwd()
+# Create Example Data if Needed
+## Create Directories
+myDir.create <- file.path(wd,"Data")
+ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
+myDir.create <- file.path(wd,"GIS")
+ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
+myDir.create <- file.path(wd,"Maps")
+ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
+## Create Data
+### Taxa Data
+myFiles <- c("AllFish_95to16.xls", "TaxaMapsCrossWalk2.xlsx")
+file.copy(file.path(path.package("MBSStools"),"extdata",myFiles),file.path(wd,"Data",myFiles))
+### GIS
+unzip(file.path(path.package("MBSStools"),"extdata","MD_GIS.zip"),exdir=file.path(wd,"GIS"))
+
+```
+
+Once you have the required data the maps can be created with the example code below.
+```{r, eval=FALSE}
+# Set Working Directory
+wd <- getwd()
+
+# Inputs
+Obs <- "AllFish_95to16.xls"
+XWalk <- "TaxaMapsCrossWalk2.xlsx"
+wd <- getwd()
+
+# Create maps
+MapTaxaObs(Obs, XWalk, wd)
+
+```
+
+
+
 
 ## Stream Discharge
 ```{r, eval=FALSE}

@@ -25,6 +25,15 @@ Version history.
 
 * Entered issues on GitHub for remaining planned functions (Fish maps, CORE trend data handling, ion matrix, and IBI calculation).
 
+# v0.0.0.9008
+2017-07-21
+
+* Added TaxaMapsObs().  Issue #2. 20170720.
+
+* Libraries readxl (suggested) and rgdal (required) added to DESCRIPTION.  Maps won't generate without rgdal loaded. 20170720.
+
+* Added example data and GIS files (zipped). 20170721.
+
 # v0.0.0.9007
 2017-06-23
 

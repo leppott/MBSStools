@@ -2,7 +2,7 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-06-23 14:12:46
+    #> Last Update: 2017-07-21 13:59:34
 
 Version history.
 
@@ -10,6 +10,17 @@ Planned Updates
 ===============
 
 -   Entered issues on GitHub for remaining planned functions (Fish maps, CORE trend data handling, ion matrix, and IBI calculation).
+
+v0.0.0.9008
+===========
+
+2017-07-21
+
+-   Added TaxaMapsObs(). Issue \#2. 20170720.
+
+-   Libraries readxl (suggested) and rgdal (required) added to DESCRIPTION. Maps won't generate without rgdal loaded. 20170720.
+
+-   Added example data and GIS files (zipped). 20170721.
 
 v0.0.0.9007
 ===========

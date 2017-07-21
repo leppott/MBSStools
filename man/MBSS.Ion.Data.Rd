@@ -15,4 +15,3 @@ MBSS.Ion.Data
 MBSS ion example data.
 }
 \keyword{datasets}
-
