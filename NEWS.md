@@ -2,7 +2,7 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-07-21 13:59:34
+    #> Last Update: 2017-07-28 10:26:01
 
 Version history.
 
@@ -10,6 +10,13 @@ Planned Updates
 ===============
 
 -   Entered issues on GitHub for remaining planned functions (Fish maps, CORE trend data handling, ion matrix, and IBI calculation).
+
+v0.0.0.9009
+===========
+
+2017-07-28
+
+-   Updated DESCRIPTION. "Erik" to "Erik W." and added Matt Ashton as data contributor. 20170728.
 
 v0.0.0.9008
 ===========

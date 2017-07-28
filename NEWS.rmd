@@ -25,6 +25,11 @@ Version history.
 
 * Entered issues on GitHub for remaining planned functions (Fish maps, CORE trend data handling, ion matrix, and IBI calculation).
 
+# v0.0.0.9009
+2017-07-28
+
+* Updated DESCRIPTION.  "Erik" to "Erik W." and added Matt Ashton as data contributor.  20170728.
+
 # v0.0.0.9008
 2017-07-21
 
