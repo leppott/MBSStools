@@ -2,7 +2,7 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-07-28 10:26:01
+    #> Last Update: 2017-07-31 09:00:47
 
 Version history.
 
@@ -10,6 +10,13 @@ Planned Updates
 ===============
 
 -   Entered issues on GitHub for remaining planned functions (Fish maps, CORE trend data handling, ion matrix, and IBI calculation).
+
+v0.0.0.9010
+===========
+
+2017-07-31
+
+-   Updated fish data and crosswalk table examples so have more matched data. Also update help to remind that data has to be on the first worksheet for the Excel file. 20170731.
 
 v0.0.0.9009
 ===========

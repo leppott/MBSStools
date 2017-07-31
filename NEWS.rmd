@@ -25,6 +25,11 @@ Version history.
 
 * Entered issues on GitHub for remaining planned functions (Fish maps, CORE trend data handling, ion matrix, and IBI calculation).
 
+# v0.0.0.9010
+2017-07-31
+
+* Updated fish data and crosswalk table examples so have more matched data.  Also update help to remind that data has to be on the first worksheet for the Excel file.  20170731.
+
 # v0.0.0.9009
 2017-07-28
 
