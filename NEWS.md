@@ -2,7 +2,7 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-07-31 09:00:47
+    #> Last Update: 2017-08-22 09:37:40
 
 Version history.
 
@@ -10,6 +10,13 @@ Planned Updates
 ===============
 
 -   Entered issues on GitHub for remaining planned functions (Fish maps, CORE trend data handling, ion matrix, and IBI calculation).
+
+v0.0.0.9011
+===========
+
+2017-08-22
+
+-   Updated taxa map data for typo in "no fish observed". 20170822.
 
 v0.0.0.9010
 ===========
