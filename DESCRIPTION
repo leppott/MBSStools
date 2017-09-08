@@ -1,6 +1,6 @@
 Package: MBSStools
 Title: MBSS tool suite for calculations and data manipulation.
-Version: 0.0.0.9011
+Version: 0.0.0.9012
 Authors@R: c(
   person("Erik W.", "Leppo", email="Erik.Leppo@tetratech.com", role=c("aut","cre")),
   person("Ann","Roseberry Lincoln", role="ctb"),
@@ -14,5 +14,6 @@ RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown,
     readxl,
+    dplyr
 VignetteBuilder: knitr
 LazyData: true

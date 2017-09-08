@@ -1,0 +1,4 @@
+Index.Name	Index.Region	Metric	Method	E_Calc	a	b	Parameter
+MBSS.2005.Fish	COASTAL	nt_benthic	O_E	linear	1.69	-3.33	Area_acres
+MBSS.2005.Fish	EPIEDMONT	nt_benthic	O_E	linear	1.25	-2.36	Area_acres
+MBSS.2005.Fish	HIGHLAND	nt_benthic	O_E	linear	1.23	-2.35	Area_acres

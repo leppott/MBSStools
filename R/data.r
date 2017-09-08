@@ -38,3 +38,27 @@
 #'
 "MBSS.Ion.Ref"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' taxa_fish
+#'
+#' MBSS fish taxa information from 2016.  Used as example for calculating metrics and index.
+#'
+#' @source MBSS 2016 fish data.
+#' @format a dataframe with 1693 observations and 15 variables:
+#'
+#'
+"taxa_fish"
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' metrics_scoring
+#'
+#' MBSS IBI scoring information.  Used for scoring metrics in BIBI and FIBI.
+#'
+#' @source Reference scoring thresholds for BIBI and FIBI, Southerland et al. 2005.
+#' @format a dataframe with 69 observations and 8 variables:
+#'
+#'
+"metrics_scoring"
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+

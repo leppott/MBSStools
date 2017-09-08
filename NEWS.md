@@ -2,14 +2,27 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-08-22 09:37:40
+    #> Last Update: 2017-09-08 11:55:47
 
 Version history.
 
 Planned Updates
 ===============
 
--   Entered issues on GitHub for remaining planned functions (Fish maps, CORE trend data handling, ion matrix, and IBI calculation).
+-   IBI calculations (BIBI and FIBI).
+
+v0.0.0.9012
+===========
+
+2017-09-08
+
+-   Add FIBI. 2017-09-05.
+-   metric.values.R
+-   metric.score.R
+-   example data files
+-   -raw.scoring.tab and metric adjustment
+-   Added dplyr to DESCRIPTION. Needed for metric values and scores. 20170908
+-   Modified -raw.scoring.tab to resolve QC issues with 2016 data. 20170908.
 
 v0.0.0.9011
 ===========

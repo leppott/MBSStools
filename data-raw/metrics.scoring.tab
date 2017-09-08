@@ -1,0 +1,70 @@
+Index.Name	Index.Region	Metric	Direction	Thresh.Lo	Thresh.Hi	ScoreRegime	Name_Other
+MBSS.2005.Bugs	COASTAL	nt_total	Decrease	14	22	135	nt_total
+MBSS.2005.Bugs	COASTAL	nt_EPT	Decrease	2	5	135	nt_EPT
+MBSS.2005.Bugs	COASTAL	nt_Ephem	Decrease	1	2	135	nt_Ephem
+MBSS.2005.Bugs	COASTAL	pi_tv_intolurb	Decrease	10	28	135	pi_tv_intolurb
+MBSS.2005.Bugs	COASTAL	pi_Ephem	Decrease	0.8	11	135	pi_Ephem
+MBSS.2005.Bugs	COASTAL	nt_ffg_scrap	Decrease	1	2	135	nt_ffg_scrap
+MBSS.2005.Bugs	COASTAL	pi_habit_clmbrs	Decrease	0.9	8	135	pi_habit_clmbrs
+MBSS.2005.Bugs	EPIEDMONT	nt_total	Decrease	15	25	135	nt_total
+MBSS.2005.Bugs	EPIEDMONT	nt_EPT	Decrease	5	11	135	nt_EPT
+MBSS.2005.Bugs	EPIEDMONT	nt_Ephem	Decrease	2	4	135	nt_Ephem
+MBSS.2005.Bugs	EPIEDMONT	pi_tv_intolurb	Decrease	12	51	135	pi_tv_intolurb
+MBSS.2005.Bugs	EPIEDMONT	pi_Chiro	Increase	4.6	63	135	pi_Chiro
+MBSS.2005.Bugs	EPIEDMONT	pi_habit_clngrs	Decrease	31	74	135	pi_habit_clngrs
+MBSS.2005.Bugs	HIGHLAND	nt_total	Decrease	15	24	135	nt_total
+MBSS.2005.Bugs	HIGHLAND	nt_EPT	Decrease	8	14	135	nt_EPT
+MBSS.2005.Bugs	HIGHLAND	nt_Ephem	Decrease	3	5	135	nt_Ephem
+MBSS.2005.Bugs	HIGHLAND	pi_tv_intolurb	Decrease	38	80	135	pi_tv_intolurb
+MBSS.2005.Bugs	HIGHLAND	pi_Tanyt	Decrease	0.1	4	135	pi_Tanyt
+MBSS.2005.Bugs	HIGHLAND	pi_ffg_scrap	Decrease	3	13	135	pi_ffg_scrap
+MBSS.2005.Bugs	HIGHLAND	pi_habit_swmmrs	Decrease	3	18	135	pi_habit_swmmrs
+MBSS.2005.Bugs	HIGHLAND	pi_Dipt	Increase	26	49	135	pi_Dipt
+MBSS.2005.Fish	COASTAL	ABUNSQM	Decrease	0.45	0.72	135	ni_m2
+MBSS.2005.Fish	COASTAL	NUMBENTSP	Decrease	0.01	0.21	135	nt_benthic
+MBSS.2005.Fish	COASTAL	PTOL	Increase	68	97	135	pi_tv_toler
+MBSS.2005.Fish	COASTAL	PGEOMIV	Increase	92	99.9999999	135	pi_genomninvrt
+MBSS.2005.Fish	COASTAL	PROUND	Decrease	0.000000001	2	135	pi_rbs
+MBSS.2005.Fish	COASTAL	PABDOM	Increase	40	69	135	pi_dom01
+MBSS.2005.Fish	EPIEDMONT	ABUNSQM	Decrease	0.25	1.25	135	ni_m2
+MBSS.2005.Fish	EPIEDMONT	NUMBENTSP	Decrease	0.09	0.26	135	nt_benthic
+MBSS.2005.Fish	EPIEDMONT	PTOL	Increase	45	68	135	pi_tv_toler
+MBSS.2005.Fish	EPIEDMONT	PGEOMIV	Increase	80	99.9999999	135	pi_genomninvrt
+MBSS.2005.Fish	EPIEDMONT	BIOM_MSQ	Decrease	4	8.6	135	x_biomass_m2
+MBSS.2005.Fish	EPIEDMONT	P_LITH	Decrease	32	61	135	pi_lithophil
+MBSS.2005.Fish	HIGHLAND	ABUNSQM	Decrease	0.31	0.65	135	ni_m2
+MBSS.2005.Fish	HIGHLAND	NUMBENTSP	Decrease	0.11	0.25	135	nt_benthic
+MBSS.2005.Fish	HIGHLAND	PTOL	Increase	39	80	135	pi_tv_toler
+MBSS.2005.Fish	HIGHLAND	PGEOMIV	Increase	61	96	135	pi_genomninvrt
+MBSS.2005.Fish	HIGHLAND	P_IS	Decrease	1	33	135	pi_insectivore
+MBSS.2005.Fish	HIGHLAND	PABDOM	Increase	38	89	135	pi_dom01
+MBSS.2005.Fish	COLD	ABUNSQM	Increase	0.88	2.24	135	ni_m2
+MBSS.2005.Fish	COLD	PTOL	Increase	22	81	135	pi_tv_toler
+MBSS.2005.Fish	COLD	PBROOK	Decrease	1	14	135	pi_brooktrout
+MBSS.2005.Fish	COLD	PSCULP	Decrease	1	44	135	pi_sculpin
+MSW.1999.Bugs	CP	nt_total	Decrease	8	16	135	nt_total
+MSW.1999.Bugs	CP	nt_EPT	Decrease	3	6	135	nt_EPT
+MSW.1999.Bugs	CP	nt_Ephem	Decrease	1	2	135	nt_Ephem
+MSW.1999.Bugs	CP	nt_Dipt	Decrease	2	3	135	nt_Dipt
+MSW.1999.Bugs	CP	pi_Ephem	Decrease	2	11.4	135	pi_Ephem
+MSW.1999.Bugs	CP	nt_tv_intol	Decrease	2	5	135	nt_tv_intol
+MSW.1999.Bugs	CP	x_Becks	Decrease	4	9	135	x_Becks
+MSW.1999.Bugs	NCP	nt_total	Decrease	9	14	135	nt_total
+MSW.1999.Bugs	NCP	nt_EPT	Decrease	4	10	135	nt_EPT
+MSW.1999.Bugs	NCP	nt_Ephem	Decrease	2	3	135	nt_Ephem
+MSW.1999.Bugs	NCP	nt_Dipt	Decrease	2	3	135	nt_Dipt
+MSW.1999.Bugs	NCP	pi_Ephem	Decrease	5.7	20.3	135	pi_Ephem
+MSW.1999.Bugs	NCP	nt_tv_intol	Decrease	4	8	135	nt_tv_intol
+MSW.1999.Bugs	NCP	x_Becks	Decrease	8	12.5	135	x_Becks
+WSA.2006.Bugs	CPL	pi_nonInsect				100	pi_nonInsect
+WSA.2006.Bugs	CPL	x_Shan_e				100	x_Shan_e
+WSA.2006.Bugs	CPL	nt_ffg_shred				100	nt_ffg_shred
+WSA.2006.Bugs	CPL	pt_habit_clngr				100	pt_habit_clngr
+WSA.2006.Bugs	CPL	nt_EPT				100	nt_EPT
+WSA.2006.Bugs	CPL	pt_tv_toler				100	pt_tv_toler
+WSA.2006.Bugs	SAP	pt_Ephem				100	pt_Ephem
+WSA.2006.Bugs	SAP	x_Shan_e				100	x_Shan_e
+WSA.2006.Bugs	SAP	nt_ffg_scrap				100	nt_ffg_scrap
+WSA.2006.Bugs	SAP	pt_habit_brrwr				100	pt_habit_brrwr
+WSA.2006.Bugs	SAP	nt_EPT				100	nt_EPT
+WSA.2006.Bugs	SAP	pt_tv_toler				100	pt_tv_toler
