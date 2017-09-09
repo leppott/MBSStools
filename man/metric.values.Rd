@@ -4,13 +4,11 @@
 \alias{metric.values}
 \title{Calculate metric values}
 \usage{
-metric.values(fun.DF, fun.SampID, fun.Community, fun.MetricNames = NULL,
+metric.values(fun.DF, fun.Community, fun.MetricNames = NULL,
   boo.Adjust = FALSE)
 }
 \arguments{
 \item{fun.DF}{Data frame of taxa (list required fields)}
-
-\item{fun.SampID}{Sample ID column name}
 
 \item{fun.Community}{Community name for which to calculate metric values (bugs, fish, or algae)}
 
@@ -22,51 +20,70 @@ metric.values(fun.DF, fun.SampID, fun.Community, fun.MetricNames = NULL,
 data frame of SampleID and metric values
 }
 \description{
-This function calculates metric values for bugs, fish, and algae.
-Inputs are a data frame of taxa, SampleID, and community.
-NonUnique = taxa to be excluded from taxa metrics (i.e., ambiguous taxa in the sample)
+This function calculates metric values for bugs and fish.
+Inputs are a data frame with SampleID and taxa with phylogenetic and autecological information
+(see below for required fields by community).
+}
+\details{
+No manipulations of the taxa are performed by this routine.  All benthic macroinvertebrate taxa should be identified to genus level.  Any non-count taxa should be identified in the "NonUnique" field as "N". To run the MSW genus level the taxa should be combined before calculating the metrics.
+
+Both
+
+* Index.Name = Name of index to be used; MBSS_Fish_2005, MBSS_Bugs_2005, MSW_Bugs_1999 (genus index).
+
 Benthic Macroinvertebrates
-Required fields: SampleID (provided by user), Count, NonUnique, FinalID, Order, Family, Tribe, Genus, FFG, TolVal, Habit, Voltinism, BCG_Atr
-FFG = CF, CG, SC, SH, PR
-Habit = BU, CB, CN, SP, SW
-Voltinism = multivoltine, semivoltine, univoltine
+
+Bug metric values assumes the following fields (all upper case)
+
+* SITE = MBSS sample identifier.
+
+* TAXON = MBSS benthic macroinvertebrate name.
+
+* N_TAXA = Number of taxon collected in sample.
+
+* EXCLUDE = Non-unique taxa (i.e., parent taxon with one or more children taxa present in sample).  "Y" = do not include in taxa richness metrics.
+* STRATA_R = Benthic macroinvertebrate region (COASTAL, EPIEDMONT, or HIGHLAND).
+
+* Phylogenetic fields
+
++ (PHYLUM), CLASS, ORDER, FAMILY, GENUS, OTHER_TAXA, TRIBE, FFG, HABIT, FINALTOLVAL07
+
+Valid values for FFG: col, fil, pre, scr, shr
+
+Valid values for HABIT: BU, CB, CN, SP, SW
+
+MSW data should be first combined to family level and EXCLUDE recalculated.
+
+Additional fields needed:
+
++ FAM_TV
+
 Fish
-Required fields: SampleID (provided by user), Count, NonUnique, FinalID, Genus, Trophic, Lithophil, StWidAvg, StLength, MassTotal
-Trophic =
-Lithophil =
-Stratum =
-Tolerance =
-Metric names have a prefix and suffix.  The prefix follows the naming convention listed below.  The suffix is a short name of the group being measured.  Only phylogenetic names are first letter caps.
-ni = number of individuals
-nt = number of taxa
-pi = percent of individuals
-pt = percent of taxa
-x = index
+
+Fish metric values assumes the following fields (all upper case)
+
+* SITE = MBSS sample identifier.
+
+* FIBISTRATA = Fish region (COASTAL, EPIEDMONT, WARM, COLD).
+
+* ACREAGE = Catchment area in acres.
+
+* LEN_SAMP = Length of stream sampled; typically 75-meters.
+
+* AVWID = Average stream width (meters) for sampled site.
+
+* SPECIES = MBSS fish taxa name.
+
+* TOTAL = Number of fish collected in sample.
+
+* TYPE = Fish group identifier (ALL CAPS); SCULPIN, DARTER, MADTOM, etc.
+
+* TROPHIC_MBSS = MBSS tropic status designations (ALL CAPS); OM, GE, IS, IV, etc.
+
+* PTOLR = Pollution tolerance level (ALL CAPS); T, I, NO TYPE.
 }
 \examples{
-# Index, Benthic Macroinvertebrates, genus
-myIndex <- "MBSS.2005.Bugs"
-# Thresholds
-thresh <- metrics_scoring
-# get metric names for myIndex
-(myMetrics.Bugs <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
-# Taxa Data
-myDF.Bugs <- taxa_bugs_genus
-myMetric.Values.Bugs <- metric.values(myDF.Bugs, "SampleID", "bugs", myMetrics.Bugs)
-View(myMetric.Values.Bugs)
-
-# Index, Benthic Macroinvertebrates, family
-myIndex <- "MSW.1999.Bugs"
-# Thresholds
-thresh <- metrics_scoring
-# get metric names for myIndex
-(myMetrics.Bugs <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
-# Taxa Data
-myDF.Bugs <- taxa_bugs_family
-myMetric.Values.Bugs <- metric.values(myDF.Bugs, "SampleID", "bugs", myMetrics.Bugs)
-View(myMetric.Values.Bugs)
-
-# Index, Fish
+# Metrics, MBSS Index, Fish
 myIndex <- "MBSS.2005.Fish"
 # Thresholds
 thresh <- metrics_scoring
@@ -76,4 +93,26 @@ thresh <- metrics_scoring
 myDF.Fish <- taxa_fish
 myMetric.Values.Fish <- metric.values(myDF.Fish, "SampleID", "fish", myMetrics.Fish, TRUE)
 View(myMetric.Values.Fish)
+
+# Metrics, MBSS Index, Benthic Macroinvertebrates, genus
+myIndex <- "MBSS.2005.Bugs"
+# Thresholds
+thresh <- metrics_scoring
+# get metric names for myIndex
+(myMetrics.Bugs <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+# Taxa Data
+myDF.Bugs <- taxa_bugs_genus
+myMetric.Values.Bugs <- metric.values(myDF.Bugs, "bugs", myMetrics.Bugs)
+View(myMetric.Values.Bugs)
+
+# Metrics, MSW Index, Benthic Macroinvertebrates, family
+myIndex <- "MSW.1999.Bugs"
+# Thresholds
+thresh <- metrics_scoring
+# get metric names for myIndex
+(myMetrics.Bugs <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+# Taxa Data
+myDF.Bugs <- taxa_bugs_family
+myMetric.Values.Bugs <- metric.values(myDF.Bugs, "bugs", myMetrics.Bugs)
+View(myMetric.Values.Bugs)
 }

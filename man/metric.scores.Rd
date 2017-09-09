@@ -25,7 +25,8 @@ This function calculates metric scores based on a Thresholds data frame.
 Can generate scores for 1/3/5 (ScoreRegime="135") or 0-100 (ScoreRegime="100").
 }
 \examples{
-# Fish Metrics (generate values then score)
+# Metrics, Fish
+#(generate values then score)s
 myIndex <- "MBSS.2005.Fish"
 # Thresholds
 thresh <- metrics_scoring
@@ -33,11 +34,33 @@ thresh <- metrics_scoring
 (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
 # Taxa Data
 myDF.Fish <- taxa_fish
-Metrics.Fish <- metric.values(myDF.Fish, "SampleID", "fish", myMetrics.Fish, TRUE)
-View(Metrics.Fish)
+myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish, TRUE)
+View(myMetric.Values.Fish)
 # SCORE
-Metrics.Fish.Scores <- metric.scores(Metrics.Fish, myMetrics.Fish, "Index.Name", "FIBISTRATA", thresh)
+Metrics.Fish.Scores <- metric.scores(myMetric.Values.Fish, myMetrics.Fish, "Index.Name", "FIBISTRATA", thresh)
 # View Results
 View(Metrics.Fish.Scores)
 
+# Metrics, Index, Benthic Macroinvertebrates, genus
+# (generate values then scores)
+myIndex <- "MBSS.2005.Bugs"
+# Thresholds
+thresh <- metrics_scoring
+# get metric names for myIndex
+(myMetrics.Bugs <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+# Taxa Data
+myDF.Bugs <- taxa_bugs_genus
+myMetric.Values.Bugs <- metric.values(myDF.Bugs, "bugs", myMetrics.Bugs)
+View(myMetric.Values.Bugs)
+# SCORE
+Metrics.Bugs.Scores <- metric.scores(myMetric.Values.Bugs, myMetrics.Bugs, "INDEX.NAME", "STRATA_R", thresh)
+# View Results
+View(Metrics.Bugs.Scores)
+
+# QC bug count
+Metrics.Bugs.Scores[Metrics.Bugs.Scores[,"totind"]>120,"QC_Count"] <- "LARGE"
+Metrics.Bugs.Scores[Metrics.Bugs.Scores[,"totind"]<60,"QC_Count"] <- "SMALL"
+Metrics.Bugs.Scores[is.na(Metrics.Bugs.Scores[,"QC_Count"]),"QC_Count"] <- "OK"
+# table of QC_Count
+table(Metrics.Bugs.Scores$QC_Count)
 }

@@ -10,7 +10,8 @@
 #' @param DF_Thresh Data frame of Scoring Thresholds (Index.Name, Index.Region, Metric, Direction, Thresh.Lo, Thresh.Hi, ScoreRegime)
 #' @return vector of scores
 #' @examples
-#' # Fish Metrics (generate values then score)
+#' # Metrics, Fish
+#' #(generate values then score)s
 #' myIndex <- "MBSS.2005.Fish"
 #' # Thresholds
 #' thresh <- metrics_scoring
@@ -18,57 +19,40 @@
 #' (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
 #' # Taxa Data
 #' myDF.Fish <- taxa_fish
-#' Metrics.Fish <- metric.values(myDF.Fish, "SampleID", "fish", myMetrics.Fish, TRUE)
-#' View(Metrics.Fish)
+#' myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish, TRUE)
+#' View(myMetric.Values.Fish)
 #' # SCORE
-#' Metrics.Fish.Scores <- metric.scores(Metrics.Fish, myMetrics.Fish, "Index.Name", "FIBISTRATA", thresh)
+#' Metrics.Fish.Scores <- metric.scores(myMetric.Values.Fish, myMetrics.Fish, "Index.Name", "FIBISTRATA", thresh)
 #' # View Results
 #' View(Metrics.Fish.Scores)
 #'
-# ## Load thresholds
-# thresh <- metrics_scoring
-# View(thresh)
-# ## Define Index
-# IndexName <- "MBSS.2005.Bugs"
-#
-# ## Score Single Value
-# MetricName <- "nt_total"
-# MetricValue <- 18
-# IndexRegion <- "COASTAL"
-# metric.scores(MetricName,MetricValue,IndexName,IndexRegion,thresh) # 3
-#
-# ## Score Data Frame of Values
-# # get metrics to score
-# (myMetrics <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==IndexName,"Metric"]))))
-# for (i in myMetrics){##FOR.i.START
-#   i.sc.nam <- paste0("Sc_",i)
-#   i.val <- Metrics.Bugs[,i]
-#   Metrics.Bugs[,i.sc.nam] <- metric.score(i,i.val,Metrics.Bugs$Index,Metrics.Bugs$Region,thresh)
-#   #
-# }##FOR.i.END
-# #
-# ## View Results
-# View(Metrics.Bugs)
+#' # Metrics, Index, Benthic Macroinvertebrates, genus
+#' # (generate values then scores)
+#' myIndex <- "MBSS.2005.Bugs"
+#' # Thresholds
+#' thresh <- metrics_scoring
+#' # get metric names for myIndex
+#' (myMetrics.Bugs <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+#' # Taxa Data
+#' myDF.Bugs <- taxa_bugs_genus
+#' myMetric.Values.Bugs <- metric.values(myDF.Bugs, "bugs", myMetrics.Bugs)
+#' View(myMetric.Values.Bugs)
+#' # SCORE
+#' Metrics.Bugs.Scores <- metric.scores(myMetric.Values.Bugs, myMetrics.Bugs, "INDEX.NAME", "STRATA_R", thresh)
+#' # View Results
+#' View(Metrics.Bugs.Scores)
+#'
+#' # QC bug count
+#' Metrics.Bugs.Scores[Metrics.Bugs.Scores[,"totind"]>120,"QC_Count"] <- "LARGE"
+#' Metrics.Bugs.Scores[Metrics.Bugs.Scores[,"totind"]<60,"QC_Count"] <- "SMALL"
+#' Metrics.Bugs.Scores[is.na(Metrics.Bugs.Scores[,"QC_Count"]),"QC_Count"] <- "OK"
+#' # table of QC_Count
+#' table(Metrics.Bugs.Scores$QC_Count)
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# # QC
+# QC
+## FISH
 # library(dplyr)
-# # get data
-# myIndex <- "MBSS.2005.Fish"
-# thresh <- metrics_scoring
-# (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
-# myDF.Fish <- taxa_fish
-# # calc metrics
-# Metrics.Fish <- metric.values(myDF.Fish, "SampleID", "fish", myMetrics.Fish, TRUE)
-# # Loop Parts
-# i <- myMetrics[1]
-# i.sc.nam <- paste0("SC_",i)
-# i.val <- Metrics.Fish[,i]
-# # function parts
-# MetricName <- i
-# MetricValue <- i.val
-# IndexName <- Metrics.Fish$Index.Name
-# IndexRegion <- Metrics.Fish$FIBISTRATA
-# Thresh <- thresh
 #
 # DF_Metrics <- Metrics.Fish
 # MetricNames <- myMetrics.Fish
@@ -84,6 +68,15 @@
 # c
 #
 # x <- metric.scores(Metrics.Fish, myMetrics.Fish, "Index.Name", "FIBISTRATA", thresh)
+#~~~~~~~~~
+# library(dplyr)
+# DF_Metrics <- Metrics.Bugs
+# MetricNames <- myMetrics.Bugs
+# IndexName <- "INDEX.NAME"
+# IndexRegion <- "STRATA_R"
+# DF_Thresh <- thresh
+# #
+# y <- metric.scores(Metrics.Bugs,myMetrics.Bugs, "INDEX.NAME","STRATA_R",thresh)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @export
 metric.scores <- function(DF_Metrics, MetricNames, IndexName, IndexRegion, DF_Thresh) {##FUNCTION.metric.score.START
@@ -163,22 +156,23 @@ metric.scores <- function(DF_Metrics, MetricNames, IndexName, IndexRegion, DF_Th
   # sum all metrics
   DF_Metrics[,"sum_IBI"] <- rowSums(DF_Metrics[,Score.MetricNames])
   # divide by number of metrics for each region
+  ## Fish
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Fish" & DF_Metrics[,IndexRegion]=="COASTAL"
     DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/6
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Fish" & DF_Metrics[,IndexRegion]=="EPIEDMONT"
-    DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/6
-  myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Fish" & DF_Metrics[,IndexRegion]=="HIGHLAND"
     DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/6
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Fish" & DF_Metrics[,IndexRegion]=="WARM"
     DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/6
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Fish" & DF_Metrics[,IndexRegion]=="COLD"
     DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/4
+  ## Bugs, Genus
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Bugs" & DF_Metrics[,IndexRegion]=="COASTAL"
     DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/7
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Bugs" & DF_Metrics[,IndexRegion]=="EPIEDMONT"
     DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/6
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Bugs" & DF_Metrics[,IndexRegion]=="HIGHLAND"
     DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/8
+  ## Bugs, Family
   myTF <- DF_Metrics[,IndexName]=="MSW.1998.Bugs" & DF_Metrics[,IndexRegion]=="CP"
     DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/7
   myTF <- DF_Metrics[,IndexName]=="MSW.1998.Bugs" & DF_Metrics[,IndexRegion]=="NCP"

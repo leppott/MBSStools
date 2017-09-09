@@ -2,14 +2,24 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-09-08 11:55:47
+    #> Last Update: 2017-09-09 17:56:36
 
 Version history.
 
 Planned Updates
 ===============
 
--   IBI calculations (BIBI and FIBI).
+-   IBI calculations (BIBI).
+
+v0.0.0.9013
+===========
+
+2017-09-09
+
+-   Added BIBI.
+-   Updated metric names to match those used by MBSS.
+-   Updated metric.values() and metric.scores().
+-   Updated genus level bug data file.
 
 v0.0.0.9012
 ===========

@@ -38,16 +38,6 @@
 #'
 "MBSS.Ion.Ref"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#' taxa_fish
-#'
-#' MBSS fish taxa information from 2016.  Used as example for calculating metrics and index.
-#'
-#' @source MBSS 2016 fish data.
-#' @format a dataframe with 1693 observations and 15 variables:
-#'
-#'
-"taxa_fish"
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' metrics_scoring
 #'
 #' MBSS IBI scoring information.  Used for scoring metrics in BIBI and FIBI.
@@ -58,7 +48,33 @@
 #'
 "metrics_scoring"
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
-
+#' taxa_fish
+#'
+#' MBSS fish taxa information from 2016.  Used as example for calculating metrics and index.
+#'
+#' @source MBSS 2016 fish data.
+#' @format a dataframe with 1693 observations and 15 variables:
+#'
+#'
+"taxa_fish"
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' taxa_bugs_genus
+#'
+#' MBSS benthic macroinvertebrate genus taxa information from 2016.  Used as example for calculating metrics and index.
+#'
+#' @source MBSS 2016 benthic macroinvertebrate genus data.
+#' @format a dataframe with 5066 observations and 20 variables:
+#'
+#'
+"taxa_bugs_genus"
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' taxa_bugs_family
+#'
+#' MSW benthic macroinvertebrate family taxa information from 2016.  Used as example for calculating metrics and index.
+#'
+#' @source MSW 2016 benthic macroinvertebrate family data.
+#' @format a dataframe with 999 observations and 999 variables:
+#'
+#'
+"taxa_bugs_family"
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
