@@ -56,7 +56,7 @@ MSW data should be first combined to family level and EXCLUDE recalculated.
 
 Additional fields needed:
 
-+ FAM_TV
++ FAM_TV (need to include all the same fields, just leave blank).
 
 Fish
 
@@ -94,25 +94,26 @@ myDF.Fish <- taxa_fish
 myMetric.Values.Fish <- metric.values(myDF.Fish, "SampleID", "fish", myMetrics.Fish, TRUE)
 View(myMetric.Values.Fish)
 
-# Metrics, MBSS Index, Benthic Macroinvertebrates, genus
+# Metrics, Index, Benthic Macroinvertebrates, genus
+# (generate values then scores)
 myIndex <- "MBSS.2005.Bugs"
 # Thresholds
 thresh <- metrics_scoring
 # get metric names for myIndex
-(myMetrics.Bugs <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+(myMetrics.Bugs.MBSS <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
 # Taxa Data
-myDF.Bugs <- taxa_bugs_genus
-myMetric.Values.Bugs <- metric.values(myDF.Bugs, "bugs", myMetrics.Bugs)
-View(myMetric.Values.Bugs)
+myDF.Bugs.MBSS <- taxa_bugs_genus
+myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs", myMetrics.Bugs.MBSS)
+View(myMetric.Values.Bugs.MBSS)
 
 # Metrics, MSW Index, Benthic Macroinvertebrates, family
 myIndex <- "MSW.1999.Bugs"
 # Thresholds
 thresh <- metrics_scoring
 # get metric names for myIndex
-(myMetrics.Bugs <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+(myMetrics.Bugs.MSW <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
 # Taxa Data
-myDF.Bugs <- taxa_bugs_family
-myMetric.Values.Bugs <- metric.values(myDF.Bugs, "bugs", myMetrics.Bugs)
-View(myMetric.Values.Bugs)
+myDF.Bugs.MSW <- taxa_bugs_family
+myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs", myMetrics.Bugs.MSW)
+View(myMetric.Values.Bugs.MSW)
 }

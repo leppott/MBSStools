@@ -2,14 +2,21 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-09-09 17:56:36
+    #> Last Update: 2017-09-09 20:56:16
 
 Version history.
 
 Planned Updates
 ===============
 
--   IBI calculations (BIBI).
+-   Documentation (vignette).
+
+v0.0.0.9014
+===========
+
+2017-09-09
+
+-   Added MSW (family) data, values, and scores. 20170909.
 
 v0.0.0.9013
 ===========

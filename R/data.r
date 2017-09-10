@@ -70,10 +70,10 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' taxa_bugs_family
 #'
-#' MSW benthic macroinvertebrate family taxa information from 2016.  Used as example for calculating metrics and index.
+#' MSW benthic macroinvertebrate family taxa information from MBSS 2016 data.  Used as example for calculating metrics and index.
 #'
-#' @source MSW 2016 benthic macroinvertebrate family data.
-#' @format a dataframe with 999 observations and 999 variables:
+#' @source MBSS 2016 benthic macroinvertebrate saved as MSW family data.
+#' @format a dataframe with 2749 observations and 20 variables:
 #'
 #'
 "taxa_bugs_family"

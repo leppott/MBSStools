@@ -47,13 +47,13 @@ myIndex <- "MBSS.2005.Bugs"
 # Thresholds
 thresh <- metrics_scoring
 # get metric names for myIndex
-(myMetrics.Bugs <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+(myMetrics.Bugs.MBSS <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
 # Taxa Data
-myDF.Bugs <- taxa_bugs_genus
-myMetric.Values.Bugs <- metric.values(myDF.Bugs, "bugs", myMetrics.Bugs)
-View(myMetric.Values.Bugs)
+myDF.Bugs.MBSS <- taxa_bugs_genus
+myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs", myMetrics.Bugs.MBSS)
+View(myMetric.Values.Bugs.MBSS)
 # SCORE
-Metrics.Bugs.Scores <- metric.scores(myMetric.Values.Bugs, myMetrics.Bugs, "INDEX.NAME", "STRATA_R", thresh)
+Metrics.Bugs.Scores.MBSS <- metric.scores(myMetric.Values.Bugs.MBSS, myMetrics.Bugs.MBSS, "INDEX.NAME", "STRATA_R", thresh)
 # View Results
 View(Metrics.Bugs.Scores)
 
@@ -63,4 +63,19 @@ Metrics.Bugs.Scores[Metrics.Bugs.Scores[,"totind"]<60,"QC_Count"] <- "SMALL"
 Metrics.Bugs.Scores[is.na(Metrics.Bugs.Scores[,"QC_Count"]),"QC_Count"] <- "OK"
 # table of QC_Count
 table(Metrics.Bugs.Scores$QC_Count)
+
+# Metrics, MSW Index, Benthic Macroinvertebrates, family
+myIndex <- "MSW.1999.Bugs"
+# Thresholds
+thresh <- metrics_scoring
+# get metric names for myIndex
+(myMetrics.Bugs.MSW <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+# Taxa Data
+myDF.Bugs.MSW <- taxa_bugs_family
+myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs", myMetrics.Bugs.MSW)
+View(myMetric.Values.Bugs.MSW)
+# SCORE
+Metrics.Bugs.Scores.MSW <- metric.scores(myMetric.Values.Bugs.MSW, myMetrics.Bugs.MSW, "INDEX.NAME", "STRATA_R", thresh)
+# View Results
+View(Metrics.Bugs.Scores.MSW)
 }

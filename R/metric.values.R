@@ -36,7 +36,7 @@
 #'
 #' Additional fields needed:
 #'
-#' + FAM_TV
+#' + FAM_TV (need to include all the same fields, just leave blank).
 #'
 #' Fish
 #'
@@ -79,27 +79,28 @@
 #' myMetric.Values.Fish <- metric.values(myDF.Fish, "SampleID", "fish", myMetrics.Fish, TRUE)
 #' View(myMetric.Values.Fish)
 #'
-#' # Metrics, MBSS Index, Benthic Macroinvertebrates, genus
+#' # Metrics, Index, Benthic Macroinvertebrates, genus
+#' # (generate values then scores)
 #' myIndex <- "MBSS.2005.Bugs"
 #' # Thresholds
 #' thresh <- metrics_scoring
 #' # get metric names for myIndex
-#' (myMetrics.Bugs <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+#' (myMetrics.Bugs.MBSS <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
 #' # Taxa Data
-#' myDF.Bugs <- taxa_bugs_genus
-#' myMetric.Values.Bugs <- metric.values(myDF.Bugs, "bugs", myMetrics.Bugs)
-#' View(myMetric.Values.Bugs)
+#' myDF.Bugs.MBSS <- taxa_bugs_genus
+#' myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs", myMetrics.Bugs.MBSS)
+#' View(myMetric.Values.Bugs.MBSS)
 #'
 #' # Metrics, MSW Index, Benthic Macroinvertebrates, family
 #' myIndex <- "MSW.1999.Bugs"
 #' # Thresholds
 #' thresh <- metrics_scoring
 #' # get metric names for myIndex
-#' (myMetrics.Bugs <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+#' (myMetrics.Bugs.MSW <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
 #' # Taxa Data
-#' myDF.Bugs <- taxa_bugs_family
-#' myMetric.Values.Bugs <- metric.values(myDF.Bugs, "bugs", myMetrics.Bugs)
-#' View(myMetric.Values.Bugs)
+#' myDF.Bugs.MSW <- taxa_bugs_family
+#' myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs", myMetrics.Bugs.MSW)
+#' View(myMetric.Values.Bugs.MSW)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~
 # # QC
 # ## Fish
@@ -221,6 +222,7 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
              #
              # tolerance
              ,nt_tv_intol=dplyr::n_distinct(TAXON[EXCLUDE!="Y" & FINALTOLVAL07<=3])
+             ,nt_tvfam_intol = dplyr::n_distinct(TAXON[EXCLUDE!="Y" & FAM_TV<=3 & !is.na(FAM_TV)])
              ,nt_tv_toler=dplyr::n_distinct(TAXON[EXCLUDE!="Y" & FINALTOLVAL07>=7])
              , ni_tv_intolurb = sum(N_TAXA[FINALTOLVAL07<=3 & !is.na(FINALTOLVAL07)])
              #,pi_tv_intolurb=ni_tv_intolurb/sum(N_TAXA[!is.na(FINALTOLVAL07)])
@@ -324,6 +326,7 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
           , ndipt        = nt_Dipt
           , nintol       = nt_tv_intol
           , becks        = x_Becks
+          , nintol_FAM   = nt_tvfam_intol
 
              #
           )## met.val.END
@@ -334,7 +337,7 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
                    , "totchiron", "totcling", "tottany", "totscrape", "totswim"
                    , "totdipt", "totintol_urb", "pephem", "pclimb", "pchiron"
                    , "pcling", "ptany", "pscrape", "pswim", "pdipt", "pintol_urb"
-                   , "ndipt", "nintol", "becks")
+                   , "ndipt", "nintol", "becks", "nintol_FAM")
 
 
 

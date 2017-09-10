@@ -4,14 +4,14 @@
 \name{taxa_bugs_family}
 \alias{taxa_bugs_family}
 \title{taxa_bugs_family}
-\format{a dataframe with 999 observations and 999 variables:}
+\format{a dataframe with 2749 observations and 20 variables:}
 \source{
-MSW 2016 benthic macroinvertebrate family data.
+MBSS 2016 benthic macroinvertebrate saved as MSW family data.
 }
 \usage{
 taxa_bugs_family
 }
 \description{
-MSW benthic macroinvertebrate family taxa information from 2016.  Used as example for calculating metrics and index.
+MSW benthic macroinvertebrate family taxa information from MBSS 2016 data.  Used as example for calculating metrics and index.
 }
 \keyword{datasets}
