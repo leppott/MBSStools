@@ -40,14 +40,14 @@
 #' # SCORE
 #' Metrics.Bugs.Scores.MBSS <- metric.scores(myMetric.Values.Bugs.MBSS, myMetrics.Bugs.MBSS, "INDEX.NAME", "STRATA_R", thresh)
 #' # View Results
-#' View(Metrics.Bugs.Scores)
+#' View(Metrics.Bugs.Scores.MBSS)
 #'
 #' # QC bug count
-#' Metrics.Bugs.Scores[Metrics.Bugs.Scores[,"totind"]>120,"QC_Count"] <- "LARGE"
-#' Metrics.Bugs.Scores[Metrics.Bugs.Scores[,"totind"]<60,"QC_Count"] <- "SMALL"
-#' Metrics.Bugs.Scores[is.na(Metrics.Bugs.Scores[,"QC_Count"]),"QC_Count"] <- "OK"
+#' Metrics.Bugs.Scores.MBSS[Metrics.Bugs.Scores.MBSS[,"totind"]>120,"QC_Count"] <- "LARGE"
+#' Metrics.Bugs.Scores.MBSS[Metrics.Bugs.Scores.MBSS[,"totind"]<60,"QC_Count"] <- "SMALL"
+#' Metrics.Bugs.Scores.MBSS[is.na(Metrics.Bugs.Scores.MBSS[,"QC_Count"]),"QC_Count"] <- "OK"
 #' # table of QC_Count
-#' table(Metrics.Bugs.Scores$QC_Count)
+#' table(Metrics.Bugs.Scores.MBSS$QC_Count)
 #'
 #' # Metrics, MSW Index, Benthic Macroinvertebrates, family
 #' myIndex <- "MSW.1999.Bugs"

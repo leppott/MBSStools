@@ -25,6 +25,11 @@ Version history.
 
 * Documentation (vignette).
 
+# v0.0.0.9015
+2017-09-13
+
+* Fix typo in example for metric.scores(); "Metrics.Bugs.Scores" to "Metrics.Bugs.Scores.MBSS". 20170913.
+
 # v0.0.0.9014
 2017-09-09
 

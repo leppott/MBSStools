@@ -2,7 +2,7 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-09-09 20:56:16
+    #> Last Update: 2017-09-13 14:14:02
 
 Version history.
 
@@ -10,6 +10,13 @@ Planned Updates
 ===============
 
 -   Documentation (vignette).
+
+v0.0.0.9015
+===========
+
+2017-09-13
+
+-   Fix typo in example for metric.scores(); "Metrics.Bugs.Scores" to "Metrics.Bugs.Scores.MBSS". 20170913.
 
 v0.0.0.9014
 ===========
