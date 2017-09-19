@@ -40,9 +40,16 @@
 #' mySite <- "BELK-101-X"
 #' data.plot <- subset(contrib.ion, contrib.ion[,"Site"]==mySite, select=c("Site","Cond.Total",myIons.Contrib,myIons))
 #' ## Plot, one site (with cond value)
-#' dotchart(as.numeric(as.vector(data.plot[,myIons.Contrib])), labels=myIons, main=mySite, xlab="Percent Contribution",pch=19,pt.cex=1.2)
+#' dotchart(as.numeric(as.vector(data.plot[,myIons.Contrib])), labels=myIons, main=mySite, xlab="Percent Contribution", pch=19, pt.cex=1.2)
 #' mtext(paste0("Conductivity (uS/cm) = ",round(data.plot[,"Cond.Total"],1)))
 #' ## Plot all sites using panel.dotplot() in the lattice package
+#' #
+#' ## Plot as a horizontal bar plot
+#' # need to change margins to fit labels
+#' par(mai=c(1,2,1,1))
+#' barplot(as.numeric(as.vector(data.plot[,myIons.Contrib])), names.arg=myIons, main=mySite, xlab="Percent Contribution"
+#'        , axes=TRUE, horiz=TRUE, las=1)
+#' mtext(paste0("Conductivity (uS/cm) = ",round(data.plot[,"Cond.Total"],1)))
 #' @export
 IonContrib <- function(ion.data, ion.ref=MBSS.Ion.Ref, col.Cond="") {##FUNCTION.IonContrib.START
   #

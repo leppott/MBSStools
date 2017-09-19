@@ -25,6 +25,11 @@ Version history.
 
 * Documentation (vignette).
 
+# v0.0.0.9016
+2017-09-19
+
+* IonContrib() added barplot example.  20170919.
+
 # v0.0.0.9015
 2017-09-13
 

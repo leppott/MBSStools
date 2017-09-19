@@ -2,7 +2,7 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-09-13 14:14:02
+    #> Last Update: 2017-09-19 13:26:34
 
 Version history.
 
@@ -10,6 +10,13 @@ Planned Updates
 ===============
 
 -   Documentation (vignette).
+
+v0.0.0.9016
+===========
+
+2017-09-19
+
+-   IonContrib() added barplot example. 20170919.
 
 v0.0.0.9015
 ===========
