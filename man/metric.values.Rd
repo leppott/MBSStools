@@ -91,7 +91,7 @@ thresh <- metrics_scoring
 (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
 # Taxa Data
 myDF.Fish <- taxa_fish
-myMetric.Values.Fish <- metric.values(myDF.Fish, "SampleID", "fish", myMetrics.Fish, TRUE)
+myMetric.Values.Fish <- metric.values(myDF.Fish, "SampleID", "fish", myMetrics.Fish)
 View(myMetric.Values.Fish)
 
 # Metrics, Index, Benthic Macroinvertebrates, genus

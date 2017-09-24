@@ -1,0 +1,72 @@
+---
+title: "Notebook, MBSStools"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Execute chunks by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+# Package
+
+Package related code.
+
+## Vignette
+```{r, eval=FALSE}
+# generate Vignette
+library(MBSStools)
+library(devtools)
+devtools::build_vignettes()
+```
+devtools::build() more useful and build_vignettes()
+
+## Create Package
+Use the code below to create the package.  Assumes you are in the development package directory
+
+```{r, eval=FALSE}
+# Library Name
+myLibrary <- "MBSStools" # "ContDataQC","MMIcalc","MMIcalcNV","MBSStools","XC95"
+# Load Library
+library(devtools)
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Create Package
+# create(myLibrary)
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# files to library folder
+# file.copy("metric.values.R","./Library/MMIcalc/R/metric.values.R",overwrite=TRUE)
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Document, Install, and Reload Library
+## Generate Documentation
+setwd(paste0("./",myLibrary))
+devtools::document()
+## Install New Package (locally)
+setwd("..") # return to root directory first
+devtools::install(myLibrary)
+## Reload library
+library(myLibrary,character.only = TRUE)
+# change wd back to package
+setwd(paste0("./",myLibrary))
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
+
+After creating the package reload it after restarting R within RStudio (Control+Shift+F10).
+
+```{r, eval=FALSE}
+# Restart R within RStudio:  Ctrl + Shift + F10
+library(MBSStools)
+?metric.scores  
+```
+
+## Including Data
+All data should have already been created.
+
+## Error Checking
+Need to use testthat but not to that stage yet.
+```{r, eval=FALSE}
+# Check for errors (or press Cmd + Shift + E in RStudio)
+devtools::check()
+```
+
+

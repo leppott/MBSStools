@@ -53,12 +53,13 @@
 #' @export
 IonContrib <- function(ion.data, ion.ref=MBSS.Ion.Ref, col.Cond="") {##FUNCTION.IonContrib.START
   #
-  # # QC
+  # # # QC
   # ion.data <- MBSS.Ion.Data
   # ion.ref <- MBSS.Ion.Ref
   # col.Cond <- ""
   # 0. Rename Data
-  data.calc <- ion.data
+  data.calc <- as.data.frame(ion.data)
+  ion.ref <- as.data.frame(ion.ref)
   # 1. Get Ion List
   myIons <- ion.ref$Name[ion.ref$Name %in% colnames(data.calc)]
   #print(myIons)

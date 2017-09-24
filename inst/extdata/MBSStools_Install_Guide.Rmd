@@ -1,0 +1,26 @@
+---
+title: "MBSS Install Guide"
+output: html_notebook
+---
+
+`MBSStools` is an R library with functions to perform various analyses by MBSS staff and those working with MBSS data.  An installed copy of R is required.  A copy of RStudio is recommended.
+
+#Installation
+The code for MBSStools is hosted on GitHub at https://github.com/leppott/MBSStools and can be installed within R but the library `devtools` is required.  To install devtools use the code below.
+
+```{r, eval=FALSE}
+install.packages("devtools")
+```
+
+Once `devtools` is installed the code below will install `MBSStools`.
+
+```{r, eval=FALSE}
+library(devtools)
+install_github("leppott/MBSStools")
+```
+
+Alternatively, a zip file containing the R library can be downloaded from GitHub (https://github.com/leppott/MBSStools) and installed manually from R's menu bar (Packages - Install package(s) from local zip files).
+
+#GitHub
+GitHub is a code sharing website.  `MBSStools` is hosted on this site for ease of updating and distribution.  There is also issue tracking on the website.  The most current vesion of the package will always be installed with the code above.
+

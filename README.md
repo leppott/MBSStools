@@ -2,7 +2,7 @@ README-MBSStools
 ================
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-    #> Last Update: 2017-03-27 15:12:26
+    #> Last Update: 2017-09-24 16:50:00
 
 Suite of tools for data manipulation and calculations for Maryland DNR MBSS program.
 
@@ -21,7 +21,9 @@ To aid MBSS staff with calculations and data manipulations.
 Status
 ------
 
-Development stage.
+Final.
 
 Usage
 -----
+
+By MBSS staff or those using MBSS data.

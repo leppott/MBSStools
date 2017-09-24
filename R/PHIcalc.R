@@ -55,6 +55,7 @@ PHIcalc <- function(fun.df,fun.names=c("SampID"
                                         , "Erosn_SevL_03"
                                         , "RoadDist_m")){
   # 0. QC ####
+  fun.df <- as.data.frame(fun.df)
   # 0.1. QC column names
   # Define dataframe names
   names.default <- c("SampID"

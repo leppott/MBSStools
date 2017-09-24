@@ -31,9 +31,9 @@ To aid MBSS staff with calculations and data manipulations.
 
 Status
 ------------
-Development stage.  
+Final. 
 
 
 Usage
 ------------
-
+By MBSS staff or those using MBSS data.

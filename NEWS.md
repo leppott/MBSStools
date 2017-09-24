@@ -2,7 +2,7 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-09-19 13:26:34
+    #> Last Update: 2017-09-24 16:49:46
 
 Version history.
 
@@ -10,6 +10,32 @@ Planned Updates
 ===============
 
 -   Documentation (vignette).
+
+v0.0.0.9018
+===========
+
+2017-09-24
+
+-   Add install guide notebook.
+
+-   Tweak vignette.
+
+-   Update Readme.
+
+-   Final version before going to v1.0.0.
+
+-   IonContrib, ensure data input is a data frame.
+
+-   PHI, ensure data input is a data frame.
+
+v0.0.0.9017
+===========
+
+2017-09-20
+
+-   Update vignette.
+
+-   Fixed example for fish metrics in metric.values(). 20170920.
 
 v0.0.0.9016
 ===========
