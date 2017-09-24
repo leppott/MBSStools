@@ -37,3 +37,7 @@ Final.
 Usage
 ------------
 By MBSS staff or those using MBSS data.
+
+Documentation
+------------
+Included Vignette and install guide.

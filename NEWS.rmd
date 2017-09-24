@@ -23,7 +23,12 @@ Version history.
 
 # Planned Updates
 
-* Documentation (vignette).
+* None at this time.
+
+# v1.0.0.0000
+2017-09-24
+
+* Release version 1.
 
 # v0.0.0.9018
 2017-09-24

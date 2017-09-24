@@ -2,14 +2,21 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-09-24 16:49:46
+    #> Last Update: 2017-09-24 16:57:29
 
 Version history.
 
 Planned Updates
 ===============
 
--   Documentation (vignette).
+-   None at this time.
+
+v1.0.0.0000
+===========
+
+2017-09-24
+
+-   Release version 1.
 
 v0.0.0.9018
 ===========
