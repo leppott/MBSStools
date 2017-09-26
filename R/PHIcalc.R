@@ -2,6 +2,8 @@
 #'
 #' Calculate MBSS Physical Habitat Index (PHI), Paul et al. 2003.
 #'
+#' No special libraries are needed for this function.
+#'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Erik.Leppo@tetratech.com (EWL)
 # 20170327

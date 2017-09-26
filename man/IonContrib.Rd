@@ -25,6 +25,9 @@ If the user provides a conductivity measurement then ion contributions are a per
 In this case "Other" is added as an ion to capture any percentage of total conductivity not represented by the provided ions.
 Plotting is done outside of this function.
 }
+\details{
+No special libraries are needed for this function.
+}
 \examples{
 # Load Data
 data.ion <- MBSS.Ion.Data

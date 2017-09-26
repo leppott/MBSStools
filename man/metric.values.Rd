@@ -81,6 +81,8 @@ Fish metric values assumes the following fields (all upper case)
 * TROPHIC_MBSS = MBSS tropic status designations (ALL CAPS); OM, GE, IS, IV, etc.
 
 * PTOLR = Pollution tolerance level (ALL CAPS); T, I, NO TYPE.
+
+The R library dplyr is required for this function.
 }
 \examples{
 # Metrics, MBSS Index, Fish
@@ -91,7 +93,7 @@ thresh <- metrics_scoring
 (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
 # Taxa Data
 myDF.Fish <- taxa_fish
-myMetric.Values.Fish <- metric.values(myDF.Fish, "SampleID", "fish", myMetrics.Fish)
+myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish)
 View(myMetric.Values.Fish)
 
 # Metrics, Index, Benthic Macroinvertebrates, genus

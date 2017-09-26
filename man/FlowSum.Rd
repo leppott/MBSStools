@@ -23,6 +23,9 @@ The final flow measurement is reports as cms and cubic feet per second (cfs).
 Generates error message for blank (null) entries for inputs for Lateral Location, Depth, and Velocity.
 In addition it checks for samples with more than one channel but have the same Channel Number.
 }
+\details{
+No special libraries are needed for this function.
+}
 \examples{
 # calculate flow
 flow.cell <- FlowSum(MBSS.flow,returnType="cell")

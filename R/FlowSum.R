@@ -5,6 +5,8 @@
 #' Generates error message for blank (null) entries for inputs for Lateral Location, Depth, and Velocity.
 #' In addition it checks for samples with more than one channel but have the same Channel Number.
 #'
+#' No special libraries are needed for this function.
+#'
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Erik.Leppo@tetratech.com (EWL)
 # 20170419

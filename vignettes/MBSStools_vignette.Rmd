@@ -28,6 +28,30 @@ install_github("leppott/MBSStools")
 
 To contact the author directly email Erik.Leppo@tetratech.com.
 
+# Packages
+Serveral packages were used to build the functionality in `MBSStools`.  
+
+1. FlowSum; no extra packages
+
+2. IonContrib; no extra packages
+
+3. MapTaxaObs; `readxl` and `rgdal`
+
+4. metric.scores; `dplyr`
+
+5. metric.values; `dplyr`
+
+6. PHIcalc; no extra packages
+
+These packages should install automatically when `MBSStools` installs.  But if you encounter issues with a function not working ensure that the necessary package dependencies are installed.
+
+To install packages follow the example of the code below for installing `dplyr`.
+
+```{r insall example 2, eval=FALSE}
+insall.package("dplyr")
+```
+
+
 # Contents
 There are several functions included in the library each with a particular focus on a dataset and the necessary calculations for data analysis.
 
@@ -52,6 +76,8 @@ There are two functions; metric.values() to calculate the metrics (e.g., total i
 `MBSStools` does **not** aggregate or compile taxa lists.  Taxa data with site/sample information, counts, phylogenetic (phylum, class, order, etc), and autecological (habit, tolerance value, and function feeding group) information is required as an input to the functions.  Fish data needs the additional values of watershed (catchment) area (in acres), average stream width, and reach length.
 
 In background is a file (/data-raw/metrics.scoring.tab) wiht a table of metric names, scoring thresholds, index name, and index regions.  These can be changed to modify the index names, bioregions, metric names, and scoring thresholds.  This table can be modified and used as input into the function.  For simplicity this table is included by default.
+
+The functions metric.values() and metric.scores() require the `dplyr` function.
 
 ### IBI, Fish
 Calculates the fish IBI.
@@ -174,6 +200,8 @@ The intent of this function is to recreate the taxa distribution maps on the MBS
 The maps for all taxa can be generated from a single line of code and then given to the web site maintainers as replacements. 
 
 The maps for all taxa can be generated from a single line of code and then given to the web site maintainers as replacements.  The maps generated with this function use a 'crosswalk' table that converts taxa names to map names.
+
+The function MapTaxaObs() requires the `readxl` and `rgdal` packages.
 
 ## Data inputs
 The user will need GIS files for the state of Maryland for State, County, and Water.  
@@ -364,6 +392,8 @@ df.lu.taxa[,"CommonName"] <- tolower(df.lu.taxa[,"CommonName"])
 ## Stream Discharge
 Calculate stream discharge based on field measurements.  Side channels that are properly identified in the data will be included.
 
+The function FlowSum() requires the no additional packages.
+
 ```{r Discharge, eval=FALSE}
 library(MBSStools)
 # data
@@ -386,6 +416,8 @@ The IonContrib() function calculates conductivity contribution from provided ion
 Data will need to be in "wide" format.  That is, a single record for each sample and the ions to be analyzed in columns.
 
 A reference table of ions and their equivalent ionic conductance at infinite dilution is provided with the function as "MBSS.Ion.Ref".  The function allows for input of a user supplied data frame if this table needs updating with more ions.
+
+The function IonContrib() requires the no additional packages.
 
 ```{r Ion Ref, echo=FALSE, results='asis'} 
 knitr::kable(MBSS.Ion.Ref)
@@ -456,6 +488,8 @@ The PHIcalc() function calculates the MBSS Physical Habitat Index (PHI), Paul et
 There are two versions of the calculation based on pre- and post-2000.  The function determines the correct calculation based on the data provided.
 
 The input is a data frame with column names matching the variables collected in the field along with SampleID, bioregion, and area (acres).
+
+The function PHIcalc() requires the no additional packages.
 
 ```{r PHI Input, echo=FALSE, results='asis'}
 x <- MBSS.PHI

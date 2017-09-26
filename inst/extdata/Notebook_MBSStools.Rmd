@@ -66,6 +66,7 @@ All data should have already been created.
 Need to use testthat but not to that stage yet.
 ```{r, eval=FALSE}
 # Check for errors (or press Cmd + Shift + E in RStudio)
+#http://r-pkgs.had.co.nz/check.html
 devtools::check()
 ```
 

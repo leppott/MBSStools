@@ -24,6 +24,9 @@ vector of scores
 This function calculates metric scores based on a Thresholds data frame.
 Can generate scores for 1/3/5 (ScoreRegime="135") or 0-100 (ScoreRegime="100").
 }
+\details{
+The R library dplyr is needed for this function.
+}
 \examples{
 # Metrics, Fish
 #(generate values then score)s

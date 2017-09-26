@@ -9,6 +9,8 @@
 #' In this case "Other" is added as an ion to capture any percentage of total conductivity not represented by the provided ions.
 #' Plotting is done outside of this function.
 #'
+#' No special libraries are needed for this function.
+#'
 #' @param ion.data Input data.  Column names match rows in the ref table
 #' @param ion.ref Reference data for ions; Name (matches columns in data), Multiplier, and SortOrder. Default is included ref table.
 #' @param col.Cond Column name with conductivity in "data".  Default is blank.

@@ -32,12 +32,15 @@ Saves the maps and a dataframe of observed taxa not matching xwalk taxa to the d
 Map taxonomic observations in Maryland.  Inputs are 3 GIS shapefiles
 (State, County, and Hydrology) for Maryland, Observations (taxa names and Lat/Longs), and
 a crosswalk table of taxa names and map names.  Input files are assumed to be Excel with the data on the first worksheet.
-Requires the packages readxl and rgdal.
+}
+\details{
 The example data is fish but can be used for benthic macroinvertebrates as well.
 Maps are output as PNG.  There is a flag for "only" matches between the data and the crosswalk table (this is the default).
 There is also a "verbose" flag for printing status messages to the user (this is the default).
 Tests for existence of Data, GIS directories and required files. On failure,
 stops and prints missing directories/files to screen.
+
+The R libraries rgdal and readxl are required for this function.
 }
 \examples{
 # Set Working Directory

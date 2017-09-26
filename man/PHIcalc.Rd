@@ -21,6 +21,9 @@ Returns a dataframe of the original data with the metric scoring and PHI values.
 \description{
 Calculate MBSS Physical Habitat Index (PHI), Paul et al. 2003.
 }
+\details{
+No special libraries are needed for this function.
+}
 \examples{
 # calculate PHI
 PHI <- PHIcalc(MBSS.PHI)

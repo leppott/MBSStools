@@ -61,6 +61,8 @@
 #' * TROPHIC_MBSS = MBSS tropic status designations (ALL CAPS); OM, GE, IS, IV, etc.
 #'
 #' * PTOLR = Pollution tolerance level (ALL CAPS); T, I, NO TYPE.
+#'
+#' The R library dplyr is required for this function.
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @param fun.DF Data frame of taxa (list required fields)
 #' @param fun.Community Community name for which to calculate metric values (bugs, fish, or algae)
@@ -76,7 +78,7 @@
 #' (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
 #' # Taxa Data
 #' myDF.Fish <- taxa_fish
-#' myMetric.Values.Fish <- metric.values(myDF.Fish, "SampleID", "fish", myMetrics.Fish)
+#' myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish)
 #' View(myMetric.Values.Fish)
 #'
 #' # Metrics, Index, Benthic Macroinvertebrates, genus

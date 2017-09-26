@@ -2,6 +2,8 @@
 #'
 #' This function calculates metric scores based on a Thresholds data frame.
 #' Can generate scores for 1/3/5 (ScoreRegime="135") or 0-100 (ScoreRegime="100").
+#'
+#' The R library dplyr is needed for this function.
 #
 #' @param DF_Metrics Data frame of metric values (as columns), Index Name, and Index Region (strata).
 #' @param MetricNames Names of columns of metric values.

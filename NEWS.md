@@ -2,7 +2,7 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-09-24 16:57:29
+    #> Last Update: 2017-09-26 19:02:05
 
 Version history.
 
@@ -10,6 +10,19 @@ Planned Updates
 ===============
 
 -   None at this time.
+
+v1.0.1.0000
+===========
+
+2017-09-26
+
+-   Update each function's description and vignette with the packages needed for that function to work properly.
+
+-   Update Vignette for a few typos and so shows in final package. Also messages=FALSE for XLConnect example.
+
+-   DESCRIPTION. Move rgdal from Depends to Suggests.
+
+-   Fish metric example not working in metric.values(). Issue \#14. Extra parameter. Removed and works.
 
 v1.0.0.0000
 ===========
