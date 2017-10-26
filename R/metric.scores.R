@@ -178,7 +178,7 @@ metric.scores <- function(DF_Metrics, MetricNames, IndexName, IndexRegion, DF_Th
     DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/6
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Fish" & DF_Metrics[,IndexRegion]=="EPIEDMONT"
     DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/6
-  myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Fish" & DF_Metrics[,IndexRegion]=="WARM"
+  myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Fish" & DF_Metrics[,IndexRegion]=="HIGHLAND"
     DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/6
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Fish" & DF_Metrics[,IndexRegion]=="COLD"
     DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/4

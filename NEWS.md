@@ -2,7 +2,7 @@ NEWS-MBSStools
 ================
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
-    #> Last Update: 2017-09-26 19:02:05
+    #> Last Update: 2017-10-26 10:49:01
 
 Version history.
 
@@ -10,6 +10,13 @@ Planned Updates
 ===============
 
 -   None at this time.
+
+v1.0.2.0000
+===========
+
+2017-10-26
+
+-   Corrected metric.score() \[line 181\] for fish for "HIGHLANDS" was incorrectly designated. These sites were not getting a final FIBI score.
 
 v1.0.1.0000
 ===========

@@ -25,6 +25,11 @@ Version history.
 
 * None at this time.
 
+# v1.0.2.0000
+2017-10-26
+
+* Corrected metric.score() [line 181] for fish for "HIGHLANDS" was incorrectly designated.  These sites were not getting a final FIBI score.
+
 # v1.0.1.0000
 2017-09-26
 
