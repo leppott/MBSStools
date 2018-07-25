@@ -3,7 +3,7 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2018-05-11 13:10:11
+    #> Last Update: 2018-07-25 13:10:49
 
 Version history.
 
@@ -11,13 +11,24 @@ Version history.
 
   - None at this time.
 
+# v1.0.2.9002
+
+2017-07-25
+
+  - DESCRIPTION
+  - Move dplyr and rgdal from Suggests to Imports
+      - Packages not always loading. Issue \#15 and Issue \#17
+  - Modify minimum version of R from 3.3.2 to 3.4.0.
+      - MapTaxaObs did not work in earlier version of R.  
+        Updated to v3.4.0 and no issue. Issue \#17.
+
 # v1.0.2.9001
 
 2017-05-11
 
-  - Issue with TaxaObs
+  - Issue \#17 with MapTaxaObs
   - Removed extra file in vignette folder.
-  - Update Vignette as doesn’t build in check.
+  - Update Vignette as doesn’t build in check; commented out MapTaxaObs.
 
 # v1.0.2.0000
 
