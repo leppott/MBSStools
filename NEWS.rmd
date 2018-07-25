@@ -25,6 +25,13 @@ Version history.
 
 * None at this time.
 
+# v1.0.2.9001
+2017-05-11
+
+* Issue with MapTaxaObs
+* Removed extra file in vignette folder.
+* Update Vignette as doesn't build in check; commented out MapTaxaObs.
+
 # v1.0.2.0000
 2017-10-26
 

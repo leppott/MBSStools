@@ -1,6 +1,6 @@
 ---
 title: "MBSStools - an R toolkit for the MBSS program's data needs"
-author: "Erik W. Leppo"
+author: "Erik.Leppo@tetratech.com"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -47,7 +47,7 @@ These packages should install automatically when `MBSStools` installs.  But if y
 
 To install packages follow the example of the code below for installing `dplyr`.
 
-```{r insall example 2, eval=FALSE}
+```{r install example 2, eval=FALSE}
 insall.package("dplyr")
 ```
 
@@ -203,7 +203,7 @@ The maps for all taxa can be generated from a single line of code and then given
 
 The function MapTaxaObs() requires the `readxl` and `rgdal` packages.
 
-## Data inputs
+### Data inputs
 The user will need GIS files for the state of Maryland for State, County, and Water.  
 
 The inputs for this function, besides the three GIS shapefiles, are taxa observations and a taxa name crosswalk (translation) table between taxa names and map names.
@@ -238,15 +238,12 @@ library(XLConnect)
 # data files
 obs <- "AllFish_95to16.xls"
 xWalk <- "TaxaMapsCrossWalk20170731.xlsx"
-setwd("..") #resets to vignette dir when run as code chunk
-dirMain <- getwd()  
-dirData = "Data"
 
-all.taxa <- paste(dirMain,dirData,obs,sep="/")
-taxa.lu <- paste(dirMain,dirData,xWalk,sep="/")
+all.taxa <- system.file("extdata", obs, package = "MBSStools")
+taxa.lu <- system.file("extdata", xWalk, package = "MBSStools")
 
 # Read in Taxon observations
-df.taxa.obs <- readxl::read_excel(all.taxa,sheet=1,col_names=TRUE,skip=0)
+df.taxa.obs <- readxl::read_excel(all.taxa, sheet=1,col_names=TRUE,skip=0)
 df.taxa.obs <- as.data.frame(df.taxa.obs)
 df.taxa.obs[,1] <- tolower(df.taxa.obs[,1])
 #df.taxa.obs <- as.data.frame(cbind(tolower(df.taxa.obs[,"TaxaName"]), df.taxa.obs[,2:3]))
@@ -263,12 +260,9 @@ library(XLConnect)
 # data files
 obs <- "AllFish_95to16.xls"
 xWalk <- "TaxaMapsCrossWalk20170731.xlsx"
-setwd("..") #resets to vignette dir when run as code chunk
-dirMain <- getwd()
-dirData = "Data"
 
-all.taxa <- paste(dirMain,dirData,obs,sep="/")
-taxa.lu <- paste(dirMain,dirData,xWalk,sep="/")
+all.taxa <- system.file("extdata", obs, package = "MBSStools")
+taxa.lu <- system.file("extdata", xWalk, package = "MBSStools")
 
 # Read in TaxaMapsCrossWalk.xlsx
 df.lu.taxa <- readxl::read_excel(taxa.lu,sheet=1,col_names=TRUE,skip=0)
@@ -301,7 +295,7 @@ The intent behind this function was to recreate the fish taxa distribution maps.
 
 The taxa distribution map for brown trout is shown below.
 
-```{r TaxaMap Brown Trout, echo=FALSE, results="hide", fig.show='hold', warnings=FALSE}
+```{r TaxaMap Brown Trout, echo=FALSE, results="hide", fig.show='hold', warnings=FALSE, eval=FALSE}
 # example map.
 # include only brown trout
 # brntrout.png
@@ -311,9 +305,31 @@ The taxa distribution map for brown trout is shown below.
 library(XLConnect)
 library(rgdal)
 
+
+
+# Set Working Directory
+wd <- getwd()
+# Create Example Data if Needed
+## Create Directories
+myDir.create <- file.path(wd,"Data")
+ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
+myDir.create <- file.path(wd,"GIS")
+ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
+myDir.create <- file.path(wd,"Maps")
+ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
+## Create Data
+### Taxa Data
+myFiles <- c("AllFish_95to16.xls", "TaxaMapsCrossWalk20170731.xlsx")
+file.copy(file.path(path.package("MBSStools"),"extdata",myFiles),file.path(wd,"Data",myFiles))
+### GIS
+unzip(file.path(path.package("MBSStools"),"extdata","MD_GIS.zip"),exdir=file.path(wd,"GIS"))
+
+
+
 # data files
 obs <- "AllFish_95to16.xls"
 xWalk <- "TaxaMapsCrossWalk20170731.xlsx"
+
 oldwd <- getwd()
 setwd("..") #resets to vignette dir when run as code chunk
 dirMain <- getwd()  
@@ -322,8 +338,8 @@ dirGIS = "GIS"
 verbose = TRUE
 onlymatches = TRUE
 
-all.taxa <- paste(dirMain,dirData,obs,sep="/")
-taxa.lu <- paste(dirMain,dirData,xWalk,sep="/")
+all.taxa <- system.file("extdata", obs, package = "MBSStools")
+taxa.lu <- system.file("extdata", xWalk, package = "MBSStools")
 
 # Read in Taxon observations
 df.taxa.obs <- readxl::read_excel(all.taxa,sheet=1,col_names=TRUE,skip=0)
@@ -399,7 +415,7 @@ library(MBSStools)
 # data
 MBSS.flow <- MBSS.flow
 # calculate flow
-flow.cell <- FlowSum(MBSS.flow,returnType="cell")
+flow.cell <- FlowSum(MBSS.flow, returnType="cell")
 flow.sample <- FlowSum(MBSS.flow)
 # examine data
 View(flow.cell)
