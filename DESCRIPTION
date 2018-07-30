@@ -1,6 +1,6 @@
 Package: MBSStools
 Title: MBSS tool suite for calculations and data manipulation.
-Version: 1.0.2.9002
+Version: 1.0.2.9003
 Authors@R: c(
   person("Erik W.", "Leppo", email="Erik.Leppo@tetratech.com", role=c("aut","cre")),
   person("Ann","Roseberry Lincoln", role="ctb"),

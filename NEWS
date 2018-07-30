@@ -3,13 +3,19 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2018-07-25 13:10:49
+    #> Last Update: 2018-07-30 16:16:37
 
 Version history.
 
 # Planned Updates
 
   - None at this time.
+
+# v1.0.2.9003
+
+2017-07-30
+
+  - Add continuous integration (TravisCI) badge to ReadMe.
 
 # v1.0.2.9002
 
