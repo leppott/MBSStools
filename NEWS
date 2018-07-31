@@ -3,13 +3,21 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2018-07-30 16:16:37
+    #> Last Update: 2018-07-31 07:37:46
 
 Version history.
 
 # Planned Updates
 
   - None at this time.
+
+# v1.0.2.9004
+
+2017-07-31
+
+  - .travis.yml
+      - Add TravisCI yml to GitHub directory.
+      - Add TravisCI yml to Rbuildignore.
 
 # v1.0.2.9003
 

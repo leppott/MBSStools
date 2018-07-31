@@ -25,6 +25,13 @@ Version history.
 
 * None at this time.
 
+# v1.0.2.9004
+2017-07-31
+
+* .travis.yml
+    + Add TravisCI yml to GitHub directory.
+    + Add TravisCI yml to Rbuildignore.
+
 # v1.0.2.9003
 2017-07-30
 
