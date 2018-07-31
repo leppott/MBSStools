@@ -1620,6 +1620,9 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
 }
@@ -1698,10 +1701,10 @@ $(document).ready(function () {
 <!-- rnb-text-begin -->
 <p>This is an <a href="http://rmarkdown.rstudio.com">R Markdown</a> Notebook. When you execute code within the notebook, the results appear beneath the code.</p>
 <p>Execute chunks by clicking the <em>Run</em> button within the chunk or by placing your cursor inside it and pressing <em>Ctrl+Shift+Enter</em>.</p>
-<section id="package" class="level1">
+<div id="package" class="section level1">
 <h1>Package</h1>
 <p>Package related code.</p>
-<section id="vignette" class="level2">
+<div id="vignette" class="section level2">
 <h2>Vignette</h2>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
@@ -1714,8 +1717,8 @@ devtools::build_vignettes()</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>devtools::build() more useful and build_vignettes()</p>
-</section>
-<section id="create-package" class="level2">
+</div>
+<div id="create-package" class="section level2">
 <h2>Create Package</h2>
 <p>Use the code below to create the package. Assumes you are in the development package directory</p>
 <!-- rnb-text-end -->
@@ -1759,19 +1762,20 @@ setwd(paste0(&quot;./&quot;,myLibrary))
 <p>After creating the package reload it after restarting R within RStudio (Control+Shift+F10).</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjpbIiMgUmVzdGFydCBSIHdpdGhpbiBSU3R1ZGlvOiAgQ3RybCArIFNoaWZ0ICsgRjEwIiwibGlicmFyeShNQlNTdG9vbHMpIiwiP21ldHJpYy5zY29yZXMgICJdfQ== -->
+<!-- rnb-source-begin eyJkYXRhIjpbIiMgUmVzdGFydCBSIHdpdGhpbiBSU3R1ZGlvOiAgQ3RybCArIFNoaWZ0ICsgRjEwIiwibGlicmFyeShNQlNTdG9vbHMpIiwiaGVscChwYWNrYWdlPVwiTUJTU3Rvb2xzXCIpIiwiIz9tZXRyaWMuc2NvcmVzICAiXX0= -->
 <pre class="r"><code># Restart R within RStudio:  Ctrl + Shift + F10
 library(MBSStools)
-?metric.scores  </code></pre>
+help(package=&quot;MBSStools&quot;)
+#?metric.scores  </code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-</section>
-<section id="including-data" class="level2">
+</div>
+<div id="including-data" class="section level2">
 <h2>Including Data</h2>
 <p>All data should have already been created.</p>
-</section>
-<section id="error-checking" class="level2">
+</div>
+<div id="error-checking" class="section level2">
 <h2>Error Checking</h2>
 <p>Need to use testthat but not to that stage yet.</p>
 <!-- rnb-text-end -->
@@ -1784,10 +1788,10 @@ devtools::check()</code></pre>
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
-</section>
-</section>
+</div>
+</div>
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIk5vdGVib29rLCBNQlNTdG9vbHMiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiANCg0KRXhlY3V0ZSBjaHVua3MgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ3RybCtTaGlmdCtFbnRlciouIA0KDQojIFBhY2thZ2UNCg0KUGFja2FnZSByZWxhdGVkIGNvZGUuDQoNCiMjIFZpZ25ldHRlDQpgYGB7ciwgZXZhbD1GQUxTRX0NCiMgZ2VuZXJhdGUgVmlnbmV0dGUNCmxpYnJhcnkoTUJTU3Rvb2xzKQ0KbGlicmFyeShkZXZ0b29scykNCmRldnRvb2xzOjpidWlsZF92aWduZXR0ZXMoKQ0KYGBgDQpkZXZ0b29sczo6YnVpbGQoKSBtb3JlIHVzZWZ1bCBhbmQgYnVpbGRfdmlnbmV0dGVzKCkNCg0KIyMgQ3JlYXRlIFBhY2thZ2UNClVzZSB0aGUgY29kZSBiZWxvdyB0byBjcmVhdGUgdGhlIHBhY2thZ2UuICBBc3N1bWVzIHlvdSBhcmUgaW4gdGhlIGRldmVsb3BtZW50IHBhY2thZ2UgZGlyZWN0b3J5DQoNCmBgYHtyLCBldmFsPUZBTFNFfQ0KIyBORVdTDQojIFJlbmRlciB0aGVuIENvcHkgTkVXUyBzbyBwaWNrZWQgdXAgaW4gaGVscA0Kcm1hcmtkb3duOjpyZW5kZXIoIk5FV1Mucm1kIiwgImFsbCIpDQpmaWxlLmNvcHkoIk5FV1MubWQiLCAiTkVXUyIsIG92ZXJ3cml0ZSA9IFRSVUUpDQpmaWxlLnJlbW92ZSgiTkVXUy5odG1sIikNCmZpbGUucmVtb3ZlKCJORVdTLm1kIikNCiN+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+DQojIExpYnJhcnkgTmFtZQ0KbXlMaWJyYXJ5IDwtICJNQlNTdG9vbHMiICMgIkNvbnREYXRhUUMiLCJNTUljYWxjIiwiTU1JY2FsY05WIiwiTUJTU3Rvb2xzIiwiWEM5NSINCiMgTG9hZCBMaWJyYXJ5DQpsaWJyYXJ5KGRldnRvb2xzKQ0KI35+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn4NCiMgQ3JlYXRlIFBhY2thZ2UNCiMgY3JlYXRlKG15TGlicmFyeSkNCiN+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+DQojIGZpbGVzIHRvIGxpYnJhcnkgZm9sZGVyDQojIGZpbGUuY29weSgibWV0cmljLnZhbHVlcy5SIiwiLi9MaWJyYXJ5L01NSWNhbGMvUi9tZXRyaWMudmFsdWVzLlIiLG92ZXJ3cml0ZT1UUlVFKQ0KI35+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn4NCiMNCiN+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+DQojIERvY3VtZW50LCBJbnN0YWxsLCBhbmQgUmVsb2FkIExpYnJhcnkNCiMjIEdlbmVyYXRlIERvY3VtZW50YXRpb24NCnNldHdkKHBhc3RlMCgiLi8iLG15TGlicmFyeSkpDQpkZXZ0b29sczo6ZG9jdW1lbnQoKQ0KIyMgSW5zdGFsbCBOZXcgUGFja2FnZSAobG9jYWxseSkNCnNldHdkKCIuLiIpICMgcmV0dXJuIHRvIHJvb3QgZGlyZWN0b3J5IGZpcnN0DQpkZXZ0b29sczo6aW5zdGFsbChteUxpYnJhcnkpDQojIyBSZWxvYWQgbGlicmFyeQ0KbGlicmFyeShteUxpYnJhcnksY2hhcmFjdGVyLm9ubHkgPSBUUlVFKQ0KIyBjaGFuZ2Ugd2QgYmFjayB0byBwYWNrYWdlDQpzZXR3ZChwYXN0ZTAoIi4vIixteUxpYnJhcnkpKQ0KI35+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn4NCmBgYA0KDQpBZnRlciBjcmVhdGluZyB0aGUgcGFja2FnZSByZWxvYWQgaXQgYWZ0ZXIgcmVzdGFydGluZyBSIHdpdGhpbiBSU3R1ZGlvIChDb250cm9sK1NoaWZ0K0YxMCkuDQoNCmBgYHtyLCBldmFsPUZBTFNFfQ0KIyBSZXN0YXJ0IFIgd2l0aGluIFJTdHVkaW86ICBDdHJsICsgU2hpZnQgKyBGMTANCmxpYnJhcnkoTUJTU3Rvb2xzKQ0KP21ldHJpYy5zY29yZXMgIA0KYGBgDQoNCiMjIEluY2x1ZGluZyBEYXRhDQpBbGwgZGF0YSBzaG91bGQgaGF2ZSBhbHJlYWR5IGJlZW4gY3JlYXRlZC4NCg0KIyMgRXJyb3IgQ2hlY2tpbmcNCk5lZWQgdG8gdXNlIHRlc3R0aGF0IGJ1dCBub3QgdG8gdGhhdCBzdGFnZSB5ZXQuDQpgYGB7ciwgZXZhbD1GQUxTRX0NCiMgQ2hlY2sgZm9yIGVycm9ycyAob3IgcHJlc3MgQ21kICsgU2hpZnQgKyBFIGluIFJTdHVkaW8pDQojaHR0cDovL3ItcGtncy5oYWQuY28ubnovY2hlY2suaHRtbA0KZGV2dG9vbHM6OmNoZWNrKCkNCmBgYA0KDQoNCg==</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIk5vdGVib29rLCBNQlNTdG9vbHMiDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpUaGlzIGlzIGFuIFtSIE1hcmtkb3duXShodHRwOi8vcm1hcmtkb3duLnJzdHVkaW8uY29tKSBOb3RlYm9vay4gV2hlbiB5b3UgZXhlY3V0ZSBjb2RlIHdpdGhpbiB0aGUgbm90ZWJvb2ssIHRoZSByZXN1bHRzIGFwcGVhciBiZW5lYXRoIHRoZSBjb2RlLiANCg0KRXhlY3V0ZSBjaHVua3MgYnkgY2xpY2tpbmcgdGhlICpSdW4qIGJ1dHRvbiB3aXRoaW4gdGhlIGNodW5rIG9yIGJ5IHBsYWNpbmcgeW91ciBjdXJzb3IgaW5zaWRlIGl0IGFuZCBwcmVzc2luZyAqQ3RybCtTaGlmdCtFbnRlciouIA0KDQojIFBhY2thZ2UNCg0KUGFja2FnZSByZWxhdGVkIGNvZGUuDQoNCiMjIFZpZ25ldHRlDQpgYGB7ciwgZXZhbD1GQUxTRX0NCiMgZ2VuZXJhdGUgVmlnbmV0dGUNCmxpYnJhcnkoTUJTU3Rvb2xzKQ0KbGlicmFyeShkZXZ0b29scykNCmRldnRvb2xzOjpidWlsZF92aWduZXR0ZXMoKQ0KYGBgDQpkZXZ0b29sczo6YnVpbGQoKSBtb3JlIHVzZWZ1bCBhbmQgYnVpbGRfdmlnbmV0dGVzKCkNCg0KIyMgQ3JlYXRlIFBhY2thZ2UNClVzZSB0aGUgY29kZSBiZWxvdyB0byBjcmVhdGUgdGhlIHBhY2thZ2UuICBBc3N1bWVzIHlvdSBhcmUgaW4gdGhlIGRldmVsb3BtZW50IHBhY2thZ2UgZGlyZWN0b3J5DQoNCmBgYHtyLCBldmFsPUZBTFNFfQ0KIyBORVdTDQojIFJlbmRlciB0aGVuIENvcHkgTkVXUyBzbyBwaWNrZWQgdXAgaW4gaGVscA0Kcm1hcmtkb3duOjpyZW5kZXIoIk5FV1Mucm1kIiwgImFsbCIpDQpmaWxlLmNvcHkoIk5FV1MubWQiLCAiTkVXUyIsIG92ZXJ3cml0ZSA9IFRSVUUpDQpmaWxlLnJlbW92ZSgiTkVXUy5odG1sIikNCmZpbGUucmVtb3ZlKCJORVdTLm1kIikNCiN+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+DQojIExpYnJhcnkgTmFtZQ0KbXlMaWJyYXJ5IDwtICJNQlNTdG9vbHMiICMgIkNvbnREYXRhUUMiLCJNTUljYWxjIiwiTU1JY2FsY05WIiwiTUJTU3Rvb2xzIiwiWEM5NSINCiMgTG9hZCBMaWJyYXJ5DQpsaWJyYXJ5KGRldnRvb2xzKQ0KI35+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn4NCiMgQ3JlYXRlIFBhY2thZ2UNCiMgY3JlYXRlKG15TGlicmFyeSkNCiN+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+DQojIGZpbGVzIHRvIGxpYnJhcnkgZm9sZGVyDQojIGZpbGUuY29weSgibWV0cmljLnZhbHVlcy5SIiwiLi9MaWJyYXJ5L01NSWNhbGMvUi9tZXRyaWMudmFsdWVzLlIiLG92ZXJ3cml0ZT1UUlVFKQ0KI35+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn4NCiMNCiN+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+DQojIERvY3VtZW50LCBJbnN0YWxsLCBhbmQgUmVsb2FkIExpYnJhcnkNCiMjIEdlbmVyYXRlIERvY3VtZW50YXRpb24NCnNldHdkKHBhc3RlMCgiLi8iLG15TGlicmFyeSkpDQpkZXZ0b29sczo6ZG9jdW1lbnQoKQ0KIyMgSW5zdGFsbCBOZXcgUGFja2FnZSAobG9jYWxseSkNCnNldHdkKCIuLiIpICMgcmV0dXJuIHRvIHJvb3QgZGlyZWN0b3J5IGZpcnN0DQpkZXZ0b29sczo6aW5zdGFsbChteUxpYnJhcnkpDQojIyBSZWxvYWQgbGlicmFyeQ0KbGlicmFyeShteUxpYnJhcnksY2hhcmFjdGVyLm9ubHkgPSBUUlVFKQ0KIyBjaGFuZ2Ugd2QgYmFjayB0byBwYWNrYWdlDQpzZXR3ZChwYXN0ZTAoIi4vIixteUxpYnJhcnkpKQ0KI35+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn5+fn4NCmBgYA0KDQpBZnRlciBjcmVhdGluZyB0aGUgcGFja2FnZSByZWxvYWQgaXQgYWZ0ZXIgcmVzdGFydGluZyBSIHdpdGhpbiBSU3R1ZGlvIChDb250cm9sK1NoaWZ0K0YxMCkuDQoNCmBgYHtyLCBldmFsPUZBTFNFfQ0KIyBSZXN0YXJ0IFIgd2l0aGluIFJTdHVkaW86ICBDdHJsICsgU2hpZnQgKyBGMTANCmxpYnJhcnkoTUJTU3Rvb2xzKQ0KaGVscChwYWNrYWdlPSJNQlNTdG9vbHMiKQ0KIz9tZXRyaWMuc2NvcmVzICANCmBgYA0KDQojIyBJbmNsdWRpbmcgRGF0YQ0KQWxsIGRhdGEgc2hvdWxkIGhhdmUgYWxyZWFkeSBiZWVuIGNyZWF0ZWQuDQoNCiMjIEVycm9yIENoZWNraW5nDQpOZWVkIHRvIHVzZSB0ZXN0dGhhdCBidXQgbm90IHRvIHRoYXQgc3RhZ2UgeWV0Lg0KYGBge3IsIGV2YWw9RkFMU0V9DQojIENoZWNrIGZvciBlcnJvcnMgKG9yIHByZXNzIENtZCArIFNoaWZ0ICsgRSBpbiBSU3R1ZGlvKQ0KI2h0dHA6Ly9yLXBrZ3MuaGFkLmNvLm56L2NoZWNrLmh0bWwNCmRldnRvb2xzOjpjaGVjaygpDQpgYGANCg0KDQo=</div>
 
 
 

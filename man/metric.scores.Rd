@@ -7,22 +7,26 @@
 metric.scores(DF_Metrics, MetricNames, IndexName, IndexRegion, DF_Thresh)
 }
 \arguments{
-\item{DF_Metrics}{Data frame of metric values (as columns), Index Name, and Index Region (strata).}
+\item{DF_Metrics}{Data frame of metric values (as columns), Index Name, and
+Index Region (strata).}
 
 \item{MetricNames}{Names of columns of metric values.}
 
 \item{IndexName}{Nam of column with index (e.g., MBSS.2005.Bugs)}
 
-\item{IndexRegion}{Name of column with relevant bioregion or site class (e.g., COASTAL).}
+\item{IndexRegion}{Name of column with relevant bioregion or site class
+(e.g., COASTAL).}
 
-\item{DF_Thresh}{Data frame of Scoring Thresholds (Index.Name, Index.Region, Metric, Direction, Thresh.Lo, Thresh.Hi, ScoreRegime)}
+\item{DF_Thresh}{Data frame of Scoring Thresholds (Index.Name, Index.Region,
+Metric, Direction, Thresh.Lo, Thresh.Hi, ScoreRegime)}
 }
 \value{
 vector of scores
 }
 \description{
 This function calculates metric scores based on a Thresholds data frame.
-Can generate scores for 1/3/5 (ScoreRegime="135") or 0-100 (ScoreRegime="100").
+Can generate scores for 1/3/5 (ScoreRegime="135") or 0-100 (ScoreRegime=
+"100").
 }
 \details{
 The R library dplyr is needed for this function.
@@ -34,13 +38,16 @@ myIndex <- "MBSS.2005.Fish"
 # Thresholds
 thresh <- metrics_scoring
 # get metric names for myIndex
-(myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+(myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,
+"Index.Name"]==myIndex,"Metric"]))))
 # Taxa Data
 myDF.Fish <- taxa_fish
-myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish, TRUE)
+myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish,
+TRUE)
 View(myMetric.Values.Fish)
 # SCORE
-Metrics.Fish.Scores <- metric.scores(myMetric.Values.Fish, myMetrics.Fish, "Index.Name", "FIBISTRATA", thresh)
+Metrics.Fish.Scores <- metric.scores(myMetric.Values.Fish, myMetrics.Fish,
+"Index.Name", "FIBISTRATA", thresh)
 # View Results
 View(Metrics.Fish.Scores)
 
@@ -50,20 +57,26 @@ myIndex <- "MBSS.2005.Bugs"
 # Thresholds
 thresh <- metrics_scoring
 # get metric names for myIndex
-(myMetrics.Bugs.MBSS <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+(myMetrics.Bugs.MBSS <- as.character(droplevels(unique(thresh[thresh[,
+"Index.Name"]==myIndex,"Metric"]))))
 # Taxa Data
 myDF.Bugs.MBSS <- taxa_bugs_genus
-myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs", myMetrics.Bugs.MBSS)
+myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs",
+myMetrics.Bugs.MBSS)
 View(myMetric.Values.Bugs.MBSS)
 # SCORE
-Metrics.Bugs.Scores.MBSS <- metric.scores(myMetric.Values.Bugs.MBSS, myMetrics.Bugs.MBSS, "INDEX.NAME", "STRATA_R", thresh)
+Metrics.Bugs.Scores.MBSS <- metric.scores(myMetric.Values.Bugs.MBSS,
+myMetrics.Bugs.MBSS, "INDEX.NAME", "STRATA_R", thresh)
 # View Results
 View(Metrics.Bugs.Scores.MBSS)
 
 # QC bug count
-Metrics.Bugs.Scores.MBSS[Metrics.Bugs.Scores.MBSS[,"totind"]>120,"QC_Count"] <- "LARGE"
-Metrics.Bugs.Scores.MBSS[Metrics.Bugs.Scores.MBSS[,"totind"]<60,"QC_Count"] <- "SMALL"
-Metrics.Bugs.Scores.MBSS[is.na(Metrics.Bugs.Scores.MBSS[,"QC_Count"]),"QC_Count"] <- "OK"
+Metrics.Bugs.Scores.MBSS[Metrics.Bugs.Scores.MBSS[,"totind"]>120,
+"QC_Count"] <- "LARGE"
+Metrics.Bugs.Scores.MBSS[Metrics.Bugs.Scores.MBSS[,"totind"]<60,
+"QC_Count"] <- "SMALL"
+Metrics.Bugs.Scores.MBSS[is.na(Metrics.Bugs.Scores.MBSS[,"QC_Count"]),
+"QC_Count"] <- "OK"
 # table of QC_Count
 table(Metrics.Bugs.Scores.MBSS$QC_Count)
 
@@ -72,13 +85,16 @@ myIndex <- "MSW.1999.Bugs"
 # Thresholds
 thresh <- metrics_scoring
 # get metric names for myIndex
-(myMetrics.Bugs.MSW <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+(myMetrics.Bugs.MSW <- as.character(droplevels(unique(thresh[thresh[,
+"Index.Name"]==myIndex,"Metric"]))))
 # Taxa Data
 myDF.Bugs.MSW <- taxa_bugs_family
-myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs", myMetrics.Bugs.MSW)
+myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs",
+myMetrics.Bugs.MSW)
 View(myMetric.Values.Bugs.MSW)
 # SCORE
-Metrics.Bugs.Scores.MSW <- metric.scores(myMetric.Values.Bugs.MSW, myMetrics.Bugs.MSW, "INDEX.NAME", "STRATA_R", thresh)
+Metrics.Bugs.Scores.MSW <- metric.scores(myMetric.Values.Bugs.MSW,
+myMetrics.Bugs.MSW, "INDEX.NAME", "STRATA_R", thresh)
 # View Results
 View(Metrics.Bugs.Scores.MSW)
 }

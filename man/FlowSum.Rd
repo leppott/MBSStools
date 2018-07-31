@@ -8,20 +8,27 @@ FlowSum(df, df.names = c("SITEYR", "ChannelNum", "Lat_Loc_m", "Depth_m",
   "Velocity_m_s"), returnType = "sample")
 }
 \arguments{
-\item{df}{Data frame of data to be processed.  Must include the columns specified in the parameter df1.names.}
+\item{df}{Data frame of data to be processed.  Must include the columns
+specified in the parameter df1.names.}
 
-\item{df.names}{Column names; Optional. Defaults = c("SITEYR", "ChannelNum", "Lat_Loc_m", "Depth_m", "Velocity_m_s")}
+\item{df.names}{Column names; Optional. Defaults = c("SITEYR", "ChannelNum",
+"Lat_Loc_m", "Depth_m", "Velocity_m_s")}
 
-\item{returnType}{Returns the original data with cell velocity (cell) or a summary table of the sample velocities (sample); "sample" is the default.}
+\item{returnType}{Returns the original data with cell velocity (cell) or a
+summary table of the sample velocities (sample); "sample" is the default.}
 }
 \value{
-Returns the requested dataframe; the original data with the discharge by cell or by sample (default).
+Returns the requested dataframe; the original data with the discharge
+ by cell or by sample (default).
 }
 \description{
-Calculate flow from field measurements.  All measurements are in meters and meters per second.
+Calculate flow from field measurements.  All measurements are in meters and
+meters per second.
 The final flow measurement is reports as cms and cubic feet per second (cfs).
-Generates error message for blank (null) entries for inputs for Lateral Location, Depth, and Velocity.
-In addition it checks for samples with more than one channel but have the same Channel Number.
+Generates error message for blank (null) entries for inputs for Lateral
+Location, Depth, and Velocity.
+In addition it checks for samples with more than one channel but have the
+same Channel Number.
 }
 \details{
 No special libraries are needed for this function.
@@ -36,7 +43,6 @@ View(flow.sample)
 # Example Save file (tab delimited text file)
 #datetime <- format(Sys.time(),"\%Y\%m\%d_\%H\%M\%S")
 #myYear <- "15"
-#write.table(flow.sample,paste0("SumFlow",myYear,"_",datetime,".tab"),row.names=FALSE,sep="\\t")
+#write.table(flow.sample,paste0("SumFlow",myYear,"_",datetime,".tab"),
+row.names=FALSE,sep="\\t")
 }
-\keyword{MBSS,}
-\keyword{flow}

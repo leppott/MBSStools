@@ -1,8 +1,6 @@
 ---
 title: "NEWS-MBSStools"
 output: github_document
-  #md_document:
-   # variant: markdown_github
 ---
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
@@ -19,26 +17,46 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
-Version history.
+MBSStools v1.0.2.9005 (2017-07-31)
+================
 
-# Planned Updates
+* DESCRIPTION
+    + Suggests; XLConnect (MBSStools_vignette.Rmd)
+    + Maintainer; Erik.Leppo@tetratech.com (Needed if submit to CRAN)
+    + Description; make more verbose.  (Needed if submit to CRAN)
+    + Title; remove ending period.
+* NEWS
+    + Restructure.  Still not right but has all info now.
+    + Remove planned updates.
+* Shorten long lines.
+    + FlowSum.R
+    + IonContrib.R
+    + MapTaxaObs.R
+    + metric.scores.R
+    + metric.values.R
+    + PHIcalc.R
+* Remove "keywords" (incorrect usage).
+    + FlowSum.R
+    + IonContrib.R
+    + MapTaxaObs.R
+    + metric.scores.R
+    + metric.values.R
+    + PHIcalc.R
 
-* None at this time.
-
-# v1.0.2.9004
-2017-07-31
+MBSStools v1.0.2.9004 (2017-07-31)
+================
 
 * .travis.yml
     + Add TravisCI yml to GitHub directory.
     + Add TravisCI yml to Rbuildignore.
-
-# v1.0.2.9003
-2017-07-30
+    
+MBSStools v1.0.2.9003 (2017-07-30)
+================
 
 * Add continuous integration (TravisCI) badge to ReadMe.
 
-# v1.0.2.9002
-2017-07-25
+MBSStools v1.0.2.9002 (2017-07-25)
+================
 
 * DESCRIPTION
 * Move dplyr and rgdal from Suggests to Imports
@@ -47,20 +65,20 @@ Version history.
     + MapTaxaObs did not work in earlier version of R.  
     Updated to v3.4.0 and no issue.  Issue #17.
 
-# v1.0.2.9001
-2017-05-11
+MBSStools v1.0.2.9001 (2017-05-11)
+================
 
 * Issue #17 with MapTaxaObs
 * Removed extra file in vignette folder.
 * Update Vignette as doesn't build in check; commented out MapTaxaObs.
 
-# v1.0.2.0000
-2017-10-26
+MBSStools v1.0.2.0000 (2017-10-26)
+================
 
 * Corrected metric.score() [line 181] for fish for "HIGHLANDS" was incorrectly designated.  These sites were not getting a final FIBI score.
 
-# v1.0.1.0000
-2017-09-26
+MBSStools v1.0.1.0000 (2017-09-26)
+================
 
 * Update each function's description and vignette with the packages needed for that function to work properly.
 
@@ -70,13 +88,13 @@ Version history.
 
 * Fish metric example not working in metric.values().  Issue #14.  Extra parameter.  Removed and works.
 
-# v1.0.0.0000
-2017-09-24
+MBSStools v1.0.0.0000 (2017-09-24)
+================
 
 * Release version 1.
 
-# v0.0.0.9018
-2017-09-24
+MBSStools v0.0.0.9018 (2017-09-24)
+================
 
 * Add install guide notebook.
 
@@ -90,38 +108,38 @@ Version history.
 
 * PHI, ensure data input is a data frame.
 
-# v0.0.0.9017
-2017-09-20
+MBSStools v0.0.0.9017 (2017-09-20)
+================
 
 * Update vignette.  
 
 * Fixed example for fish metrics in metric.values().  20170920.
 
-# v0.0.0.9016
-2017-09-19
+MBSStools v0.0.0.9016 (2017-09-19)
+================
 
 * IonContrib() added barplot example.  20170919.
 
-# v0.0.0.9015
-2017-09-13
+MBSStools v0.0.0.9015 (2017-09-13)
+================
 
 * Fix typo in example for metric.scores(); "Metrics.Bugs.Scores" to "Metrics.Bugs.Scores.MBSS". 20170913.
 
-# v0.0.0.9014
-2017-09-09
+MBSStools v0.0.0.9014 (2017-09-09)
+================
 
 * Added MSW (family) data, values, and scores.  20170909.
 
-# v0.0.0.9013
-2017-09-09
+MBSStools v0.0.0.9013 (2017-09-09)
+================
 
 * Added BIBI.
 + Updated metric names to match those used by MBSS.
 + Updated metric.values() and metric.scores().
 + Updated genus level bug data file.
 
-# v0.0.0.9012
-2017-09-08
+MBSStools v0.0.0.9012 (2017-09-08)
+================
 
 * Add FIBI.  2017-09-05.
 + metric.values.R
@@ -131,23 +149,23 @@ Version history.
 * Added dplyr to DESCRIPTION.  Needed for metric values and scores.  20170908
 * Modified \data-raw\metrics.scoring.tab to resolve QC issues with 2016 data.  20170908.
 
-# v0.0.0.9011
-2017-08-22
+MBSStools  0.0.0.9011 (2017-08-22)
+================
 
 * Updated taxa map data for typo in "no fish observed".  20170822.
 
-# v0.0.0.9010
-2017-07-31
+MBSStools v0.0.0.9010 (2017-07-31)
+================
 
 * Updated fish data and crosswalk table examples so have more matched data.  Also update help to remind that data has to be on the first worksheet for the Excel file.  20170731.
 
-# v0.0.0.9009
-2017-07-28
+MBSStools v0.0.0.9009 (2017-07-28)
+================
 
 * Updated DESCRIPTION.  "Erik" to "Erik W." and added Matt Ashton as data contributor.  20170728.
 
-# v0.0.0.9008
-2017-07-21
+MBSStools v0.0.0.9008 (2017-07-21)
+================
 
 * Added TaxaMapsObs().  Issue #2. 20170720.
 
@@ -155,13 +173,13 @@ Version history.
 
 * Added example data and GIS files (zipped). 20170721.
 
-# v0.0.0.9007
-2017-06-23
+MBSStools v0.0.0.9007 (2017-06-23)
+================
 
 * Added "LazyData: true" to DESCRIPTION.  Data was not being loaded properly.  Issue #9.  20170623.
 
-# v0.0.0.9006
-2017-06-23
+MBSStools v0.0.0.9006 (2017-06-23)
+================
 
 * Modified vignette.
 
@@ -169,23 +187,23 @@ Version history.
 
 * Added IonContrib.R
 
-# v0.0.0.9005
-2017-06-14
+MBSStools v0.0.0.9005 (2017-06-14)
+================
 
 * Added vignette for documentation of each function and the library as a whole.
 
-# v0.0.0.9004
-2017-04-28 (not complete)
+MBSStools v0.0.0.9004 (2017-04-28)
+================
 
-* Address issues with PHIcalc from testing.  Removed extra rows from Excel import for data MBSS.PHI.  Added line to convert values to numeric inside MBSS.PHI.
+* Address issues with PHIcalc from testing.  Removed extra rows from Excel import for data MBSS.PHI.  Added line to convert values to numeric inside MBSS.PHI.  (not complete)
 
-# v0.0.0.9003
-2017-04-21
+MBSStools v0.0.0.9003 (2017-04-21)
+================
 
 * FlowSum().  Added Error Handling for misidentified Channels.  Updated data MBSS.flow.
 
-# v0.0.0.9002
-2017-04-20
+MBSStools v0.0.0.9002 (2017-04-20)
+================
 
 * Flow sum calculation completed.  Included Channel Number as grouping variable but sum across channels to get the total site flow.
 
@@ -197,14 +215,14 @@ Version history.
 
 * PHI, tweak for created data.  Using Excel to build rda rather than txt file from the Excel.
 
-# v0.0.0.9001
-2017-03-29
+MBSStools v0.0.0.9001 (2017-03-29)
+================
 
 * Completed PHI calculation.
 
 
-# v0.0.0.9000
-2017-03-27
+MBSStools v0.0.0.9000 (2017-03-27)
+================
 
 * Created GitHub repository.
 

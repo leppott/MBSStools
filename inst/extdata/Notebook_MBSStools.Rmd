@@ -63,7 +63,8 @@ After creating the package reload it after restarting R within RStudio (Control+
 ```{r, eval=FALSE}
 # Restart R within RStudio:  Ctrl + Shift + F10
 library(MBSStools)
-?metric.scores  
+help(package="MBSStools")
+#?metric.scores  
 ```
 
 ## Including Data

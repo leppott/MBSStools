@@ -11,12 +11,18 @@ PHIcalc(fun.df, fun.names = c("SampID", "BioRegion", "Area_acres",
   "Erosn_SevL_03", "RoadDist_m"))
 }
 \arguments{
-\item{fun.df}{Data frame of data to be processed.  Must include the columns specified in the parameter fun.names.}
+\item{fun.df}{Data frame of data to be processed.  Must include the columns
+specified in the parameter fun.names.}
 
-\item{fun.names}{Column names; Optional. Defaults = c("SampID", "BioRegion", "Area_acres", "Remote_020", "Shading_0100", "EpiSub_020", "BankStab_020", "AvgRipWid_m50max", "InStrmHab_020", "InstrmWood_Num", "RiffQual_020", "Embedd_0100", "Erosn_ExtR_075", "Erosn_ExtL_075", "Erosn_SevR_03", "Erosn_SevL_03", "RoadDist_m")}
+\item{fun.names}{Column names; Optional. Defaults = c("SampID", "BioRegion",
+"Area_acres", "Remote_020", "Shading_0100", "EpiSub_020", "BankStab_020",
+"AvgRipWid_m50max", "InStrmHab_020", "InstrmWood_Num", "RiffQual_020",
+"Embedd_0100", "Erosn_ExtR_075", "Erosn_ExtL_075", "Erosn_SevR_03",
+"Erosn_SevL_03", "RoadDist_m")}
 }
 \value{
-Returns a dataframe of the original data with the metric scoring and PHI values.
+Returns a dataframe of the original data with the metric scoring and
+PHI values.
 }
 \description{
 Calculate MBSS Physical Habitat Index (PHI), Paul et al. 2003.
@@ -33,5 +39,3 @@ View(PHI)
 #datetime <- format(Sys.time(),"\%Y\%m\%d_\%H\%M\%S")
 #write.table(PHI,paste0("PHI_",datetime,".tab"),row.names=FALSE,sep="\\t")
 }
-\keyword{MBSS,}
-\keyword{PHI}

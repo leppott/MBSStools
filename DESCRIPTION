@@ -1,11 +1,15 @@
 Package: MBSStools
-Title: MBSS tool suite for calculations and data manipulation.
-Version: 1.0.2.9004
+Title: MBSS tool suite for calculations and data manipulation
+Description: Suite of tools for data manipulation and calculations for Maryland 
+    DNR MBSS program.  Includes functions for calculating FIBI, BIBI (MBSS 
+    genus), BIBI (MSW family), PHI, flow sums, ion contributions, and taxa 
+    distribution maps.
+Version: 1.0.2.9005
 Authors@R: c(
   person("Erik W.", "Leppo", email="Erik.Leppo@tetratech.com", role=c("aut","cre")),
   person("Ann","Roseberry Lincoln", role="ctb"),
   person("Matt","Ashton", role="dtc"))
-Description: Suite of tools for data manipulation and calculations for Maryland DNR MBSS program.
+Maintainer: Erik Leppo <Erik.Leppo@tetratech.com>
 Depends: R (>= 3.4.0)
 License: GPL-2
 Encoding: UTF-8
@@ -17,6 +21,7 @@ Imports:
 Suggests: 
     knitr,
     rmarkdown,
-    readxl
+    readxl,
+    XLConnect
 VignetteBuilder: knitr
 LazyData: true

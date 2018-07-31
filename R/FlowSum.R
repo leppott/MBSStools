@@ -1,9 +1,12 @@
 #' Flow Sum Calculation
 #'
-#' Calculate flow from field measurements.  All measurements are in meters and meters per second.
+#' Calculate flow from field measurements.  All measurements are in meters and
+#' meters per second.
 #' The final flow measurement is reports as cms and cubic feet per second (cfs).
-#' Generates error message for blank (null) entries for inputs for Lateral Location, Depth, and Velocity.
-#' In addition it checks for samples with more than one channel but have the same Channel Number.
+#' Generates error message for blank (null) entries for inputs for Lateral
+#' Location, Depth, and Velocity.
+#' In addition it checks for samples with more than one channel but have the
+#' same Channel Number.
 #'
 #' No special libraries are needed for this function.
 #'
@@ -11,16 +14,19 @@
 # Erik.Leppo@tetratech.com (EWL)
 # 20170419
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#' @param df Data frame of data to be processed.  Must include the columns specified in the parameter df1.names.
-#' @param df.names Column names; Optional. Defaults = c("SITEYR", "ChannelNum", "Lat_Loc_m", "Depth_m", "Velocity_m_s")
-#' @param returnType Returns the original data with cell velocity (cell) or a summary table of the sample velocities (sample); "sample" is the default.
+#' @param df Data frame of data to be processed.  Must include the columns
+#' specified in the parameter df1.names.
+#' @param df.names Column names; Optional. Defaults = c("SITEYR", "ChannelNum",
+#' "Lat_Loc_m", "Depth_m", "Velocity_m_s")
+#' @param returnType Returns the original data with cell velocity (cell) or a
+#' summary table of the sample velocities (sample); "sample" is the default.
 # @param SITEYR Unique identifier (Station/Site/Sample).
 # @param SumFlowChannelNum channel number (always 1).
 # @param Lat..Loc.m. Cross section profile distance measured in meters.
 # @param Depth..m. Measured depth in meters.
 # @param Velocity..m.s. Measured velocity in m/s.
-#' @return Returns the requested dataframe; the original data with the discharge by cell or by sample (default).
-#' @keywords MBSS, flow
+#' @return Returns the requested dataframe; the original data with the discharge
+#'  by cell or by sample (default).
 #' @examples
 #' # calculate flow
 #' flow.cell <- FlowSum(MBSS.flow,returnType="cell")
@@ -31,7 +37,8 @@
 #' # Example Save file (tab delimited text file)
 #' #datetime <- format(Sys.time(),"%Y%m%d_%H%M%S")
 #' #myYear <- "15"
-#' #write.table(flow.sample,paste0("SumFlow",myYear,"_",datetime,".tab"),row.names=FALSE,sep="\t")
+#' #write.table(flow.sample,paste0("SumFlow",myYear,"_",datetime,".tab"),
+#' row.names=FALSE,sep="\t")
 #' @export
 FlowSum <- function(df, df.names = c("SITEYR"
                                      , "ChannelNum"

@@ -1,14 +1,18 @@
 #' Calculate metric values
 #'
 #' This function calculates metric values for bugs and fish.
-#' Inputs are a data frame with SampleID and taxa with phylogenetic and autecological information
-#' (see below for required fields by community).
+#' Inputs are a data frame with SampleID and taxa with phylogenetic and
+#' autecological information (see below for required fields by community).
 #'
-#' No manipulations of the taxa are performed by this routine.  All benthic macroinvertebrate taxa should be identified to genus level.  Any non-count taxa should be identified in the "NonUnique" field as "N". To run the MSW genus level the taxa should be combined before calculating the metrics.
+#' No manipulations of the taxa are performed by this routine.  All benthic
+#' macroinvertebrate taxa should be identified to genus level.  Any non-count
+#' taxa should be identified in the "NonUnique" field as "N". To run the MSW
+#' genus level the taxa should be combined before calculating the metrics.
 #'
 #' Both
 #'
-#' * Index.Name = Name of index to be used; MBSS_Fish_2005, MBSS_Bugs_2005, MSW_Bugs_1999 (genus index).
+#' * Index.Name = Name of index to be used; MBSS_Fish_2005, MBSS_Bugs_2005,
+#' MSW_Bugs_1999 (genus index).
 #'
 #' Benthic Macroinvertebrates
 #'
@@ -20,13 +24,16 @@
 #'
 #' * N_TAXA = Number of taxon collected in sample.
 #'
-#' * EXCLUDE = Non-unique taxa (i.e., parent taxon with one or more children taxa present in sample).  "Y" = do not include in taxa richness metrics.
+#' * EXCLUDE = Non-unique taxa (i.e., parent taxon with one or more children
+#' taxa present in sample).  "Y" = do not include in taxa richness metrics.
 
-#' * STRATA_R = Benthic macroinvertebrate region (COASTAL, EPIEDMONT, or HIGHLAND).
+#' * STRATA_R = Benthic macroinvertebrate region (COASTAL, EPIEDMONT, or
+#' HIGHLAND).
 #'
 #' * Phylogenetic fields
 #'
-#' + (PHYLUM), CLASS, ORDER, FAMILY, GENUS, OTHER_TAXA, TRIBE, FFG, HABIT, FINALTOLVAL07
+#' + (PHYLUM), CLASS, ORDER, FAMILY, GENUS, OTHER_TAXA, TRIBE, FFG, HABIT,
+#' FINALTOLVAL07
 #'
 #' Valid values for FFG: col, fil, pre, scr, shr
 #'
@@ -58,16 +65,21 @@
 #'
 #' * TYPE = Fish group identifier (ALL CAPS); SCULPIN, DARTER, MADTOM, etc.
 #'
-#' * TROPHIC_MBSS = MBSS tropic status designations (ALL CAPS); OM, GE, IS, IV, etc.
+#' * TROPHIC_MBSS = MBSS tropic status designations (ALL CAPS); OM, GE, IS, IV,
+#' etc.
 #'
 #' * PTOLR = Pollution tolerance level (ALL CAPS); T, I, NO TYPE.
 #'
 #' The R library dplyr is required for this function.
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @param fun.DF Data frame of taxa (list required fields)
-#' @param fun.Community Community name for which to calculate metric values (bugs, fish, or algae)
-#' @param fun.MetricNames Optional vector of metric names to be returned.  If none are supplied then all will be returned.
-#' @param boo.Adjust Optional boolean value on whether to perform adjustments of values prior to scoring.  Default = FALSE but will always be TRUE for fish metrics.
+#' @param fun.Community Community name for which to calculate metric values
+#' (bugs, fish, or algae)
+#' @param fun.MetricNames Optional vector of metric names to be returned.  If
+#' none are supplied then all will be returned.
+#' @param boo.Adjust Optional boolean value on whether to perform adjustments of
+#'  values prior to scoring.  Default = FALSE but will always be TRUE for fish
+#'  metrics.
 #' @return data frame of SampleID and metric values
 #' @examples
 #' # Metrics, MBSS Index, Fish
@@ -75,7 +87,8 @@
 #' # Thresholds
 #' thresh <- metrics_scoring
 #' # get metric names for myIndex
-#' (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+#' (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,
+#' "Index.Name"]==myIndex,"Metric"]))))
 #' # Taxa Data
 #' myDF.Fish <- taxa_fish
 #' myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish)
@@ -87,10 +100,12 @@
 #' # Thresholds
 #' thresh <- metrics_scoring
 #' # get metric names for myIndex
-#' (myMetrics.Bugs.MBSS <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+#' (myMetrics.Bugs.MBSS <- as.character(droplevels(unique(thresh[thresh[,
+#' "Index.Name"]==myIndex,"Metric"]))))
 #' # Taxa Data
 #' myDF.Bugs.MBSS <- taxa_bugs_genus
-#' myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs", myMetrics.Bugs.MBSS)
+#' myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs",
+#' myMetrics.Bugs.MBSS)
 #' View(myMetric.Values.Bugs.MBSS)
 #'
 #' # Metrics, MSW Index, Benthic Macroinvertebrates, family
@@ -98,19 +113,23 @@
 #' # Thresholds
 #' thresh <- metrics_scoring
 #' # get metric names for myIndex
-#' (myMetrics.Bugs.MSW <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+#' (myMetrics.Bugs.MSW <- as.character(droplevels(unique(thresh[thresh[,
+#' "Index.Name"]==myIndex,"Metric"]))))
 #' # Taxa Data
 #' myDF.Bugs.MSW <- taxa_bugs_family
-#' myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs", myMetrics.Bugs.MSW)
+#' myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs",
+#' myMetrics.Bugs.MSW)
 #' View(myMetric.Values.Bugs.MSW)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~
 # # QC
 # ## Fish
 # myIndex <- "MBSS.2005.Fish"
 # thresh <- metrics_scoring
-# (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+# (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,
+# "Index.Name"]==myIndex,"Metric"]))))
 # myDF <- myDF.Fish
-# myMetric.Values.Fish <- metric.values(myDF.Fish, "SampleID", "fish", myMetrics.Fish, TRUE)
+# myMetric.Values.Fish <- metric.values(myDF.Fish, "SampleID", "fish",
+# myMetrics.Fish, TRUE)
 # fun.DF <- myDF.Fish
 # fun.SampID <- "SampleID"
 # fun.Community <- "fish"

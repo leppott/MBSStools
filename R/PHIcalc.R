@@ -8,28 +8,40 @@
 # Erik.Leppo@tetratech.com (EWL)
 # 20170327
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#' @param fun.df Data frame of data to be processed.  Must include the columns specified in the parameter fun.names.
-#' @param fun.names Column names; Optional. Defaults = c("SampID", "BioRegion", "Area_acres", "Remote_020", "Shading_0100", "EpiSub_020", "BankStab_020", "AvgRipWid_m50max", "InStrmHab_020", "InstrmWood_Num", "RiffQual_020", "Embedd_0100", "Erosn_ExtR_075", "Erosn_ExtL_075", "Erosn_SevR_03", "Erosn_SevL_03", "RoadDist_m")
+#' @param fun.df Data frame of data to be processed.  Must include the columns
+#' specified in the parameter fun.names.
+#' @param fun.names Column names; Optional. Defaults = c("SampID", "BioRegion",
+#' "Area_acres", "Remote_020", "Shading_0100", "EpiSub_020", "BankStab_020",
+#' "AvgRipWid_m50max", "InStrmHab_020", "InstrmWood_Num", "RiffQual_020",
+#' "Embedd_0100", "Erosn_ExtR_075", "Erosn_ExtL_075", "Erosn_SevR_03",
+#' "Erosn_SevL_03", "RoadDist_m")
 # @param fun.SampID Unique identifier (Station/Site/Sample).
 # @param fun.BioRegion Maryland Bioregion (Highlands, Piedmont, CoastalPlain).
 # @param fun.PHICalcYear 1994 or 2000 (2000 is the default but can ).
 # @param fun.Area_acres Watershed area (acres).
-# @param fun.Remote_020 Remoteness (0-20) [1994 only, Replaces with Road Distance].
+# @param fun.Remote_020 Remoteness (0-20) [1994 only, Replaces with Road
+# Distance].
 # @param fun.Shading_0100 Percent shading (0-100).
 # @param fun.EpiSub_020 Epifaunal Substrate (0-20).
-# @param fun.BankStab_020 Bank Stability (0-20) [1994 only, replaced with Erosion].
+# @param fun.BankStab_020 Bank Stability (0-20) [1994 only, replaced with
+# Erosion].
 # @param fun.AvgRipWid_m50max Average riparian zone width (meters, maximum of 50).
 # @param fun.InStrmHab_020 Instream habitat (0-20).
 # @param fun.InstrmWood_Num Tally of instream wood (number).
 # @param fun.RiffQual_020 Riffle quality (0-20).
 # @param fun.Embedd_0100 Percent embeddedness (0-100).
-# @param fun.Erosn_ExtR_075 Erosion, extent, right bank (0-75) [2000 only, replaces bank stability].
-# @param fun.Erosn_ExtL_075 Erosion, extent, left bank (0-75) [2000 only, replaces bank stability].
-# @param fun.Erosn_SevR_03 Erosion, severity, right bank (0-3) [2000 only, replaces bank stability].
-# @param fun.Erosn_SevL_03 Erosion, severity, left bank (0-3) [2000 only, replaces bank stability].
-# @param fun.RoadDist_m Distance to nearest road (meters) [2000 only, replaces remoteness].
-#' @return Returns a dataframe of the original data with the metric scoring and PHI values.
-#' @keywords MBSS, PHI
+# @param fun.Erosn_ExtR_075 Erosion, extent, right bank (0-75) [2000 only,
+# replaces bank stability].
+# @param fun.Erosn_ExtL_075 Erosion, extent, left bank (0-75) [2000 only,
+# replaces bank stability].
+# @param fun.Erosn_SevR_03 Erosion, severity, right bank (0-3) [2000 only,
+# replaces bank stability].
+# @param fun.Erosn_SevL_03 Erosion, severity, left bank (0-3) [2000 only,
+# replaces bank stability].
+# @param fun.RoadDist_m Distance to nearest road (meters) [2000 only,
+# replaces remoteness].
+#' @return Returns a dataframe of the original data with the metric scoring and
+#' PHI values.
 #' @examples
 #' # calculate PHI
 #' PHI <- PHIcalc(MBSS.PHI)
