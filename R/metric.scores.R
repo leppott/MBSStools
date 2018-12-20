@@ -34,6 +34,14 @@
 #' "Index.Name", "FIBISTRATA", thresh)
 #' # View Results
 #' View(Metrics.Fish.Scores)
+#' # Add Narrative
+#' myBreaks <- c(1:5)
+#' myLabels <- c("Very Poor", "Poor", "Fair", "Good")
+#' Metrics.Fish.Scores$IBI_Nar <- cut(Metrics.Fish.Scores$IBI
+#'                                    , breaks=myBreaks, labels=myLabels
+#'                                    , include.lowest=TRUE, right=FALSE, ordered_result=TRUE)
+#' # QC, IBI Numeric vs. Narrative
+#' table(Metrics.Fish.Scores$IBI, Metrics.Fish.Scores$IBI_Nar, useNA="ifany")
 #'
 #' # Metrics, Index, Benthic Macroinvertebrates, genus
 #' # (generate values then scores)
