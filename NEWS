@@ -3,7 +3,21 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2018-12-20 08:31:18
+    #> Last Update: 2019-02-21 14:37:27
+
+# MBSStools v1.0.2.9008 (2019-02-21)
+
+  - Revised scoring thresholds table, per MBSS. Issue \#23.
+  - metric.scores.R
+      - Update example code to match the MBSS metric names.
+      - Slight tweaking of QC check for column names.
+
+# MBSStools v1.0.2.9007 (2019-02-12)
+
+  - Shiny app, Issue \#22
+  - Include function to launch the Shiny app.
+      - runShiny
+      - Add to Vignette.
 
 # MBSStools v1.0.2.9006 (2017-07-31)
 

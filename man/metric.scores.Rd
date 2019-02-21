@@ -39,7 +39,7 @@ myIndex <- "MBSS.2005.Fish"
 thresh <- metrics_scoring
 # get metric names for myIndex
 (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,
-"Index.Name"]==myIndex,"Metric"]))))
+"Index.Name"]==myIndex,"MetricName.Other"]))))
 # Taxa Data
 myDF.Fish <- taxa_fish
 myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish,
@@ -66,7 +66,7 @@ myIndex <- "MBSS.2005.Bugs"
 thresh <- metrics_scoring
 # get metric names for myIndex
 (myMetrics.Bugs.MBSS <- as.character(droplevels(unique(thresh[thresh[,
-"Index.Name"]==myIndex,"Metric"]))))
+"Index.Name"]==myIndex,"MetricName.Other"]))))
 # Taxa Data
 myDF.Bugs.MBSS <- taxa_bugs_genus
 myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs",
@@ -94,7 +94,7 @@ myIndex <- "MSW.1999.Bugs"
 thresh <- metrics_scoring
 # get metric names for myIndex
 (myMetrics.Bugs.MSW <- as.character(droplevels(unique(thresh[thresh[,
-"Index.Name"]==myIndex,"Metric"]))))
+"Index.Name"]==myIndex,"MetricName.Other"]))))
 # Taxa Data
 myDF.Bugs.MSW <- taxa_bugs_family
 myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs",

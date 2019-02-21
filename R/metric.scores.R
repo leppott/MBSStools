@@ -23,7 +23,7 @@
 #' thresh <- metrics_scoring
 #' # get metric names for myIndex
 #' (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,
-#' "Index.Name"]==myIndex,"Metric"]))))
+#' "Index.Name"]==myIndex,"MetricName.Other"]))))
 #' # Taxa Data
 #' myDF.Fish <- taxa_fish
 #' myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish,
@@ -50,7 +50,7 @@
 #' thresh <- metrics_scoring
 #' # get metric names for myIndex
 #' (myMetrics.Bugs.MBSS <- as.character(droplevels(unique(thresh[thresh[,
-#' "Index.Name"]==myIndex,"Metric"]))))
+#' "Index.Name"]==myIndex,"MetricName.Other"]))))
 #' # Taxa Data
 #' myDF.Bugs.MBSS <- taxa_bugs_genus
 #' myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs",
@@ -78,7 +78,7 @@
 #' thresh <- metrics_scoring
 #' # get metric names for myIndex
 #' (myMetrics.Bugs.MSW <- as.character(droplevels(unique(thresh[thresh[,
-#' "Index.Name"]==myIndex,"Metric"]))))
+#' "Index.Name"]==myIndex,"MetricName.Other"]))))
 #' # Taxa Data
 #' myDF.Bugs.MSW <- taxa_bugs_family
 #' myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs",
@@ -95,7 +95,7 @@
 ## FISH
 # library(dplyr)
 #
-# DF_Metrics <- Metrics.Fish
+# DF_Metrics <- myMetric.Values.Fish
 # MetricNames <- myMetrics.Fish
 # IndexName <- "Index.Name"
 # IndexRegion <- "FIBISTRATA"
@@ -134,13 +134,34 @@ metric.scores <- function(DF_Metrics, MetricNames, IndexName, IndexRegion, DF_Th
   #if(missing(myValue)) {print "Error; Missing 'value'."}
   #if(missing(myMetric)) {print "Error; Missing 'metric name'."}
   #
-  # QC, Column Names
-  myFlds <- c("Index.Name", "Index.Region", "Metric")
-  # Error check on fields
-  if (length(myFlds)!=sum(myFlds %in% names(DF_Thresh))) {
-    myMsg <- paste0("Fields missing from input data frame.  Expecting: \n",paste(myFlds,sep="",collapse=", "),collapse="")
-    stop(myMsg)
+  boo_DEBUG <- FALSE
+  if(boo_DEBUG==TRUE){##IF~boo_DEBUG~START
+    DF_Metrics <- myMetric.Values.Fish
+    MetricNames <- myMetrics.Fish
+    IndexName <- "Index.Name"
+    IndexRegion <- "FIBISTRATA"
+    DF_Thresh <- thresh
+    #
+    a <- unique(as.matrix(DF_Metrics[,IndexName]))[1]
+    b <- unique(as.matrix(DF_Metrics[,IndexRegion]))[1]
+    c <- MetricNames[1]
+  }##IF~boo_DEBUG~END
+
+  # Rename columns based
+  if("Index.Name" %in% names(DF_Metrics)==FALSE){
+    DF_Metrics[,"Index.Name"] <- DF_Metrics[,IndexName]
   }
+  if("Index.Region" %in% names(DF_Metrics)==FALSE){
+    DF_Metrics[,"Index.Region"] <- DF_Metrics[,IndexRegion]
+  }
+
+  # # QC, Column Names
+  # myFlds <- c("Index.Name", "Index.Region", "Metric")
+  # # Error check on fields
+  # if (length(myFlds)!=sum(myFlds %in% names(DF_Thresh))) {
+  #   myMsg <- paste0("Fields missing from input data frame.  Expecting: \n",paste(myFlds,sep="",collapse=", "),collapse="")
+  #   stop(myMsg)
+  # }
   #
   # Add "SCORE" columns for each metric
   Score.MetricNames <- paste0("SC_",MetricNames)
@@ -151,7 +172,7 @@ metric.scores <- function(DF_Metrics, MetricNames, IndexName, IndexRegion, DF_Th
     for (b in unique(as.matrix(DF_Metrics[,IndexRegion]))) {##FOR.b.START
       for (c in MetricNames){##FOR.c.START
         # Thresholds (filter with dplyr)
-        fun.Thresh.myMetric <- dplyr::filter(DF_Thresh, Index.Name==a & Index.Region==b & Metric==c)
+        fun.Thresh.myMetric <- dplyr::filter(DF_Thresh, Index.Name==a & Index.Region==b & MetricName.Other==c)
         # QC
         #stopifnot(nrow(fun.Thresh.myMetric)==1)
         if(nrow(fun.Thresh.myMetric)!=1){

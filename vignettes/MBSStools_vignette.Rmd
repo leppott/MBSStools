@@ -522,3 +522,12 @@ myData <- MBSS.PHI
 PHI <- PHIcalc(myData)
 knitr::kable(head(PHI))
 ```
+
+# Shiny
+Included in the package is an example Shiny package to calculates the three IBI's for MBSS.
+
+```{r runShiny, echo=TRUE}
+library(MBSStools)
+runShiny()
+```
+
