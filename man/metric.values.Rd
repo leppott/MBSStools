@@ -50,7 +50,9 @@ Bug metric values assumes the following fields (all upper case)
 * N_TAXA = Number of taxon collected in sample.
 
 * EXCLUDE = Non-unique taxa (i.e., parent taxon with one or more children
-taxa present in sample).  "Y" = do not include in taxa richness metrics.
+taxa present in sample).  Logical field.  TRUE = do not include in taxa richness
+metrics.
+
 * STRATA_R = Benthic macroinvertebrate region (COASTAL, EPIEDMONT, or
 HIGHLAND).
 
@@ -103,7 +105,7 @@ myIndex <- "MBSS.2005.Fish"
 thresh <- metrics_scoring
 # get metric names for myIndex
 (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,
-"Index.Name"]==myIndex,"Metric"]))))
+"Index.Name"]==myIndex,"MetricName.Other"]))))
 # Taxa Data
 myDF.Fish <- taxa_fish
 myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish)
@@ -116,7 +118,7 @@ myIndex <- "MBSS.2005.Bugs"
 thresh <- metrics_scoring
 # get metric names for myIndex
 (myMetrics.Bugs.MBSS <- as.character(droplevels(unique(thresh[thresh[,
-"Index.Name"]==myIndex,"Metric"]))))
+"Index.Name"]==myIndex,"MetricName.Other"]))))
 # Taxa Data
 myDF.Bugs.MBSS <- taxa_bugs_genus
 myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs",
@@ -129,7 +131,7 @@ myIndex <- "MSW.1999.Bugs"
 thresh <- metrics_scoring
 # get metric names for myIndex
 (myMetrics.Bugs.MSW <- as.character(droplevels(unique(thresh[thresh[,
-"Index.Name"]==myIndex,"Metric"]))))
+"Index.Name"]==myIndex,"MetricName.Other"]))))
 # Taxa Data
 myDF.Bugs.MSW <- taxa_bugs_family
 myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs",

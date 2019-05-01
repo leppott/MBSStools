@@ -3,7 +3,25 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2019-02-21 14:37:27
+    #> Last Update: 2019-05-01 11:32:11
+
+# MBSStools v1.0.2.9009 (2019-05-01)
+
+  - Revise “EXCLUDE” column in benthic data from “Y” and “” to TRUE and
+    FALSE. Issue \#25.
+      - data
+          - taxa\_bugs\_family
+          - taxa\_bugs\_genus, ProcessData had additional issues that
+            weren’t present in prior versions.
+      - function; metric.values
+          - Function help text
+          - Example use “MetricName.Other” rather than “Metric” to get
+            pertinent metrics.
+          - Replace EXCLUDE\!=“Y” with EXCLUDE\!=TRUE
+  - Vignette
+      - Example for installing a package (line 51) had a typo.
+      - droplevels update for MetricName.Other (line 110, 161, and 187).
+      - Shiny example code, eval=FALSE
 
 # MBSStools v1.0.2.9008 (2019-02-21)
 
