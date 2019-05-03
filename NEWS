@@ -3,7 +3,16 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2019-05-01 11:32:11
+    #> Last Update: 2019-05-03 09:57:54
+
+# MBSStools v1.0.2.9010 (2019-05-01)
+
+  - Revise for staged install for R v3.6.0, Issue \#27
+      - DESCRIPTION
+          - StagedInstall: no
+      - Temporary fix. Still needs to be installed from a local file.
+  - Edits to Shiny App. Issue \#22.
+      - Incomplete.
 
 # MBSStools v1.0.2.9009 (2019-05-01)
 

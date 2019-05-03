@@ -3,6 +3,7 @@
 # Packages
 library(shiny)
 library(MBSStools)
+library(DT)
 
 # Drop-down boxes
 #MMIs <- c("BIBI_genus", "BIBI_family", "FIBI")

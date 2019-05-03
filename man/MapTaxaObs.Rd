@@ -5,8 +5,7 @@
 \title{Taxa Observation Maps}
 \usage{
 MapTaxaObs(obs, xWalk, dirMain = getwd(), onlymatches = TRUE,
-  dirData = "Data", dirGIS = "GIS", dirMaps = "Maps",
-  verbose = TRUE)
+  dirData = "Data", dirGIS = "GIS", dirMaps = "Maps", verbose = TRUE)
 }
 \arguments{
 \item{obs}{Excel file containing 3 columns: TaxaName, Latitude83, Longitude83}

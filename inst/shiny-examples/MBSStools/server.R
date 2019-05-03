@@ -10,6 +10,7 @@
 # Packages
 library(shiny)
 library(MBSStools)
+library(DT)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
@@ -35,16 +36,37 @@ shinyServer(function(input, output) {
     #          sep = input$sep, quote = input$quote)
   })##output$df_import~END
 
+  output$df_import_DT <- renderDT({
+    # input$df_import will be NULL initially. After the user selects
+    # and uploads a file, it will be a data frame with 'name',
+    # 'size', 'type', and 'datapath' columns. The 'datapath'
+    # column will contain the local filenames where the data can
+    # be found.
+
+    inFile <- input$fn_input
+
+    if (is.null(inFile)){
+      return(NULL)
+    }
+
+    read.csv(inFile$datapath, header = input$header,
+             sep = input$sep, quote = input$quote, stringsAsFactors = FALSE)
+
+    # read.table(file = inFile$datapath, header = input$header,
+    #          sep = input$sep, quote = input$quote)
+
+  })##output$df_import_DT~END
+
   # b_CalcMetVal ####
   # Calculate IBI from df_import
   observeEvent(input$b_CalcMetVal, {
     #
-    df_data <- 'df_import'
+    df_data <- 'df_import_DT'
 
     if (is.null(df_data))
       return(NULL)
 
-    df_data$Person <- "Erik"
+    #df_data$Person <- "Erik"
 
     write.csv(df_data, "MetVal.csv")
 
@@ -53,12 +75,12 @@ shinyServer(function(input, output) {
 
     # myIndex <- input$MMI
     # thresh <- MBSStools::metrics_scoring
-    # myMetrics <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"])))
-    #
+    # myMetrics <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"MetricNames.Other"])))
+    # #
     # myCommunity <- Community[match(myIndex, MMIs)]
-    #
+    # #
     # myMetric.Values <- metric.values(df_data, myCommunity, myMetrics)
-    #
+    # #
     # return(myMetric.Values)
 
   })##observeEvent~b_CalcIBI~END
@@ -79,7 +101,7 @@ shinyServer(function(input, output) {
 
     myIndex <- input$MMI
     thresh <- MBSStools::metrics_scoring
-    myMetrics <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"])))
+    myMetrics <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"MetricName.Other"])))
 
     myCommunity <- Community[match(myIndex, MMIs)]
 
@@ -105,7 +127,7 @@ shinyServer(function(input, output) {
 
     myIndex <- input$MMI
     thresh <- MBSStools::metrics_scoring
-    myMetrics <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"])))
+    myMetrics <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"MetricName.Other"])))
 
     myCommunity <- Community[match(myIndex, MMIs)]
 
@@ -127,14 +149,24 @@ shinyServer(function(input, output) {
 
 
     filename = function() {
-      paste(input$dataset, "_", format(Sys.time(), "%Y%m%d_%H%M%S"), ".csv", sep = "")
+      paste(input$dataset, "_", format(Sys.time(), "%Y%m%d_%H%M%S"), ".zip", sep = "")
     },
-    content = function(file) {
-      write.csv(datasetInput(), file, row.names = FALSE)
-      # Save Values
-      # Save Scores
+    content = function(fname) {##content~START
+      tmpdir <- tempdir()
+      setwd(tempdir())
+      fs <- c("input.csv", "metval.csv", "metsc.csv")
+      file.copy(inFile$datapath, "input.csv")
+      file.copy(inFile$datapath, "metval.csv")
+      file.copy(inFile$datapath, "metsc.csv")
+      # write.csv(datasetInput(), file="input.csv", row.names = FALSE)
+      # write.csv(datasetInput(), file="metval.csv", row.names = FALSE)
+      # write.csv(datasetInput(), file="metsc.csv", row.names = FALSE)
+
       # Create Zip file
-    }
+      zip(zipfile = fname, files=fs)
+      if(file.exists(paste0(fname, ".zip"))) {file.rename(paste0(fname, ".zip"), fname)}
+    }##content~END
+    , contentType = "application/zip"
   )##downloadData~END
 
 })##shinyServer~END

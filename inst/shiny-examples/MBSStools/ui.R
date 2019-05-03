@@ -10,6 +10,7 @@
 # Packages
 library(shiny)
 library(MBSStools)
+library(DT)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
@@ -20,7 +21,23 @@ shinyUI(fluidPage(
   # SideBar
   sidebarLayout(
     sidebarPanel(
-      h3("1. Load File")
+      # 0. Progress
+      h3("App Progress")
+      , p("1_LoadData, 2_CalcMetrics, 3_CalcIndex, 4_DownloadResults")
+      , h3("1. Load File")
+      , h4("Select file parameters")
+      , checkboxInput('header', 'Header', TRUE)
+      , radioButtons('sep', 'Separator',
+                     c(Comma=',',
+                       Semicolon=';',
+                       Tab='\t'),
+                     ',')
+      , radioButtons('quote', 'Quote',
+                     c(None='',
+                       'Double Quote'='"',
+                       'Single Quote'="'"),
+                     '"')
+      #, tags$hr()
       , fileInput('fn_input', 'Choose file to upload',
                 accept = c(
                   'text/csv',
@@ -31,19 +48,7 @@ shinyUI(fluidPage(
                   '.tsv'
                 )
       )##fileInput~END
-      , tags$hr()
-      , checkboxInput('header', 'Header', TRUE)
-      , radioButtons('sep', 'Separator',
-                   c(Comma=',',
-                     Semicolon=';',
-                     Tab='\t'),
-                   ',')
-      , radioButtons('quote', 'Quote',
-                   c(None='',
-                     'Double Quote'='"',
-                     'Single Quote'="'"),
-                   '"')
-      , tags$hr()
+      #, tags$hr()
       , h3("2. Calculate IBI")
       , selectInput("MMI", "Select an IBI to calculate:",
                     choices=MMIs)
@@ -57,12 +62,15 @@ shinyUI(fluidPage(
       , downloadButton("b_downloadData", "Download")
 
 
+
+
     )##sidebarPanel~END
     , mainPanel(
         tabsetPanel(type="tabs"
                     , tabPanel("Directions")
                     , tabPanel("Data, Import"
-                               , tableOutput('df_import'))
+                               #, tableOutput('df_import'))
+                               , dataTableOutput('df_import_DT'))
                     , tabPanel("Data, Metric Values"
                                , tableOutput('df_metric_values'))
                     , tabPanel("Data, Metric Scores"
