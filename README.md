@@ -3,7 +3,7 @@ README-MBSStools
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-    #> Last Update: 2019-05-17 11:34:05
+    #> Last Update: 2019-05-17 11:49:50
 
 ## Badges
 
@@ -28,7 +28,7 @@ MBSS program.
 ``` r
 library(devtools)  #install if needed
 Sys.setenv("TAR" = "internal") # needed for use with R v3.6.0
-install_github("leppott/MBSStools")
+install_github("leppott/MBSStools", force=TRUE, build_vignettes=TRUE)
 ```
 
 ## Purpose

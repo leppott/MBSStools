@@ -35,7 +35,7 @@ Installation
 ```{r, eval=FALSE}
 library(devtools)  #install if needed
 Sys.setenv("TAR" = "internal") # needed for use with R v3.6.0
-install_github("leppott/MBSStools")
+install_github("leppott/MBSStools", force=TRUE, build_vignettes=TRUE)
 ```
 
 Purpose

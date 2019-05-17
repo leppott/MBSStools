@@ -3,7 +3,12 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2019-05-17 11:38:42
+    #> Last Update: 2019-05-17 11:50:39
+
+# MBSStools v1.0.2.9012 (2019-05-17)
+
+  - README
+      - Update install example to ensure vignettes are installed.
 
 # MBSStools v1.0.2.9011 (2019-05-17)
 

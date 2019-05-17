@@ -17,6 +17,11 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.0.2.9012 (2019-05-17)
+================
+* README
+    + Update install example to ensure vignettes are installed.
+
 MBSStools v1.0.2.9011 (2019-05-17)
 ================
 * Update for R v3.6.0, Issue #27
