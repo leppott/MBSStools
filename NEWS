@@ -3,7 +3,22 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2019-05-03 09:57:54
+    #> Last Update: 2019-05-17 11:38:42
+
+# MBSStools v1.0.2.9011 (2019-05-17)
+
+  - Update for R v3.6.0, Issue \#27
+      - README
+          - Added extra line to make work devtools::install\_github()
+      - DESCRIPTION
+          - Remove StagedInstall: no
+  - README
+      - Update badges.
+
+# MBSStools v1.0.2.9010 (2019-05-01)
+
+  - Shiny app development, Issues \#22
+      - Not complete.
 
 # MBSStools v1.0.2.9010 (2019-05-01)
 

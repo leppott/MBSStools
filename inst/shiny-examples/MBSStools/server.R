@@ -11,6 +11,8 @@
 library(shiny)
 library(MBSStools)
 library(DT)
+library(ggplot2)
+library(plotly)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
@@ -168,5 +170,8 @@ shinyServer(function(input, output) {
     }##content~END
     , contentType = "application/zip"
   )##downloadData~END
+
+
+output$plot_IBI <- renderPlotly(ggplotly(plot_BIBI))
 
 })##shinyServer~END

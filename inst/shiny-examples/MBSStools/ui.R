@@ -11,6 +11,8 @@
 library(shiny)
 library(MBSStools)
 library(DT)
+library(ggplot2)
+library(plotly)
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
@@ -71,10 +73,14 @@ shinyUI(fluidPage(
                     , tabPanel("Data, Import"
                                #, tableOutput('df_import'))
                                , dataTableOutput('df_import_DT'))
+                    , tabPanel("Data QC"
+                               , h4("QC on the imported data.  Future implementation."))
                     , tabPanel("Data, Metric Values"
                                , tableOutput('df_metric_values'))
                     , tabPanel("Data, Metric Scores"
                                , tableOutput('df_metric_scores'))
+                    , tabPanel("Plot Results"
+                               , plotlyOutput("plot_IBI", , height = "90%"))
         )##tabsetPanel~END
     )##mainPanel~END
 

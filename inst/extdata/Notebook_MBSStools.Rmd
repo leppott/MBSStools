@@ -32,7 +32,7 @@ file.remove("NEWS.html")
 file.remove("NEWS.md")
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Library Name
-myLibrary <- "MBSStools" # "ContDataQC","MMIcalc","MMIcalcNV","MBSStools","XC95"
+myPkg <- "MBSStools" # "ContDataQC","MMIcalc","MMIcalcNV","MBSStools","XC95"
 # Load Library
 library(devtools)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -46,15 +46,15 @@ library(devtools)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Document, Install, and Reload Library
 ## Generate Documentation
-setwd(paste0("./",myLibrary))
+setwd(paste0("./", myPkg))
 devtools::document()
 ## Install New Package (locally)
 setwd("..") # return to root directory first
-devtools::install(myLibrary)
+devtools::install(myPkg, quick=FALSE, reload=TRUE, build_vignettes = TRUE)
 ## Reload library
-library(myLibrary,character.only = TRUE)
+library(myPkg, character.only = TRUE)
 # change wd back to package
-setwd(paste0("./",myLibrary))
+setwd(paste0("./", myPkg))
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 ```
 

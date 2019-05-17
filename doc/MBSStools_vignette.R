@@ -3,8 +3,8 @@
 #  library(devtools)
 #  install_github("leppott/MBSStools")
 
-## ----insall example 2, eval=FALSE----------------------------------------
-#  insall.package("dplyr")
+## ----install example 2, eval=FALSE---------------------------------------
+#  install.package("dplyr")
 
 ## ----IBI Fish, echo=TRUE-------------------------------------------------
 # Metrics, Fish
@@ -14,7 +14,7 @@ myIndex <- "MBSS.2005.Fish"
 # Thresholds
 thresh <- metrics_scoring
 # get metric names for myIndex
-(myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+(myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"MetricName.Other"]))))
 # Taxa Data
 myDF.Fish <- taxa_fish
 myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish, TRUE)
@@ -31,7 +31,7 @@ myIndex <- "MBSS.2005.Bugs"
 # Thresholds
 thresh <- metrics_scoring
 # get metric names for myIndex
-(myMetrics.Bugs.MBSS <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+(myMetrics.Bugs.MBSS <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"MetricName.Other"]))))
 # Taxa Data
 myDF.Bugs.MBSS <- taxa_bugs_genus
 myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs", myMetrics.Bugs.MBSS)
@@ -54,7 +54,7 @@ myIndex <- "MSW.1999.Bugs"
 # Thresholds
 thresh <- metrics_scoring
 # get metric names for myIndex
-(myMetrics.Bugs.MSW <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"Metric"]))))
+(myMetrics.Bugs.MSW <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"MetricName.Other"]))))
 # Taxa Data
 myDF.Bugs.MSW <- taxa_bugs_family
 myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs", myMetrics.Bugs.MSW)
@@ -89,15 +89,12 @@ library(XLConnect)
 # data files
 obs <- "AllFish_95to16.xls"
 xWalk <- "TaxaMapsCrossWalk20170731.xlsx"
-setwd("..") #resets to vignette dir when run as code chunk
-dirMain <- getwd()  
-dirData = "Data"
 
-all.taxa <- paste(dirMain,dirData,obs,sep="/")
-taxa.lu <- paste(dirMain,dirData,xWalk,sep="/")
+all.taxa <- system.file("extdata", obs, package = "MBSStools")
+taxa.lu <- system.file("extdata", xWalk, package = "MBSStools")
 
 # Read in Taxon observations
-df.taxa.obs <- readxl::read_excel(all.taxa,sheet=1,col_names=TRUE,skip=0)
+df.taxa.obs <- readxl::read_excel(all.taxa, sheet=1,col_names=TRUE,skip=0)
 df.taxa.obs <- as.data.frame(df.taxa.obs)
 df.taxa.obs[,1] <- tolower(df.taxa.obs[,1])
 #df.taxa.obs <- as.data.frame(cbind(tolower(df.taxa.obs[,"TaxaName"]), df.taxa.obs[,2:3]))
@@ -112,12 +109,9 @@ library(XLConnect)
 # data files
 obs <- "AllFish_95to16.xls"
 xWalk <- "TaxaMapsCrossWalk20170731.xlsx"
-setwd("..") #resets to vignette dir when run as code chunk
-dirMain <- getwd()
-dirData = "Data"
 
-all.taxa <- paste(dirMain,dirData,obs,sep="/")
-taxa.lu <- paste(dirMain,dirData,xWalk,sep="/")
+all.taxa <- system.file("extdata", obs, package = "MBSStools")
+taxa.lu <- system.file("extdata", xWalk, package = "MBSStools")
 
 # Read in TaxaMapsCrossWalk.xlsx
 df.lu.taxa <- readxl::read_excel(taxa.lu,sheet=1,col_names=TRUE,skip=0)
@@ -141,99 +135,121 @@ head(df.lu.taxa)
 #  # Create maps
 #  MapTaxaObs(Obs, XWalk, wd, onlymatches = FALSE)
 
-## ----TaxaMap Brown Trout, echo=FALSE, results="hide", fig.show='hold', warnings=FALSE----
-# example map.
-# include only brown trout
-# brntrout.png
-# assume already created directories
-
-## library
-library(XLConnect)
-library(rgdal)
-
-# data files
-obs <- "AllFish_95to16.xls"
-xWalk <- "TaxaMapsCrossWalk20170731.xlsx"
-oldwd <- getwd()
-setwd("..") #resets to vignette dir when run as code chunk
-dirMain <- getwd()  
-dirData = "Data"
-dirGIS = "GIS"
-verbose = TRUE
-onlymatches = TRUE
-
-all.taxa <- paste(dirMain,dirData,obs,sep="/")
-taxa.lu <- paste(dirMain,dirData,xWalk,sep="/")
-
-# Read in Taxon observations
-df.taxa.obs <- readxl::read_excel(all.taxa,sheet=1,col_names=TRUE,skip=0)
-df.taxa.obs <- as.data.frame(df.taxa.obs)
-df.taxa.obs[,1] <- tolower(df.taxa.obs[,1])
-#df.taxa.obs <- as.data.frame(cbind(tolower(df.taxa.obs[,"TaxaName"]), df.taxa.obs[,2:3]))
-colnames(df.taxa.obs)[1] <- "CommonName"
-
-## Trim to browntrout
-df.taxa.obs <- df.taxa.obs[df.taxa.obs[,"CommonName"]=="brown trout",]
-
-
-# Read in TaxaMapsCrossWalk.xlsx
-df.lu.taxa <- readxl::read_excel(taxa.lu,sheet=1,col_names=TRUE,skip=0)
-df.lu.taxa <- as.data.frame(df.lu.taxa[,c("CommonName","MapName")])
-df.lu.taxa[,"CommonName"] <- tolower(df.lu.taxa[,"CommonName"])
-# df.lu.taxa <- as.data.frame(cbind(tolower(df.lu.taxa[,"CommonName"]),df.lu.taxa[,"MapName"]))
-# colnames(df.lu.taxa)[1:2] <- c("CommonName","MapName")
-
- # 4. Munge Data ####
-    # Compare TaxaName to CommonName
-    taxa.names <- as.vector(df.lu.taxa[,"CommonName"])
-    matches <- as.vector(df.taxa.obs[,"CommonName"]) %in% taxa.names
-    df.taxa.nomatch <- as.data.frame(unique(sort(df.taxa.obs[,"CommonName"][!matches])))
-    colnames(df.taxa.nomatch)[1] <- "CommonName"
-    df.taxa.match <- as.data.frame(unique(sort(df.taxa.obs[,"CommonName"][matches])))
-    colnames(df.taxa.match)[1] <- "CommonName"
-
-    #if (onlymatches == TRUE) {
-        # Create a data frame of common names and filenames for matching taxa
-        map.taxa <- subset(df.lu.taxa, CommonName %in% df.taxa.match[,"CommonName"],
-                           select = c(CommonName,MapName))
-    
-    # 5. Mapping ####
-    ppi <- 72
-    #dsn<-paste(dirMain,dirGIS,sep="/")
-    dsn <- file.path(dirMain, dirGIS)
-    state     <- rgdal::readOGR(dsn = dsn, layer = "MD_State_Boundary", verbose=verbose)
-    coastline <- rgdal::readOGR(dsn = dsn, layer = "MD_Coast_Hydrology", verbose=verbose)
-    counties  <- rgdal::readOGR(dsn = dsn, layer = "MD_Boundary_County_Detailed", verbose=verbose)
-
-    i<-1
-    
-    taxon <- as.character(map.taxa$CommonName[i])
-    
-    
-      filename <- map.taxa$MapName[i]
-      df.taxon.sites <- subset(df.taxa.obs, df.taxa.obs[,"CommonName"]==taxon)
-      df.taxon.sites <- subset(df.taxon.sites, !is.na(df.taxon.sites["Latitude83"]))
-    
-      
-      plot(state, col="white", border="gray")
-        plot(coastline, add = TRUE, col="light blue", border=FALSE)
-        plot(counties, add = TRUE, col="white", border="darkslategray", lwd=0.5)
-        #xy <- df.taxon.sites[,2:3]
-        proj.sites <- rgdal::project(cbind(df.taxon.sites$Longitude83,df.taxon.sites$Latitude83),
-                              "+proj=lcc +lat_1=39.45 +lat_2=38.3 +lat_0=37.66666666666666 +lon_0=-77
-                +x_0=400000 +y_0=0 +datum=NAD83 +units=m +no_defs")
-        points(proj.sites[,1], proj.sites[,2], pch=21, col="black", bg="green", cex=1.0)
-        
-        
- #reset old working directory
- setwd <- oldwd
+## ----TaxaMap Brown Trout, echo=FALSE, results="hide", fig.show='hold', warnings=FALSE, eval=FALSE----
+#  # example map.
+#  # include only brown trout
+#  # brntrout.png
+#  # assume already created directories
+#  
+#  ## library
+#  library(XLConnect)
+#  library(rgdal)
+#  
+#  
+#  
+#  # Set Working Directory
+#  wd <- getwd()
+#  # Create Example Data if Needed
+#  ## Create Directories
+#  myDir.create <- file.path(wd,"Data")
+#  ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
+#  myDir.create <- file.path(wd,"GIS")
+#  ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
+#  myDir.create <- file.path(wd,"Maps")
+#  ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
+#  ## Create Data
+#  ### Taxa Data
+#  myFiles <- c("AllFish_95to16.xls", "TaxaMapsCrossWalk20170731.xlsx")
+#  file.copy(file.path(path.package("MBSStools"),"extdata",myFiles),file.path(wd,"Data",myFiles))
+#  ### GIS
+#  unzip(file.path(path.package("MBSStools"),"extdata","MD_GIS.zip"),exdir=file.path(wd,"GIS"))
+#  
+#  
+#  
+#  # data files
+#  obs <- "AllFish_95to16.xls"
+#  xWalk <- "TaxaMapsCrossWalk20170731.xlsx"
+#  
+#  oldwd <- getwd()
+#  setwd("..") #resets to vignette dir when run as code chunk
+#  dirMain <- getwd()
+#  dirData = "Data"
+#  dirGIS = "GIS"
+#  verbose = TRUE
+#  onlymatches = TRUE
+#  
+#  all.taxa <- system.file("extdata", obs, package = "MBSStools")
+#  taxa.lu <- system.file("extdata", xWalk, package = "MBSStools")
+#  
+#  # Read in Taxon observations
+#  df.taxa.obs <- readxl::read_excel(all.taxa,sheet=1,col_names=TRUE,skip=0)
+#  df.taxa.obs <- as.data.frame(df.taxa.obs)
+#  df.taxa.obs[,1] <- tolower(df.taxa.obs[,1])
+#  #df.taxa.obs <- as.data.frame(cbind(tolower(df.taxa.obs[,"TaxaName"]), df.taxa.obs[,2:3]))
+#  colnames(df.taxa.obs)[1] <- "CommonName"
+#  
+#  ## Trim to browntrout
+#  df.taxa.obs <- df.taxa.obs[df.taxa.obs[,"CommonName"]=="brown trout",]
+#  
+#  
+#  # Read in TaxaMapsCrossWalk.xlsx
+#  df.lu.taxa <- readxl::read_excel(taxa.lu,sheet=1,col_names=TRUE,skip=0)
+#  df.lu.taxa <- as.data.frame(df.lu.taxa[,c("CommonName","MapName")])
+#  df.lu.taxa[,"CommonName"] <- tolower(df.lu.taxa[,"CommonName"])
+#  # df.lu.taxa <- as.data.frame(cbind(tolower(df.lu.taxa[,"CommonName"]),df.lu.taxa[,"MapName"]))
+#  # colnames(df.lu.taxa)[1:2] <- c("CommonName","MapName")
+#  
+#   # 4. Munge Data ####
+#      # Compare TaxaName to CommonName
+#      taxa.names <- as.vector(df.lu.taxa[,"CommonName"])
+#      matches <- as.vector(df.taxa.obs[,"CommonName"]) %in% taxa.names
+#      df.taxa.nomatch <- as.data.frame(unique(sort(df.taxa.obs[,"CommonName"][!matches])))
+#      colnames(df.taxa.nomatch)[1] <- "CommonName"
+#      df.taxa.match <- as.data.frame(unique(sort(df.taxa.obs[,"CommonName"][matches])))
+#      colnames(df.taxa.match)[1] <- "CommonName"
+#  
+#      #if (onlymatches == TRUE) {
+#          # Create a data frame of common names and filenames for matching taxa
+#          map.taxa <- subset(df.lu.taxa, CommonName %in% df.taxa.match[,"CommonName"],
+#                             select = c(CommonName,MapName))
+#  
+#      # 5. Mapping ####
+#      ppi <- 72
+#      #dsn<-paste(dirMain,dirGIS,sep="/")
+#      dsn <- file.path(dirMain, dirGIS)
+#      state     <- rgdal::readOGR(dsn = dsn, layer = "MD_State_Boundary", verbose=verbose)
+#      coastline <- rgdal::readOGR(dsn = dsn, layer = "MD_Coast_Hydrology", verbose=verbose)
+#      counties  <- rgdal::readOGR(dsn = dsn, layer = "MD_Boundary_County_Detailed", verbose=verbose)
+#  
+#      i<-1
+#  
+#      taxon <- as.character(map.taxa$CommonName[i])
+#  
+#  
+#        filename <- map.taxa$MapName[i]
+#        df.taxon.sites <- subset(df.taxa.obs, df.taxa.obs[,"CommonName"]==taxon)
+#        df.taxon.sites <- subset(df.taxon.sites, !is.na(df.taxon.sites["Latitude83"]))
+#  
+#  
+#        plot(state, col="white", border="gray")
+#          plot(coastline, add = TRUE, col="light blue", border=FALSE)
+#          plot(counties, add = TRUE, col="white", border="darkslategray", lwd=0.5)
+#          #xy <- df.taxon.sites[,2:3]
+#          proj.sites <- rgdal::project(cbind(df.taxon.sites$Longitude83,df.taxon.sites$Latitude83),
+#                                "+proj=lcc +lat_1=39.45 +lat_2=38.3 +lat_0=37.66666666666666 +lon_0=-77
+#                  +x_0=400000 +y_0=0 +datum=NAD83 +units=m +no_defs")
+#          points(proj.sites[,1], proj.sites[,2], pch=21, col="black", bg="green", cex=1.0)
+#  
+#  
+#   #reset old working directory
+#   setwd <- oldwd
 
 ## ----Discharge, eval=FALSE-----------------------------------------------
 #  library(MBSStools)
 #  # data
 #  MBSS.flow <- MBSS.flow
 #  # calculate flow
-#  flow.cell <- FlowSum(MBSS.flow,returnType="cell")
+#  flow.cell <- FlowSum(MBSS.flow, returnType="cell")
 #  flow.sample <- FlowSum(MBSS.flow)
 #  # examine data
 #  View(flow.cell)
@@ -306,4 +322,8 @@ myData <- MBSS.PHI
 # calculate PHI
 PHI <- PHIcalc(myData)
 knitr::kable(head(PHI))
+
+## ----runShiny, echo=TRUE, eval=FALSE-------------------------------------
+#  library(MBSStools)
+#  runShiny()
 
