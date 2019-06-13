@@ -3,7 +3,11 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2019-06-13 16:10:53
+    #> Last Update: 2019-06-13 16:18:04
+
+# MBSStools v1.1 (2019-06-13)
+
+  - Shiny release version
 
 # MBSStools v1.0.2.9015 (2019-06-13)
 
