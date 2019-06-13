@@ -44,19 +44,19 @@ options(shiny.maxRequestSize = 10*1024^2)
 
 # https://stackoverflow.com/questions/51292957/is-there-a-way-to-open-a-users-vignette-in-a-shiny-link
 # Function to get link to a package Vignette
-get_vignette_link <- function(...) {
-  x <- vignette(...)
-  if (nzchar(out <- x$PDF)) {
-    ext <- tools::file_ext(out)
-    port <- if (tolower(ext) == "html")
-      tools::startDynamicHelp(NA)
-    else 0L
-    if (port > 0L) {
-      out <- sprintf("http://127.0.0.1:%d/library/%s/doc/%s",
-                     port, basename(x$Dir), out)
-      return(out)
-    }
-  }
-  stop("no html help found")
-}
+# get_vignette_link <- function(...) {
+#   x <- vignette(...)
+#   if (nzchar(out <- x$PDF)) {
+#     ext <- tools::file_ext(out)
+#     port <- if (tolower(ext) == "html")
+#       tools::startDynamicHelp(NA)
+#     else 0L
+#     if (port > 0L) {
+#       out <- sprintf("http://127.0.0.1:%d/library/%s/doc/%s",
+#                      port, basename(x$Dir), out)
+#       return(out)
+#     }
+#   }
+#   stop("no html help found")
+# }
 

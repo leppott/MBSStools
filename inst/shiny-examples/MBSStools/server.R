@@ -24,10 +24,13 @@ shinyServer(function(input, output) {
   output$fn_input_display <- renderText({input$fn_input})
 
 
-  output$vig <- renderUI({
-    a("MBSStools vignette",
-      href=get_vignette_link("MBSStools_vignette", package="MBSStools"))
-  })
+  # output$vig <- renderUI({
+  #   # a("MBSStools vignette",
+  #   #   href=get_vignette_link("MBSStools_vignette", package="MBSStools"))
+  #   #includeHTML(file.path(".", "www", "MBSStools_vignette.html"))
+  #   a("MBSStools vignette",
+  #     href=file.path(".", "www", "MBSStools_vignette.html"))
+  # })
 
 
   # df_import ####

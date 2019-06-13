@@ -17,6 +17,11 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.0.2.9015 (2019-06-13)
+================
+* Shiny app, Issue #22
+    + Remove link to package vignette (doesn't work on Shiny.io)
+
 MBSStools v1.0.2.9014 (2019-06-13)
 ================
 * Additional packages to Suggests for the Shiny app, Issue #22

@@ -26,7 +26,7 @@ shinyUI(fluidPage(
     sidebarPanel(
       # 0. Progress
       h3("App Steps")
-      , htmlOutput("vig")
+      # , htmlOutput("vig")
       #, p("1_LoadData, 2_CalcMetrics, 3_CalcIndex, 4_DownloadResults")
       , h3("1. Load File")
       , h4("Select file parameters")
