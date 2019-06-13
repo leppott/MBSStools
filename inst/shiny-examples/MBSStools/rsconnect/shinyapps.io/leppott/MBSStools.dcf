@@ -1,0 +1,13 @@
+name: MBSStools
+title: MBSStools
+username:
+account: leppott
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 980188
+bundleId: 2151772
+url: https://leppott.shinyapps.io/MBSStools/
+when: 1560452542.90686
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: Results/data_import.tsv|Results/example_fish.tsv

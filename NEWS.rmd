@@ -17,6 +17,10 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.0.2.9013 (2019-06-13)
+================
+* Complete Shiny app, Issue #22
+
 MBSStools v1.0.2.9012 (2019-05-17)
 ================
 * README
@@ -34,7 +38,7 @@ MBSStools v1.0.2.9011 (2019-05-17)
 
 MBSStools v1.0.2.9010 (2019-05-01)
 ================
-* Shiny app development, Issues #22
+* Shiny app development, Issue #22
     + Not complete.
 
 MBSStools v1.0.2.9010 (2019-05-01)
