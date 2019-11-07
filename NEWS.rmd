@@ -17,6 +17,11 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.1.0.9001 (2019-06-13)
+================
+* Add pkgdown website.
+    + Examples failed for FlowSum and IonContrib.
+
 MBSStools v1.1 (2019-06-13)
 ================
 * Shiny release version

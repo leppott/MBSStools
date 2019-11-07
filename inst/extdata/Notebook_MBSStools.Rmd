@@ -28,7 +28,7 @@ Use the code below to create the package.  Assumes you are in the development pa
 # Render then Copy NEWS so picked up in help
 rmarkdown::render("NEWS.rmd", "all")
 file.copy("NEWS.md", "NEWS", overwrite = TRUE)
-file.remove("NEWS.html")
+#file.remove("NEWS.html")
 file.remove("NEWS.md")
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Library Name
