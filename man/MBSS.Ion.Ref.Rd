@@ -4,7 +4,9 @@
 \name{MBSS.Ion.Ref}
 \alias{MBSS.Ion.Ref}
 \title{MBSS.Ion.Ref}
-\format{a data frame with 13 observations and 8 variables:}
+\format{
+a data frame with 13 observations and 8 variables:
+}
 \source{
 Reference values for ion contribution calculations.
 }

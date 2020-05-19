@@ -4,8 +4,12 @@
 \alias{metric.values}
 \title{Calculate metric values}
 \usage{
-metric.values(fun.DF, fun.Community, fun.MetricNames = NULL,
-  boo.Adjust = FALSE)
+metric.values(
+  fun.DF,
+  fun.Community,
+  fun.MetricNames = NULL,
+  boo.Adjust = FALSE
+)
 }
 \arguments{
 \item{fun.DF}{Data frame of taxa (list required fields)}

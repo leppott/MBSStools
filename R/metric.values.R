@@ -126,15 +126,17 @@
 # ## Fish
 # myIndex <- "MBSS.2005.Fish"
 # thresh <- metrics_scoring
-# (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,
-# "Index.Name"]==myIndex,"Metric"]))))
-# myDF <- myDF.Fish
-# myMetric.Values.Fish <- metric.values(myDF.Fish, "SampleID", "fish",
-# myMetrics.Fish, TRUE)
-# fun.DF <- myDF.Fish
-# fun.SampID <- "SampleID"
+# (myMetrics.Fish <- as.character(
+#   droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"MetricName.Other"]))))
+# myDF <- taxa_fish # myDF.Fish
+# # myMetric.Values.Fish <- metric.values(myDF, "SampleID", "fish",
+# #                                       myMetrics.Fish, TRUE)
+#
+# fun.DF <- taxa_fish #myDF.Fish
 # fun.Community <- "fish"
+# fun.SampID <- "SampleID"
 # fun.MetricNames <- myMetrics.Fish
+# boo.Adjust <- FALSE
 #~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @export
 metric.values <- function(fun.DF, fun.Community, fun.MetricNames=NULL, boo.Adjust=FALSE){##FUNCTION.metric.values.START
@@ -386,7 +388,8 @@ metric.values.fish <- function(myDF, SampleID, MetricNames=NULL, boo.Adjust){##F
     myDF[,i] <- toupper(myDF[,i])
   }
   # Calculate Metrics (could have used pipe, %>%)
-  met.val <- dplyr::summarise(dplyr::group_by(myDF, Index.Name, SITE, FIBISTRATA, ACREAGE, LEN_SAMP, AVWID)
+  met.val <- dplyr::summarise(dplyr::group_by(myDF, Index.Name, SITE, FIBISTRATA
+                                              , ACREAGE, LEN_SAMP, AVWID)
                        #
                        # MBSS 2005, 11 metrics
                        # (can do metrics as one step but MBSS output has numerator so will get that as well)
@@ -464,6 +467,11 @@ metric.values.fish <- function(myDF, SampleID, MetricNames=NULL, boo.Adjust){##F
                        #
   )## met.val.END
   #
+  # 2020-05-19, Error with R v4.0 if keep as tibble
+  # Errors in "Adjusted" section below.
+  # If convert from tibble to dataframe it works fine
+  met.val <- data.frame(met.val)
+
   # replace NA with 0
   met.val[is.na(met.val)] <- 0
   #
@@ -490,14 +498,14 @@ metric.values.fish <- function(myDF, SampleID, MetricNames=NULL, boo.Adjust){##F
       # Expected constants
       ## m
       met.val[,"NUMBENTSP_m"] <- NA
-      met.val[,"NUMBENTSP_m"][met.val[,"FIBISTRATA"]=="COASTAL"]   <- 1.69
-      met.val[,"NUMBENTSP_m"][met.val[,"FIBISTRATA"]=="EPIEDMONT"] <- 1.25
-      met.val[,"NUMBENTSP_m"][met.val[,"FIBISTRATA"]=="HIGHLAND"]  <- 1.23
+      met.val[,"NUMBENTSP_m"][met.val[, "FIBISTRATA"] == "COASTAL"]   <- 1.69
+      met.val[,"NUMBENTSP_m"][met.val[, "FIBISTRATA"] == "EPIEDMONT"] <- 1.25
+      met.val[,"NUMBENTSP_m"][met.val[, "FIBISTRATA"] == "HIGHLAND"]  <- 1.23
       ## b
       met.val[,"NUMBENTSP_b"] <- NA
-      met.val[,"NUMBENTSP_b"][met.val[,"FIBISTRATA"]=="COASTAL"]   <- -3.33
-      met.val[,"NUMBENTSP_b"][met.val[,"FIBISTRATA"]=="EPIEDMONT"] <- -2.36
-      met.val[,"NUMBENTSP_b"][met.val[,"FIBISTRATA"]=="HIGHLAND"]  <- -2.35
+      met.val[,"NUMBENTSP_b"][met.val[, "FIBISTRATA"] == "COASTAL"]   <- -3.33
+      met.val[,"NUMBENTSP_b"][met.val[, "FIBISTRATA"] == "EPIEDMONT"] <- -2.36
+      met.val[,"NUMBENTSP_b"][met.val[, "FIBISTRATA"] == "HIGHLAND"]  <- -2.35
       # Calc Expected
       met.val[,"NUMBENTSP_Exp"] <- (met.val[,"NUMBENTSP_m"] * log10(met.val[,"ACREAGE"])) + met.val[,"NUMBENTSP_b"]
       # Calc Adjusted

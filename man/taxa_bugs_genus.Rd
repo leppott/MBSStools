@@ -4,7 +4,9 @@
 \name{taxa_bugs_genus}
 \alias{taxa_bugs_genus}
 \title{taxa_bugs_genus}
-\format{a dataframe with 5066 observations and 20 variables:}
+\format{
+a dataframe with 5066 observations and 20 variables:
+}
 \source{
 MBSS 2016 benthic macroinvertebrate genus data.
 }

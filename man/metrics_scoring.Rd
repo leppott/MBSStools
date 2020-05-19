@@ -4,7 +4,9 @@
 \name{metrics_scoring}
 \alias{metrics_scoring}
 \title{metrics_scoring}
-\format{a dataframe with 69 observations and 8 variables:}
+\format{
+a dataframe with 69 observations and 8 variables:
+}
 \source{
 Reference scoring thresholds for BIBI and FIBI, Southerland et al. 2005.
 }

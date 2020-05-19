@@ -4,7 +4,9 @@
 \name{taxa_bugs_family}
 \alias{taxa_bugs_family}
 \title{taxa_bugs_family}
-\format{a dataframe with 2749 observations and 20 variables:}
+\format{
+a dataframe with 2749 observations and 20 variables:
+}
 \source{
 MBSS 2016 benthic macroinvertebrate saved as MSW family data.
 }

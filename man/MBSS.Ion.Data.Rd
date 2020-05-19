@@ -4,7 +4,9 @@
 \name{MBSS.Ion.Data}
 \alias{MBSS.Ion.Data}
 \title{MBSS.Ion.Data}
-\format{a data frame with 41 observations and 14 variables:}
+\format{
+a data frame with 41 observations and 14 variables:
+}
 \source{
 December 2106 data
 }

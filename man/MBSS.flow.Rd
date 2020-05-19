@@ -4,7 +4,9 @@
 \name{MBSS.flow}
 \alias{MBSS.flow}
 \title{MBSS.flow}
-\format{a data frame with 2,686 observations and 5 variables:}
+\format{
+a data frame with 2,686 observations and 5 variables:
+}
 \source{
 Example flow data for 2015
 }

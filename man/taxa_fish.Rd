@@ -4,7 +4,9 @@
 \name{taxa_fish}
 \alias{taxa_fish}
 \title{taxa_fish}
-\format{a dataframe with 1693 observations and 15 variables:}
+\format{
+a dataframe with 1693 observations and 15 variables:
+}
 \source{
 MBSS 2016 fish data.
 }

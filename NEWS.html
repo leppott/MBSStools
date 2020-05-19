@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style type="text/css">
+@font-face {
+font-family: octicons-link;
+src: url(data:font/woff;charset=utf-8;base64,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) format('woff');
+}
+body {
+-webkit-text-size-adjust: 100%;
+text-size-adjust: 100%;
+color: #333;
+font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+font-size: 16px;
+line-height: 1.6;
+word-wrap: break-word;
+}
+a {
+background-color: transparent;
+}
+a:active,
+a:hover {
+outline: 0;
+}
+strong {
+font-weight: bold;
+}
+h1 {
+font-size: 2em;
+margin: 0.67em 0;
+}
+img {
+border: 0;
+}
+hr {
+box-sizing: content-box;
+height: 0;
+}
+pre {
+overflow: auto;
+}
+code,
+kbd,
+pre {
+font-family: monospace, monospace;
+font-size: 1em;
+}
+input {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+html input[disabled] {
+cursor: default;
+}
+input {
+line-height: normal;
+}
+input[type="checkbox"] {
+box-sizing: border-box;
+padding: 0;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+td,
+th {
+padding: 0;
+}
+* {
+box-sizing: border-box;
+}
+input {
+font: 13px / 1.4 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+a {
+color: #4078c0;
+text-decoration: none;
+}
+a:hover,
+a:active {
+text-decoration: underline;
+}
+hr {
+height: 0;
+margin: 15px 0;
+overflow: hidden;
+background: transparent;
+border: 0;
+border-bottom: 1px solid #ddd;
+}
+hr:before {
+display: table;
+content: "";
+}
+hr:after {
+display: table;
+clear: both;
+content: "";
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 15px;
+margin-bottom: 15px;
+line-height: 1.1;
+}
+h1 {
+font-size: 30px;
+}
+h2 {
+font-size: 21px;
+}
+h3 {
+font-size: 16px;
+}
+h4 {
+font-size: 14px;
+}
+h5 {
+font-size: 12px;
+}
+h6 {
+font-size: 11px;
+}
+blockquote {
+margin: 0;
+}
+ul,
+ol {
+padding: 0;
+margin-top: 0;
+margin-bottom: 0;
+}
+ol ol,
+ul ol {
+list-style-type: lower-roman;
+}
+ul ul ol,
+ul ol ol,
+ol ul ol,
+ol ol ol {
+list-style-type: lower-alpha;
+}
+dd {
+margin-left: 0;
+}
+code {
+font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+font-size: 12px;
+}
+pre {
+margin-top: 0;
+margin-bottom: 0;
+font: 12px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.select::-ms-expand {
+opacity: 0;
+}
+.octicon {
+font: normal normal normal 16px/1 octicons-link;
+display: inline-block;
+text-decoration: none;
+text-rendering: auto;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+.octicon-link:before {
+content: '\f05c';
+}
+.markdown-body:before {
+display: table;
+content: "";
+}
+.markdown-body:after {
+display: table;
+clear: both;
+content: "";
+}
+.markdown-body>*:first-child {
+margin-top: 0 !important;
+}
+.markdown-body>*:last-child {
+margin-bottom: 0 !important;
+}
+a:not([href]) {
+color: inherit;
+text-decoration: none;
+}
+.anchor {
+display: inline-block;
+padding-right: 2px;
+margin-left: -18px;
+}
+.anchor:focus {
+outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+margin-top: 1em;
+margin-bottom: 16px;
+font-weight: bold;
+line-height: 1.4;
+}
+h1 .octicon-link,
+h2 .octicon-link,
+h3 .octicon-link,
+h4 .octicon-link,
+h5 .octicon-link,
+h6 .octicon-link {
+color: #000;
+vertical-align: middle;
+visibility: hidden;
+}
+h1:hover .anchor,
+h2:hover .anchor,
+h3:hover .anchor,
+h4:hover .anchor,
+h5:hover .anchor,
+h6:hover .anchor {
+text-decoration: none;
+}
+h1:hover .anchor .octicon-link,
+h2:hover .anchor .octicon-link,
+h3:hover .anchor .octicon-link,
+h4:hover .anchor .octicon-link,
+h5:hover .anchor .octicon-link,
+h6:hover .anchor .octicon-link {
+visibility: visible;
+}
+h1 {
+padding-bottom: 0.3em;
+font-size: 2.25em;
+line-height: 1.2;
+border-bottom: 1px solid #eee;
+}
+h1 .anchor {
+line-height: 1;
+}
+h2 {
+padding-bottom: 0.3em;
+font-size: 1.75em;
+line-height: 1.225;
+border-bottom: 1px solid #eee;
+}
+h2 .anchor {
+line-height: 1;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1.43;
+}
+h3 .anchor {
+line-height: 1.2;
+}
+h4 {
+font-size: 1.25em;
+}
+h4 .anchor {
+line-height: 1.2;
+}
+h5 {
+font-size: 1em;
+}
+h5 .anchor {
+line-height: 1.1;
+}
+h6 {
+font-size: 1em;
+color: #777;
+}
+h6 .anchor {
+line-height: 1.1;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table,
+pre {
+margin-top: 0;
+margin-bottom: 16px;
+}
+hr {
+height: 4px;
+padding: 0;
+margin: 16px 0;
+background-color: #e7e7e7;
+border: 0 none;
+}
+ul,
+ol {
+padding-left: 2em;
+}
+ul ul,
+ul ol,
+ol ol,
+ol ul {
+margin-top: 0;
+margin-bottom: 0;
+}
+li>p {
+margin-top: 16px;
+}
+dl {
+padding: 0;
+}
+dl dt {
+padding: 0;
+margin-top: 16px;
+font-size: 1em;
+font-style: italic;
+font-weight: bold;
+}
+dl dd {
+padding: 0 16px;
+margin-bottom: 16px;
+}
+blockquote {
+padding: 0 15px;
+color: #777;
+border-left: 4px solid #ddd;
+}
+blockquote>:first-child {
+margin-top: 0;
+}
+blockquote>:last-child {
+margin-bottom: 0;
+}
+table {
+display: block;
+width: 100%;
+overflow: auto;
+word-break: normal;
+word-break: keep-all;
+}
+table th {
+font-weight: bold;
+}
+table th,
+table td {
+padding: 6px 13px;
+border: 1px solid #ddd;
+}
+table tr {
+background-color: #fff;
+border-top: 1px solid #ccc;
+}
+table tr:nth-child(2n) {
+background-color: #f8f8f8;
+}
+img {
+max-width: 100%;
+box-sizing: content-box;
+background-color: #fff;
+}
+code {
+padding: 0;
+padding-top: 0.2em;
+padding-bottom: 0.2em;
+margin: 0;
+font-size: 85%;
+background-color: rgba(0,0,0,0.04);
+border-radius: 3px;
+}
+code:before,
+code:after {
+letter-spacing: -0.2em;
+content: "\00a0";
+}
+pre>code {
+padding: 0;
+margin: 0;
+font-size: 100%;
+word-break: normal;
+white-space: pre;
+background: transparent;
+border: 0;
+}
+.highlight {
+margin-bottom: 16px;
+}
+.highlight pre,
+pre {
+padding: 16px;
+overflow: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f7f7f7;
+border-radius: 3px;
+}
+.highlight pre {
+margin-bottom: 0;
+word-break: normal;
+}
+pre {
+word-wrap: normal;
+}
+pre code {
+display: inline;
+max-width: initial;
+padding: 0;
+margin: 0;
+overflow: initial;
+line-height: inherit;
+word-wrap: normal;
+background-color: transparent;
+border: 0;
+}
+pre code:before,
+pre code:after {
+content: normal;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font-size: 11px;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.pl-c {
+color: #969896;
+}
+.pl-c1,
+.pl-s .pl-v {
+color: #0086b3;
+}
+.pl-e,
+.pl-en {
+color: #795da3;
+}
+.pl-s .pl-s1,
+.pl-smi {
+color: #333;
+}
+.pl-ent {
+color: #63a35c;
+}
+.pl-k {
+color: #a71d5d;
+}
+.pl-pds,
+.pl-s,
+.pl-s .pl-pse .pl-s1,
+.pl-sr,
+.pl-sr .pl-cce,
+.pl-sr .pl-sra,
+.pl-sr .pl-sre {
+color: #183691;
+}
+.pl-v {
+color: #ed6a43;
+}
+.pl-id {
+color: #b52a1d;
+}
+.pl-ii {
+background-color: #b52a1d;
+color: #f8f8f8;
+}
+.pl-sr .pl-cce {
+color: #63a35c;
+font-weight: bold;
+}
+.pl-ml {
+color: #693a17;
+}
+.pl-mh,
+.pl-mh .pl-en,
+.pl-ms {
+color: #1d3e81;
+font-weight: bold;
+}
+.pl-mq {
+color: #008080;
+}
+.pl-mi {
+color: #333;
+font-style: italic;
+}
+.pl-mb {
+color: #333;
+font-weight: bold;
+}
+.pl-md {
+background-color: #ffecec;
+color: #bd2c00;
+}
+.pl-mi1 {
+background-color: #eaffea;
+color: #55a532;
+}
+.pl-mdr {
+color: #795da3;
+font-weight: bold;
+}
+.pl-mo {
+color: #1d3e81;
+}
+kbd {
+display: inline-block;
+padding: 3px 5px;
+font: 11px Consolas, "Liberation Mono", Menlo, Courier, monospace;
+line-height: 10px;
+color: #555;
+vertical-align: middle;
+background-color: #fcfcfc;
+border: solid 1px #ccc;
+border-bottom-color: #bbb;
+border-radius: 3px;
+box-shadow: inset 0 -1px 0 #bbb;
+}
+.task-list-item {
+list-style-type: none;
+}
+.task-list-item+.task-list-item {
+margin-top: 3px;
+}
+.task-list-item input {
+margin: 0 0.35em 0.25em -1.6em;
+vertical-align: middle;
+}
+:checked+.radio-label {
+z-index: 1;
+position: relative;
+border-color: #4078c0;
+}
+.sourceLine {
+display: inline-block;
+}
+code .kw { color: #000000; }
+code .dt { color: #ed6a43; }
+code .dv { color: #009999; }
+code .bn { color: #009999; }
+code .fl { color: #009999; }
+code .ch { color: #009999; }
+code .st { color: #183691; }
+code .co { color: #969896; }
+code .ot { color: #0086b3; }
+code .al { color: #a61717; }
+code .fu { color: #63a35c; }
+code .er { color: #a61717; background-color: #e3d2d2; }
+code .wa { color: #000000; }
+code .cn { color: #008080; }
+code .sc { color: #008080; }
+code .vs { color: #183691; }
+code .ss { color: #183691; }
+code .im { color: #000000; }
+code .va {color: #008080; }
+code .cf { color: #000000; }
+code .op { color: #000000; }
+code .bu { color: #000000; }
+code .ex { color: #000000; }
+code .pp { color: #999999; }
+code .at { color: #008080; }
+code .do { color: #969896; }
+code .an { color: #008080; }
+code .cv { color: #008080; }
+code .in { color: #008080; }
+</style>
+<style>
+body {
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+  padding-top: 0px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1 id="news-mbsstools">NEWS-MBSStools</h1>
+<!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
+
+<pre><code>#&gt; Last Update: 2020-05-19 13:27:39
+</code></pre>
+<h1 id="mbsstools-v1109002-2020-05-18">MBSStools v1.1.0.9002 (2020-05-18)</h1>
+<ul>
+<li>Update metric.values.
+<ul>
+<li>Error when using R v4.0. Issue #28.</li>
+</ul></li>
+</ul>
+<h1 id="mbsstools-v1109001-2019-06-13">MBSStools v1.1.0.9001 (2019-06-13)</h1>
+<ul>
+<li>Add pkgdown website.
+<ul>
+<li>Examples failed for FlowSum and IonContrib.</li>
+</ul></li>
+</ul>
+<h1 id="mbsstools-v11-2019-06-13">MBSStools v1.1 (2019-06-13)</h1>
+<ul>
+<li>Shiny release version</li>
+</ul>
+<h1 id="mbsstools-v1029015-2019-06-13">MBSStools v1.0.2.9015 (2019-06-13)</h1>
+<ul>
+<li>Shiny app, Issue #22
+<ul>
+<li>Remove link to package vignette (doesn’t work on Shiny.io)</li>
+</ul></li>
+</ul>
+<h1 id="mbsstools-v1029014-2019-06-13">MBSStools v1.0.2.9014 (2019-06-13)</h1>
+<ul>
+<li>Additional packages to Suggests for the Shiny app, Issue #22</li>
+</ul>
+<h1 id="mbsstools-v1029013-2019-06-13">MBSStools v1.0.2.9013 (2019-06-13)</h1>
+<ul>
+<li>Complete Shiny app, Issue #22</li>
+</ul>
+<h1 id="mbsstools-v1029012-2019-05-17">MBSStools v1.0.2.9012 (2019-05-17)</h1>
+<ul>
+<li>README
+<ul>
+<li>Update install example to ensure vignettes are installed.</li>
+</ul></li>
+</ul>
+<h1 id="mbsstools-v1029011-2019-05-17">MBSStools v1.0.2.9011 (2019-05-17)</h1>
+<ul>
+<li>Update for R v3.6.0, Issue #27
+<ul>
+<li>README
+<ul>
+<li>Added extra line to make work devtools::install_github()</li>
+</ul></li>
+<li>DESCRIPTION
+<ul>
+<li>Remove StagedInstall: no</li>
+</ul></li>
+</ul></li>
+<li>README
+<ul>
+<li>Update badges.</li>
+</ul></li>
+</ul>
+<h1 id="mbsstools-v1029010-2019-05-01">MBSStools v1.0.2.9010 (2019-05-01)</h1>
+<ul>
+<li>Shiny app development, Issue #22
+<ul>
+<li>Not complete.</li>
+</ul></li>
+</ul>
+<h1 id="mbsstools-v1029010-2019-05-01-1">MBSStools v1.0.2.9010 (2019-05-01)</h1>
+<ul>
+<li>Revise for staged install for R v3.6.0, Issue #27
+<ul>
+<li>DESCRIPTION
+<ul>
+<li>StagedInstall: no</li>
+</ul></li>
+<li>Temporary fix. Still needs to be installed from a local file.</li>
+</ul></li>
+<li>Edits to Shiny App. Issue #22.
+<ul>
+<li>Incomplete.</li>
+</ul></li>
+</ul>
+<h1 id="mbsstools-v1029009-2019-05-01">MBSStools v1.0.2.9009 (2019-05-01)</h1>
+<ul>
+<li>Revise “EXCLUDE” column in benthic data from “Y” and &quot;&quot; to TRUE and FALSE. Issue #25.
+<ul>
+<li>data
+<ul>
+<li>taxa_bugs_family</li>
+<li>taxa_bugs_genus, ProcessData had additional issues that weren’t present in prior versions.</li>
+</ul></li>
+<li>function; metric.values
+<ul>
+<li>Function help text</li>
+<li>Example use “MetricName.Other” rather than “Metric” to get pertinent metrics.</li>
+<li>Replace EXCLUDE!=“Y” with EXCLUDE!=TRUE</li>
+</ul></li>
+</ul></li>
+<li>Vignette
+<ul>
+<li>Example for installing a package (line 51) had a typo.</li>
+<li>droplevels update for MetricName.Other (line 110, 161, and 187).</li>
+<li>Shiny example code, eval=FALSE</li>
+</ul></li>
+</ul>
+<h1 id="mbsstools-v1029008-2019-02-21">MBSStools v1.0.2.9008 (2019-02-21)</h1>
+<ul>
+<li>Revised scoring thresholds table, per MBSS. Issue #23.</li>
+<li>metric.scores.R
+<ul>
+<li>Update example code to match the MBSS metric names.</li>
+<li>Slight tweaking of QC check for column names.</li>
+</ul></li>
+</ul>
+<h1 id="mbsstools-v1029007-2019-02-12">MBSStools v1.0.2.9007 (2019-02-12)</h1>
+<ul>
+<li>Shiny app, Issue #22</li>
+<li>Include function to launch the Shiny app.
+<ul>
+<li>runShiny</li>
+<li>Add to Vignette.</li>
+</ul></li>
+</ul>
+<h1 id="mbsstools-v1029006-2017-07-31">MBSStools v1.0.2.9006 (2017-07-31)</h1>
+<ul>
+<li>metric.scores
+<ul>
+<li>Add example of adding narrative to IBI scores. Issue #21.</li>
+</ul></li>
+</ul>
+<h1 id="mbsstools-v1029005-2017-07-31">MBSStools v1.0.2.9005 (2017-07-31)</h1>
+<ul>
+<li>DESCRIPTION
+<ul>
+<li>Suggests; XLConnect (MBSStools_vignette.Rmd)</li>
+<li>Maintainer; <a href="mailto:Erik.Leppo@tetratech.com">Erik.Leppo@tetratech.com</a> (Needed if submit to CRAN)</li>
+<li>Description; make more verbose. (Needed if submit to CRAN)</li>
+<li>Title; remove ending period.</li>
+</ul></li>
+<li>NEWS
+<ul>
+<li>Restructure. Still not right but has all info now.</li>
+<li>Remove planned updates.</li>
+</ul></li>
+<li>Shorten long lines.
+<ul>
+<li>FlowSum.R</li>
+<li>IonContrib.R</li>
+<li>MapTaxaObs.R</li>
+<li>metric.scores.R</li>
+<li>metric.values.R</li>
+<li>PHIcalc.R</li>
+</ul></li>
+<li>Remove “keywords” (incorrect usage).
+<ul>
+<li>FlowSum.R</li>
+<li>IonContrib.R</li>
+<li>MapTaxaObs.R</li>
+<li>metric.scores.R</li>
+<li>metric.values.R</li>
+<li>PHIcalc.R</li>
+</ul></li>
+</ul>
+<h1 id="mbsstools-v1029004-2017-07-31">MBSStools v1.0.2.9004 (2017-07-31)</h1>
+<ul>
+<li>.travis.yml
+<ul>
+<li>Add TravisCI yml to GitHub directory.</li>
+<li>Add TravisCI yml to Rbuildignore.</li>
+</ul></li>
+</ul>
+<h1 id="mbsstools-v1029003-2017-07-30">MBSStools v1.0.2.9003 (2017-07-30)</h1>
+<ul>
+<li>Add continuous integration (TravisCI) badge to ReadMe.</li>
+</ul>
+<h1 id="mbsstools-v1029002-2017-07-25">MBSStools v1.0.2.9002 (2017-07-25)</h1>
+<ul>
+<li>DESCRIPTION</li>
+<li>Move dplyr and rgdal from Suggests to Imports
+<ul>
+<li>Packages not always loading. Issue #15 and Issue #17</li>
+</ul></li>
+<li>Modify minimum version of R from 3.3.2 to 3.4.0.
+<ul>
+<li>MapTaxaObs did not work in earlier version of R.<br />
+Updated to v3.4.0 and no issue. Issue #17.</li>
+</ul></li>
+</ul>
+<h1 id="mbsstools-v1029001-2017-05-11">MBSStools v1.0.2.9001 (2017-05-11)</h1>
+<ul>
+<li>Issue #17 with MapTaxaObs</li>
+<li>Removed extra file in vignette folder.</li>
+<li>Update Vignette as doesn’t build in check; commented out MapTaxaObs.</li>
+</ul>
+<h1 id="mbsstools-v1020000-2017-10-26">MBSStools v1.0.2.0000 (2017-10-26)</h1>
+<ul>
+<li>Corrected metric.score() [line 181] for fish for “HIGHLANDS” was incorrectly designated. These sites were not getting a final FIBI score.</li>
+</ul>
+<h1 id="mbsstools-v1010000-2017-09-26">MBSStools v1.0.1.0000 (2017-09-26)</h1>
+<ul>
+<li><p>Update each function’s description and vignette with the packages needed for that function to work properly.</p></li>
+<li><p>Update Vignette for a few typos and so shows in final package. Also messages=FALSE for XLConnect example.</p></li>
+<li><p>DESCRIPTION. Move rgdal from Depends to Suggests.</p></li>
+<li><p>Fish metric example not working in metric.values(). Issue #14. Extra parameter. Removed and works.</p></li>
+</ul>
+<h1 id="mbsstools-v1000000-2017-09-24">MBSStools v1.0.0.0000 (2017-09-24)</h1>
+<ul>
+<li>Release version 1.</li>
+</ul>
+<h1 id="mbsstools-v0009018-2017-09-24">MBSStools v0.0.0.9018 (2017-09-24)</h1>
+<ul>
+<li><p>Add install guide notebook.</p></li>
+<li><p>Tweak vignette.</p></li>
+<li><p>Update Readme.</p></li>
+<li><p>Final version before going to v1.0.0.</p></li>
+<li><p>IonContrib, ensure data input is a data frame.</p></li>
+<li><p>PHI, ensure data input is a data frame.</p></li>
+</ul>
+<h1 id="mbsstools-v0009017-2017-09-20">MBSStools v0.0.0.9017 (2017-09-20)</h1>
+<ul>
+<li><p>Update vignette.</p></li>
+<li><p>Fixed example for fish metrics in metric.values(). 20170920.</p></li>
+</ul>
+<h1 id="mbsstools-v0009016-2017-09-19">MBSStools v0.0.0.9016 (2017-09-19)</h1>
+<ul>
+<li>IonContrib() added barplot example. 20170919.</li>
+</ul>
+<h1 id="mbsstools-v0009015-2017-09-13">MBSStools v0.0.0.9015 (2017-09-13)</h1>
+<ul>
+<li>Fix typo in example for metric.scores(); “Metrics.Bugs.Scores” to “Metrics.Bugs.Scores.MBSS”. 20170913.</li>
+</ul>
+<h1 id="mbsstools-v0009014-2017-09-09">MBSStools v0.0.0.9014 (2017-09-09)</h1>
+<ul>
+<li>Added MSW (family) data, values, and scores. 20170909.</li>
+</ul>
+<h1 id="mbsstools-v0009013-2017-09-09">MBSStools v0.0.0.9013 (2017-09-09)</h1>
+<ul>
+<li>Added BIBI.</li>
+<li>Updated metric names to match those used by MBSS.</li>
+<li>Updated metric.values() and metric.scores().</li>
+<li>Updated genus level bug data file.</li>
+</ul>
+<h1 id="mbsstools-v0009012-2017-09-08">MBSStools v0.0.0.9012 (2017-09-08)</h1>
+<ul>
+<li>Add FIBI. 2017-09-05.</li>
+<li>metric.values.R</li>
+<li>metric.score.R</li>
+<li>example data files</li>
+<li>-raw.scoring.tab and metric adjustment</li>
+<li>Added dplyr to DESCRIPTION. Needed for metric values and scores. 20170908</li>
+<li>Modified -raw.scoring.tab to resolve QC issues with 2016 data. 20170908.</li>
+</ul>
+<h1 id="mbsstools-0009011-2017-08-22">MBSStools 0.0.0.9011 (2017-08-22)</h1>
+<ul>
+<li>Updated taxa map data for typo in “no fish observed”. 20170822.</li>
+</ul>
+<h1 id="mbsstools-v0009010-2017-07-31">MBSStools v0.0.0.9010 (2017-07-31)</h1>
+<ul>
+<li>Updated fish data and crosswalk table examples so have more matched data. Also update help to remind that data has to be on the first worksheet for the Excel file. 20170731.</li>
+</ul>
+<h1 id="mbsstools-v0009009-2017-07-28">MBSStools v0.0.0.9009 (2017-07-28)</h1>
+<ul>
+<li>Updated DESCRIPTION. “Erik” to “Erik W.” and added Matt Ashton as data contributor. 20170728.</li>
+</ul>
+<h1 id="mbsstools-v0009008-2017-07-21">MBSStools v0.0.0.9008 (2017-07-21)</h1>
+<ul>
+<li><p>Added TaxaMapsObs(). Issue #2. 20170720.</p></li>
+<li><p>Libraries readxl (suggested) and rgdal (required) added to DESCRIPTION. Maps won’t generate without rgdal loaded. 20170720.</p></li>
+<li><p>Added example data and GIS files (zipped). 20170721.</p></li>
+</ul>
+<h1 id="mbsstools-v0009007-2017-06-23">MBSStools v0.0.0.9007 (2017-06-23)</h1>
+<ul>
+<li>Added “LazyData: true” to DESCRIPTION. Data was not being loaded properly. Issue #9. 20170623.</li>
+</ul>
+<h1 id="mbsstools-v0009006-2017-06-23">MBSStools v0.0.0.9006 (2017-06-23)</h1>
+<ul>
+<li><p>Modified vignette.</p></li>
+<li><p>Modified data-raw Process data R files (wd).</p></li>
+<li><p>Added IonContrib.R</p></li>
+</ul>
+<h1 id="mbsstools-v0009005-2017-06-14">MBSStools v0.0.0.9005 (2017-06-14)</h1>
+<ul>
+<li>Added vignette for documentation of each function and the library as a whole.</li>
+</ul>
+<h1 id="mbsstools-v0009004-2017-04-28">MBSStools v0.0.0.9004 (2017-04-28)</h1>
+<ul>
+<li>Address issues with PHIcalc from testing. Removed extra rows from Excel import for data MBSS.PHI. Added line to convert values to numeric inside MBSS.PHI. (not complete)</li>
+</ul>
+<h1 id="mbsstools-v0009003-2017-04-21">MBSStools v0.0.0.9003 (2017-04-21)</h1>
+<ul>
+<li>FlowSum(). Added Error Handling for misidentified Channels. Updated data MBSS.flow.</li>
+</ul>
+<h1 id="mbsstools-v0009002-2017-04-20">MBSStools v0.0.0.9002 (2017-04-20)</h1>
+<ul>
+<li><p>Flow sum calculation completed. Included Channel Number as grouping variable but sum across channels to get the total site flow.</p></li>
+<li><p>PHI, edit script for outlining in RStudio.</p></li>
+<li><p>PHI.calc() to PHIcalc().</p></li>
+<li><p>Data.R and folder “data-raw”.</p></li>
+<li><p>PHI, tweak for created data. Using Excel to build rda rather than txt file from the Excel.</p></li>
+</ul>
+<h1 id="mbsstools-v0009001-2017-03-29">MBSStools v0.0.0.9001 (2017-03-29)</h1>
+<ul>
+<li>Completed PHI calculation.</li>
+</ul>
+<h1 id="mbsstools-v0009000-2017-03-27">MBSStools v0.0.0.9000 (2017-03-27)</h1>
+<ul>
+<li><p>Created GitHub repository.</p></li>
+<li><p>Added ReadME.RMD and NEWS.RMD</p></li>
+<li><p>PHI calculation started.</p></li>
+</ul>
+
+</body>
+</html>

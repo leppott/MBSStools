@@ -4,8 +4,11 @@
 \alias{FlowSum}
 \title{Flow Sum Calculation}
 \usage{
-FlowSum(df, df.names = c("SITEYR", "ChannelNum", "Lat_Loc_m", "Depth_m",
-  "Velocity_m_s"), returnType = "sample")
+FlowSum(
+  df,
+  df.names = c("SITEYR", "ChannelNum", "Lat_Loc_m", "Depth_m", "Velocity_m_s"),
+  returnType = "sample"
+)
 }
 \arguments{
 \item{df}{Data frame of data to be processed.  Must include the columns
@@ -44,5 +47,5 @@ View(flow.sample)
 #datetime <- format(Sys.time(),"\%Y\%m\%d_\%H\%M\%S")
 #myYear <- "15"
 #write.table(flow.sample,paste0("SumFlow",myYear,"_",datetime,".tab"),
-row.names=FALSE,sep="\\t")
+row.names=FALSE,sep="\t")
 }
