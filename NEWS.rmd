@@ -17,6 +17,15 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.1.0.9004 (2020-05-20)
+================
+* Shiny App, Issue #22.
+    + File upload size increased from 10 to 25 MB.
+    + Output file format, tsv to csv.
+    + Zip file download.
+        - Remove input file (original and transformed).
+        - Keep only the "results_" files (values, scores, and plot).
+    
 MBSStools v1.1.0.9003 (2020-05-20)
 ================
 * Update fish metric scoring for no taxa obsevered, Issue #26

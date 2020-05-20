@@ -125,8 +125,11 @@ shinyServer(function(input, output) {
       #
       df_metval <- MBSStools::metric.values(df_data, myCommunity, myMetrics)
       #
-      fn_metval <- file.path(".", "Results", "results_metval.tsv")
-      write.table(df_metval, fn_metval, row.names = FALSE, col.names = TRUE, sep="\t")
+      # Save
+      # fn_metval <- file.path(".", "Results", "results_metval.tsv")
+      # write.table(df_metval, fn_metval, row.names = FALSE, col.names = TRUE, sep="\t")
+      fn_metval <- file.path(".", "Results", "results_metval.csv")
+      write.csv(df_metval, fn_metval, row.names = FALSE)
       #
       # QC - upper case Index.Name
       names(df_metval)[grepl("Index.Name", names(df_metval))] <- "INDEX.NAME"
@@ -151,8 +154,10 @@ shinyServer(function(input, output) {
                               , right=FALSE
                               , ordered_result=TRUE)
       # Save
-      fn_metsc <- file.path(".", "Results", "results_metsc.tsv")
-      write.table(df_metsc, fn_metsc, row.names = FALSE, col.names = TRUE, sep="\t")
+      # fn_metsc <- file.path(".", "Results", "results_metsc.tsv")
+      # write.table(df_metsc, fn_metsc, row.names = FALSE, col.names = TRUE, sep="\t")
+      fn_metsc <- file.path(".", "Results", "results_metsc.csv")
+      write.csv(df_metsc, fn_metsc, row.names = FALSE)
 
 
 
@@ -182,7 +187,9 @@ shinyServer(function(input, output) {
       Sys.sleep(0.25)
 
       # Create zip file
-      fn_4zip <- list.files(file.path(".", "Results"), full.names = TRUE)
+      fn_4zip <- list.files(path = file.path(".", "Results")
+                            , pattern = "^results_"
+                            , full.names = TRUE)
       zip(file.path(".", "Results", "results.zip"), fn_4zip)
 
 

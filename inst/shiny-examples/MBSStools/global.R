@@ -18,7 +18,7 @@ col_Strata <- c("FIBISTRATA", "STRATA_R", "STRATA_R")
 # File Size
 # By default, the file size limit is 5MB. It can be changed by
 # setting this option. Here we'll raise limit to 10MB.
-options(shiny.maxRequestSize = 10*1024^2)
+options(shiny.maxRequestSize = 25*1024^2)
 
 
 # Metrics.Bugs.Scores.MBSS <- read.csv(file.path(".", "Results", "Metrics.Bugs.Scores.MBSS.csv"))

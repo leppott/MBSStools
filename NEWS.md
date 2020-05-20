@@ -3,7 +3,16 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-05-20 08:22:00
+    #> Last Update: 2020-05-20 10:56:07
+
+# MBSStools v1.1.0.9004 (2020-05-20)
+
+  - Shiny App, Issue \#22.
+      - File upload size increased from 10 to 25 MB.
+      - Output file format, tsv to csv.
+      - Zip file download.
+          - Remove input file (original and transformed).
+          - Keep only the “results\_” files (values, scores, and plot).
 
 # MBSStools v1.1.0.9003 (2020-05-20)
 
