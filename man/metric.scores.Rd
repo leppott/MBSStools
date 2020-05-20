@@ -25,10 +25,11 @@ vector of scores
 }
 \description{
 This function calculates metric scores based on a Thresholds data frame.
-Can generate scores for 1/3/5 (ScoreRegime="135") or 0-100 (ScoreRegime=
-"100").
+Can generate scores for 1/3/5 (ScoreRegime="135") for MD DNR MBSS FIBI and BIBI.
 }
 \details{
+The inputs and outputs have been designed to mimic those used by MBSS staff.
+
 The R library dplyr is needed for this function.
 }
 \examples{
@@ -77,6 +78,14 @@ Metrics.Bugs.Scores.MBSS <- metric.scores(myMetric.Values.Bugs.MBSS,
 myMetrics.Bugs.MBSS, "INDEX.NAME", "STRATA_R", thresh)
 # View Results
 View(Metrics.Bugs.Scores.MBSS)
+# Add Narrative
+myBreaks <- c(1:5)
+myLabels <- c("Very Poor", "Poor", "Fair", "Good")
+Metrics.Bugs.Scores.MBSS$IBI_Nar <- cut(Metrics.Bugs.Scores.MBSS$IBI
+                                   , breaks=myBreaks, labels=myLabels
+                                   , include.lowest=TRUE, right=FALSE, ordered_result=TRUE)
+# QC, IBI Numeric vs. Narrative
+table(Metrics.Bugs.Scores.MBSS$IBI, Metrics.Bugs.Scores.MBSS$IBI_Nar, useNA="ifany")
 
 # QC bug count
 Metrics.Bugs.Scores.MBSS[Metrics.Bugs.Scores.MBSS[,"totind"]>120,
@@ -105,4 +114,12 @@ Metrics.Bugs.Scores.MSW <- metric.scores(myMetric.Values.Bugs.MSW,
 myMetrics.Bugs.MSW, "INDEX.NAME", "STRATA_R", thresh)
 # View Results
 View(Metrics.Bugs.Scores.MSW)
+# Add Narrative
+myBreaks <- c(1:5)
+myLabels <- c("Very Poor", "Poor", "Fair", "Good")
+Metrics.Bugs.Scores.MSW$IBI_Nar <- cut(Metrics.Bugs.Scores.MSW$IBI
+                                   , breaks=myBreaks, labels=myLabels
+                                   , include.lowest=TRUE, right=FALSE, ordered_result=TRUE)
+# QC, IBI Numeric vs. Narrative
+table(Metrics.Bugs.Scores.MSW$IBI, Metrics.Bugs.Scores.MSW$IBI_Nar, useNA="ifany")
 }

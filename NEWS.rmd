@@ -17,6 +17,11 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.1.0.9005 (2020-05-20)
+================
+* metric.scores.R
+    + Fix error in assigning final IBI due to changes in behavior of Tibbles.
+
 MBSStools v1.1.0.9004 (2020-05-20)
 ================
 * Shiny App, Issue #22.

@@ -3,7 +3,13 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-05-20 10:56:07
+    #> Last Update: 2020-05-20 14:31:55
+
+# MBSStools v1.1.0.9005 (2020-05-20)
+
+  - metric.scores.R
+      - Fix error in assigning final IBI due to changes in behavior of
+        Tibbles.
 
 # MBSStools v1.1.0.9004 (2020-05-20)
 
