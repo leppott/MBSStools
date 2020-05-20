@@ -159,6 +159,19 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
   # convert Field Names to UPPER CASE
   names(myDF) <- toupper(names(myDF))# Remove Non-Target Taxa
   #myDF <- myDF[myDF[,"NonTarget"]==0,]
+  #
+  # QC column names
+  # set case on fields
+  myFlds <- c("SITE", "INDEX.NAME", "TAXON", "N_TAXA", "EXCLUDE"
+              , "STRATA_R", "HABIT", "FFG", "FINALTOLVAL07"
+              , "CLASS", "ORDER", "FAMILY", "TRIBE", "GENUS")
+  # Error check on fields
+  if (length(myFlds)!=sum(myFlds %in% names(myDF))) {
+    myMsg <- paste0("Fields missing from input data frame.  Expecting: \n"
+                    , paste(myFlds,sep="", collapse=", "), collapse="")
+    stop(myMsg)
+  }## FOR ~ length ~ END
+  #
   # Add extra columns for FFG and Habit (need unique values for functions in summarise)
   # each will be TRUE or FALSE
     myDF["Habit_BU"] <- grepl("BU",toupper(myDF[,"HABIT"]))
@@ -375,18 +388,37 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
 #
 #' @export
 metric.values.fish <- function(myDF, SampleID, MetricNames=NULL, boo.Adjust){##FUNCTION.metric.values.fish.START
+  # 2020-05-20, remove SampleID as 2nd term
+  # QC
+  boo_DEBUG <- FALSE
+  if(boo_DEBUG==TRUE){##IF~boo_DEBUG~START
+    myDF <- fun.DF
+    MetricNames <- fun.MetricNames
+  }##IF~boo_DEBUG~END
+  #
   # Remove Non-Target Taxa
   #myDF <- myDF[myDF[,"NonTarget"]==0,]
+  #
+  # QC Column Names
   # set case on fields
-  myFlds <- c("SPECIES", "TYPE", "PTOLR", "NATIVE_MBSS", "TROPHIC_MBSS", "SILT", "FIBISTRATA")
+  myFlds <- c("SITE", "Index.Name", "SPECIES", "TOTAL", "TYPE", "PTOLR", "NATIVE_MBSS"
+              , "TROPHIC_MBSS", "SILT", "TOTBIOM"
+              , "FIBISTRATA", "ACREAGE", "LEN_SAMP", "AVWID")
   # Error check on fields
   if (length(myFlds)!=sum(myFlds %in% names(myDF))) {
-    myMsg <- paste0("Fields missing from input data frame.  Expecting: \n",paste(myFlds,sep="",collapse=", "),collapse="")
+    myMsg <- paste0("Fields missing from input data frame.  Expecting: \n"
+                    , paste(myFlds,sep="", collapse=", "), collapse="")
     stop(myMsg)
-  }
+  } ## FOR ~ length ~ END
+  #
+  # Make all character fields upper case
   for (i in myFlds) {
-    myDF[,i] <- toupper(myDF[,i])
-  }
+    if(class(myDF[, i]) == "character"){
+      if(i == "Index.Name"){ next }
+      myDF[,i] <- toupper(myDF[,i])
+    }##IF ~ class ~ END
+  } ## FOR ~ i ~ END
+
   # Calculate Metrics (could have used pipe, %>%)
   met.val <- dplyr::summarise(dplyr::group_by(myDF, Index.Name, SITE, FIBISTRATA
                                               , ACREAGE, LEN_SAMP, AVWID)

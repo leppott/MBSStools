@@ -3,7 +3,13 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-05-20 14:31:55
+    #> Last Update: 2020-05-20 16:37:58
+
+# MBSStools v1.1.0.9006 (2020-05-20)
+
+  - metric.scores.R, Issue \#20
+      - Update column name checking for user input data frame.
+          - Edit error message to user.
 
 # MBSStools v1.1.0.9005 (2020-05-20)
 

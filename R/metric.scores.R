@@ -180,17 +180,17 @@ metric.scores <- function(DF_Metrics, MetricNames, IndexName, IndexRegion, DF_Th
     DF_Metrics[,"Index.Region"] <- DF_Metrics[,IndexRegion]
   }
 
-  # # QC, Column Names
-  # myFlds <- c("Index.Name", "Index.Region", "Metric")
+  # # # QC, Column Names
+  # myFlds <- c("INDEX.NAME", "Index.Region", "Metric")
   # # Error check on fields
   # if (length(myFlds)!=sum(myFlds %in% names(DF_Thresh))) {
   #   myMsg <- paste0("Fields missing from input data frame.  Expecting: \n",paste(myFlds,sep="",collapse=", "),collapse="")
   #   stop(myMsg)
-  # }
+  # } ## IF ~ length ~ END
   #
   # Add "SCORE" columns for each metric
-  Score.MetricNames <- paste0("SC_",MetricNames)
-  DF_Metrics[,Score.MetricNames] <- 0
+  Score.MetricNames <- paste0("SC_", MetricNames)
+  DF_Metrics[, Score.MetricNames] <- 0
   #
   # Need to cycle based on Index (a), Region (b), and Metric (c)
   for (a in unique(as.matrix(DF_Metrics[,IndexName]))){##FOR.a.START
