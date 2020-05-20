@@ -3,7 +3,14 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-05-19 13:27:39
+    #> Last Update: 2020-05-20 08:22:00
+
+# MBSStools v1.1.0.9003 (2020-05-20)
+
+  - Update fish metric scoring for no taxa obsevered, Issue \#26
+      - taxa\_fish.rda
+      - data.r
+      - metric.scores.r
 
 # MBSStools v1.1.0.9002 (2020-05-18)
 

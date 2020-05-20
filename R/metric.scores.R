@@ -144,7 +144,7 @@ metric.scores <- function(DF_Metrics, MetricNames, IndexName, IndexRegion, DF_Th
     #
     a <- unique(as.matrix(DF_Metrics[,IndexName]))[1]
     b <- unique(as.matrix(DF_Metrics[,IndexRegion]))[1]
-    c <- MetricNames[1]
+    c <- MetricNames[3]
   }##IF~boo_DEBUG~END
 
   # Rename columns based
@@ -189,6 +189,7 @@ metric.scores <- function(DF_Metrics, MetricNames, IndexName, IndexRegion, DF_Th
         fun.Value <- DF_Metrics[,c]
         fun.Result <- fun.Value * 0  #default value of zero
         #
+        #
         if(fun.ScoreRegime=="100"){##IF.scoring.START
           if(fun.Direction=="Decrease"){
             fun.Result <- median(c(0,100,100*((fun.Value-fun.Lo)/(fun.Hi-fun.Lo))))
@@ -214,6 +215,25 @@ metric.scores <- function(DF_Metrics, MetricNames, IndexName, IndexRegion, DF_Th
     }##FOR.a.END
   }##FOR.b.END
   #
+
+  # 2020-05-19
+  # QC check for 0 organisms
+  # MBSS gets a 1, Very Poor
+  # Any metrics > 0 will be reset to 0
+  msg_QC_NoOrg <- ("One or more samples had zero organisms and was scored as a 1 (metrics and IBI).")
+  if("TOTCNT" %in% names(DF_Metrics)){
+    # FISH
+    myTF <- DF_Metrics[, "TOTCNT"] == 0 & DF_Metrics[, Score.MetricNames] > 0
+    DF_Metrics[, Score.MetricNames][myTF] <- 1
+    message(msg_QC_NoOrg)
+  } else if("totind" %in% names(DF_Metrics)){
+    # BUGS
+    # myTF <- DF_Metrics[, "totind"] == 0 & DF_Metrics[, Score.MetricNames] > 0
+    # DF_Metrics[, Score.MetricNames][myTF] <- 1
+    # message(msg_QC_NoOrg)
+  }## IF ~ Score zero for no individuals ~ END
+
+
   # Score Final Index
   DF_Metrics[,"sum_IBI"] <- 0
   DF_Metrics[,"IBI"]     <- 0
@@ -222,25 +242,25 @@ metric.scores <- function(DF_Metrics, MetricNames, IndexName, IndexRegion, DF_Th
   # divide by number of metrics for each region
   ## Fish
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Fish" & DF_Metrics[,IndexRegion]=="COASTAL"
-    DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/6
+    DF_Metrics[,"IBI"][myTF] <- DF_Metrics[myTF,"sum_IBI"]/6
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Fish" & DF_Metrics[,IndexRegion]=="EPIEDMONT"
-    DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/6
+    DF_Metrics[,"IBI"][myTF] <- DF_Metrics[myTF,"sum_IBI"]/6
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Fish" & DF_Metrics[,IndexRegion]=="HIGHLAND"
-    DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/6
+    DF_Metrics[,"IBI"][myTF] <- DF_Metrics[myTF,"sum_IBI"]/6
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Fish" & DF_Metrics[,IndexRegion]=="COLD"
-    DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/4
+    DF_Metrics[,"IBI"][myTF] <- DF_Metrics[myTF,"sum_IBI"]/4
   ## Bugs, Genus
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Bugs" & DF_Metrics[,IndexRegion]=="COASTAL"
-    DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/7
+    DF_Metrics[,"IBI"][myTF] <- DF_Metrics[myTF,"sum_IBI"]/7
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Bugs" & DF_Metrics[,IndexRegion]=="EPIEDMONT"
-    DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/6
+    DF_Metrics[,"IBI"][myTF] <- DF_Metrics[myTF,"sum_IBI"]/6
   myTF <- DF_Metrics[,IndexName]=="MBSS.2005.Bugs" & DF_Metrics[,IndexRegion]=="HIGHLAND"
-    DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/8
+    DF_Metrics[,"IBI"][myTF] <- DF_Metrics[myTF,"sum_IBI"]/8
   ## Bugs, Family
   myTF <- DF_Metrics[,IndexName]=="MSW.1999.Bugs" & DF_Metrics[,IndexRegion]=="CP"
-    DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/7
+    DF_Metrics[,"IBI"][myTF] <- DF_Metrics[myTF,"sum_IBI"]/7
   myTF <- DF_Metrics[,IndexName]=="MSW.1999.Bugs" & DF_Metrics[,IndexRegion]=="NCP"
-    DF_Metrics[,"IBI"][myTF,] <- DF_Metrics[myTF,"sum_IBI"]/7
+    DF_Metrics[,"IBI"][myTF] <- DF_Metrics[myTF,"sum_IBI"]/7
   #
   # Return original DF with added columns
   return(DF_Metrics)

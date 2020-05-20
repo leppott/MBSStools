@@ -51,9 +51,10 @@
 #' taxa_fish
 #'
 #' MBSS fish taxa information from 2016.  Used as example for calculating metrics and index.
+#' One additional "No Fish Observed" sampled added for testing.
 #'
 #' @source MBSS 2016 fish data.
-#' @format a dataframe with 1693 observations and 15 variables:
+#' @format a dataframe with 1694 observations and 15 variables:
 #'
 #'
 "taxa_fish"

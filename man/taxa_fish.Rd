@@ -5,7 +5,7 @@
 \alias{taxa_fish}
 \title{taxa_fish}
 \format{
-a dataframe with 1693 observations and 15 variables:
+a dataframe with 1694 observations and 15 variables:
 }
 \source{
 MBSS 2016 fish data.
@@ -15,5 +15,6 @@ taxa_fish
 }
 \description{
 MBSS fish taxa information from 2016.  Used as example for calculating metrics and index.
+One additional "No Fish Observed" sampled added for testing.
 }
 \keyword{datasets}
