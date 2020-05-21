@@ -50,7 +50,7 @@ library(devtools)
 devtools::document()
 ## Install New Package (locally)
 setwd("..") # return to root directory first
-devtools::install(myPkg, quick=FALSE, reload=TRUE, build_vignettes = FALSE)
+devtools::install(myPkg, quick=FALSE, reload=TRUE, build_vignettes = TRUE)
 
 # blank row above allows for the code to continue instead of waiting for user response to pkg updates.
 ## Reload library
@@ -82,3 +82,12 @@ Need to use testthat but not to that stage yet.
 devtools::check()
 ```
 
+# Testings
+
+https://testthat.r-lib.org/
+
+https://r-pkgs.org/tests.html
+
+Set up folders with `devtools::test()`.  This is also the command to run tests.
+
+Create test file `usethis::use_test("name")`

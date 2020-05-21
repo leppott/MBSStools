@@ -17,6 +17,12 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.1.0.9007 (2020-05-21)
+================
+* Add testing
+    + DESCRIPTION, add testthat to Suggests
+    + test PHIcalc, Issue #19
+
 MBSStools v1.1.0.9006 (2020-05-20)
 ================
 * metric.scores.R, Issue #20

@@ -3,7 +3,13 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-05-20 16:37:58
+    #> Last Update: 2020-05-21 08:44:17
+
+# MBSStools v1.1.0.9007 (2020-05-21)
+
+  - Add testing
+      - DESCRIPTION, add testthat to Suggests
+      - test PHIcalc, Issue \#19
 
 # MBSStools v1.1.0.9006 (2020-05-20)
 
