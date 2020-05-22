@@ -3,7 +3,12 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-05-21 08:44:17
+    #> Last Update: 2020-05-22 07:28:33
+
+# MBSStools v1.1.0.9008 (2020-05-22)
+
+  - taxa\_fish
+      - Update 2 Species name errors so passes QC check.
 
 # MBSStools v1.1.0.9007 (2020-05-21)
 
