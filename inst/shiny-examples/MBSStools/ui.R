@@ -65,9 +65,8 @@ shinyUI(fluidPage(
 
       # Button
       , p("Select button to download zip file with input and results.")
+      , p("Check 'results_log.txt' for any warnings or messages.")
       , downloadButton("b_downloadData", "Download")
-
-
 
 
     )##sidebarPanel~END

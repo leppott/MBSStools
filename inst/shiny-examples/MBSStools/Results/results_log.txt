@@ -1,0 +1,33 @@
+Results Log from MBSStools Shiny App
+2020-06-23 15:16:47
+file = example_fish.tsv
+Community = fish
+QC taxa = only_MBSS
+Taxa match, 79 / 80
+The following user taxon (1/80) did not match the master list.
+HOG SUCKER
+IBI = MBSS.2005.Fish
+One or more fish samples (n = 0) had zero organisms and was scored as a 1 (metrics and IBI).
+Saving 7 x 7 in image
+Warning in sink() : no sink to remove
+
+
+
+
+
+Error in readLines(con, warn = FALSE) : cannot open the connection
+In addition: Warning message:
+In readLines(con, warn = FALSE) :
+  cannot open file 'NEWS.rmd': No such file or directory
+Warning message:
+In file.remove("NEWS.html") :
+  cannot remove file 'NEWS.html', reason 'No such file or directory'
+Loading required package: usethis
+Updating MBSStools documentation
+Loading MBSStools
+WARNING: Rtools 3.5 found on the path at C:/Rtools is not compatible with R 4.0.0.
+
+Please download and install Rtools custom from https://cran.r-project.org/bin/windows/Rtools/, remove the incompatible version from your PATH.
+WARNING: Rtools 3.5 found on the path at C:/Rtools is not compatible with R 4.0.0.
+
+Please download and install Rtools custom from https://cran.r-project.org/bin/windows/Rtools/, remove the incompatible version from your PATH.

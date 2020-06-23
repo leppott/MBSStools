@@ -86,7 +86,18 @@ shinyServer(function(input, output) {
      shiny::withProgress({
       #
       # Number of increments
-      n_inc <- 5
+      n_inc <- 6
+
+      # sink output
+      #fn_sink <- file.path(".", "Results", "results_log.txt")
+      file_sink <- file(file.path(".", "Results", "results_log.txt"), open = "wt")
+      sink(file_sink, type = "output", append = TRUE)
+      sink(file_sink, type = "message", append = TRUE)
+      # Log
+      message("Results Log from MBSStools Shiny App")
+      message(Sys.time())
+      inFile <- input$fn_input
+      message(paste0("file = ", inFile$name))
 
 
       # Increment the progress bar, and update the detail text.
@@ -107,7 +118,30 @@ shinyServer(function(input, output) {
       #appUser <- Sys.getenv('USERNAME')
       # Not meaningful when run online via Shiny.io
 
+      # Increment the progress bar, and qc_taxa
+      incProgress(1/n_inc, detail = "QC, Taxa")
+      Sys.sleep(0.25)
+      # qc_taxa
+      myIndex <- input$MMI
+      myCommunity <- Community[match(myIndex, MMIs)]
+      # Log
+      message(paste0("Community = ", myCommunity))
+      message(paste0("QC taxa = ", input$QC_Type))
 
+      if(myCommunity == "fish"){
+        df_mt  <- df_mt_fish
+      } else if (myCommunity == "bugs"){
+        df_mt  <- df_mt_bugs
+      } else {
+        # Nothing
+      }## IF ~ community ~ END
+
+      df_data_qc <- qc_taxa(df_data, df_mt, myCommunity, input$QC_Type)
+      # INDEX.NAME to Index.Name
+      names(df_data_qc)[names(df_data_qc) %in% "INDEX.NAME"] <- "Index.Name"
+      # QC
+      # write.csv(df_data, file.path(".", "Results", "results_data.csv"))
+      # write.csv(df_data_qc, file.path(".", "Results", "results_data_qc.csv"))
 
       # Increment the progress bar, and update the detail text.
       incProgress(1/n_inc, detail = "Calculate, Metrics")
@@ -116,14 +150,17 @@ shinyServer(function(input, output) {
       # calculate values and scores in a single step.
       #  and save each file
 
-      myIndex <- input$MMI
+      #myIndex <- input$MMI
       thresh <- MBSStools::metrics_scoring
       myMetrics <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"MetricName.Other"])))
       #
-      myCommunity <- Community[match(myIndex, MMIs)]
+     # myCommunity <- Community[match(myIndex, MMIs)]
       myCol_Strata <- col_Strata[match(myIndex, MMIs)]
-      #
-      df_metval <- MBSStools::metric.values(df_data, myCommunity, myMetrics)
+
+      # Log
+      message(paste0("IBI = ", input$MMI))
+
+      df_metval <- MBSStools::metric.values(df_data_qc, myCommunity, myMetrics)
       #
       # Save
       # fn_metval <- file.path(".", "Results", "results_metval.tsv")
@@ -195,6 +232,11 @@ shinyServer(function(input, output) {
 
       # #
       # return(myMetric.Values)
+      # end sink
+      #flush.console()
+      sink() # console
+      sink() # message
+      #
      }##expr~withProgress~END
      , message = "Calculating IBI"
      )##withProgress~END

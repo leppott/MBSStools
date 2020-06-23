@@ -21,6 +21,11 @@ QC_Type <- c("only_MBSS", "only_user", "add_new")
 # setting this option. Here we'll raise limit to 10MB.
 options(shiny.maxRequestSize = 25*1024^2)
 
+# Get Master Taxa Lists
+url_mt_fish <- "https://github.com/leppott/MBSStools_SupportFiles/raw/master/Data/CHAR_Fish.csv"
+df_mt_fish  <- read.csv(url_mt_fish)
+url_mt_bugs <- "https://github.com/leppott/MBSStools_SupportFiles/raw/master/Data/CHAR_Bugs.csv"
+df_mt_bugs  <- read.csv(url_mt_bugs)
 
 # Metrics.Bugs.Scores.MBSS <- read.csv(file.path(".", "Results", "Metrics.Bugs.Scores.MBSS.csv"))
 #
