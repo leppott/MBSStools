@@ -71,6 +71,10 @@ help(package=(myPkg))
 citation(myPkg)
 ```
 
+PkgDown website
+pkgdown::build_site()
+
+
 ## Including Data
 All data should have already been created.
 

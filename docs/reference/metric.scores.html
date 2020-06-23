@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -37,9 +41,7 @@
 
 <meta property="og:title" content="Score metrics — metric.scores" />
 <meta property="og:description" content="This function calculates metric scores based on a Thresholds data frame.
-Can generate scores for 1/3/5 (ScoreRegime=&quot;135&quot;) or 0-100 (ScoreRegime=
-&quot;100&quot;)." />
-<meta name="twitter:card" content="summary" />
+Can generate scores for 1/3/5 (ScoreRegime=&quot;135&quot;) for MD DNR MBSS FIBI and BIBI." />
 
 
 
@@ -57,7 +59,7 @@ Can generate scores for 1/3/5 (ScoreRegime=&quot;135&quot;) or 0-100 (ScoreRegim
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -71,7 +73,7 @@ Can generate scores for 1/3/5 (ScoreRegime=&quot;135&quot;) or 0-100 (ScoreRegim
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9010</span>
       </span>
     </div>
 
@@ -98,10 +100,13 @@ Can generate scores for 1/3/5 (ScoreRegime=&quot;135&quot;) or 0-100 (ScoreRegim
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/leppott/MBSStools">
+  <a href="https://github.com/leppott/MBSStools/">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -126,8 +131,7 @@ Can generate scores for 1/3/5 (ScoreRegime=&quot;135&quot;) or 0-100 (ScoreRegim
 
     <div class="ref-description">
     <p>This function calculates metric scores based on a Thresholds data frame.
-Can generate scores for 1/3/5 (ScoreRegime="135") or 0-100 (ScoreRegime=
-"100").</p>
+Can generate scores for 1/3/5 (ScoreRegime="135") for MD DNR MBSS FIBI and BIBI.</p>
     </div>
 
     <pre class="usage"><span class='fu'>metric.scores</span>(<span class='no'>DF_Metrics</span>, <span class='no'>MetricNames</span>, <span class='no'>IndexName</span>, <span class='no'>IndexRegion</span>, <span class='no'>DF_Thresh</span>)</pre>
@@ -165,7 +169,8 @@ Metric, Direction, Thresh.Lo, Thresh.Hi, ScoreRegime)</p></td>
     <p>vector of scores</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The R library dplyr is needed for this function.</p>
+    <p>The inputs and outputs have been designed to mimic those used by MBSS staff.</p>
+<p>The R library dplyr is needed for this function.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Metrics, Fish</span>
@@ -183,8 +188,7 @@ Metric, Direction, Thresh.Lo, Thresh.Hi, ScoreRegime)</p></td>
 <span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span>(<span class='no'>myMetric.Values.Fish</span>)
 <span class='co'># SCORE</span>
 <span class='no'>Metrics.Fish.Scores</span> <span class='kw'>&lt;-</span> <span class='fu'>metric.scores</span>(<span class='no'>myMetric.Values.Fish</span>, <span class='no'>myMetrics.Fish</span>,
-<span class='st'>"Index.Name"</span>, <span class='st'>"FIBISTRATA"</span>, <span class='no'>thresh</span>)
-<span class='co'># View Results</span>
+<span class='st'>"Index.Name"</span>, <span class='st'>"FIBISTRATA"</span>, <span class='no'>thresh</span>)</div><div class='output co'>#&gt; <span class='message'>One or more fish samples (n = 1) had zero organisms and was scored as a 1 (metrics and IBI).</span></div><div class='input'><span class='co'># View Results</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span>(<span class='no'>Metrics.Fish.Scores</span>)
 <span class='co'># Add Narrative</span>
 <span class='no'>myBreaks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>:<span class='fl'>5</span>)
@@ -195,7 +199,7 @@ Metric, Direction, Thresh.Lo, Thresh.Hi, ScoreRegime)</p></td>
 <span class='co'># QC, IBI Numeric vs. Narrative</span>
 <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>Metrics.Fish.Scores</span>$<span class='no'>IBI</span>, <span class='no'>Metrics.Fish.Scores</span>$<span class='no'>IBI_Nar</span>, <span class='kw'>useNA</span><span class='kw'>=</span><span class='st'>"ifany"</span>)</div><div class='output co'>#&gt;                   
 #&gt;                    Very Poor Poor Fair Good
-#&gt;   1                        3    0    0    0
+#&gt;   1                        4    0    0    0
 #&gt;   1.33333333333333         2    0    0    0
 #&gt;   1.5                      1    0    0    0
 #&gt;   1.66666666666667         2    0    0    0
@@ -227,10 +231,53 @@ Metric, Direction, Thresh.Lo, Thresh.Hi, ScoreRegime)</p></td>
 <span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span>(<span class='no'>myMetric.Values.Bugs.MBSS</span>)
 <span class='co'># SCORE</span>
 <span class='no'>Metrics.Bugs.Scores.MBSS</span> <span class='kw'>&lt;-</span> <span class='fu'>metric.scores</span>(<span class='no'>myMetric.Values.Bugs.MBSS</span>,
-<span class='no'>myMetrics.Bugs.MBSS</span>, <span class='st'>"INDEX.NAME"</span>, <span class='st'>"STRATA_R"</span>, <span class='no'>thresh</span>)
-<span class='co'># View Results</span>
+<span class='no'>myMetrics.Bugs.MBSS</span>, <span class='st'>"INDEX.NAME"</span>, <span class='st'>"STRATA_R"</span>, <span class='no'>thresh</span>)</div><div class='output co'>#&gt; <span class='message'>One or more bug samples had &lt; 60 (n = 0) or &gt; 120 (n = 90) organisms.</span>
+#&gt; <span class='message'>These samples should be further examined.</span></div><div class='input'><span class='co'># View Results</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span>(<span class='no'>Metrics.Bugs.Scores.MBSS</span>)
-
+<span class='co'># Add Narrative</span>
+<span class='no'>myBreaks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>:<span class='fl'>5</span>)
+<span class='no'>myLabels</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Very Poor"</span>, <span class='st'>"Poor"</span>, <span class='st'>"Fair"</span>, <span class='st'>"Good"</span>)
+<span class='no'>Metrics.Bugs.Scores.MBSS</span>$<span class='no'>IBI_Nar</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cut.html'>cut</a></span>(<span class='no'>Metrics.Bugs.Scores.MBSS</span>$<span class='no'>IBI</span>
+                                   , <span class='kw'>breaks</span><span class='kw'>=</span><span class='no'>myBreaks</span>, <span class='kw'>labels</span><span class='kw'>=</span><span class='no'>myLabels</span>
+                                   , <span class='kw'>include.lowest</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>right</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>ordered_result</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
+<span class='co'># QC, IBI Numeric vs. Narrative</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>Metrics.Bugs.Scores.MBSS</span>$<span class='no'>IBI</span>, <span class='no'>Metrics.Bugs.Scores.MBSS</span>$<span class='no'>IBI_Nar</span>, <span class='kw'>useNA</span><span class='kw'>=</span><span class='st'>"ifany"</span>)</div><div class='output co'>#&gt;                   
+#&gt;                    Very Poor Poor Fair Good
+#&gt;   1                        3    0    0    0
+#&gt;   1.28571428571429         2    0    0    0
+#&gt;   1.33333333333333         7    0    0    0
+#&gt;   1.5                      5    0    0    0
+#&gt;   1.57142857142857         3    0    0    0
+#&gt;   1.66666666666667        10    0    0    0
+#&gt;   1.75                     7    0    0    0
+#&gt;   1.85714285714286         3    0    0    0
+#&gt;   2                        0   13    0    0
+#&gt;   2.14285714285714         0    5    0    0
+#&gt;   2.25                     0    7    0    0
+#&gt;   2.33333333333333         0    6    0    0
+#&gt;   2.42857142857143         0    9    0    0
+#&gt;   2.5                      0    3    0    0
+#&gt;   2.66666666666667         0   14    0    0
+#&gt;   2.71428571428571         0    6    0    0
+#&gt;   3                        0    0   18    0
+#&gt;   3.25                     0    0    3    0
+#&gt;   3.28571428571429         0    0    4    0
+#&gt;   3.33333333333333         0    0    8    0
+#&gt;   3.5                      0    0    4    0
+#&gt;   3.57142857142857         0    0    2    0
+#&gt;   3.66666666666667         0    0   11    0
+#&gt;   3.75                     0    0    4    0
+#&gt;   3.85714285714286         0    0    2    0
+#&gt;   4                        0    0    0    9
+#&gt;   4.14285714285714         0    0    0    6
+#&gt;   4.25                     0    0    0    7
+#&gt;   4.33333333333333         0    0    0    2
+#&gt;   4.42857142857143         0    0    0    5
+#&gt;   4.5                      0    0    0    3
+#&gt;   4.66666666666667         0    0    0    2
+#&gt;   4.71428571428571         0    0    0    7
+#&gt;   4.75                     0    0    0    3
+#&gt;   5                        0    0    0    8</div><div class='input'>
 <span class='co'># QC bug count</span>
 <span class='no'>Metrics.Bugs.Scores.MBSS</span>[<span class='no'>Metrics.Bugs.Scores.MBSS</span>[,<span class='st'>"totind"</span>]<span class='kw'>&gt;</span><span class='fl'>120</span>,
 <span class='st'>"QC_Count"</span>] <span class='kw'>&lt;-</span> <span class='st'>"LARGE"</span>
@@ -256,19 +303,36 @@ Metric, Direction, Thresh.Lo, Thresh.Hi, ScoreRegime)</p></td>
 <span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span>(<span class='no'>myMetric.Values.Bugs.MSW</span>)
 <span class='co'># SCORE</span>
 <span class='no'>Metrics.Bugs.Scores.MSW</span> <span class='kw'>&lt;-</span> <span class='fu'>metric.scores</span>(<span class='no'>myMetric.Values.Bugs.MSW</span>,
-<span class='no'>myMetrics.Bugs.MSW</span>, <span class='st'>"INDEX.NAME"</span>, <span class='st'>"STRATA_R"</span>, <span class='no'>thresh</span>)
-<span class='co'># View Results</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span>(<span class='no'>Metrics.Bugs.Scores.MSW</span>)</div></pre>
+<span class='no'>myMetrics.Bugs.MSW</span>, <span class='st'>"INDEX.NAME"</span>, <span class='st'>"STRATA_R"</span>, <span class='no'>thresh</span>)</div><div class='output co'>#&gt; <span class='message'>One or more bug samples had &lt; 60 (n = 0) or &gt; 120 (n = 102) organisms.</span>
+#&gt; <span class='message'>These samples should be further examined.</span></div><div class='input'><span class='co'># View Results</span>
+<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span>(<span class='no'>Metrics.Bugs.Scores.MSW</span>)
+<span class='co'># Add Narrative</span>
+<span class='no'>myBreaks</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>1</span>:<span class='fl'>5</span>)
+<span class='no'>myLabels</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Very Poor"</span>, <span class='st'>"Poor"</span>, <span class='st'>"Fair"</span>, <span class='st'>"Good"</span>)
+<span class='no'>Metrics.Bugs.Scores.MSW</span>$<span class='no'>IBI_Nar</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cut.html'>cut</a></span>(<span class='no'>Metrics.Bugs.Scores.MSW</span>$<span class='no'>IBI</span>
+                                   , <span class='kw'>breaks</span><span class='kw'>=</span><span class='no'>myBreaks</span>, <span class='kw'>labels</span><span class='kw'>=</span><span class='no'>myLabels</span>
+                                   , <span class='kw'>include.lowest</span><span class='kw'>=</span><span class='fl'>TRUE</span>, <span class='kw'>right</span><span class='kw'>=</span><span class='fl'>FALSE</span>, <span class='kw'>ordered_result</span><span class='kw'>=</span><span class='fl'>TRUE</span>)
+<span class='co'># QC, IBI Numeric vs. Narrative</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span>(<span class='no'>Metrics.Bugs.Scores.MSW</span>$<span class='no'>IBI</span>, <span class='no'>Metrics.Bugs.Scores.MSW</span>$<span class='no'>IBI_Nar</span>, <span class='kw'>useNA</span><span class='kw'>=</span><span class='st'>"ifany"</span>)</div><div class='output co'>#&gt;                   
+#&gt;                    Very Poor Poor Fair Good
+#&gt;   1                        4    0    0    0
+#&gt;   1.28571428571429        14    0    0    0
+#&gt;   1.57142857142857        18    0    0    0
+#&gt;   1.85714285714286        20    0    0    0
+#&gt;   2.14285714285714         0   17    0    0
+#&gt;   2.42857142857143         0   22    0    0
+#&gt;   2.71428571428571         0   16    0    0
+#&gt;   3                        0    0   21    0
+#&gt;   3.28571428571429         0    0   14    0
+#&gt;   3.57142857142857         0    0   15    0
+#&gt;   3.85714285714286         0    0   15    0
+#&gt;   4.14285714285714         0    0    0   11
+#&gt;   4.42857142857143         0    0    0   24</div></pre>
   </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      <li><a href="#arguments">Arguments</a></li>
-      <li><a href="#value">Value</a></li>
-      <li><a href="#details">Details</a></li>
-      <li><a href="#examples">Examples</a></li>
-    </ul>
-
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 </div>
 
@@ -279,7 +343,7 @@ Metric, Direction, Thresh.Lo, Thresh.Hi, ScoreRegime)</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

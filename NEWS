@@ -3,7 +3,11 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-06-23 12:57:08
+    #> Last Update: 2020-06-23 13:12:48
+
+# MBSStools v1.1.0.9011 (2020-06-23)
+
+  - Update pkgdown website.
 
 # MBSStools v1.1.0.9010 (2020-06-23)
 
