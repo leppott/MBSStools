@@ -14,6 +14,7 @@ library(ggplot2)
 MMIs <- c("MBSS.2005.Fish", "MBSS.2005.Bugs", "MSW.1999.Bugs")
 Community <- c("fish", "bugs", "bugs")
 col_Strata <- c("FIBISTRATA", "STRATA_R", "STRATA_R")
+QC_Type <- c("only_MBSS", "only_user", "add_new")
 
 # File Size
 # By default, the file size limit is 5MB. It can be changed by

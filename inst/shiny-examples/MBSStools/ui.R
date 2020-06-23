@@ -28,8 +28,8 @@ shinyUI(fluidPage(
       h3("App Steps")
       # , htmlOutput("vig")
       #, p("1_LoadData, 2_CalcMetrics, 3_CalcIndex, 4_DownloadResults")
-      , h3("1. Load File")
-      , h4("Select file parameters")
+      , h4("1. Load File")
+      , h5("Select file parameters")
       , checkboxInput('header', 'Header', TRUE)
       , radioButtons('sep', 'Separator',
                      c(Comma=',',
@@ -53,12 +53,15 @@ shinyUI(fluidPage(
                 )
       )##fileInput~END
       #, tags$hr()
-      , h3("2. Calculate IBI")
+      , h4("2. QC Master Taxa")
+      , selectInput("QC_Type", "Select how to handle new/different taxa:",
+                    choices=QC_Type)
+      , h4("3. Calculate IBI")
       , selectInput("MMI", "Select an IBI to calculate:",
                     choices=MMIs)
       , actionButton("b_Calc", "Calculate Metric Values and Scores")
       , tags$hr()
-      , h3("3. Download Results")
+      , h4("4. Download Results")
 
       # Button
       , p("Select button to download zip file with input and results.")

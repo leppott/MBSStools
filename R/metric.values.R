@@ -140,7 +140,7 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @export
 metric.values <- function(fun.DF, fun.Community, fun.MetricNames=NULL, boo.Adjust=FALSE){##FUNCTION.metric.values.START
-  fun.Community <- toupper(fun.Community)
+  #fun.Community <- toupper(fun.Community)
   # convert community to lowercase
   fun.Community <- tolower(fun.Community)
   # run the proper sub function

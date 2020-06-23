@@ -3,7 +3,14 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-05-22 07:28:33
+    #> Last Update: 2020-06-23 11:28:56
+
+# MBSStools v1.1.0.9009 (2020-06-23)
+
+  - qc\_taxa
+      - New function; Issue \#13 and \#26
+  - tests
+      - Add tests for qc\_taxa
 
 # MBSStools v1.1.0.9008 (2020-05-22)
 
