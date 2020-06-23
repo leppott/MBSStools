@@ -168,10 +168,77 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
   # Error check on fields
   if (length(myFlds)!=sum(myFlds %in% names(myDF))) {
     myMsg <- paste0("Fields missing from input data frame.  Expecting: \n"
-                    , paste(myFlds,sep="", collapse=", "), collapse="")
+                    , paste(myFlds, sep="", collapse=", "), collapse="")
     stop(myMsg)
   }## FOR ~ length ~ END
   #
+  # QC, STRATA_R
+  # COASTAL, EPIEDMONT, or HIGHLAND
+  qc_col   <- "STRATA_R"
+  qc_val   <- c("COASTAL", "EPIEDMONT", "HIGHLAND", "CP", "NCP")
+  qc_user  <- unique(myDF[, qc_col])
+  qc_check <- qc_user %in% qc_val
+  qc_invalid <- qc_user[!qc_check]
+  if(length(qc_check) != sum(qc_check)){
+    myMsg <- paste0("\nBad values in ", qc_col, ".\n Valid: \n  "
+                    , paste(qc_val, sep= "", collapse = ", ")
+                    , "\n Invalid: \n  "
+                    , paste(qc_invalid, sep = "", collapse = ", ")
+                    , collapse="")
+    stop(myMsg)
+  }## IF ~ QC, Strata ~ END
+  #
+  # QC, EXCLUDE
+  # Valid values are: TRUE and FALSE
+  qc_col   <- "EXCLUDE"
+  qc_val   <- c("TRUE", "FALSE")
+  qc_user  <- unique(myDF[, qc_col])
+  qc_check <- qc_user %in% qc_val
+  qc_invalid <- qc_user[!qc_check]
+  if(length(qc_check) != sum(qc_check)){
+    myMsg <- paste0("\nBad values in ", qc_col, ".\n Valid: \n  "
+                    , paste(qc_val, sep= "", collapse = ", ")
+                    , "\n Invalid: \n  "
+                    , paste(qc_invalid, sep = "", collapse = ", ")
+                    , collapse="")
+    stop(myMsg)
+  }## IF ~ QC, Strata ~ END
+  #
+  # QC, FFG
+  # Valid values for FFG: col, fil, pre, scr, shr
+  # "Collector" "Shredder"  "Predator"  ""          "Filterer"  "Scraper"
+  # remove white space to get all combos and make unique
+  qc_col   <- "FFG"
+  qc_val   <- toupper(c(NA, "", "Collector", "Shredder", "Predator", "Filterer", "Scraper"))
+  qc_user <- unique(unlist(strsplit(gsub("\\s", "", toupper(unique(myDF[, qc_col]))), ",")))
+  qc_check <- qc_user %in% qc_val
+  qc_invalid <- qc_user[!qc_check]
+  if(length(qc_check) != sum(qc_check)){
+    myMsg <- paste0("\nBad values in ", qc_col, ".\n Valid: \n  "
+                    , paste(qc_val, sep= "", collapse = ", ")
+                    , "\n Invalid: \n  "
+                    , paste(qc_invalid, sep = "", collapse = ", ")
+                    , collapse="")
+    stop(myMsg)
+  }## IF ~ QC, FFG ~ END
+
+  # QC, HABIT
+  # Valid values for HABIT: BU, CB, CN, SP, SW
+  # remove white space to get all combos and make unique
+  qc_col   <- "HABIT"
+  qc_val   <- c(NA, "", "-", "BU", "CB", "CN", "SP", "SW", "DV", "SK")
+  qc_user <- unique(unlist(strsplit(gsub("\\s", "", toupper(unique(myDF[, qc_col]))), ",")))
+  qc_check <- qc_user %in% qc_val
+  qc_invalid <- qc_user[!qc_check]
+  if(length(qc_check) != sum(qc_check)){
+    myMsg <- paste0("\nBad values in ", qc_col, ".\n Valid: \n  "
+                    , paste(qc_val, sep= "", collapse = ", ")
+                    , "\n Invalid: \n  "
+                    , paste(qc_invalid, sep = "", collapse = ", ")
+                    , collapse="")
+    stop(myMsg)
+  }## IF ~ QC, Habit ~ END
+
   # Add extra columns for FFG and Habit (need unique values for functions in summarise)
   # each will be TRUE or FALSE
     myDF["Habit_BU"] <- grepl("BU",toupper(myDF[,"HABIT"]))
@@ -418,6 +485,22 @@ metric.values.fish <- function(myDF, SampleID, MetricNames=NULL, boo.Adjust){##F
       myDF[,i] <- toupper(myDF[,i])
     }##IF ~ class ~ END
   } ## FOR ~ i ~ END
+
+  # QC, FIBISTRATA
+  # COASTAL, COLD, EPIEDMONT, or HIGHLAND
+  qc_col   <- "FIBISTRATA"
+  qc_val   <- c("COASTAL", "COLD", "EPIEDMONT", "HIGHLAND")
+  qc_user  <- unique(myDF[, qc_col])
+  qc_check <- qc_user %in% qc_val
+  qc_invalid <- qc_user[!qc_check]
+  if(length(qc_check) != sum(qc_check)){
+    myMsg <- paste0("\nBad values in ", qc_col, ".\n Valid: \n  "
+                    , paste(qc_val, sep= "", collapse = ", ")
+                    , "\n Invalid: \n  "
+                    , paste(qc_invalid, sep = "", collapse = ", ")
+                    , collapse="")
+    stop(myMsg)
+  }## IF ~ QC, Strata ~ END
 
   # Calculate Metrics (could have used pipe, %>%)
   met.val <- dplyr::summarise(dplyr::group_by(myDF, Index.Name, SITE, FIBISTRATA

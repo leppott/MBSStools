@@ -17,6 +17,11 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.1.0.9010 (2020-06-23)
+================
+* metric.values
+    + QC checks on valid values; Issue #26
+    
 MBSStools v1.1.0.9009 (2020-06-23)
 ================
 * qc_taxa
