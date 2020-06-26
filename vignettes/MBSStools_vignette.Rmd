@@ -4,7 +4,7 @@ author: "Erik.Leppo@tetratech.com"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{MBSStools_Vignette}
+  %\VignetteIndexEntry{MBSStools_vignette}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -233,7 +233,7 @@ unzip(file.path(path.package("MBSStools"),"extdata","MD_GIS.zip"),exdir=file.pat
 Observation data with three columns needed for the tool to work (common name, latitude, and longitude).  Additional columns can be appended (e.g., SiteYr) and will not affect the functionality.
 ```{r TaxaMaps Input, echo=FALSE}
 # library
-library(XLConnect)
+library(readxl)
 
 # data files
 obs <- "AllFish_95to16.xls"
@@ -255,7 +255,7 @@ head(df.taxa.obs)
 Crosswalk data with common name and map name.
 ```{r TaxaMaps Crosswalk, echo=FALSE}
 # library
-library(XLConnect)
+library(readxl)
 
 # data files
 obs <- "AllFish_95to16.xls"
@@ -295,17 +295,15 @@ The intent behind this function was to recreate the fish taxa distribution maps.
 
 The taxa distribution map for brown trout is shown below.
 
-```{r TaxaMap Brown Trout, echo=FALSE, results="hide", fig.show='hold', warnings=FALSE, eval=FALSE}
+```{r TaxaMap Brown Trout, echo=FALSE, results="hide", fig.show='hold', warnings=FALSE, eval=TRUE}
 # example map.
 # include only brown trout
 # brntrout.png
 # assume already created directories
 
 ## library
-library(XLConnect)
+library(readxl)
 library(rgdal)
-
-
 
 # Set Working Directory
 wd <- getwd()
@@ -360,49 +358,49 @@ df.lu.taxa[,"CommonName"] <- tolower(df.lu.taxa[,"CommonName"])
 # colnames(df.lu.taxa)[1:2] <- c("CommonName","MapName")
 
  # 4. Munge Data ####
-    # Compare TaxaName to CommonName
-    taxa.names <- as.vector(df.lu.taxa[,"CommonName"])
-    matches <- as.vector(df.taxa.obs[,"CommonName"]) %in% taxa.names
-    df.taxa.nomatch <- as.data.frame(unique(sort(df.taxa.obs[,"CommonName"][!matches])))
-    colnames(df.taxa.nomatch)[1] <- "CommonName"
-    df.taxa.match <- as.data.frame(unique(sort(df.taxa.obs[,"CommonName"][matches])))
-    colnames(df.taxa.match)[1] <- "CommonName"
+# Compare TaxaName to CommonName
+taxa.names <- as.vector(df.lu.taxa[,"CommonName"])
+matches <- as.vector(df.taxa.obs[,"CommonName"]) %in% taxa.names
+df.taxa.nomatch <- as.data.frame(unique(sort(df.taxa.obs[,"CommonName"][!matches])))
+colnames(df.taxa.nomatch)[1] <- "CommonName"
+df.taxa.match <- as.data.frame(unique(sort(df.taxa.obs[,"CommonName"][matches])))
+colnames(df.taxa.match)[1] <- "CommonName"
 
-    #if (onlymatches == TRUE) {
-        # Create a data frame of common names and filenames for matching taxa
-        map.taxa <- subset(df.lu.taxa, CommonName %in% df.taxa.match[,"CommonName"],
-                           select = c(CommonName,MapName))
-    
-    # 5. Mapping ####
-    ppi <- 72
-    #dsn<-paste(dirMain,dirGIS,sep="/")
-    dsn <- file.path(dirMain, dirGIS)
-    state     <- rgdal::readOGR(dsn = dsn, layer = "MD_State_Boundary", verbose=verbose)
-    coastline <- rgdal::readOGR(dsn = dsn, layer = "MD_Coast_Hydrology", verbose=verbose)
-    counties  <- rgdal::readOGR(dsn = dsn, layer = "MD_Boundary_County_Detailed", verbose=verbose)
+#if (onlymatches == TRUE) {
+    # Create a data frame of common names and filenames for matching taxa
+    map.taxa <- subset(df.lu.taxa, CommonName %in% df.taxa.match[,"CommonName"],
+                       select = c(CommonName,MapName))
 
-    i<-1
-    
-    taxon <- as.character(map.taxa$CommonName[i])
-    
-    
-      filename <- map.taxa$MapName[i]
-      df.taxon.sites <- subset(df.taxa.obs, df.taxa.obs[,"CommonName"]==taxon)
-      df.taxon.sites <- subset(df.taxon.sites, !is.na(df.taxon.sites["Latitude83"]))
-    
-      
-      plot(state, col="white", border="gray")
-        plot(coastline, add = TRUE, col="light blue", border=FALSE)
-        plot(counties, add = TRUE, col="white", border="darkslategray", lwd=0.5)
-        #xy <- df.taxon.sites[,2:3]
-        proj.sites <- rgdal::project(cbind(df.taxon.sites$Longitude83,df.taxon.sites$Latitude83),
-                              "+proj=lcc +lat_1=39.45 +lat_2=38.3 +lat_0=37.66666666666666 +lon_0=-77
-                +x_0=400000 +y_0=0 +datum=NAD83 +units=m +no_defs")
-        points(proj.sites[,1], proj.sites[,2], pch=21, col="black", bg="green", cex=1.0)
+# 5. Mapping ####
+ppi <- 72
+#dsn<-paste(dirMain,dirGIS,sep="/")
+dsn <- file.path(dirMain, dirGIS)
+state     <- rgdal::readOGR(dsn = dsn, layer = "MD_State_Boundary", verbose=verbose)
+coastline <- rgdal::readOGR(dsn = dsn, layer = "MD_Coast_Hydrology", verbose=verbose)
+counties  <- rgdal::readOGR(dsn = dsn, layer = "MD_Boundary_County_Detailed", verbose=verbose)
+
+i<-1
+
+taxon <- as.character(map.taxa$CommonName[i])
+
+
+  filename <- map.taxa$MapName[i]
+  df.taxon.sites <- subset(df.taxa.obs, df.taxa.obs[,"CommonName"]==taxon)
+  df.taxon.sites <- subset(df.taxon.sites, !is.na(df.taxon.sites["Latitude83"]))
+
+  
+  plot(state, col="white", border="gray")
+    plot(coastline, add = TRUE, col="light blue", border=FALSE)
+    plot(counties, add = TRUE, col="white", border="darkslategray", lwd=0.5)
+    #xy <- df.taxon.sites[,2:3]
+    proj.sites <- rgdal::project(cbind(df.taxon.sites$Longitude83,df.taxon.sites$Latitude83),
+                          "+proj=lcc +lat_1=39.45 +lat_2=38.3 +lat_0=37.66666666666666 +lon_0=-77
+            +x_0=400000 +y_0=0 +datum=NAD83 +units=m +no_defs")
+    points(proj.sites[,1], proj.sites[,2], pch=21, col="black", bg="green", cex=1.0)
         
         
  #reset old working directory
- setwd <- oldwd
+ #setwd <- oldwd
 ```
 
 ## Stream Discharge

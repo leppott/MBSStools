@@ -17,6 +17,12 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.1.0.9013 (2020-06-26)
+================
+* Vignette not rebuilding.
+    + Replace XLConnect with readxl.
+        - Java issue.
+
 MBSStools v1.1.0.9012 (2020-06-23)
 ================
 * Update Shiny app to use qc_taxa(); Issue #26

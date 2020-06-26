@@ -3,7 +3,17 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-06-23 13:12:48
+    #> Last Update: 2020-06-26 10:53:17
+
+# MBSStools v1.1.0.9013 (2020-06-26)
+
+  - Vignette not rebuilding.
+      - Replace XLConnect with readxl.
+          - Java issue.
+
+# MBSStools v1.1.0.9012 (2020-06-23)
+
+  - Update Shiny app to use qc\_taxa(); Issue \#26
 
 # MBSStools v1.1.0.9011 (2020-06-23)
 

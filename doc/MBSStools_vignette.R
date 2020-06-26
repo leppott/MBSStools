@@ -1,12 +1,12 @@
-## ----install, eval=FALSE-------------------------------------------------
+## ----install, eval=FALSE------------------------------------------------------
 #  install.packages("devtools")
 #  library(devtools)
 #  install_github("leppott/MBSStools")
 
-## ----install example 2, eval=FALSE---------------------------------------
+## ----install example 2, eval=FALSE--------------------------------------------
 #  install.package("dplyr")
 
-## ----IBI Fish, echo=TRUE-------------------------------------------------
+## ----IBI Fish, echo=TRUE------------------------------------------------------
 # Metrics, Fish
 library(MBSStools)
 #(generate values then score)s
@@ -24,7 +24,7 @@ Metrics.Fish.Scores <- metric.scores(myMetric.Values.Fish, myMetrics.Fish, "Inde
 # View Results
 knitr::kable(head(Metrics.Fish.Scores))
 
-## ----IBI Ben MBSS, echo=TRUE---------------------------------------------
+## ----IBI Ben MBSS, echo=TRUE--------------------------------------------------
 # Metrics, Index, Benthic Macroinvertebrates, genus
 # (generate values then scores)
 myIndex <- "MBSS.2005.Bugs"
@@ -48,7 +48,7 @@ Metrics.Bugs.Scores.MBSS[is.na(Metrics.Bugs.Scores.MBSS[,"QC_Count"]),"QC_Count"
 # table of QC_Count
 knitr::kable(head(Metrics.Bugs.Scores.MBSS))
 
-## ----IBI Ben MSW, echo=TRUE----------------------------------------------
+## ----IBI Ben MSW, echo=TRUE---------------------------------------------------
 # Metrics, MSW Index, Benthic Macroinvertebrates, family
 myIndex <- "MSW.1999.Bugs"
 # Thresholds
@@ -64,7 +64,7 @@ Metrics.Bugs.Scores.MSW <- metric.scores(myMetric.Values.Bugs.MSW, myMetrics.Bug
 # View Results
 knitr::kable(head(Metrics.Bugs.Scores.MSW))
 
-## ----TaxaMaps, eval=FALSE------------------------------------------------
+## ----TaxaMaps, eval=FALSE-----------------------------------------------------
 #  # Set Working Directory
 #  wd <- getwd()
 #  # Create Example Data if Needed
@@ -82,9 +82,9 @@ knitr::kable(head(Metrics.Bugs.Scores.MSW))
 #  ### GIS
 #  unzip(file.path(path.package("MBSStools"),"extdata","MD_GIS.zip"),exdir=file.path(wd,"GIS"))
 
-## ----TaxaMaps Input, echo=FALSE------------------------------------------
+## ----TaxaMaps Input, echo=FALSE-----------------------------------------------
 # library
-library(XLConnect)
+library(readxl)
 
 # data files
 obs <- "AllFish_95to16.xls"
@@ -102,9 +102,9 @@ colnames(df.taxa.obs)[1] <- "CommonName"
 
 head(df.taxa.obs)
 
-## ----TaxaMaps Crosswalk, echo=FALSE--------------------------------------
+## ----TaxaMaps Crosswalk, echo=FALSE-------------------------------------------
 # library
-library(XLConnect)
+library(readxl)
 
 # data files
 obs <- "AllFish_95to16.xls"
@@ -123,7 +123,7 @@ df.lu.taxa[,"CommonName"] <- tolower(df.lu.taxa[,"CommonName"])
 head(df.lu.taxa)
 
 
-## ----TaxaMaps Example Code, eval=FALSE-----------------------------------
+## ----TaxaMaps Example Code, eval=FALSE----------------------------------------
 #  # Set Working Directory
 #  wd <- getwd()
 #  
@@ -142,10 +142,8 @@ head(df.lu.taxa)
 #  # assume already created directories
 #  
 #  ## library
-#  library(XLConnect)
+#  library(readxl)
 #  library(rgdal)
-#  
-#  
 #  
 #  # Set Working Directory
 #  wd <- getwd()
@@ -244,7 +242,7 @@ head(df.lu.taxa)
 #   #reset old working directory
 #   setwd <- oldwd
 
-## ----Discharge, eval=FALSE-----------------------------------------------
+## ----Discharge, eval=FALSE----------------------------------------------------
 #  library(MBSStools)
 #  # data
 #  MBSS.flow <- MBSS.flow
@@ -259,13 +257,13 @@ head(df.lu.taxa)
 #  myYear <- "15"
 #  write.table(flow.sample,paste0("SumFlow",myYear,"_",datetime,".tab"),row.names=FALSE,sep="\t")
 
-## ----Ion Ref, echo=FALSE, results='asis'---------------------------------
+## ----Ion Ref, echo=FALSE, results='asis'--------------------------------------
 knitr::kable(MBSS.Ion.Ref)
 
-## ----Ion Data, eval=TRUE, echo=FALSE, results='asis'---------------------
+## ----Ion Data, eval=TRUE, echo=FALSE, results='asis'--------------------------
 knitr::kable(head(MBSS.Ion.Data))
 
-## ----Ion Example, echo=TRUE, results='asis', warnings=FALSE--------------
+## ----Ion Example, echo=TRUE, results='asis', warnings=FALSE-------------------
 library(MBSStools)
 # Load Data
 data.ion <- MBSS.Ion.Data
@@ -275,7 +273,7 @@ ref.ion <- MBSS.Ion.Ref
 contrib.ion <- IonContrib(data.ion)
 #knitr::kable(head(contrib.ion))
 
-## ----Ion Results and Charts, echo=TRUE, results="hide", fig.show='hold'----
+## ----Ion Results and Charts, echo=TRUE, results="hide", fig.show='hold'-------
 # Load Data
 data.ion <- MBSS.Ion.Data
 # Load Reference Table
@@ -311,11 +309,11 @@ barplot(as.numeric(as.vector(data.plot[,myIons.Contrib])), names.arg=myIons, mai
        , axes=TRUE, horiz=TRUE, las=1)
 mtext(paste0("Conductivity (uS/cm) = ",round(data.plot[,"Cond.Total"],1)))
 
-## ----PHI Input, echo=FALSE, results='asis'-------------------------------
+## ----PHI Input, echo=FALSE, results='asis'------------------------------------
 x <- MBSS.PHI
 knitr::kable(head(x))
 
-## ----PHI Results, echo=TRUE----------------------------------------------
+## ----PHI Results, echo=TRUE---------------------------------------------------
 library(MBSStools)
 # data
 myData <- MBSS.PHI
@@ -323,7 +321,7 @@ myData <- MBSS.PHI
 PHI <- PHIcalc(myData)
 knitr::kable(head(PHI))
 
-## ----runShiny, echo=TRUE, eval=FALSE-------------------------------------
+## ----runShiny, echo=TRUE, eval=FALSE------------------------------------------
 #  library(MBSStools)
 #  runShiny()
 

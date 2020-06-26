@@ -1,47 +1,75 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <meta name="author" content="Erik.Leppo@tetratech.com" />
 
-<meta name="date" content="2019-05-17" />
+<meta name="date" content="2020-06-26" />
 
 <title>MBSStools - an R toolkit for the MBSS program’s data needs</title>
 
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -50,9 +78,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -98,7 +126,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
       var style = rule.style.cssText;
       // check if color or background-color is set
-      if (rule.style.color === '' || rule.style.backgroundColor === '') continue;
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
       // replace div.sourceCode by a pre.sourceCode rule
       sheets[i].deleteRule(j);
       sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
@@ -119,9 +147,6 @@ padding-right: 2em;
 font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 font-size: 14px;
 line-height: 1.35;
-}
-#header {
-text-align: center;
 }
 #TOC {
 clear: both;
@@ -290,7 +315,8 @@ code > span.st { color: #d14; }
 code > span.co { color: #888888; font-style: italic; } 
 code > span.ot { color: #007020; } 
 code > span.al { color: #ff0000; font-weight: bold; } 
-code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
 
@@ -304,8 +330,8 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 <h1 class="title toc-ignore">MBSStools - an R toolkit for the MBSS program’s data needs</h1>
-<h4 class="author"><a href="mailto:Erik.Leppo@tetratech.com">Erik.Leppo@tetratech.com</a></h4>
-<h4 class="date">2019-05-17</h4>
+<h4 class="author"><a href="mailto:Erik.Leppo@tetratech.com" class="email">Erik.Leppo@tetratech.com</a></h4>
+<h4 class="date">2020-06-26</h4>
 
 
 
@@ -318,10 +344,10 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <div id="installation" class="section level1">
 <h1>Installation</h1>
 <p>The R library is saved on GitHub (<a href="https://github.com/leppott/MBSStools" class="uri">https://github.com/leppott/MBSStools</a>) for ease of updating and distribution. Issues can be tracked, fixed, and code is available for download. Current users of <code>MBSStools</code> can update the library using the same code used to install the library (see below). Devtools is required to download from GitHub. At this time, there are no plans to submit <code>MBSStools</code> to CRAN (R’s library repository).</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">library</span>(devtools)</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">install_github</span>(<span class="st">&quot;leppott/MBSStools&quot;</span>)</a></code></pre></div>
-<p>To contact the author directly email <a href="mailto:Erik.Leppo@tetratech.com">Erik.Leppo@tetratech.com</a>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="kw">library</span>(devtools)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="kw">install_github</span>(<span class="st">&quot;leppott/MBSStools&quot;</span>)</span></code></pre></div>
+<p>To contact the author directly email <a href="mailto:Erik.Leppo@tetratech.com" class="email">Erik.Leppo@tetratech.com</a>.</p>
 </div>
 <div id="packages" class="section level1">
 <h1>Packages</h1>
@@ -336,7 +362,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 </ol>
 <p>These packages should install automatically when <code>MBSStools</code> installs. But if you encounter issues with a function not working ensure that the necessary package dependencies are installed.</p>
 <p>To install packages follow the example of the code below for installing <code>dplyr</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">install.package</span>(<span class="st">&quot;dplyr&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="kw">install.package</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
 </div>
 <div id="contents" class="section level1">
 <h1>Contents</h1>
@@ -373,26 +399,74 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <li><p>TROPHIC_MBSS = MBSS tropic status designations (ALL CAPS); OM, GE, IS, IV, etc.</p></li>
 <li><p>PTOLR = Pollution tolerance level (ALL CAPS); T, I, NO TYPE.</p></li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Metrics, Fish</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">library</span>(MBSStools)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#(generate values then score)s</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">myIndex &lt;-<span class="st"> &quot;MBSS.2005.Fish&quot;</span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co"># Thresholds</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">thresh &lt;-<span class="st"> </span>metrics_scoring</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co"># get metric names for myIndex</span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">(myMetrics.Fish &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">droplevels</span>(<span class="kw">unique</span>(thresh[thresh[,<span class="st">&quot;Index.Name&quot;</span>]<span class="op">==</span>myIndex,<span class="st">&quot;MetricName.Other&quot;</span>]))))</a></code></pre></div>
-<pre><code>##  [1] &quot;ABUNSQM&quot;   &quot;NUMBENTSP&quot; &quot;PTOL&quot;      &quot;PGEOMIV&quot;   &quot;PROUND&quot;   
-##  [6] &quot;PABDOM&quot;    &quot;BIOM_MSQ&quot;  &quot;P_LITH&quot;    &quot;P_IS&quot;      &quot;PBROOK&quot;   
-## [11] &quot;PSCULP&quot;</code></pre>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="co"># Taxa Data</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">myDF.Fish &lt;-<span class="st"> </span>taxa_fish</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">myMetric.Values.Fish &lt;-<span class="st"> </span><span class="kw">metric.values</span>(myDF.Fish, <span class="st">&quot;fish&quot;</span>, myMetrics.Fish, <span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#View(myMetric.Values.Fish)</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co"># SCORE</span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">Metrics.Fish.Scores &lt;-<span class="st"> </span><span class="kw">metric.scores</span>(myMetric.Values.Fish, myMetrics.Fish, <span class="st">&quot;Index.Name&quot;</span>, <span class="st">&quot;FIBISTRATA&quot;</span>, thresh)</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co"># View Results</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(Metrics.Fish.Scores))</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="co"># Metrics, Fish</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="kw">library</span>(MBSStools)</span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="co">#(generate values then score)s</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a>myIndex &lt;-<span class="st"> &quot;MBSS.2005.Fish&quot;</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co"># Thresholds</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>thresh &lt;-<span class="st"> </span>metrics_scoring</span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="co"># get metric names for myIndex</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a>(myMetrics.Fish &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">droplevels</span>(<span class="kw">unique</span>(thresh[thresh[,<span class="st">&quot;Index.Name&quot;</span>]<span class="op">==</span>myIndex,<span class="st">&quot;MetricName.Other&quot;</span>]))))</span></code></pre></div>
+<pre><code>##  [1] &quot;ABUNSQM&quot;   &quot;NUMBENTSP&quot; &quot;PTOL&quot;      &quot;PGEOMIV&quot;   &quot;PROUND&quot;    &quot;PABDOM&quot;   
+##  [7] &quot;BIOM_MSQ&quot;  &quot;P_LITH&quot;    &quot;P_IS&quot;      &quot;PBROOK&quot;    &quot;PSCULP&quot;</code></pre>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># Taxa Data</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>myDF.Fish &lt;-<span class="st"> </span>taxa_fish</span>
+<span id="cb5-3"><a href="#cb5-3"></a>myMetric.Values.Fish &lt;-<span class="st"> </span><span class="kw">metric.values</span>(myDF.Fish, <span class="st">&quot;fish&quot;</span>, myMetrics.Fish, <span class="ot">TRUE</span>)</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="co">#View(myMetric.Values.Fish)</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="co"># SCORE</span></span>
+<span id="cb5-6"><a href="#cb5-6"></a>Metrics.Fish.Scores &lt;-<span class="st"> </span><span class="kw">metric.scores</span>(myMetric.Values.Fish, myMetrics.Fish, <span class="st">&quot;Index.Name&quot;</span>, <span class="st">&quot;FIBISTRATA&quot;</span>, thresh)</span></code></pre></div>
+<pre><code>## One or more fish samples (n = 1) had zero organisms and was scored as a 1 (metrics and IBI).</code></pre>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># View Results</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(Metrics.Fish.Scores))</span></code></pre></div>
 <table>
+<colgroup>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Index.Name</th>
@@ -446,9 +520,57 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <tbody>
 <tr class="odd">
 <td align="left">MBSS.2005.Fish</td>
+<td align="left">_TEST</td>
+<td align="left">COASTAL</td>
+<td align="right">10.000</td>
+<td align="right">75</td>
+<td align="right">5.000</td>
+<td align="right">375.000</td>
+<td align="right">0</td>
+<td align="right">0.0000000</td>
+<td align="right">0.00000</td>
+<td align="right">0</td>
+<td align="right">0.000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0</td>
+<td align="right">0.00000</td>
+<td align="right">0</td>
+<td align="right">0.00000</td>
+<td align="right">0</td>
+<td align="right">0.000000</td>
+<td align="right">0</td>
+<td align="right">0.00000</td>
+<td align="right">0</td>
+<td align="right">0.000000</td>
+<td align="right">0</td>
+<td align="right">0.000000</td>
+<td align="right">0</td>
+<td align="right">0.00000</td>
+<td align="right">0</td>
+<td align="right">1.69</td>
+<td align="right">-3.33</td>
+<td align="right">-1.6400000</td>
+<td align="right">0.0000000</td>
+<td align="left">COASTAL</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">6</td>
+<td align="right">1.000000</td>
+</tr>
+<tr class="even">
+<td align="left">MBSS.2005.Fish</td>
 <td align="left">ABPG-204-R-2016</td>
 <td align="left">COASTAL</td>
-<td align="right">2481.9226</td>
+<td align="right">2481.923</td>
 <td align="right">75</td>
 <td align="right">8.375</td>
 <td align="right">628.125</td>
@@ -492,11 +614,11 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="right">24</td>
 <td align="right">4.000000</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">MBSS.2005.Fish</td>
 <td align="left">ANTI-101-S-2016</td>
 <td align="left">COLD</td>
-<td align="right">1413.9500</td>
+<td align="right">1413.950</td>
 <td align="right">75</td>
 <td align="right">4.050</td>
 <td align="right">303.750</td>
@@ -540,11 +662,11 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="right">14</td>
 <td align="right">3.500000</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">MBSS.2005.Fish</td>
 <td align="left">ATKI-003-X-2016</td>
 <td align="left">EPIEDMONT</td>
-<td align="right">105.0300</td>
+<td align="right">105.030</td>
 <td align="right">75</td>
 <td align="right">1.700</td>
 <td align="right">127.500</td>
@@ -588,11 +710,11 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="right">22</td>
 <td align="right">3.666667</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">MBSS.2005.Fish</td>
 <td align="left">ATKI-101-X-2016</td>
 <td align="left">EPIEDMONT</td>
-<td align="right">393.0800</td>
+<td align="right">393.080</td>
 <td align="right">75</td>
 <td align="right">2.575</td>
 <td align="right">193.125</td>
@@ -636,11 +758,11 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="right">26</td>
 <td align="right">4.333333</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">MBSS.2005.Fish</td>
 <td align="left">ATKI-102-X-2016</td>
 <td align="left">EPIEDMONT</td>
-<td align="right">146.0700</td>
+<td align="right">146.070</td>
 <td align="right">75</td>
 <td align="right">1.925</td>
 <td align="right">144.375</td>
@@ -684,54 +806,6 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <td align="right">20</td>
 <td align="right">3.333333</td>
 </tr>
-<tr class="even">
-<td align="left">MBSS.2005.Fish</td>
-<td align="left">ATKI-104-R-2016</td>
-<td align="left">EPIEDMONT</td>
-<td align="right">563.1029</td>
-<td align="right">75</td>
-<td align="right">2.425</td>
-<td align="right">181.875</td>
-<td align="right">583</td>
-<td align="right">3.2054983</td>
-<td align="right">54.37393</td>
-<td align="right">1438</td>
-<td align="right">7.906529</td>
-<td align="right">0.9274419</td>
-<td align="right">0</td>
-<td align="right">0.00000</td>
-<td align="right">262</td>
-<td align="right">44.93997</td>
-<td align="right">317</td>
-<td align="right">54.373928</td>
-<td align="right">425</td>
-<td align="right">72.89880</td>
-<td align="right">0</td>
-<td align="right">0.000000</td>
-<td align="right">317</td>
-<td align="right">54.373928</td>
-<td align="right">198</td>
-<td align="right">33.96226</td>
-<td align="right">1</td>
-<td align="right">1.25</td>
-<td align="right">-2.36</td>
-<td align="right">1.0782347</td>
-<td align="right">0.9274419</td>
-<td align="left">EPIEDMONT</td>
-<td align="right">5</td>
-<td align="right">5</td>
-<td align="right">5</td>
-<td align="right">5</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="right">5</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">28</td>
-<td align="right">4.666667</td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -754,32 +828,84 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <li>FAM_TV (need to include all the same fields, just leave blank).</li>
 </ul>
 <p>In addition to the metric scores a QC check on samples with too many (&gt;120) or too few (&lt;60) organisms is returned in the results. Those with more than the maximum (120) should be subsampled down to within the target range.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="co"># Metrics, Index, Benthic Macroinvertebrates, genus</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co"># (generate values then scores)</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">myIndex &lt;-<span class="st"> &quot;MBSS.2005.Bugs&quot;</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co"># Thresholds</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">thresh &lt;-<span class="st"> </span>metrics_scoring</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co"># get metric names for myIndex</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">(myMetrics.Bugs.MBSS &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">droplevels</span>(<span class="kw">unique</span>(thresh[thresh[,<span class="st">&quot;Index.Name&quot;</span>]<span class="op">==</span>myIndex,<span class="st">&quot;MetricName.Other&quot;</span>]))))</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="co"># Metrics, Index, Benthic Macroinvertebrates, genus</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co"># (generate values then scores)</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>myIndex &lt;-<span class="st"> &quot;MBSS.2005.Bugs&quot;</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="co"># Thresholds</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>thresh &lt;-<span class="st"> </span>metrics_scoring</span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co"># get metric names for myIndex</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a>(myMetrics.Bugs.MBSS &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">droplevels</span>(<span class="kw">unique</span>(thresh[thresh[,<span class="st">&quot;Index.Name&quot;</span>]<span class="op">==</span>myIndex,<span class="st">&quot;MetricName.Other&quot;</span>]))))</span></code></pre></div>
 <pre><code>##  [1] &quot;ntaxa&quot;      &quot;nept&quot;       &quot;nephem&quot;     &quot;pintol_urb&quot; &quot;pephem&quot;    
 ##  [6] &quot;nscrape&quot;    &quot;pclimb&quot;     &quot;pchiron&quot;    &quot;pcling&quot;     &quot;ptany&quot;     
 ## [11] &quot;pscrape&quot;    &quot;pswim&quot;      &quot;pdipt&quot;</code></pre>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># Taxa Data</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">myDF.Bugs.MBSS &lt;-<span class="st"> </span>taxa_bugs_genus</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">myMetric.Values.Bugs.MBSS &lt;-<span class="st"> </span><span class="kw">metric.values</span>(myDF.Bugs.MBSS, <span class="st">&quot;bugs&quot;</span>, myMetrics.Bugs.MBSS)</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#View(myMetric.Values.Bugs.MBSS)</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co"># SCORE</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">Metrics.Bugs.Scores.MBSS &lt;-<span class="st"> </span><span class="kw">metric.scores</span>(myMetric.Values.Bugs.MBSS, myMetrics.Bugs.MBSS, <span class="st">&quot;INDEX.NAME&quot;</span>, <span class="st">&quot;STRATA_R&quot;</span>, thresh)</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co"># View Results</span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#View(Metrics.Bugs.Scores.MBSS)</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co"># QC bug count</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11">Metrics.Bugs.Scores.MBSS[Metrics.Bugs.Scores.MBSS[,<span class="st">&quot;totind&quot;</span>]<span class="op">&gt;</span><span class="dv">120</span>,<span class="st">&quot;QC_Count&quot;</span>] &lt;-<span class="st"> &quot;LARGE&quot;</span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12">Metrics.Bugs.Scores.MBSS[Metrics.Bugs.Scores.MBSS[,<span class="st">&quot;totind&quot;</span>]<span class="op">&lt;</span><span class="dv">60</span>,<span class="st">&quot;QC_Count&quot;</span>] &lt;-<span class="st"> &quot;SMALL&quot;</span></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13">Metrics.Bugs.Scores.MBSS[<span class="kw">is.na</span>(Metrics.Bugs.Scores.MBSS[,<span class="st">&quot;QC_Count&quot;</span>]),<span class="st">&quot;QC_Count&quot;</span>] &lt;-<span class="st"> &quot;OK&quot;</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co"># table of QC_Count</span></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(Metrics.Bugs.Scores.MBSS))</a></code></pre></div>
-<table>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="co"># Taxa Data</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>myDF.Bugs.MBSS &lt;-<span class="st"> </span>taxa_bugs_genus</span>
+<span id="cb10-3"><a href="#cb10-3"></a>myMetric.Values.Bugs.MBSS &lt;-<span class="st"> </span><span class="kw">metric.values</span>(myDF.Bugs.MBSS, <span class="st">&quot;bugs&quot;</span>, myMetrics.Bugs.MBSS)</span>
+<span id="cb10-4"><a href="#cb10-4"></a><span class="co">#View(myMetric.Values.Bugs.MBSS)</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a><span class="co"># SCORE</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>Metrics.Bugs.Scores.MBSS &lt;-<span class="st"> </span><span class="kw">metric.scores</span>(myMetric.Values.Bugs.MBSS, myMetrics.Bugs.MBSS, <span class="st">&quot;INDEX.NAME&quot;</span>, <span class="st">&quot;STRATA_R&quot;</span>, thresh)</span></code></pre></div>
+<pre><code>## One or more bug samples had &lt; 60 (n = 0) or &gt; 120 (n = 90) organisms.
+## These samples should be further examined.</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="co"># View Results</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="co">#View(Metrics.Bugs.Scores.MBSS)</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a></span>
+<span id="cb12-4"><a href="#cb12-4"></a><span class="co"># QC bug count</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>Metrics.Bugs.Scores.MBSS[Metrics.Bugs.Scores.MBSS[,<span class="st">&quot;totind&quot;</span>]<span class="op">&gt;</span><span class="dv">120</span>,<span class="st">&quot;QC_Count&quot;</span>] &lt;-<span class="st"> &quot;LARGE&quot;</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>Metrics.Bugs.Scores.MBSS[Metrics.Bugs.Scores.MBSS[,<span class="st">&quot;totind&quot;</span>]<span class="op">&lt;</span><span class="dv">60</span>,<span class="st">&quot;QC_Count&quot;</span>] &lt;-<span class="st"> &quot;SMALL&quot;</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>Metrics.Bugs.Scores.MBSS[<span class="kw">is.na</span>(Metrics.Bugs.Scores.MBSS[,<span class="st">&quot;QC_Count&quot;</span>]),<span class="st">&quot;QC_Count&quot;</span>] &lt;-<span class="st"> &quot;OK&quot;</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a><span class="co"># table of QC_Count</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(Metrics.Bugs.Scores.MBSS))</span></code></pre></div>
+<table style="width:100%;">
+<colgroup>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="3%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">SITE</th>
@@ -1139,23 +1265,68 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <div id="ibi-benthic-macroinvertebrates-msw" class="section level3">
 <h3>IBI, Benthic Macroinvertebrates, MSW</h3>
 <p>The Maryland Stream Wader index is from Stribling et al. 1999. Family level identifications need to be provided by the user. Metric values and scores shown below for example data. This index has only two bioregions (CP = Coastal Plain and NCP = Non-Coastal Plain).</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co"># Metrics, MSW Index, Benthic Macroinvertebrates, family</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2">myIndex &lt;-<span class="st"> &quot;MSW.1999.Bugs&quot;</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co"># Thresholds</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4">thresh &lt;-<span class="st"> </span>metrics_scoring</a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co"># get metric names for myIndex</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6">(myMetrics.Bugs.MSW &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">droplevels</span>(<span class="kw">unique</span>(thresh[thresh[,<span class="st">&quot;Index.Name&quot;</span>]<span class="op">==</span>myIndex,<span class="st">&quot;MetricName.Other&quot;</span>]))))</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="co"># Metrics, MSW Index, Benthic Macroinvertebrates, family</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>myIndex &lt;-<span class="st"> &quot;MSW.1999.Bugs&quot;</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a><span class="co"># Thresholds</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>thresh &lt;-<span class="st"> </span>metrics_scoring</span>
+<span id="cb13-5"><a href="#cb13-5"></a><span class="co"># get metric names for myIndex</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>(myMetrics.Bugs.MSW &lt;-<span class="st"> </span><span class="kw">as.character</span>(<span class="kw">droplevels</span>(<span class="kw">unique</span>(thresh[thresh[,<span class="st">&quot;Index.Name&quot;</span>]<span class="op">==</span>myIndex,<span class="st">&quot;MetricName.Other&quot;</span>]))))</span></code></pre></div>
 <pre><code>## [1] &quot;ntaxa&quot;      &quot;nept&quot;       &quot;nephem&quot;     &quot;ndipt&quot;      &quot;pephem&quot;    
 ## [6] &quot;nintol_FAM&quot; &quot;becks&quot;</code></pre>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="co"># Taxa Data</span></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">myDF.Bugs.MSW &lt;-<span class="st"> </span>taxa_bugs_family</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">myMetric.Values.Bugs.MSW &lt;-<span class="st"> </span><span class="kw">metric.values</span>(myDF.Bugs.MSW, <span class="st">&quot;bugs&quot;</span>, myMetrics.Bugs.MSW)</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4"><span class="co">#View(myMetric.Values.Bugs.MSW)</span></a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="co"># SCORE</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6">Metrics.Bugs.Scores.MSW &lt;-<span class="st"> </span><span class="kw">metric.scores</span>(myMetric.Values.Bugs.MSW, myMetrics.Bugs.MSW, <span class="st">&quot;INDEX.NAME&quot;</span>, <span class="st">&quot;STRATA_R&quot;</span>, thresh)</a>
-<a class="sourceLine" id="cb11-7" data-line-number="7"><span class="co"># View Results</span></a>
-<a class="sourceLine" id="cb11-8" data-line-number="8">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(Metrics.Bugs.Scores.MSW))</a></code></pre></div>
-<table>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="co"># Taxa Data</span></span>
+<span id="cb15-2"><a href="#cb15-2"></a>myDF.Bugs.MSW &lt;-<span class="st"> </span>taxa_bugs_family</span>
+<span id="cb15-3"><a href="#cb15-3"></a>myMetric.Values.Bugs.MSW &lt;-<span class="st"> </span><span class="kw">metric.values</span>(myDF.Bugs.MSW, <span class="st">&quot;bugs&quot;</span>, myMetrics.Bugs.MSW)</span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="co">#View(myMetric.Values.Bugs.MSW)</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="co"># SCORE</span></span>
+<span id="cb15-6"><a href="#cb15-6"></a>Metrics.Bugs.Scores.MSW &lt;-<span class="st"> </span><span class="kw">metric.scores</span>(myMetric.Values.Bugs.MSW, myMetrics.Bugs.MSW, <span class="st">&quot;INDEX.NAME&quot;</span>, <span class="st">&quot;STRATA_R&quot;</span>, thresh)</span></code></pre></div>
+<pre><code>## One or more bug samples had &lt; 60 (n = 0) or &gt; 120 (n = 102) organisms.
+## These samples should be further examined.</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># View Results</span></span>
+<span id="cb17-2"><a href="#cb17-2"></a>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(Metrics.Bugs.Scores.MSW))</span></code></pre></div>
+<table style="width:100%;">
+<colgroup>
+<col width="4%"></col>
+<col width="2%"></col>
+<col width="3%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">SITE</th>
@@ -1474,33 +1645,26 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p>The user will need GIS files for the state of Maryland for State, County, and Water.</p>
 <p>The inputs for this function, besides the three GIS shapefiles, are taxa observations and a taxa name crosswalk (translation) table between taxa names and map names.</p>
 <p>All inputs are included in the <code>MBSStools</code> library and can be copied to the current directory with the code below.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co"># Set Working Directory</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2">wd &lt;-<span class="st"> </span><span class="kw">getwd</span>()</a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="co"># Create Example Data if Needed</span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">## Create Directories</a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">myDir.create &lt;-<span class="st"> </span><span class="kw">file.path</span>(wd,<span class="st">&quot;Data&quot;</span>)</a>
-<a class="sourceLine" id="cb12-6" data-line-number="6"><span class="kw">ifelse</span>(<span class="kw">dir.exists</span>(myDir.create)<span class="op">==</span><span class="ot">FALSE</span>,<span class="kw">dir.create</span>(myDir.create),<span class="st">&quot;Directory already exists&quot;</span>)</a>
-<a class="sourceLine" id="cb12-7" data-line-number="7">myDir.create &lt;-<span class="st"> </span><span class="kw">file.path</span>(wd,<span class="st">&quot;GIS&quot;</span>)</a>
-<a class="sourceLine" id="cb12-8" data-line-number="8"><span class="kw">ifelse</span>(<span class="kw">dir.exists</span>(myDir.create)<span class="op">==</span><span class="ot">FALSE</span>,<span class="kw">dir.create</span>(myDir.create),<span class="st">&quot;Directory already exists&quot;</span>)</a>
-<a class="sourceLine" id="cb12-9" data-line-number="9">myDir.create &lt;-<span class="st"> </span><span class="kw">file.path</span>(wd,<span class="st">&quot;Maps&quot;</span>)</a>
-<a class="sourceLine" id="cb12-10" data-line-number="10"><span class="kw">ifelse</span>(<span class="kw">dir.exists</span>(myDir.create)<span class="op">==</span><span class="ot">FALSE</span>,<span class="kw">dir.create</span>(myDir.create),<span class="st">&quot;Directory already exists&quot;</span>)</a>
-<a class="sourceLine" id="cb12-11" data-line-number="11">## Create Data</a>
-<a class="sourceLine" id="cb12-12" data-line-number="12">### Taxa Data</a>
-<a class="sourceLine" id="cb12-13" data-line-number="13">myFiles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;AllFish_95to16.xls&quot;</span>, <span class="st">&quot;TaxaMapsCrossWalk20170731.xlsx&quot;</span>)</a>
-<a class="sourceLine" id="cb12-14" data-line-number="14"><span class="kw">file.copy</span>(<span class="kw">file.path</span>(<span class="kw">path.package</span>(<span class="st">&quot;MBSStools&quot;</span>),<span class="st">&quot;extdata&quot;</span>,myFiles),<span class="kw">file.path</span>(wd,<span class="st">&quot;Data&quot;</span>,myFiles))</a>
-<a class="sourceLine" id="cb12-15" data-line-number="15">### GIS</a>
-<a class="sourceLine" id="cb12-16" data-line-number="16"><span class="kw">unzip</span>(<span class="kw">file.path</span>(<span class="kw">path.package</span>(<span class="st">&quot;MBSStools&quot;</span>),<span class="st">&quot;extdata&quot;</span>,<span class="st">&quot;MD_GIS.zip&quot;</span>),<span class="dt">exdir=</span><span class="kw">file.path</span>(wd,<span class="st">&quot;GIS&quot;</span>))</a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="co"># Set Working Directory</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>wd &lt;-<span class="st"> </span><span class="kw">getwd</span>()</span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="co"># Create Example Data if Needed</span></span>
+<span id="cb18-4"><a href="#cb18-4"></a><span class="co">## Create Directories</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>myDir.create &lt;-<span class="st"> </span><span class="kw">file.path</span>(wd,<span class="st">&quot;Data&quot;</span>)</span>
+<span id="cb18-6"><a href="#cb18-6"></a><span class="kw">ifelse</span>(<span class="kw">dir.exists</span>(myDir.create)<span class="op">==</span><span class="ot">FALSE</span>,<span class="kw">dir.create</span>(myDir.create),<span class="st">&quot;Directory already exists&quot;</span>)</span>
+<span id="cb18-7"><a href="#cb18-7"></a>myDir.create &lt;-<span class="st"> </span><span class="kw">file.path</span>(wd,<span class="st">&quot;GIS&quot;</span>)</span>
+<span id="cb18-8"><a href="#cb18-8"></a><span class="kw">ifelse</span>(<span class="kw">dir.exists</span>(myDir.create)<span class="op">==</span><span class="ot">FALSE</span>,<span class="kw">dir.create</span>(myDir.create),<span class="st">&quot;Directory already exists&quot;</span>)</span>
+<span id="cb18-9"><a href="#cb18-9"></a>myDir.create &lt;-<span class="st"> </span><span class="kw">file.path</span>(wd,<span class="st">&quot;Maps&quot;</span>)</span>
+<span id="cb18-10"><a href="#cb18-10"></a><span class="kw">ifelse</span>(<span class="kw">dir.exists</span>(myDir.create)<span class="op">==</span><span class="ot">FALSE</span>,<span class="kw">dir.create</span>(myDir.create),<span class="st">&quot;Directory already exists&quot;</span>)</span>
+<span id="cb18-11"><a href="#cb18-11"></a><span class="co">## Create Data</span></span>
+<span id="cb18-12"><a href="#cb18-12"></a><span class="co">### Taxa Data</span></span>
+<span id="cb18-13"><a href="#cb18-13"></a>myFiles &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;AllFish_95to16.xls&quot;</span>, <span class="st">&quot;TaxaMapsCrossWalk20170731.xlsx&quot;</span>)</span>
+<span id="cb18-14"><a href="#cb18-14"></a><span class="kw">file.copy</span>(<span class="kw">file.path</span>(<span class="kw">path.package</span>(<span class="st">&quot;MBSStools&quot;</span>),<span class="st">&quot;extdata&quot;</span>,myFiles),<span class="kw">file.path</span>(wd,<span class="st">&quot;Data&quot;</span>,myFiles))</span>
+<span id="cb18-15"><a href="#cb18-15"></a><span class="co">### GIS</span></span>
+<span id="cb18-16"><a href="#cb18-16"></a><span class="kw">unzip</span>(<span class="kw">file.path</span>(<span class="kw">path.package</span>(<span class="st">&quot;MBSStools&quot;</span>),<span class="st">&quot;extdata&quot;</span>,<span class="st">&quot;MD_GIS.zip&quot;</span>),<span class="dt">exdir=</span><span class="kw">file.path</span>(wd,<span class="st">&quot;GIS&quot;</span>))</span></code></pre></div>
 </div>
 <div id="example-input-data" class="section level3">
 <h3>Example Input Data</h3>
 <p>Observation data with three columns needed for the tool to work (common name, latitude, and longitude). Additional columns can be appended (e.g., SiteYr) and will not affect the functionality.</p>
-<pre><code>## Loading required package: XLConnectJars</code></pre>
-<pre><code>## XLConnect 0.2-15 by Mirai Solutions GmbH [aut],
-##   Martin Studer [cre],
-##   The Apache Software Foundation [ctb, cph] (Apache POI),
-##   Graph Builder [ctb, cph] (Curvesapi Java library)</code></pre>
-<pre><code>## http://www.mirai-solutions.com
-## https://github.com/miraisolutions/xlconnect</code></pre>
 <pre><code>##             CommonName Latitude83 Longitude83          SITEYR
 ## 1    eastern mudminnow     39.055   -76.73417 AA-N-003-025-95
 ## 2           creek chub     39.055   -76.73417 AA-N-003-025-95
@@ -1521,16 +1685,16 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <div id="map-creation" class="section level2">
 <h2>Map Creation</h2>
 <p>The code below can be used to generate the maps (n=131) associated with the 1995 to 2016 data. Any taxa without a match in the crosswalk table (n=54) are listed in a CSV file and the number reported to the user in the R console but maps are not generated (by default). If the user wants all maps then the parameter ‘onlymatches’ should be set to ‘FALSE’ (as in the example below).</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co"># Set Working Directory</span></a>
-<a class="sourceLine" id="cb18-2" data-line-number="2">wd &lt;-<span class="st"> </span><span class="kw">getwd</span>()</a>
-<a class="sourceLine" id="cb18-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb18-4" data-line-number="4"><span class="co"># Inputs</span></a>
-<a class="sourceLine" id="cb18-5" data-line-number="5">Obs &lt;-<span class="st"> &quot;AllFish_95to16.xls&quot;</span></a>
-<a class="sourceLine" id="cb18-6" data-line-number="6">XWalk &lt;-<span class="st"> &quot;TaxaMapsCrossWalk20170731.xlsx&quot;</span></a>
-<a class="sourceLine" id="cb18-7" data-line-number="7">wd &lt;-<span class="st"> </span><span class="kw">getwd</span>()</a>
-<a class="sourceLine" id="cb18-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb18-9" data-line-number="9"><span class="co"># Create maps</span></a>
-<a class="sourceLine" id="cb18-10" data-line-number="10"><span class="kw">MapTaxaObs</span>(Obs, XWalk, wd, <span class="dt">onlymatches =</span> <span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="co"># Set Working Directory</span></span>
+<span id="cb21-2"><a href="#cb21-2"></a>wd &lt;-<span class="st"> </span><span class="kw">getwd</span>()</span>
+<span id="cb21-3"><a href="#cb21-3"></a></span>
+<span id="cb21-4"><a href="#cb21-4"></a><span class="co"># Inputs</span></span>
+<span id="cb21-5"><a href="#cb21-5"></a>Obs &lt;-<span class="st"> &quot;AllFish_95to16.xls&quot;</span></span>
+<span id="cb21-6"><a href="#cb21-6"></a>XWalk &lt;-<span class="st"> &quot;TaxaMapsCrossWalk20170731.xlsx&quot;</span></span>
+<span id="cb21-7"><a href="#cb21-7"></a>wd &lt;-<span class="st"> </span><span class="kw">getwd</span>()</span>
+<span id="cb21-8"><a href="#cb21-8"></a></span>
+<span id="cb21-9"><a href="#cb21-9"></a><span class="co"># Create maps</span></span>
+<span id="cb21-10"><a href="#cb21-10"></a><span class="kw">MapTaxaObs</span>(Obs, XWalk, wd, <span class="dt">onlymatches =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p>The intent behind this function was to recreate the fish taxa distribution maps. But the data inputs are not specific to fish and can be used for benthic macroinvertebrate data.</p>
 <p>The taxa distribution map for brown trout is shown below.</p>
 </div>
@@ -1538,19 +1702,19 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <h2>Stream Discharge</h2>
 <p>Calculate stream discharge based on field measurements. Side channels that are properly identified in the data will be included.</p>
 <p>The function FlowSum() requires the no additional packages.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">library</span>(MBSStools)</a>
-<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="co"># data</span></a>
-<a class="sourceLine" id="cb19-3" data-line-number="3">MBSS.flow &lt;-<span class="st"> </span>MBSS.flow</a>
-<a class="sourceLine" id="cb19-4" data-line-number="4"><span class="co"># calculate flow</span></a>
-<a class="sourceLine" id="cb19-5" data-line-number="5">flow.cell &lt;-<span class="st"> </span><span class="kw">FlowSum</span>(MBSS.flow, <span class="dt">returnType=</span><span class="st">&quot;cell&quot;</span>)</a>
-<a class="sourceLine" id="cb19-6" data-line-number="6">flow.sample &lt;-<span class="st"> </span><span class="kw">FlowSum</span>(MBSS.flow)</a>
-<a class="sourceLine" id="cb19-7" data-line-number="7"><span class="co"># examine data</span></a>
-<a class="sourceLine" id="cb19-8" data-line-number="8"><span class="kw">View</span>(flow.cell)</a>
-<a class="sourceLine" id="cb19-9" data-line-number="9"><span class="kw">View</span>(flow.sample)</a>
-<a class="sourceLine" id="cb19-10" data-line-number="10"><span class="co"># Example Save file (tab delimited text file)</span></a>
-<a class="sourceLine" id="cb19-11" data-line-number="11">datetime &lt;-<span class="st"> </span><span class="kw">format</span>(<span class="kw">Sys.time</span>(),<span class="st">&quot;%Y%m%d_%H%M%S&quot;</span>)</a>
-<a class="sourceLine" id="cb19-12" data-line-number="12">myYear &lt;-<span class="st"> &quot;15&quot;</span></a>
-<a class="sourceLine" id="cb19-13" data-line-number="13"><span class="kw">write.table</span>(flow.sample,<span class="kw">paste0</span>(<span class="st">&quot;SumFlow&quot;</span>,myYear,<span class="st">&quot;_&quot;</span>,datetime,<span class="st">&quot;.tab&quot;</span>),<span class="dt">row.names=</span><span class="ot">FALSE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">library</span>(MBSStools)</span>
+<span id="cb22-2"><a href="#cb22-2"></a><span class="co"># data</span></span>
+<span id="cb22-3"><a href="#cb22-3"></a>MBSS.flow &lt;-<span class="st"> </span>MBSS.flow</span>
+<span id="cb22-4"><a href="#cb22-4"></a><span class="co"># calculate flow</span></span>
+<span id="cb22-5"><a href="#cb22-5"></a>flow.cell &lt;-<span class="st"> </span><span class="kw">FlowSum</span>(MBSS.flow, <span class="dt">returnType=</span><span class="st">&quot;cell&quot;</span>)</span>
+<span id="cb22-6"><a href="#cb22-6"></a>flow.sample &lt;-<span class="st"> </span><span class="kw">FlowSum</span>(MBSS.flow)</span>
+<span id="cb22-7"><a href="#cb22-7"></a><span class="co"># examine data</span></span>
+<span id="cb22-8"><a href="#cb22-8"></a><span class="kw">View</span>(flow.cell)</span>
+<span id="cb22-9"><a href="#cb22-9"></a><span class="kw">View</span>(flow.sample)</span>
+<span id="cb22-10"><a href="#cb22-10"></a><span class="co"># Example Save file (tab delimited text file)</span></span>
+<span id="cb22-11"><a href="#cb22-11"></a>datetime &lt;-<span class="st"> </span><span class="kw">format</span>(<span class="kw">Sys.time</span>(),<span class="st">&quot;%Y%m%d_%H%M%S&quot;</span>)</span>
+<span id="cb22-12"><a href="#cb22-12"></a>myYear &lt;-<span class="st"> &quot;15&quot;</span></span>
+<span id="cb22-13"><a href="#cb22-13"></a><span class="kw">write.table</span>(flow.sample,<span class="kw">paste0</span>(<span class="st">&quot;SumFlow&quot;</span>,myYear,<span class="st">&quot;_&quot;</span>,datetime,<span class="st">&quot;.tab&quot;</span>),<span class="dt">row.names=</span><span class="ot">FALSE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
 </div>
 <div id="ion-matrix" class="section level2">
 <h2>Ion Matrix</h2>
@@ -1559,6 +1723,16 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p>A reference table of ions and their equivalent ionic conductance at infinite dilution is provided with the function as “MBSS.Ion.Ref”. The function allows for input of a user supplied data frame if this table needs updating with more ions.</p>
 <p>The function IonContrib() requires the no additional packages.</p>
 <table>
+<colgroup>
+<col width="12%"></col>
+<col width="7%"></col>
+<col width="4%"></col>
+<col width="17%"></col>
+<col width="5%"></col>
+<col width="38%"></col>
+<col width="7%"></col>
+<col width="6%"></col>
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Name</th>
@@ -1705,7 +1879,23 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 </tbody>
 </table>
 <p>The columns for the ions need to match the reference table names. The function IonContrib() includes a reference table that is used by default but the user can supply their own reference table.</p>
-<table>
+<table style="width:100%;">
+<colgroup>
+<col width="4%"></col>
+<col width="6%"></col>
+<col width="9%"></col>
+<col width="10%"></col>
+<col width="6%"></col>
+<col width="8%"></col>
+<col width="6%"></col>
+<col width="6%"></col>
+<col width="7%"></col>
+<col width="6%"></col>
+<col width="5%"></col>
+<col width="7%"></col>
+<col width="7%"></col>
+<col width="6%"></col>
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Site</th>
@@ -1824,52 +2014,52 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 </tbody>
 </table>
 <p>Example code is below. The user would then save the output (e.g., write.csv()).</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="kw">library</span>(MBSStools)</a>
-<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="co"># Load Data</span></a>
-<a class="sourceLine" id="cb20-3" data-line-number="3">data.ion &lt;-<span class="st"> </span>MBSS.Ion.Data</a>
-<a class="sourceLine" id="cb20-4" data-line-number="4"><span class="co"># Load Reference Table</span></a>
-<a class="sourceLine" id="cb20-5" data-line-number="5">ref.ion &lt;-<span class="st"> </span>MBSS.Ion.Ref</a>
-<a class="sourceLine" id="cb20-6" data-line-number="6"><span class="co"># Calculate Percent Contribution by Ion (data table only)</span></a>
-<a class="sourceLine" id="cb20-7" data-line-number="7">contrib.ion &lt;-<span class="st"> </span><span class="kw">IonContrib</span>(data.ion)</a></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">library</span>(MBSStools)</span>
+<span id="cb23-2"><a href="#cb23-2"></a><span class="co"># Load Data</span></span>
+<span id="cb23-3"><a href="#cb23-3"></a>data.ion &lt;-<span class="st"> </span>MBSS.Ion.Data</span>
+<span id="cb23-4"><a href="#cb23-4"></a><span class="co"># Load Reference Table</span></span>
+<span id="cb23-5"><a href="#cb23-5"></a>ref.ion &lt;-<span class="st"> </span>MBSS.Ion.Ref</span>
+<span id="cb23-6"><a href="#cb23-6"></a><span class="co"># Calculate Percent Contribution by Ion (data table only)</span></span>
+<span id="cb23-7"><a href="#cb23-7"></a>contrib.ion &lt;-<span class="st"> </span><span class="kw">IonContrib</span>(data.ion)</span></code></pre></div>
 <p><em>No</em> conductivity values provided.<br />
 Ion contributions calculated from the sum of calculated ion conductivity values.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="co">#knitr::kable(head(contrib.ion))</span></a></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co">#knitr::kable(head(contrib.ion))</span></span></code></pre></div>
 <p>Dot charts are a good way to display the data. But any chart of the user’s preference can be used.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="co"># Load Data</span></a>
-<a class="sourceLine" id="cb22-2" data-line-number="2">data.ion &lt;-<span class="st"> </span>MBSS.Ion.Data</a>
-<a class="sourceLine" id="cb22-3" data-line-number="3"><span class="co"># Load Reference Table</span></a>
-<a class="sourceLine" id="cb22-4" data-line-number="4">ref.ion &lt;-<span class="st"> </span>MBSS.Ion.Ref</a>
-<a class="sourceLine" id="cb22-5" data-line-number="5"><span class="co"># Calculate Percent Contribution by Ion (data table only)</span></a>
-<a class="sourceLine" id="cb22-6" data-line-number="6">contrib.ion &lt;-<span class="st"> </span><span class="kw">IonContrib</span>(data.ion)</a>
-<a class="sourceLine" id="cb22-7" data-line-number="7"><span class="co">#View(contrib.ion)</span></a>
-<a class="sourceLine" id="cb22-8" data-line-number="8"><span class="co"># Calculate Percent Contribution by Ion (data table and reference table)</span></a>
-<a class="sourceLine" id="cb22-9" data-line-number="9">contrib.ion<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">IonContrib</span>(data.ion, ref.ion)</a>
-<a class="sourceLine" id="cb22-10" data-line-number="10"><span class="co">#View(contrib.ion.2)</span></a>
-<a class="sourceLine" id="cb22-11" data-line-number="11"><span class="co"># Calculate Percent Contribution by Ion (data table, reference table, and conductivity values)</span></a>
-<a class="sourceLine" id="cb22-12" data-line-number="12"><span class="co"># ## add dummy conductivity values for each sample</span></a>
-<a class="sourceLine" id="cb22-13" data-line-number="13"><span class="co"># myCond &lt;- &quot;Cond&quot;</span></a>
-<a class="sourceLine" id="cb22-14" data-line-number="14"><span class="co"># data.ion[,myCond] &lt;- 4000</span></a>
-<a class="sourceLine" id="cb22-15" data-line-number="15"><span class="co"># contrib.ion.3 &lt;- IonContrib(data.ion, ref.ion, myCond)</span></a>
-<a class="sourceLine" id="cb22-16" data-line-number="16"><span class="co"># View(contrib.ion.3)</span></a>
-<a class="sourceLine" id="cb22-17" data-line-number="17"><span class="co"># Save Results (use write.table())</span></a>
-<a class="sourceLine" id="cb22-18" data-line-number="18"><span class="co"># Plot Results</span></a>
-<a class="sourceLine" id="cb22-19" data-line-number="19">myIons &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Chloride (mg/L)&quot;</span>, <span class="st">&quot;Bromide (mg/L)&quot;</span>, <span class="st">&quot;Nitrate-N (mg/L)&quot;</span>, <span class="st">&quot;Sulfate (mg/L)&quot;</span>, <span class="st">&quot;Sodium (mg/L)&quot;</span>,</a>
-<a class="sourceLine" id="cb22-20" data-line-number="20">     <span class="st">&quot;Potassium (mg/L)&quot;</span>, <span class="st">&quot;Magnesium (mg/L)&quot;</span>,  <span class="st">&quot;Calcium (mg/L)&quot;</span> )</a>
-<a class="sourceLine" id="cb22-21" data-line-number="21">myIons.Contrib &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;PctContrib.&quot;</span>,myIons)</a>
-<a class="sourceLine" id="cb22-22" data-line-number="22">mySite &lt;-<span class="st"> &quot;BELK-101-X&quot;</span></a>
-<a class="sourceLine" id="cb22-23" data-line-number="23">data.plot &lt;-<span class="st"> </span><span class="kw">subset</span>(contrib.ion, contrib.ion[,<span class="st">&quot;Site&quot;</span>]<span class="op">==</span>mySite, <span class="dt">select=</span><span class="kw">c</span>(<span class="st">&quot;Site&quot;</span>,<span class="st">&quot;Cond.Total&quot;</span>,myIons.Contrib,myIons))</a>
-<a class="sourceLine" id="cb22-24" data-line-number="24">## Plot, one site (with cond value)</a>
-<a class="sourceLine" id="cb22-25" data-line-number="25"><span class="kw">dotchart</span>(<span class="kw">as.numeric</span>(<span class="kw">as.vector</span>(data.plot[,myIons.Contrib])), <span class="dt">labels=</span>myIons, <span class="dt">main=</span>mySite, <span class="dt">xlab=</span><span class="st">&quot;Percent Contribution&quot;</span>, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">pt.cex=</span><span class="fl">1.2</span>)</a>
-<a class="sourceLine" id="cb22-26" data-line-number="26"><span class="kw">mtext</span>(<span class="kw">paste0</span>(<span class="st">&quot;Conductivity (uS/cm) = &quot;</span>,<span class="kw">round</span>(data.plot[,<span class="st">&quot;Cond.Total&quot;</span>],<span class="dv">1</span>)))</a>
-<a class="sourceLine" id="cb22-27" data-line-number="27">## Plot all sites using panel.dotplot() in the lattice package</a>
-<a class="sourceLine" id="cb22-28" data-line-number="28"><span class="co">#</span></a>
-<a class="sourceLine" id="cb22-29" data-line-number="29">## Plot as a horizontal bar plot</a>
-<a class="sourceLine" id="cb22-30" data-line-number="30"><span class="co"># need to change margins to fit labels</span></a>
-<a class="sourceLine" id="cb22-31" data-line-number="31"><span class="co">#par(mai=c(1,2,1,1))</span></a>
-<a class="sourceLine" id="cb22-32" data-line-number="32"><span class="kw">barplot</span>(<span class="kw">as.numeric</span>(<span class="kw">as.vector</span>(data.plot[,myIons.Contrib])), <span class="dt">names.arg=</span>myIons, <span class="dt">main=</span>mySite, <span class="dt">xlab=</span><span class="st">&quot;Percent Contribution&quot;</span></a>
-<a class="sourceLine" id="cb22-33" data-line-number="33">       , <span class="dt">axes=</span><span class="ot">TRUE</span>, <span class="dt">horiz=</span><span class="ot">TRUE</span>, <span class="dt">las=</span><span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb22-34" data-line-number="34"><span class="kw">mtext</span>(<span class="kw">paste0</span>(<span class="st">&quot;Conductivity (uS/cm) = &quot;</span>,<span class="kw">round</span>(data.plot[,<span class="st">&quot;Cond.Total&quot;</span>],<span class="dv">1</span>)))</a></code></pre></div>
-<p><img src="data:image/png;base64,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" /><img src="data:image/png;base64,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" /></p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Load Data</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>data.ion &lt;-<span class="st"> </span>MBSS.Ion.Data</span>
+<span id="cb25-3"><a href="#cb25-3"></a><span class="co"># Load Reference Table</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a>ref.ion &lt;-<span class="st"> </span>MBSS.Ion.Ref</span>
+<span id="cb25-5"><a href="#cb25-5"></a><span class="co"># Calculate Percent Contribution by Ion (data table only)</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>contrib.ion &lt;-<span class="st"> </span><span class="kw">IonContrib</span>(data.ion)</span>
+<span id="cb25-7"><a href="#cb25-7"></a><span class="co">#View(contrib.ion)</span></span>
+<span id="cb25-8"><a href="#cb25-8"></a><span class="co"># Calculate Percent Contribution by Ion (data table and reference table)</span></span>
+<span id="cb25-9"><a href="#cb25-9"></a>contrib.ion<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">IonContrib</span>(data.ion, ref.ion)</span>
+<span id="cb25-10"><a href="#cb25-10"></a><span class="co">#View(contrib.ion.2)</span></span>
+<span id="cb25-11"><a href="#cb25-11"></a><span class="co"># Calculate Percent Contribution by Ion (data table, reference table, and conductivity values)</span></span>
+<span id="cb25-12"><a href="#cb25-12"></a><span class="co"># ## add dummy conductivity values for each sample</span></span>
+<span id="cb25-13"><a href="#cb25-13"></a><span class="co"># myCond &lt;- &quot;Cond&quot;</span></span>
+<span id="cb25-14"><a href="#cb25-14"></a><span class="co"># data.ion[,myCond] &lt;- 4000</span></span>
+<span id="cb25-15"><a href="#cb25-15"></a><span class="co"># contrib.ion.3 &lt;- IonContrib(data.ion, ref.ion, myCond)</span></span>
+<span id="cb25-16"><a href="#cb25-16"></a><span class="co"># View(contrib.ion.3)</span></span>
+<span id="cb25-17"><a href="#cb25-17"></a><span class="co"># Save Results (use write.table())</span></span>
+<span id="cb25-18"><a href="#cb25-18"></a><span class="co"># Plot Results</span></span>
+<span id="cb25-19"><a href="#cb25-19"></a>myIons &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Chloride (mg/L)&quot;</span>, <span class="st">&quot;Bromide (mg/L)&quot;</span>, <span class="st">&quot;Nitrate-N (mg/L)&quot;</span>, <span class="st">&quot;Sulfate (mg/L)&quot;</span>, <span class="st">&quot;Sodium (mg/L)&quot;</span>,</span>
+<span id="cb25-20"><a href="#cb25-20"></a>     <span class="st">&quot;Potassium (mg/L)&quot;</span>, <span class="st">&quot;Magnesium (mg/L)&quot;</span>,  <span class="st">&quot;Calcium (mg/L)&quot;</span> )</span>
+<span id="cb25-21"><a href="#cb25-21"></a>myIons.Contrib &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;PctContrib.&quot;</span>,myIons)</span>
+<span id="cb25-22"><a href="#cb25-22"></a>mySite &lt;-<span class="st"> &quot;BELK-101-X&quot;</span></span>
+<span id="cb25-23"><a href="#cb25-23"></a>data.plot &lt;-<span class="st"> </span><span class="kw">subset</span>(contrib.ion, contrib.ion[,<span class="st">&quot;Site&quot;</span>]<span class="op">==</span>mySite, <span class="dt">select=</span><span class="kw">c</span>(<span class="st">&quot;Site&quot;</span>,<span class="st">&quot;Cond.Total&quot;</span>,myIons.Contrib,myIons))</span>
+<span id="cb25-24"><a href="#cb25-24"></a><span class="co">## Plot, one site (with cond value)</span></span>
+<span id="cb25-25"><a href="#cb25-25"></a><span class="kw">dotchart</span>(<span class="kw">as.numeric</span>(<span class="kw">as.vector</span>(data.plot[,myIons.Contrib])), <span class="dt">labels=</span>myIons, <span class="dt">main=</span>mySite, <span class="dt">xlab=</span><span class="st">&quot;Percent Contribution&quot;</span>, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">pt.cex=</span><span class="fl">1.2</span>)</span>
+<span id="cb25-26"><a href="#cb25-26"></a><span class="kw">mtext</span>(<span class="kw">paste0</span>(<span class="st">&quot;Conductivity (uS/cm) = &quot;</span>,<span class="kw">round</span>(data.plot[,<span class="st">&quot;Cond.Total&quot;</span>],<span class="dv">1</span>)))</span>
+<span id="cb25-27"><a href="#cb25-27"></a><span class="co">## Plot all sites using panel.dotplot() in the lattice package</span></span>
+<span id="cb25-28"><a href="#cb25-28"></a><span class="co">#</span></span>
+<span id="cb25-29"><a href="#cb25-29"></a><span class="co">## Plot as a horizontal bar plot</span></span>
+<span id="cb25-30"><a href="#cb25-30"></a><span class="co"># need to change margins to fit labels</span></span>
+<span id="cb25-31"><a href="#cb25-31"></a><span class="co">#par(mai=c(1,2,1,1))</span></span>
+<span id="cb25-32"><a href="#cb25-32"></a><span class="kw">barplot</span>(<span class="kw">as.numeric</span>(<span class="kw">as.vector</span>(data.plot[,myIons.Contrib])), <span class="dt">names.arg=</span>myIons, <span class="dt">main=</span>mySite, <span class="dt">xlab=</span><span class="st">&quot;Percent Contribution&quot;</span></span>
+<span id="cb25-33"><a href="#cb25-33"></a>       , <span class="dt">axes=</span><span class="ot">TRUE</span>, <span class="dt">horiz=</span><span class="ot">TRUE</span>, <span class="dt">las=</span><span class="dv">1</span>)</span>
+<span id="cb25-34"><a href="#cb25-34"></a><span class="kw">mtext</span>(<span class="kw">paste0</span>(<span class="st">&quot;Conductivity (uS/cm) = &quot;</span>,<span class="kw">round</span>(data.plot[,<span class="st">&quot;Cond.Total&quot;</span>],<span class="dv">1</span>)))</span></code></pre></div>
+<p><img src="data:image/png;base64,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" /><img src="data:image/png;base64,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" /></p>
 </div>
 <div id="phi" class="section level2">
 <h2>PHI</h2>
@@ -1878,6 +2068,28 @@ Ion contributions calculated from the sum of calculated ion conductivity values.
 <p>The input is a data frame with column names matching the variables collected in the field along with SampleID, bioregion, and area (acres).</p>
 <p>The function PHIcalc() requires the no additional packages.</p>
 <table>
+<colgroup>
+<col width="6%"></col>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="4%"></col>
+<col width="4%"></col>
+<col width="4%"></col>
+<col width="5%"></col>
+<col width="4%"></col>
+<col width="5%"></col>
+<col width="6%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="4%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="5%"></col>
+<col width="4%"></col>
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">StationID</th>
@@ -2038,13 +2250,53 @@ Ion contributions calculated from the sum of calculated ion conductivity values.
 </tbody>
 </table>
 <p>The function returns a dataframe of reslts that need to be saved (e.g., write.table()). The result table from the example data is shown below.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">library</span>(MBSStools)</a>
-<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="co"># data</span></a>
-<a class="sourceLine" id="cb23-3" data-line-number="3">myData &lt;-<span class="st"> </span>MBSS.PHI</a>
-<a class="sourceLine" id="cb23-4" data-line-number="4"><span class="co"># calculate PHI</span></a>
-<a class="sourceLine" id="cb23-5" data-line-number="5">PHI &lt;-<span class="st"> </span><span class="kw">PHIcalc</span>(myData)</a>
-<a class="sourceLine" id="cb23-6" data-line-number="6">knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(PHI))</a></code></pre></div>
-<table>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">library</span>(MBSStools)</span>
+<span id="cb26-2"><a href="#cb26-2"></a><span class="co"># data</span></span>
+<span id="cb26-3"><a href="#cb26-3"></a>myData &lt;-<span class="st"> </span>MBSS.PHI</span>
+<span id="cb26-4"><a href="#cb26-4"></a><span class="co"># calculate PHI</span></span>
+<span id="cb26-5"><a href="#cb26-5"></a>PHI &lt;-<span class="st"> </span><span class="kw">PHIcalc</span>(myData)</span>
+<span id="cb26-6"><a href="#cb26-6"></a>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(PHI))</span></code></pre></div>
+<table style="width:100%;">
+<colgroup>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="3%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="1%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">StationID</th>
@@ -2335,10 +2587,13 @@ Ion contributions calculated from the sum of calculated ion conductivity values.
 <div id="shiny" class="section level1">
 <h1>Shiny</h1>
 <p>Included in the package is an example Shiny package to calculates the three IBI’s for MBSS.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">library</span>(MBSStools)</a>
-<a class="sourceLine" id="cb24-2" data-line-number="2"><span class="kw">runShiny</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">library</span>(MBSStools)</span>
+<span id="cb27-2"><a href="#cb27-2"></a><span class="kw">runShiny</span>()</span></code></pre></div>
 </div>
 
+
+
+<!-- code folding -->
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

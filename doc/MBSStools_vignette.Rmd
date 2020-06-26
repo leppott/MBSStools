@@ -233,7 +233,7 @@ unzip(file.path(path.package("MBSStools"),"extdata","MD_GIS.zip"),exdir=file.pat
 Observation data with three columns needed for the tool to work (common name, latitude, and longitude).  Additional columns can be appended (e.g., SiteYr) and will not affect the functionality.
 ```{r TaxaMaps Input, echo=FALSE}
 # library
-library(XLConnect)
+library(readxl)
 
 # data files
 obs <- "AllFish_95to16.xls"
@@ -255,7 +255,7 @@ head(df.taxa.obs)
 Crosswalk data with common name and map name.
 ```{r TaxaMaps Crosswalk, echo=FALSE}
 # library
-library(XLConnect)
+library(readxl)
 
 # data files
 obs <- "AllFish_95to16.xls"
@@ -302,10 +302,8 @@ The taxa distribution map for brown trout is shown below.
 # assume already created directories
 
 ## library
-library(XLConnect)
+library(readxl)
 library(rgdal)
-
-
 
 # Set Working Directory
 wd <- getwd()
