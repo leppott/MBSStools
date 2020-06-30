@@ -12,7 +12,7 @@
 
 <meta name="author" content="Erik.Leppo@tetratech.com" />
 
-<meta name="date" content="2020-06-26" />
+<meta name="date" content="2020-06-30" />
 
 <title>MBSStools - an R toolkit for the MBSS program’s data needs</title>
 
@@ -331,7 +331,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 
 <h1 class="title toc-ignore">MBSStools - an R toolkit for the MBSS program’s data needs</h1>
 <h4 class="author"><a href="mailto:Erik.Leppo@tetratech.com" class="email">Erik.Leppo@tetratech.com</a></h4>
-<h4 class="date">2020-06-26</h4>
+<h4 class="date">2020-06-30</h4>
 
 
 
@@ -418,16 +418,20 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <pre><code>## One or more fish samples (n = 1) had zero organisms and was scored as a 1 (metrics and IBI).</code></pre>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="co"># View Results</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(Metrics.Fish.Scores))</span></code></pre></div>
-<table>
+<table style="width:100%;">
 <colgroup>
 <col width="3%"></col>
 <col width="3%"></col>
 <col width="2%"></col>
+<col width="2%"></col>
 <col width="1%"></col>
 <col width="1%"></col>
 <col width="1%"></col>
 <col width="1%"></col>
+<col width="2%"></col>
+<col width="2%"></col>
 <col width="1%"></col>
+<col width="2%"></col>
 <col width="2%"></col>
 <col width="1%"></col>
 <col width="1%"></col>
@@ -435,18 +439,14 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <col width="2%"></col>
 <col width="1%"></col>
 <col width="1%"></col>
-<col width="2%"></col>
-<col width="2%"></col>
 <col width="1%"></col>
-<col width="2%"></col>
+<col width="1%"></col>
 <col width="1%"></col>
 <col width="1%"></col>
 <col width="1%"></col>
 <col width="1%"></col>
 <col width="1%"></col>
 <col width="2%"></col>
-<col width="1%"></col>
-<col width="1%"></col>
 <col width="3%"></col>
 <col width="2%"></col>
 <col width="2%"></col>
@@ -522,7 +522,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <td align="left">MBSS.2005.Fish</td>
 <td align="left">_TEST</td>
 <td align="left">COASTAL</td>
-<td align="right">10.000</td>
+<td align="right">10.0000</td>
 <td align="right">75</td>
 <td align="right">5.000</td>
 <td align="right">375.000</td>
@@ -533,17 +533,17 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <td align="right">0.000000</td>
 <td align="right">0.0000000</td>
 <td align="right">0</td>
-<td align="right">0.00000</td>
+<td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0.00000</td>
 <td align="right">0</td>
-<td align="right">0.000000</td>
+<td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0.00000</td>
 <td align="right">0</td>
-<td align="right">0.000000</td>
 <td align="right">0</td>
-<td align="right">0.000000</td>
+<td align="right">0</td>
+<td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0.00000</td>
 <td align="right">0</td>
@@ -568,190 +568,190 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </tr>
 <tr class="even">
 <td align="left">MBSS.2005.Fish</td>
-<td align="left">ABPG-204-R-2016</td>
-<td align="left">COASTAL</td>
-<td align="right">2481.923</td>
+<td align="left">CHGX-432-S-1111</td>
+<td align="left">EPIEDMONT</td>
+<td align="right">273.0000</td>
 <td align="right">75</td>
-<td align="right">8.375</td>
-<td align="right">628.125</td>
-<td align="right">220</td>
-<td align="right">0.3502488</td>
-<td align="right">23.18182</td>
-<td align="right">2591</td>
-<td align="right">4.124975</td>
-<td align="right">0.4154218</td>
+<td align="right">1.500</td>
+<td align="right">112.500</td>
+<td align="right">54</td>
+<td align="right">0.4800000</td>
+<td align="right">100.00000</td>
+<td align="right">160</td>
+<td align="right">1.422222</td>
+<td align="right">0.0000000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">54</td>
+<td align="right">100.00000</td>
+<td align="right">0</td>
+<td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0.00000</td>
-<td align="right">210</td>
-<td align="right">95.45455</td>
 <td align="right">0</td>
-<td align="right">0.000000</td>
 <td align="right">0</td>
-<td align="right">0.00000</td>
-<td align="right">9</td>
-<td align="right">4.090909</td>
 <td align="right">0</td>
-<td align="right">0.000000</td>
-<td align="right">149</td>
-<td align="right">67.72727</td>
-<td align="right">1</td>
-<td align="right">1.69</td>
-<td align="right">-3.33</td>
-<td align="right">2.4071921</td>
-<td align="right">0.4154218</td>
-<td align="left">COASTAL</td>
-<td align="right">1</td>
-<td align="right">5</td>
-<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">54</td>
+<td align="right">100.00000</td>
+<td align="right">0</td>
+<td align="right">1.25</td>
+<td align="right">-2.36</td>
+<td align="right">0.6852033</td>
+<td align="right">0.0000000</td>
+<td align="left">EPIEDMONT</td>
 <td align="right">3</td>
-<td align="right">5</td>
-<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">24</td>
-<td align="right">4.000000</td>
+<td align="right">8</td>
+<td align="right">1.333333</td>
 </tr>
 <tr class="odd">
 <td align="left">MBSS.2005.Fish</td>
-<td align="left">ANTI-101-S-2016</td>
-<td align="left">COLD</td>
-<td align="right">1413.950</td>
+<td align="left">CHGX-435-R-1111</td>
+<td align="left">EPIEDMONT</td>
+<td align="right">416.1001</td>
 <td align="right">75</td>
-<td align="right">4.050</td>
-<td align="right">303.750</td>
-<td align="right">176</td>
-<td align="right">0.5794239</td>
-<td align="right">73.86364</td>
-<td align="right">1505</td>
-<td align="right">4.954733</td>
+<td align="right">3.500</td>
+<td align="right">262.500</td>
+<td align="right">539</td>
+<td align="right">2.0533333</td>
+<td align="right">71.24304</td>
+<td align="right">2957</td>
+<td align="right">11.264762</td>
 <td align="right">0.0000000</td>
-<td align="right">37</td>
-<td align="right">21.02273</td>
-<td align="right">176</td>
-<td align="right">100.00000</td>
 <td align="right">0</td>
-<td align="right">0.000000</td>
-<td align="right">46</td>
-<td align="right">26.13636</td>
 <td align="right">0</td>
-<td align="right">0.000000</td>
+<td align="right">514</td>
+<td align="right">95.36178</td>
 <td align="right">0</td>
-<td align="right">0.000000</td>
-<td align="right">139</td>
-<td align="right">78.97727</td>
 <td align="right">0</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="left">COLD</td>
+<td align="right">155</td>
+<td align="right">28.75696</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">514</td>
+<td align="right">95.36178</td>
+<td align="right">0</td>
+<td align="right">1.25</td>
+<td align="right">-2.36</td>
+<td align="right">0.9139973</td>
+<td align="right">0.0000000</td>
+<td align="left">EPIEDMONT</td>
 <td align="right">5</td>
-<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">1</td>
 <td align="right">3</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">5</td>
 <td align="right">1</td>
-<td align="right">14</td>
-<td align="right">3.500000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">16</td>
+<td align="right">2.666667</td>
 </tr>
 <tr class="even">
 <td align="left">MBSS.2005.Fish</td>
-<td align="left">ATKI-003-X-2016</td>
+<td align="left">CHGX-537-R-1111</td>
 <td align="left">EPIEDMONT</td>
-<td align="right">105.030</td>
+<td align="right">820.6357</td>
 <td align="right">75</td>
-<td align="right">1.700</td>
-<td align="right">127.500</td>
-<td align="right">611</td>
-<td align="right">4.7921569</td>
-<td align="right">53.51882</td>
-<td align="right">1638</td>
-<td align="right">12.847059</td>
-<td align="right">6.0008987</td>
+<td align="right">2.025</td>
+<td align="right">151.875</td>
+<td align="right">104</td>
+<td align="right">0.6847737</td>
+<td align="right">60.57692</td>
+<td align="right">455</td>
+<td align="right">2.995885</td>
+<td align="right">0.0000000</td>
 <td align="right">0</td>
-<td align="right">0.00000</td>
-<td align="right">566</td>
-<td align="right">92.63502</td>
-<td align="right">45</td>
-<td align="right">7.364975</td>
-<td align="right">284</td>
-<td align="right">46.48118</td>
 <td align="right">0</td>
-<td align="right">0.000000</td>
-<td align="right">45</td>
-<td align="right">7.364975</td>
-<td align="right">566</td>
-<td align="right">92.63502</td>
-<td align="right">1</td>
+<td align="right">100</td>
+<td align="right">96.15385</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">38</td>
+<td align="right">36.53846</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">90</td>
+<td align="right">86.53846</td>
+<td align="right">0</td>
 <td align="right">1.25</td>
 <td align="right">-2.36</td>
-<td align="right">0.1666417</td>
-<td align="right">6.0008987</td>
+<td align="right">1.2826880</td>
+<td align="right">0.0000000</td>
 <td align="left">EPIEDMONT</td>
-<td align="right">5</td>
-<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">1</td>
 <td align="right">1</td>
 <td align="right">3</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">5</td>
+<td align="right">1</td>
 <td align="right">3</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">22</td>
-<td align="right">3.666667</td>
+<td align="right">12</td>
+<td align="right">2.000000</td>
 </tr>
 <tr class="odd">
 <td align="left">MBSS.2005.Fish</td>
-<td align="left">ATKI-101-X-2016</td>
+<td align="left">CHGX-546-R-1111</td>
 <td align="left">EPIEDMONT</td>
-<td align="right">393.080</td>
+<td align="right">1732.0084</td>
 <td align="right">75</td>
-<td align="right">2.575</td>
-<td align="right">193.125</td>
-<td align="right">470</td>
-<td align="right">2.4336570</td>
-<td align="right">41.48936</td>
-<td align="right">1377</td>
-<td align="right">7.130097</td>
-<td align="right">2.2647461</td>
+<td align="right">3.425</td>
+<td align="right">256.875</td>
+<td align="right">139</td>
+<td align="right">0.5411192</td>
+<td align="right">40.28777</td>
+<td align="right">3078</td>
+<td align="right">11.982482</td>
+<td align="right">0.5923513</td>
 <td align="right">0</td>
-<td align="right">0.00000</td>
-<td align="right">272</td>
-<td align="right">57.87234</td>
-<td align="right">195</td>
-<td align="right">41.489362</td>
-<td align="right">295</td>
-<td align="right">62.76596</td>
 <td align="right">0</td>
-<td align="right">0.000000</td>
-<td align="right">195</td>
-<td align="right">41.489362</td>
-<td align="right">215</td>
-<td align="right">45.74468</td>
-<td align="right">2</td>
+<td align="right">83</td>
+<td align="right">59.71223</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">76</td>
+<td align="right">54.67626</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">60</td>
+<td align="right">43.16547</td>
+<td align="right">1</td>
 <td align="right">1.25</td>
 <td align="right">-2.36</td>
-<td align="right">0.8831012</td>
-<td align="right">2.2647461</td>
+<td align="right">1.6881875</td>
+<td align="right">0.5923513</td>
 <td align="left">EPIEDMONT</td>
-<td align="right">5</td>
-<td align="right">5</td>
 <td align="right">3</td>
+<td align="right">5</td>
+<td align="right">5</td>
 <td align="right">5</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">3</td>
 <td align="right">5</td>
+<td align="right">3</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -760,51 +760,51 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </tr>
 <tr class="even">
 <td align="left">MBSS.2005.Fish</td>
-<td align="left">ATKI-102-X-2016</td>
+<td align="left">CHGX-648-S-1111</td>
 <td align="left">EPIEDMONT</td>
-<td align="right">146.070</td>
+<td align="right">3805.0000</td>
 <td align="right">75</td>
-<td align="right">1.925</td>
-<td align="right">144.375</td>
-<td align="right">622</td>
-<td align="right">4.3082251</td>
-<td align="right">69.13183</td>
-<td align="right">1389</td>
-<td align="right">9.620779</td>
-<td align="right">2.8926708</td>
+<td align="right">8.950</td>
+<td align="right">671.250</td>
+<td align="right">293</td>
+<td align="right">0.4364991</td>
+<td align="right">31.39932</td>
+<td align="right">5020</td>
+<td align="right">7.478585</td>
+<td align="right">0.4727142</td>
 <td align="right">0</td>
-<td align="right">0.00000</td>
-<td align="right">577</td>
-<td align="right">92.76527</td>
-<td align="right">45</td>
-<td align="right">7.234727</td>
-<td align="right">192</td>
-<td align="right">30.86817</td>
 <td align="right">0</td>
-<td align="right">0.000000</td>
-<td align="right">45</td>
-<td align="right">7.234727</td>
-<td align="right">577</td>
-<td align="right">92.76527</td>
+<td align="right">201</td>
+<td align="right">68.60068</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">141</td>
+<td align="right">48.12287</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">138</td>
+<td align="right">47.09898</td>
 <td align="right">1</td>
 <td align="right">1.25</td>
 <td align="right">-2.36</td>
-<td align="right">0.3457013</td>
-<td align="right">2.8926708</td>
+<td align="right">2.1154433</td>
+<td align="right">0.4727142</td>
 <td align="left">EPIEDMONT</td>
+<td align="right">3</td>
 <td align="right">5</td>
+<td align="right">3</td>
 <td align="right">5</td>
-<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">3</td>
 <td align="right">3</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">5</td>
-<td align="right">1</td>
 <td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">20</td>
-<td align="right">3.333333</td>
+<td align="right">22</td>
+<td align="right">3.666667</td>
 </tr>
 </tbody>
 </table>
@@ -875,7 +875,7 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <col width="1%"></col>
 <col width="2%"></col>
 <col width="2%"></col>
-<col width="1%"></col>
+<col width="2%"></col>
 <col width="1%"></col>
 <col width="1%"></col>
 <col width="1%"></col>
@@ -960,292 +960,292 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">ABPG-204-R-2016</td>
-<td align="left">COASTAL</td>
+<td align="left">CHGX-432-S-1111</td>
+<td align="left">EPIEDMONT</td>
 <td align="left">MBSS.2005.Bugs</td>
-<td align="right">124</td>
-<td align="right">21</td>
+<td align="right">125</td>
+<td align="right">27</td>
+<td align="right">10</td>
+<td align="right">1</td>
+<td align="right">13</td>
+<td align="right">4</td>
+<td align="right">31</td>
+<td align="right">50</td>
+<td align="right">82</td>
 <td align="right">2</td>
-<td align="right">1</td>
-<td align="right">4</td>
-<td align="right">0</td>
-<td align="right">23</td>
-<td align="right">51</td>
-<td align="right">48</td>
-<td align="right">5</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">54</td>
-<td align="right">15</td>
-<td align="right">3.2258065</td>
-<td align="right">18.54839</td>
-<td align="right">41.12903</td>
-<td align="right">38.70968</td>
-<td align="right">4.032258</td>
-<td align="right">0.000000</td>
-<td align="right">0.0000000</td>
-<td align="right">43.54839</td>
-<td align="right">12.096774</td>
-<td align="right">15</td>
-<td align="right">4</td>
-<td align="right">7</td>
-<td align="right">0</td>
+<td align="right">9</td>
+<td align="right">13</td>
+<td align="right">57</td>
+<td align="right">45</td>
+<td align="right">10.400000</td>
+<td align="right">24.800000</td>
+<td align="right">40.00000</td>
+<td align="right">65.60000</td>
+<td align="right">1.600000</td>
+<td align="right">7.200000</td>
+<td align="right">10.400000</td>
+<td align="right">45.60000</td>
+<td align="right">36.00000</td>
+<td align="right">11</td>
+<td align="right">10</td>
+<td align="right">18</td>
+<td align="right">6</td>
 <td align="left">MBSS.2005.Bugs</td>
-<td align="left">COASTAL</td>
-<td align="right">3</td>
-<td align="right">3</td>
-<td align="right">3</td>
-<td align="right">3</td>
+<td align="left">EPIEDMONT</td>
+<td align="right">5</td>
 <td align="right">3</td>
 <td align="right">1</td>
-<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">3</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">21</td>
+<td align="right">18</td>
 <td align="right">3.000000</td>
 <td align="left">LARGE</td>
 </tr>
 <tr class="even">
-<td align="left">ANTI-101-S-2016</td>
-<td align="left">HIGHLAND</td>
+<td align="left">CHGX-435-R-1111</td>
+<td align="left">EPIEDMONT</td>
 <td align="left">MBSS.2005.Bugs</td>
-<td align="right">128</td>
-<td align="right">25</td>
-<td align="right">16</td>
-<td align="right">6</td>
-<td align="right">49</td>
-<td align="right">3</td>
-<td align="right">16</td>
-<td align="right">16</td>
-<td align="right">112</td>
+<td align="right">119</td>
+<td align="right">17</td>
 <td align="right">2</td>
-<td align="right">30</td>
-<td align="right">23</td>
-<td align="right">31</td>
-<td align="right">98</td>
-<td align="right">38.2812500</td>
-<td align="right">12.50000</td>
-<td align="right">12.50000</td>
-<td align="right">87.50000</td>
-<td align="right">1.562500</td>
-<td align="right">23.437500</td>
-<td align="right">17.9687500</td>
-<td align="right">24.21875</td>
-<td align="right">76.562500</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
 <td align="right">9</td>
-<td align="right">14</td>
-<td align="right">26</td>
-<td align="right">9</td>
+<td align="right">81</td>
+<td align="right">39</td>
+<td align="right">2</td>
+<td align="right">3</td>
+<td align="right">0</td>
+<td align="right">85</td>
+<td align="right">0</td>
+<td align="right">0.000000</td>
+<td align="right">7.563025</td>
+<td align="right">68.06723</td>
+<td align="right">32.77311</td>
+<td align="right">1.680672</td>
+<td align="right">2.521008</td>
+<td align="right">0.000000</td>
+<td align="right">71.42857</td>
+<td align="right">0.00000</td>
+<td align="right">11</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
 <td align="left">MBSS.2005.Bugs</td>
-<td align="left">HIGHLAND</td>
-<td align="right">5</td>
-<td align="right">5</td>
-<td align="right">5</td>
+<td align="left">EPIEDMONT</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">1</td>
 <td align="right">3</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="right">5</td>
-<td align="right">3</td>
-<td align="right">5</td>
-<td align="right">34</td>
-<td align="right">4.250000</td>
-<td align="left">LARGE</td>
+<td align="right">10</td>
+<td align="right">1.666667</td>
+<td align="left">OK</td>
 </tr>
 <tr class="odd">
-<td align="left">ATKI-003-X-2016</td>
+<td align="left">CHGX-537-R-1111</td>
 <td align="left">EPIEDMONT</td>
 <td align="left">MBSS.2005.Bugs</td>
 <td align="right">121</td>
-<td align="right">22</td>
+<td align="right">29</td>
+<td align="right">10</td>
 <td align="right">4</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">3</td>
+<td align="right">12</td>
+<td align="right">6</td>
 <td align="right">18</td>
-<td align="right">92</td>
-<td align="right">37</td>
-<td align="right">6</td>
-<td align="right">14</td>
-<td align="right">1</td>
-<td align="right">96</td>
-<td align="right">6</td>
-<td align="right">0.8264463</td>
-<td align="right">14.87603</td>
-<td align="right">76.03306</td>
-<td align="right">30.57851</td>
-<td align="right">4.958678</td>
-<td align="right">11.570248</td>
-<td align="right">0.8264463</td>
-<td align="right">79.33884</td>
-<td align="right">4.958678</td>
+<td align="right">40</td>
+<td align="right">82</td>
+<td align="right">12</td>
+<td align="right">12</td>
+<td align="right">11</td>
+<td align="right">50</td>
 <td align="right">16</td>
-<td align="right">2</td>
-<td align="right">3</td>
-<td align="right">1</td>
+<td align="right">9.917355</td>
+<td align="right">14.876033</td>
+<td align="right">33.05785</td>
+<td align="right">67.76860</td>
+<td align="right">9.917355</td>
+<td align="right">9.917355</td>
+<td align="right">9.090909</td>
+<td align="right">41.32231</td>
+<td align="right">13.22314</td>
+<td align="right">11</td>
+<td align="right">8</td>
+<td align="right">14</td>
+<td align="right">5</td>
 <td align="left">MBSS.2005.Bugs</td>
 <td align="left">EPIEDMONT</td>
+<td align="right">5</td>
 <td align="right">3</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">3</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">1</td>
-<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">3</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">8</td>
-<td align="right">1.333333</td>
+<td align="right">22</td>
+<td align="right">3.666667</td>
 <td align="left">LARGE</td>
 </tr>
 <tr class="even">
-<td align="left">ATKI-101-X-2016</td>
+<td align="left">CHGX-546-R-1111</td>
+<td align="left">EPIEDMONT</td>
+<td align="left">MBSS.2005.Bugs</td>
+<td align="right">129</td>
+<td align="right">27</td>
+<td align="right">8</td>
+<td align="right">2</td>
+<td align="right">23</td>
+<td align="right">4</td>
+<td align="right">22</td>
+<td align="right">28</td>
+<td align="right">97</td>
+<td align="right">0</td>
+<td align="right">11</td>
+<td align="right">23</td>
+<td align="right">37</td>
+<td align="right">14</td>
+<td align="right">17.829457</td>
+<td align="right">17.054264</td>
+<td align="right">21.70543</td>
+<td align="right">75.19380</td>
+<td align="right">0.000000</td>
+<td align="right">8.527132</td>
+<td align="right">17.829457</td>
+<td align="right">28.68217</td>
+<td align="right">10.85271</td>
+<td align="right">11</td>
+<td align="right">7</td>
+<td align="right">15</td>
+<td align="right">7</td>
+<td align="left">MBSS.2005.Bugs</td>
+<td align="left">EPIEDMONT</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">22</td>
+<td align="right">3.666667</td>
+<td align="left">LARGE</td>
+</tr>
+<tr class="odd">
+<td align="left">CHGX-648-S-1111</td>
 <td align="left">EPIEDMONT</td>
 <td align="left">MBSS.2005.Bugs</td>
 <td align="right">116</td>
-<td align="right">20</td>
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="right">7</td>
-<td align="right">1</td>
-<td align="right">21</td>
-<td align="right">58</td>
-<td align="right">78</td>
-<td align="right">1</td>
-<td align="right">9</td>
-<td align="right">7</td>
-<td align="right">65</td>
-<td align="right">15</td>
-<td align="right">6.0344828</td>
-<td align="right">18.10345</td>
-<td align="right">50.00000</td>
-<td align="right">67.24138</td>
-<td align="right">0.862069</td>
-<td align="right">7.758621</td>
-<td align="right">6.0344828</td>
-<td align="right">56.03448</td>
-<td align="right">12.931035</td>
-<td align="right">12</td>
-<td align="right">4</td>
-<td align="right">5</td>
-<td align="right">2</td>
-<td align="left">MBSS.2005.Bugs</td>
-<td align="left">EPIEDMONT</td>
-<td align="right">3</td>
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="right">3</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="right">3</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">16</td>
-<td align="right">2.666667</td>
-<td align="left">OK</td>
-</tr>
-<tr class="odd">
-<td align="left">ATKI-102-X-2016</td>
-<td align="left">EPIEDMONT</td>
-<td align="left">MBSS.2005.Bugs</td>
-<td align="right">125</td>
+<td align="right">27</td>
 <td align="right">13</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">40</td>
 <td align="right">6</td>
-<td align="right">117</td>
+<td align="right">32</td>
+<td align="right">31</td>
+<td align="right">80</td>
 <td align="right">2</td>
-<td align="right">6</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">117</td>
-<td align="right">5</td>
-<td align="right">0.0000000</td>
-<td align="right">4.80000</td>
-<td align="right">93.60000</td>
-<td align="right">1.60000</td>
-<td align="right">4.800000</td>
-<td align="right">0.800000</td>
-<td align="right">0.0000000</td>
-<td align="right">93.60000</td>
-<td align="right">4.000000</td>
-<td align="right">11</td>
-<td align="right">1</td>
-<td align="right">2</td>
-<td align="right">0</td>
+<td align="right">14</td>
+<td align="right">35</td>
+<td align="right">38</td>
+<td align="right">26</td>
+<td align="right">34.482759</td>
+<td align="right">27.586207</td>
+<td align="right">26.72414</td>
+<td align="right">68.96552</td>
+<td align="right">1.724138</td>
+<td align="right">12.068965</td>
+<td align="right">30.172414</td>
+<td align="right">32.75862</td>
+<td align="right">22.41379</td>
+<td align="right">10</td>
+<td align="right">12</td>
+<td align="right">20</td>
+<td align="right">8</td>
 <td align="left">MBSS.2005.Bugs</td>
 <td align="left">EPIEDMONT</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">1</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">3</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">1</td>
-<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">3</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">6</td>
-<td align="right">1.000000</td>
-<td align="left">LARGE</td>
+<td align="right">24</td>
+<td align="right">4.000000</td>
+<td align="left">OK</td>
 </tr>
 <tr class="even">
-<td align="left">ATKI-104-R-2016</td>
+<td align="left">EBUX-435-S-1111</td>
 <td align="left">EPIEDMONT</td>
 <td align="left">MBSS.2005.Bugs</td>
-<td align="right">118</td>
-<td align="right">27</td>
-<td align="right">10</td>
-<td align="right">2</td>
-<td align="right">22</td>
-<td align="right">4</td>
-<td align="right">4</td>
-<td align="right">36</td>
-<td align="right">85</td>
-<td align="right">0</td>
-<td align="right">7</td>
-<td align="right">20</td>
-<td align="right">54</td>
-<td align="right">39</td>
-<td align="right">18.6440678</td>
-<td align="right">3.38983</td>
-<td align="right">30.50847</td>
-<td align="right">72.03390</td>
-<td align="right">0.000000</td>
-<td align="right">5.932203</td>
-<td align="right">16.9491525</td>
-<td align="right">45.76271</td>
-<td align="right">33.050848</td>
-<td align="right">14</td>
-<td align="right">8</td>
+<td align="right">137</td>
+<td align="right">37</td>
 <td align="right">15</td>
-<td align="right">6</td>
+<td align="right">5</td>
+<td align="right">40</td>
+<td align="right">5</td>
+<td align="right">15</td>
+<td align="right">34</td>
+<td align="right">98</td>
+<td align="right">12</td>
+<td align="right">13</td>
+<td align="right">39</td>
+<td align="right">46</td>
+<td align="right">78</td>
+<td align="right">29.197080</td>
+<td align="right">10.948905</td>
+<td align="right">24.81752</td>
+<td align="right">71.53285</td>
+<td align="right">8.759124</td>
+<td align="right">9.489051</td>
+<td align="right">28.467153</td>
+<td align="right">33.57664</td>
+<td align="right">56.93431</td>
+<td align="right">16</td>
+<td align="right">19</td>
+<td align="right">38</td>
+<td align="right">10</td>
 <td align="left">MBSS.2005.Bugs</td>
 <td align="left">EPIEDMONT</td>
 <td align="right">5</td>
-<td align="right">3</td>
-<td align="right">3</td>
-<td align="right">3</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
@@ -1255,9 +1255,9 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">20</td>
-<td align="right">3.333333</td>
-<td align="left">OK</td>
+<td align="right">26</td>
+<td align="right">4.333333</td>
+<td align="left">LARGE</td>
 </tr>
 </tbody>
 </table>
@@ -1374,122 +1374,79 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">ABPG-204-R-2016</td>
-<td align="left">CP</td>
+<td align="left">CHGX-432-S-1111</td>
+<td align="left">NCP</td>
 <td align="left">MSW.1999.Bugs</td>
-<td align="right">124</td>
-<td align="right">9</td>
-<td align="right">2</td>
+<td align="right">125</td>
+<td align="right">16</td>
+<td align="right">7</td>
 <td align="right">1</td>
-<td align="right">4</td>
+<td align="right">13</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">51</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">54</td>
-<td align="right">0</td>
-<td align="right">3.2258065</td>
-<td align="right">0</td>
-<td align="right">41.12903</td>
+<td align="right">50</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">43.54839</td>
+<td align="right">57</td>
 <td align="right">0</td>
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="right">3</td>
+<td align="right">10.400000</td>
 <td align="right">0</td>
-<td align="left">MSW.1999.Bugs</td>
-<td align="left">CP</td>
+<td align="right">40.00000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">45.60000</td>
+<td align="right">0</td>
 <td align="right">3</td>
 <td align="right">1</td>
 <td align="right">3</td>
 <td align="right">5</td>
+<td align="left">MSW.1999.Bugs</td>
+<td align="left">NCP</td>
+<td align="right">5</td>
 <td align="right">3</td>
 <td align="right">1</td>
+<td align="right">5</td>
+<td align="right">3</td>
+<td align="right">3</td>
 <td align="right">1</td>
-<td align="right">17</td>
-<td align="right">2.428571</td>
+<td align="right">21</td>
+<td align="right">3.000000</td>
 </tr>
 <tr class="even">
-<td align="left">ANTI-101-S-2016</td>
+<td align="left">CHGX-435-R-1111</td>
 <td align="left">NCP</td>
 <td align="left">MSW.1999.Bugs</td>
-<td align="right">128</td>
-<td align="right">16</td>
-<td align="right">13</td>
-<td align="right">5</td>
-<td align="right">49</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">16</td>
+<td align="right">119</td>
+<td align="right">7</td>
+<td align="right">1</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">31</td>
-<td align="right">0</td>
-<td align="right">38.2812500</td>
-<td align="right">0</td>
-<td align="right">12.50000</td>
+<td align="right">81</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">24.21875</td>
+<td align="right">85</td>
+<td align="right">0</td>
+<td align="right">0.000000</td>
+<td align="right">0</td>
+<td align="right">68.06723</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">71.42857</td>
 <td align="right">0</td>
 <td align="right">3</td>
 <td align="right">1</td>
 <td align="right">3</td>
-<td align="right">9</td>
-<td align="left">MSW.1999.Bugs</td>
-<td align="left">NCP</td>
-<td align="right">5</td>
-<td align="right">5</td>
-<td align="right">5</td>
-<td align="right">5</td>
-<td align="right">5</td>
-<td align="right">5</td>
-<td align="right">1</td>
-<td align="right">31</td>
-<td align="right">4.428571</td>
-</tr>
-<tr class="odd">
-<td align="left">ATKI-003-X-2016</td>
-<td align="left">NCP</td>
-<td align="left">MSW.1999.Bugs</td>
-<td align="right">121</td>
-<td align="right">8</td>
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="right">1</td>
 <td align="right">0</td>
-<td align="right">0</td>
-<td align="right">92</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">96</td>
-<td align="right">0</td>
-<td align="right">0.8264463</td>
-<td align="right">0</td>
-<td align="right">76.03306</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">79.33884</td>
-<td align="right">0</td>
-<td align="right">3</td>
-<td align="right">1</td>
-<td align="right">3</td>
-<td align="right">1</td>
 <td align="left">MSW.1999.Bugs</td>
 <td align="left">NCP</td>
 <td align="right">1</td>
@@ -1502,118 +1459,75 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <td align="right">11</td>
 <td align="right">1.571429</td>
 </tr>
-<tr class="even">
-<td align="left">ATKI-101-X-2016</td>
+<tr class="odd">
+<td align="left">CHGX-537-R-1111</td>
 <td align="left">NCP</td>
 <td align="left">MSW.1999.Bugs</td>
-<td align="right">116</td>
-<td align="right">9</td>
-<td align="right">4</td>
-<td align="right">1</td>
-<td align="right">7</td>
+<td align="right">121</td>
+<td align="right">18</td>
+<td align="right">8</td>
+<td align="right">3</td>
+<td align="right">12</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">58</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">65</td>
-<td align="right">0</td>
-<td align="right">6.0344828</td>
-<td align="right">0</td>
-<td align="right">50.00000</td>
+<td align="right">40</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">56.03448</td>
+<td align="right">50</td>
+<td align="right">0</td>
+<td align="right">9.917355</td>
+<td align="right">0</td>
+<td align="right">33.05785</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">41.32231</td>
 <td align="right">0</td>
 <td align="right">3</td>
 <td align="right">1</td>
 <td align="right">3</td>
-<td align="right">2</td>
+<td align="right">5</td>
 <td align="left">MSW.1999.Bugs</td>
 <td align="left">NCP</td>
-<td align="right">3</td>
-<td align="right">3</td>
-<td align="right">1</td>
 <td align="right">5</td>
 <td align="right">3</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">17</td>
-<td align="right">2.428571</td>
-</tr>
-<tr class="odd">
-<td align="left">ATKI-102-X-2016</td>
-<td align="left">NCP</td>
-<td align="left">MSW.1999.Bugs</td>
-<td align="right">125</td>
+<td align="right">5</td>
+<td align="right">5</td>
 <td align="right">3</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">117</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">117</td>
-<td align="right">0</td>
-<td align="right">0.0000000</td>
-<td align="right">0</td>
-<td align="right">93.60000</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">93.60000</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">1</td>
 <td align="right">3</td>
-<td align="right">0</td>
-<td align="left">MSW.1999.Bugs</td>
-<td align="left">NCP</td>
 <td align="right">1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="right">7</td>
-<td align="right">1.000000</td>
+<td align="right">25</td>
+<td align="right">3.571429</td>
 </tr>
 <tr class="even">
-<td align="left">ATKI-104-R-2016</td>
+<td align="left">CHGX-546-R-1111</td>
 <td align="left">NCP</td>
 <td align="left">MSW.1999.Bugs</td>
-<td align="right">118</td>
-<td align="right">14</td>
-<td align="right">8</td>
+<td align="right">129</td>
+<td align="right">17</td>
+<td align="right">6</td>
 <td align="right">2</td>
-<td align="right">22</td>
+<td align="right">23</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">36</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">54</td>
-<td align="right">0</td>
-<td align="right">18.6440678</td>
-<td align="right">0</td>
-<td align="right">30.50847</td>
+<td align="right">28</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
 <td align="right">0</td>
-<td align="right">45.76271</td>
+<td align="right">37</td>
+<td align="right">0</td>
+<td align="right">17.829457</td>
+<td align="right">0</td>
+<td align="right">21.70543</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">28.68217</td>
 <td align="right">0</td>
 <td align="right">4</td>
 <td align="right">1</td>
@@ -1630,6 +1544,92 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <td align="right">1</td>
 <td align="right">23</td>
 <td align="right">3.285714</td>
+</tr>
+<tr class="odd">
+<td align="left">CHGX-648-S-1111</td>
+<td align="left">NCP</td>
+<td align="left">MSW.1999.Bugs</td>
+<td align="right">116</td>
+<td align="right">18</td>
+<td align="right">11</td>
+<td align="right">4</td>
+<td align="right">40</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">31</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">38</td>
+<td align="right">0</td>
+<td align="right">34.482759</td>
+<td align="right">0</td>
+<td align="right">26.72414</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">32.75862</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">8</td>
+<td align="left">MSW.1999.Bugs</td>
+<td align="left">NCP</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">31</td>
+<td align="right">4.428571</td>
+</tr>
+<tr class="even">
+<td align="left">EBUX-435-S-1111</td>
+<td align="left">NCP</td>
+<td align="left">MSW.1999.Bugs</td>
+<td align="right">137</td>
+<td align="right">19</td>
+<td align="right">10</td>
+<td align="right">3</td>
+<td align="right">40</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">34</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">46</td>
+<td align="right">0</td>
+<td align="right">29.197080</td>
+<td align="right">0</td>
+<td align="right">24.81752</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">33.57664</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">9</td>
+<td align="left">MSW.1999.Bugs</td>
+<td align="left">NCP</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">5</td>
+<td align="right">1</td>
+<td align="right">31</td>
+<td align="right">4.428571</td>
 </tr>
 </tbody>
 </table>
@@ -1697,24 +1697,36 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb21-10"><a href="#cb21-10"></a><span class="kw">MapTaxaObs</span>(Obs, XWalk, wd, <span class="dt">onlymatches =</span> <span class="ot">FALSE</span>)</span></code></pre></div>
 <p>The intent behind this function was to recreate the fish taxa distribution maps. But the data inputs are not specific to fish and can be used for benthic macroinvertebrate data.</p>
 <p>The taxa distribution map for brown trout is shown below.</p>
+<pre><code>## Loading required package: sp</code></pre>
+<pre><code>## rgdal: version: 1.5-12, (SVN revision 1018)
+## Geospatial Data Abstraction Library extensions to R successfully loaded
+## Loaded GDAL runtime: GDAL 3.0.4, released 2020/01/28
+## Path to GDAL shared files: C:/Programs/R/R-4.0.0/library/rgdal/gdal
+## GDAL binary built with GEOS: TRUE 
+## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
+## Path to PROJ shared files: C:/Programs/R/R-4.0.0/library/rgdal/proj
+## Linking to sp version:1.4-2
+## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
+## use options(&quot;rgdal_show_exportToProj4_warnings&quot;=&quot;none&quot;) before loading rgdal.</code></pre>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 <div id="stream-discharge" class="section level2">
 <h2>Stream Discharge</h2>
 <p>Calculate stream discharge based on field measurements. Side channels that are properly identified in the data will be included.</p>
 <p>The function FlowSum() requires the no additional packages.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="kw">library</span>(MBSStools)</span>
-<span id="cb22-2"><a href="#cb22-2"></a><span class="co"># data</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a>MBSS.flow &lt;-<span class="st"> </span>MBSS.flow</span>
-<span id="cb22-4"><a href="#cb22-4"></a><span class="co"># calculate flow</span></span>
-<span id="cb22-5"><a href="#cb22-5"></a>flow.cell &lt;-<span class="st"> </span><span class="kw">FlowSum</span>(MBSS.flow, <span class="dt">returnType=</span><span class="st">&quot;cell&quot;</span>)</span>
-<span id="cb22-6"><a href="#cb22-6"></a>flow.sample &lt;-<span class="st"> </span><span class="kw">FlowSum</span>(MBSS.flow)</span>
-<span id="cb22-7"><a href="#cb22-7"></a><span class="co"># examine data</span></span>
-<span id="cb22-8"><a href="#cb22-8"></a><span class="kw">View</span>(flow.cell)</span>
-<span id="cb22-9"><a href="#cb22-9"></a><span class="kw">View</span>(flow.sample)</span>
-<span id="cb22-10"><a href="#cb22-10"></a><span class="co"># Example Save file (tab delimited text file)</span></span>
-<span id="cb22-11"><a href="#cb22-11"></a>datetime &lt;-<span class="st"> </span><span class="kw">format</span>(<span class="kw">Sys.time</span>(),<span class="st">&quot;%Y%m%d_%H%M%S&quot;</span>)</span>
-<span id="cb22-12"><a href="#cb22-12"></a>myYear &lt;-<span class="st"> &quot;15&quot;</span></span>
-<span id="cb22-13"><a href="#cb22-13"></a><span class="kw">write.table</span>(flow.sample,<span class="kw">paste0</span>(<span class="st">&quot;SumFlow&quot;</span>,myYear,<span class="st">&quot;_&quot;</span>,datetime,<span class="st">&quot;.tab&quot;</span>),<span class="dt">row.names=</span><span class="ot">FALSE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="kw">library</span>(MBSStools)</span>
+<span id="cb24-2"><a href="#cb24-2"></a><span class="co"># data</span></span>
+<span id="cb24-3"><a href="#cb24-3"></a>MBSS.flow &lt;-<span class="st"> </span>MBSS.flow</span>
+<span id="cb24-4"><a href="#cb24-4"></a><span class="co"># calculate flow</span></span>
+<span id="cb24-5"><a href="#cb24-5"></a>flow.cell &lt;-<span class="st"> </span><span class="kw">FlowSum</span>(MBSS.flow, <span class="dt">returnType=</span><span class="st">&quot;cell&quot;</span>)</span>
+<span id="cb24-6"><a href="#cb24-6"></a>flow.sample &lt;-<span class="st"> </span><span class="kw">FlowSum</span>(MBSS.flow)</span>
+<span id="cb24-7"><a href="#cb24-7"></a><span class="co"># examine data</span></span>
+<span id="cb24-8"><a href="#cb24-8"></a><span class="kw">View</span>(flow.cell)</span>
+<span id="cb24-9"><a href="#cb24-9"></a><span class="kw">View</span>(flow.sample)</span>
+<span id="cb24-10"><a href="#cb24-10"></a><span class="co"># Example Save file (tab delimited text file)</span></span>
+<span id="cb24-11"><a href="#cb24-11"></a>datetime &lt;-<span class="st"> </span><span class="kw">format</span>(<span class="kw">Sys.time</span>(),<span class="st">&quot;%Y%m%d_%H%M%S&quot;</span>)</span>
+<span id="cb24-12"><a href="#cb24-12"></a>myYear &lt;-<span class="st"> &quot;15&quot;</span></span>
+<span id="cb24-13"><a href="#cb24-13"></a><span class="kw">write.table</span>(flow.sample,<span class="kw">paste0</span>(<span class="st">&quot;SumFlow&quot;</span>,myYear,<span class="st">&quot;_&quot;</span>,datetime,<span class="st">&quot;.tab&quot;</span>),<span class="dt">row.names=</span><span class="ot">FALSE</span>,<span class="dt">sep=</span><span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</span></code></pre></div>
 </div>
 <div id="ion-matrix" class="section level2">
 <h2>Ion Matrix</h2>
@@ -2014,51 +2026,51 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 </tbody>
 </table>
 <p>Example code is below. The user would then save the output (e.g., write.csv()).</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="kw">library</span>(MBSStools)</span>
-<span id="cb23-2"><a href="#cb23-2"></a><span class="co"># Load Data</span></span>
-<span id="cb23-3"><a href="#cb23-3"></a>data.ion &lt;-<span class="st"> </span>MBSS.Ion.Data</span>
-<span id="cb23-4"><a href="#cb23-4"></a><span class="co"># Load Reference Table</span></span>
-<span id="cb23-5"><a href="#cb23-5"></a>ref.ion &lt;-<span class="st"> </span>MBSS.Ion.Ref</span>
-<span id="cb23-6"><a href="#cb23-6"></a><span class="co"># Calculate Percent Contribution by Ion (data table only)</span></span>
-<span id="cb23-7"><a href="#cb23-7"></a>contrib.ion &lt;-<span class="st"> </span><span class="kw">IonContrib</span>(data.ion)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="kw">library</span>(MBSStools)</span>
+<span id="cb25-2"><a href="#cb25-2"></a><span class="co"># Load Data</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a>data.ion &lt;-<span class="st"> </span>MBSS.Ion.Data</span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="co"># Load Reference Table</span></span>
+<span id="cb25-5"><a href="#cb25-5"></a>ref.ion &lt;-<span class="st"> </span>MBSS.Ion.Ref</span>
+<span id="cb25-6"><a href="#cb25-6"></a><span class="co"># Calculate Percent Contribution by Ion (data table only)</span></span>
+<span id="cb25-7"><a href="#cb25-7"></a>contrib.ion &lt;-<span class="st"> </span><span class="kw">IonContrib</span>(data.ion)</span></code></pre></div>
 <p><em>No</em> conductivity values provided.<br />
 Ion contributions calculated from the sum of calculated ion conductivity values.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="co">#knitr::kable(head(contrib.ion))</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co">#knitr::kable(head(contrib.ion))</span></span></code></pre></div>
 <p>Dot charts are a good way to display the data. But any chart of the user’s preference can be used.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="co"># Load Data</span></span>
-<span id="cb25-2"><a href="#cb25-2"></a>data.ion &lt;-<span class="st"> </span>MBSS.Ion.Data</span>
-<span id="cb25-3"><a href="#cb25-3"></a><span class="co"># Load Reference Table</span></span>
-<span id="cb25-4"><a href="#cb25-4"></a>ref.ion &lt;-<span class="st"> </span>MBSS.Ion.Ref</span>
-<span id="cb25-5"><a href="#cb25-5"></a><span class="co"># Calculate Percent Contribution by Ion (data table only)</span></span>
-<span id="cb25-6"><a href="#cb25-6"></a>contrib.ion &lt;-<span class="st"> </span><span class="kw">IonContrib</span>(data.ion)</span>
-<span id="cb25-7"><a href="#cb25-7"></a><span class="co">#View(contrib.ion)</span></span>
-<span id="cb25-8"><a href="#cb25-8"></a><span class="co"># Calculate Percent Contribution by Ion (data table and reference table)</span></span>
-<span id="cb25-9"><a href="#cb25-9"></a>contrib.ion<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">IonContrib</span>(data.ion, ref.ion)</span>
-<span id="cb25-10"><a href="#cb25-10"></a><span class="co">#View(contrib.ion.2)</span></span>
-<span id="cb25-11"><a href="#cb25-11"></a><span class="co"># Calculate Percent Contribution by Ion (data table, reference table, and conductivity values)</span></span>
-<span id="cb25-12"><a href="#cb25-12"></a><span class="co"># ## add dummy conductivity values for each sample</span></span>
-<span id="cb25-13"><a href="#cb25-13"></a><span class="co"># myCond &lt;- &quot;Cond&quot;</span></span>
-<span id="cb25-14"><a href="#cb25-14"></a><span class="co"># data.ion[,myCond] &lt;- 4000</span></span>
-<span id="cb25-15"><a href="#cb25-15"></a><span class="co"># contrib.ion.3 &lt;- IonContrib(data.ion, ref.ion, myCond)</span></span>
-<span id="cb25-16"><a href="#cb25-16"></a><span class="co"># View(contrib.ion.3)</span></span>
-<span id="cb25-17"><a href="#cb25-17"></a><span class="co"># Save Results (use write.table())</span></span>
-<span id="cb25-18"><a href="#cb25-18"></a><span class="co"># Plot Results</span></span>
-<span id="cb25-19"><a href="#cb25-19"></a>myIons &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Chloride (mg/L)&quot;</span>, <span class="st">&quot;Bromide (mg/L)&quot;</span>, <span class="st">&quot;Nitrate-N (mg/L)&quot;</span>, <span class="st">&quot;Sulfate (mg/L)&quot;</span>, <span class="st">&quot;Sodium (mg/L)&quot;</span>,</span>
-<span id="cb25-20"><a href="#cb25-20"></a>     <span class="st">&quot;Potassium (mg/L)&quot;</span>, <span class="st">&quot;Magnesium (mg/L)&quot;</span>,  <span class="st">&quot;Calcium (mg/L)&quot;</span> )</span>
-<span id="cb25-21"><a href="#cb25-21"></a>myIons.Contrib &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;PctContrib.&quot;</span>,myIons)</span>
-<span id="cb25-22"><a href="#cb25-22"></a>mySite &lt;-<span class="st"> &quot;BELK-101-X&quot;</span></span>
-<span id="cb25-23"><a href="#cb25-23"></a>data.plot &lt;-<span class="st"> </span><span class="kw">subset</span>(contrib.ion, contrib.ion[,<span class="st">&quot;Site&quot;</span>]<span class="op">==</span>mySite, <span class="dt">select=</span><span class="kw">c</span>(<span class="st">&quot;Site&quot;</span>,<span class="st">&quot;Cond.Total&quot;</span>,myIons.Contrib,myIons))</span>
-<span id="cb25-24"><a href="#cb25-24"></a><span class="co">## Plot, one site (with cond value)</span></span>
-<span id="cb25-25"><a href="#cb25-25"></a><span class="kw">dotchart</span>(<span class="kw">as.numeric</span>(<span class="kw">as.vector</span>(data.plot[,myIons.Contrib])), <span class="dt">labels=</span>myIons, <span class="dt">main=</span>mySite, <span class="dt">xlab=</span><span class="st">&quot;Percent Contribution&quot;</span>, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">pt.cex=</span><span class="fl">1.2</span>)</span>
-<span id="cb25-26"><a href="#cb25-26"></a><span class="kw">mtext</span>(<span class="kw">paste0</span>(<span class="st">&quot;Conductivity (uS/cm) = &quot;</span>,<span class="kw">round</span>(data.plot[,<span class="st">&quot;Cond.Total&quot;</span>],<span class="dv">1</span>)))</span>
-<span id="cb25-27"><a href="#cb25-27"></a><span class="co">## Plot all sites using panel.dotplot() in the lattice package</span></span>
-<span id="cb25-28"><a href="#cb25-28"></a><span class="co">#</span></span>
-<span id="cb25-29"><a href="#cb25-29"></a><span class="co">## Plot as a horizontal bar plot</span></span>
-<span id="cb25-30"><a href="#cb25-30"></a><span class="co"># need to change margins to fit labels</span></span>
-<span id="cb25-31"><a href="#cb25-31"></a><span class="co">#par(mai=c(1,2,1,1))</span></span>
-<span id="cb25-32"><a href="#cb25-32"></a><span class="kw">barplot</span>(<span class="kw">as.numeric</span>(<span class="kw">as.vector</span>(data.plot[,myIons.Contrib])), <span class="dt">names.arg=</span>myIons, <span class="dt">main=</span>mySite, <span class="dt">xlab=</span><span class="st">&quot;Percent Contribution&quot;</span></span>
-<span id="cb25-33"><a href="#cb25-33"></a>       , <span class="dt">axes=</span><span class="ot">TRUE</span>, <span class="dt">horiz=</span><span class="ot">TRUE</span>, <span class="dt">las=</span><span class="dv">1</span>)</span>
-<span id="cb25-34"><a href="#cb25-34"></a><span class="kw">mtext</span>(<span class="kw">paste0</span>(<span class="st">&quot;Conductivity (uS/cm) = &quot;</span>,<span class="kw">round</span>(data.plot[,<span class="st">&quot;Cond.Total&quot;</span>],<span class="dv">1</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># Load Data</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>data.ion &lt;-<span class="st"> </span>MBSS.Ion.Data</span>
+<span id="cb27-3"><a href="#cb27-3"></a><span class="co"># Load Reference Table</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a>ref.ion &lt;-<span class="st"> </span>MBSS.Ion.Ref</span>
+<span id="cb27-5"><a href="#cb27-5"></a><span class="co"># Calculate Percent Contribution by Ion (data table only)</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a>contrib.ion &lt;-<span class="st"> </span><span class="kw">IonContrib</span>(data.ion)</span>
+<span id="cb27-7"><a href="#cb27-7"></a><span class="co">#View(contrib.ion)</span></span>
+<span id="cb27-8"><a href="#cb27-8"></a><span class="co"># Calculate Percent Contribution by Ion (data table and reference table)</span></span>
+<span id="cb27-9"><a href="#cb27-9"></a>contrib.ion<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">IonContrib</span>(data.ion, ref.ion)</span>
+<span id="cb27-10"><a href="#cb27-10"></a><span class="co">#View(contrib.ion.2)</span></span>
+<span id="cb27-11"><a href="#cb27-11"></a><span class="co"># Calculate Percent Contribution by Ion (data table, reference table, and conductivity values)</span></span>
+<span id="cb27-12"><a href="#cb27-12"></a><span class="co"># ## add dummy conductivity values for each sample</span></span>
+<span id="cb27-13"><a href="#cb27-13"></a><span class="co"># myCond &lt;- &quot;Cond&quot;</span></span>
+<span id="cb27-14"><a href="#cb27-14"></a><span class="co"># data.ion[,myCond] &lt;- 4000</span></span>
+<span id="cb27-15"><a href="#cb27-15"></a><span class="co"># contrib.ion.3 &lt;- IonContrib(data.ion, ref.ion, myCond)</span></span>
+<span id="cb27-16"><a href="#cb27-16"></a><span class="co"># View(contrib.ion.3)</span></span>
+<span id="cb27-17"><a href="#cb27-17"></a><span class="co"># Save Results (use write.table())</span></span>
+<span id="cb27-18"><a href="#cb27-18"></a><span class="co"># Plot Results</span></span>
+<span id="cb27-19"><a href="#cb27-19"></a>myIons &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;Chloride (mg/L)&quot;</span>, <span class="st">&quot;Bromide (mg/L)&quot;</span>, <span class="st">&quot;Nitrate-N (mg/L)&quot;</span>, <span class="st">&quot;Sulfate (mg/L)&quot;</span>, <span class="st">&quot;Sodium (mg/L)&quot;</span>,</span>
+<span id="cb27-20"><a href="#cb27-20"></a>     <span class="st">&quot;Potassium (mg/L)&quot;</span>, <span class="st">&quot;Magnesium (mg/L)&quot;</span>,  <span class="st">&quot;Calcium (mg/L)&quot;</span> )</span>
+<span id="cb27-21"><a href="#cb27-21"></a>myIons.Contrib &lt;-<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;PctContrib.&quot;</span>,myIons)</span>
+<span id="cb27-22"><a href="#cb27-22"></a>mySite &lt;-<span class="st"> &quot;BELK-101-X&quot;</span></span>
+<span id="cb27-23"><a href="#cb27-23"></a>data.plot &lt;-<span class="st"> </span><span class="kw">subset</span>(contrib.ion, contrib.ion[,<span class="st">&quot;Site&quot;</span>]<span class="op">==</span>mySite, <span class="dt">select=</span><span class="kw">c</span>(<span class="st">&quot;Site&quot;</span>,<span class="st">&quot;Cond.Total&quot;</span>,myIons.Contrib,myIons))</span>
+<span id="cb27-24"><a href="#cb27-24"></a><span class="co">## Plot, one site (with cond value)</span></span>
+<span id="cb27-25"><a href="#cb27-25"></a><span class="kw">dotchart</span>(<span class="kw">as.numeric</span>(<span class="kw">as.vector</span>(data.plot[,myIons.Contrib])), <span class="dt">labels=</span>myIons, <span class="dt">main=</span>mySite, <span class="dt">xlab=</span><span class="st">&quot;Percent Contribution&quot;</span>, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">pt.cex=</span><span class="fl">1.2</span>)</span>
+<span id="cb27-26"><a href="#cb27-26"></a><span class="kw">mtext</span>(<span class="kw">paste0</span>(<span class="st">&quot;Conductivity (uS/cm) = &quot;</span>,<span class="kw">round</span>(data.plot[,<span class="st">&quot;Cond.Total&quot;</span>],<span class="dv">1</span>)))</span>
+<span id="cb27-27"><a href="#cb27-27"></a><span class="co">## Plot all sites using panel.dotplot() in the lattice package</span></span>
+<span id="cb27-28"><a href="#cb27-28"></a><span class="co">#</span></span>
+<span id="cb27-29"><a href="#cb27-29"></a><span class="co">## Plot as a horizontal bar plot</span></span>
+<span id="cb27-30"><a href="#cb27-30"></a><span class="co"># need to change margins to fit labels</span></span>
+<span id="cb27-31"><a href="#cb27-31"></a><span class="co">#par(mai=c(1,2,1,1))</span></span>
+<span id="cb27-32"><a href="#cb27-32"></a><span class="kw">barplot</span>(<span class="kw">as.numeric</span>(<span class="kw">as.vector</span>(data.plot[,myIons.Contrib])), <span class="dt">names.arg=</span>myIons, <span class="dt">main=</span>mySite, <span class="dt">xlab=</span><span class="st">&quot;Percent Contribution&quot;</span></span>
+<span id="cb27-33"><a href="#cb27-33"></a>       , <span class="dt">axes=</span><span class="ot">TRUE</span>, <span class="dt">horiz=</span><span class="ot">TRUE</span>, <span class="dt">las=</span><span class="dv">1</span>)</span>
+<span id="cb27-34"><a href="#cb27-34"></a><span class="kw">mtext</span>(<span class="kw">paste0</span>(<span class="st">&quot;Conductivity (uS/cm) = &quot;</span>,<span class="kw">round</span>(data.plot[,<span class="st">&quot;Cond.Total&quot;</span>],<span class="dv">1</span>)))</span></code></pre></div>
 <p><img src="data:image/png;base64,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" /><img src="data:image/png;base64,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" /></p>
 </div>
 <div id="phi" class="section level2">
@@ -2250,12 +2262,12 @@ Ion contributions calculated from the sum of calculated ion conductivity values.
 </tbody>
 </table>
 <p>The function returns a dataframe of reslts that need to be saved (e.g., write.table()). The result table from the example data is shown below.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="kw">library</span>(MBSStools)</span>
-<span id="cb26-2"><a href="#cb26-2"></a><span class="co"># data</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a>myData &lt;-<span class="st"> </span>MBSS.PHI</span>
-<span id="cb26-4"><a href="#cb26-4"></a><span class="co"># calculate PHI</span></span>
-<span id="cb26-5"><a href="#cb26-5"></a>PHI &lt;-<span class="st"> </span><span class="kw">PHIcalc</span>(myData)</span>
-<span id="cb26-6"><a href="#cb26-6"></a>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(PHI))</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="kw">library</span>(MBSStools)</span>
+<span id="cb28-2"><a href="#cb28-2"></a><span class="co"># data</span></span>
+<span id="cb28-3"><a href="#cb28-3"></a>myData &lt;-<span class="st"> </span>MBSS.PHI</span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="co"># calculate PHI</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>PHI &lt;-<span class="st"> </span><span class="kw">PHIcalc</span>(myData)</span>
+<span id="cb28-6"><a href="#cb28-6"></a>knitr<span class="op">::</span><span class="kw">kable</span>(<span class="kw">head</span>(PHI))</span></code></pre></div>
 <table style="width:100%;">
 <colgroup>
 <col width="3%"></col>
@@ -2587,8 +2599,8 @@ Ion contributions calculated from the sum of calculated ion conductivity values.
 <div id="shiny" class="section level1">
 <h1>Shiny</h1>
 <p>Included in the package is an example Shiny package to calculates the three IBI’s for MBSS.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="kw">library</span>(MBSStools)</span>
-<span id="cb27-2"><a href="#cb27-2"></a><span class="kw">runShiny</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a><span class="kw">library</span>(MBSStools)</span>
+<span id="cb29-2"><a href="#cb29-2"></a><span class="kw">runShiny</span>()</span></code></pre></div>
 </div>
 
 

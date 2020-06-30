@@ -3,7 +3,12 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-06-26 10:53:17
+    #> Last Update: 2020-06-30 11:08:41
+
+# MBSStools v1.1.0.9014 (2020-06-30)
+
+  - Modify Site IDs in bug (genus and family) and fish data.
+  - Update Vignette.
 
 # MBSStools v1.1.0.9013 (2020-06-26)
 
