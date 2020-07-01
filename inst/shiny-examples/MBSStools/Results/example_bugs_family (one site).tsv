@@ -1,0 +1,10 @@
+Index.Name	SITE	DATE	TAXON	N_TAXA	N_GRIDS	EXCLUDE	strata_r	Phylum	Class	Order	Family	Genus	Other_Taxa	Tribe	FFG	FAM_TV	Habit	FinalTolVal07	FinalTolVal08
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Naididae	2	NA	NA	CP	Annelida	Oligochaeta	Haplotaxida	Naididae	NA	NA	NA	NA	10	NA	NA	NA
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Tubificidae	18	NA	NA	CP	Annelida	Oligochaeta	Tubificida	Tubificidae	NA	NA	NA	NA	10	NA	NA	NA
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Hyalellidae	37	NA	NA	CP	Arthropoda	Malacostraca	Amphipoda	Hyalellidae	NA	NA	NA	NA	8	NA	NA	NA
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Asellidae	8	NA	NA	CP	Arthropoda	Malacostraca	Isopoda	Asellidae	NA	NA	NA	NA	8	NA	NA	NA
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Caenidae	4	NA	NA	CP	Arthropoda	Insecta	Ephemeroptera	Caenidae	NA	NA	NA	NA	7	NA	NA	NA
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Leptoceridae	1	NA	NA	CP	Arthropoda	Insecta	Trichoptera	Leptoceridae	NA	NA	NA	NA	4	NA	NA	NA
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Ceratopogonidae	2	NA	NA	CP	Arthropoda	Insecta	Diptera	Ceratopogonidae	NA	NA	NA	NA	6	NA	NA	NA
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Chironomidae	51	NA	NA	CP	Arthropoda	Insecta	Diptera	Chironomidae	NA	NA	NA	NA	7	NA	NA	NA
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Tabanidae	1	NA	NA	CP	Arthropoda	Insecta	Diptera	Tabanidae	NA	NA	NA	NA	6	NA	NA	NA

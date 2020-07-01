@@ -17,6 +17,17 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.1.0.9016 (2020-07-01)
+================
+
+* Update taxa_fish data without an extra column.
+
+MBSStools v1.1.0.9015 (2020-06-30)
+================
+* Remove SiteID from \extdata\AllFish_95to16.xls.
+* Replace example data files in shiny app (munged Site IDs).
+* Update Vignette.
+
 MBSStools v1.1.0.9014 (2020-06-30)
 ================
 * Modify Site IDs in bug (genus and family) and fish data.

@@ -3,7 +3,17 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-06-30 11:08:41
+    #> Last Update: 2020-07-01 15:11:58
+
+# MBSStools v1.1.0.9016 (2020-07-01)
+
+  - Update taxa\_fish data without an extra column.
+
+# MBSStools v1.1.0.9015 (2020-06-30)
+
+  - Remove SiteID from \_95to16.xls.
+  - Replace example data files in shiny app (munged Site IDs).
+  - Update Vignette.
 
 # MBSStools v1.1.0.9014 (2020-06-30)
 

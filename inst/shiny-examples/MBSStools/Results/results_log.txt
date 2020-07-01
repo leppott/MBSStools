@@ -1,33 +1,42 @@
 Results Log from MBSStools Shiny App
-2020-06-23 15:16:47
-file = example_fish.tsv
-Community = fish
+2020-07-01 14:39:34
+file = example_bugs_family (one site).tsv
+Community = bugs
 QC taxa = only_MBSS
-Taxa match, 79 / 80
-The following user taxon (1/80) did not match the master list.
-HOG SUCKER
-IBI = MBSS.2005.Fish
-One or more fish samples (n = 0) had zero organisms and was scored as a 1 (metrics and IBI).
-Saving 7 x 7 in image
-Warning in sink() : no sink to remove
+Taxa match, 0 / 9
+The following user taxa (9/9) did not match the master list.
+Asellidae
+Caenidae
+Ceratopogonidae
+Chironomidae
+Hyalellidae
+Leptoceridae
+Naididae
+Tabanidae
+Tubificidae
+IBI = MSW.1999.Bugs
+Warning: Error in metric.values.bugs: 
+Bad values in EXCLUDE.
+ Valid: 
+  TRUE, FALSE
+ Invalid: 
+  NA
+  78: stop
+  77: metric.values.bugs
+  76: MBSStools::metric.values
+  72: observeEventHandler [C:\Users\Erik.Leppo\OneDrive - Tetra Tech, Inc\MyDocs_OneDrive\GitHub\MBSStools\inst\shiny-examples\MBSStools/server.R#86]
+   1: shiny::runApp
 
 
-
-
-
-Error in readLines(con, warn = FALSE) : cannot open the connection
-In addition: Warning message:
-In readLines(con, warn = FALSE) :
-  cannot open file 'NEWS.rmd': No such file or directory
-Warning message:
-In file.remove("NEWS.html") :
-  cannot remove file 'NEWS.html', reason 'No such file or directory'
-Loading required package: usethis
-Updating MBSStools documentation
-Loading MBSStools
-WARNING: Rtools 3.5 found on the path at C:/Rtools is not compatible with R 4.0.0.
-
-Please download and install Rtools custom from https://cran.r-project.org/bin/windows/Rtools/, remove the incompatible version from your PATH.
-WARNING: Rtools 3.5 found on the path at C:/Rtools is not compatible with R 4.0.0.
-
-Please download and install Rtools custom from https://cran.r-project.org/bin/windows/Rtools/, remove the incompatible version from your PATH.
+[1] "example_bugs_family (one site).tsv" "example_bugs_genus (one site).csv"  "example_fish - half the data.tsv"  
+[4] "example_fish 10 sites.csv"          "taxa_fish_INP.csv"                 
+[1] "example_bugs_family (one site).tsv" "example_bugs_genus (one site).csv"  "example_fish - half the data.tsv"  
+[4] "example_fish 10 sites.csv"          "taxa_fish_INP.csv"                 
+[1] "example_bugs_family (one site).tsv" "example_bugs_genus (one site).csv" 
+[3] "example_fish - half the data.tsv"   "example_fish 10 sites.csv"         
+[5] "taxa_fish_INP.csv"                 
+[1] "example_bugs_family (one site).tsv" "example_bugs_genus (one site).csv" 
+[3] "example_fish - half the data.tsv"   "example_fish 10 sites.csv"         
+[5] "taxa_fish_INP.csv"                 
+[1] "C:\\Users\\Erik.Leppo\\OneDrive - Tetra Tech, Inc\\MyDocs_OneDrive\\_HOME\\COVID19\\MBSS\\testfiles"
+Error in str(df_files) : object 'df_files' not found
