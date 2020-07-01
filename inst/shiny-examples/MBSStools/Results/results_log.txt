@@ -1,6 +1,6 @@
 Results Log from MBSStools Shiny App
-2020-07-01 14:39:34
-file = example_bugs_family (one site).tsv
+2020-07-01 15:53:54
+file = example_bugs_family (one site) MOD.tsv
 Community = bugs
 QC taxa = only_MBSS
 Taxa match, 0 / 9
@@ -15,28 +15,24 @@ Naididae
 Tabanidae
 Tubificidae
 IBI = MSW.1999.Bugs
-Warning: Error in metric.values.bugs: 
-Bad values in EXCLUDE.
- Valid: 
-  TRUE, FALSE
- Invalid: 
-  NA
-  78: stop
-  77: metric.values.bugs
-  76: MBSStools::metric.values
-  72: observeEventHandler [C:\Users\Erik.Leppo\OneDrive - Tetra Tech, Inc\MyDocs_OneDrive\GitHub\MBSStools\inst\shiny-examples\MBSStools/server.R#86]
-   1: shiny::runApp
+One or more bug samples had < 60 (n = 0) or > 120 (n = 1) organisms.
+These samples should be further examined.
+Saving 7 x 7 in image
+Warning in sink() : no sink to remove
 
 
-[1] "example_bugs_family (one site).tsv" "example_bugs_genus (one site).csv"  "example_fish - half the data.tsv"  
-[4] "example_fish 10 sites.csv"          "taxa_fish_INP.csv"                 
-[1] "example_bugs_family (one site).tsv" "example_bugs_genus (one site).csv"  "example_fish - half the data.tsv"  
-[4] "example_fish 10 sites.csv"          "taxa_fish_INP.csv"                 
-[1] "example_bugs_family (one site).tsv" "example_bugs_genus (one site).csv" 
-[3] "example_fish - half the data.tsv"   "example_fish 10 sites.csv"         
-[5] "taxa_fish_INP.csv"                 
-[1] "example_bugs_family (one site).tsv" "example_bugs_genus (one site).csv" 
-[3] "example_fish - half the data.tsv"   "example_fish 10 sites.csv"         
-[5] "taxa_fish_INP.csv"                 
-[1] "C:\\Users\\Erik.Leppo\\OneDrive - Tetra Tech, Inc\\MyDocs_OneDrive\\_HOME\\COVID19\\MBSS\\testfiles"
-Error in str(df_files) : object 'df_files' not found
+
+
+
+
+processing file: NEWS.rmd
+output file: NEWS.knit.md
+
+
+Preview created: NEWS.html
+
+Output created: NEWS.md
+Loading required package: usethis
+Updating MBSStools documentation
+Warning: Version of roxygen2 last used with this package is 7.1.1.  You only have version 7.1.0
+Loading MBSStools

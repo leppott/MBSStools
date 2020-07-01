@@ -3,7 +3,13 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-07-01 15:11:58
+    #> Last Update: 2020-07-01 15:55:27
+
+# MBSStools v1.1.0.9017 (2020-07-01)
+
+  - metric.scores; Issue \#29
+      - Fish message about 0 individuals always showing.
+          - Added condition so prints only if relevant.
 
 # MBSStools v1.1.0.9016 (2020-07-01)
 

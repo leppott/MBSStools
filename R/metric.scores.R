@@ -255,9 +255,11 @@ metric.scores <- function(DF_Metrics, MetricNames, IndexName, IndexRegion, DF_Th
     myTF <- DF_Metrics[, "TOTCNT"] == 0 & DF_Metrics[, Score.MetricNames] > 0
     myTF_zero_n <- sum(DF_Metrics[, "TOTCNT"] == 0)
     DF_Metrics[, Score.MetricNames][myTF] <- 1
-    msg_QC_NumOrg_Fish <- paste0("One or more fish samples (n = ", myTF_zero_n
+    if(myTF_zero_n >0){
+      msg_QC_NumOrg_Fish <- paste0("One or more fish samples (n = ", myTF_zero_n
                            , ") had zero organisms and was scored as a 1 (metrics and IBI).")
     message(msg_QC_NumOrg_Fish)
+    }##IF ~ myTF_zero_n ~ END
   } else if("totind" %in% names(DF_Metrics)){
     # BUGS
     myTF_small <- DF_Metrics[, "totind"] < 60

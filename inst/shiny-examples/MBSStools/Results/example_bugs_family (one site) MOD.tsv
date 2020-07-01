@@ -1,0 +1,10 @@
+Index.Name	SITE	DATE	TAXON	N_TAXA	N_GRIDS	EXCLUDE	strata_r	Phylum	Class	Order	Family	Genus	Other_Taxa	Tribe	FFG	FAM_TV	Habit	FinalTolVal07	FinalTolVal08
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Naididae	2		FALSE	CP	Annelida	Oligochaeta	Haplotaxida	Naididae					10			
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Tubificidae	18		FALSE	CP	Annelida	Oligochaeta	Tubificida	Tubificidae					10			
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Hyalellidae	37		FALSE	CP	Arthropoda	Malacostraca	Amphipoda	Hyalellidae					8			
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Asellidae	8		FALSE	CP	Arthropoda	Malacostraca	Isopoda	Asellidae					8			
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Caenidae	4		FALSE	CP	Arthropoda	Insecta	Ephemeroptera	Caenidae					7			
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Leptoceridae	1		FALSE	CP	Arthropoda	Insecta	Trichoptera	Leptoceridae					4			
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Ceratopogonidae	2		FALSE	CP	Arthropoda	Insecta	Diptera	Ceratopogonidae					6			
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Chironomidae	51		FALSE	CP	Arthropoda	Insecta	Diptera	Chironomidae					7			
+MSW.1999.Bugs	TUIZ-537-R-1111	1788-04-28	Tabanidae	1		FALSE	CP	Arthropoda	Insecta	Diptera	Tabanidae					6			

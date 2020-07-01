@@ -17,9 +17,14 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.1.0.9017 (2020-07-01)
+================
+* metric.scores; Issue #29
+    + Fish message about 0 individuals always showing.  
+        - Added condition so prints only if relevant.
+
 MBSStools v1.1.0.9016 (2020-07-01)
 ================
-
 * Update taxa_fish data without an extra column.
 
 MBSStools v1.1.0.9015 (2020-06-30)
