@@ -77,7 +77,7 @@
 #' DF_User<- taxa_bugs_genus
 #' DF_Official = NULL   # NULL df_mt_bugs
 #' fun.Community = "bugs"
-#' useMBSSTaxaInfo = "only_MBSSx"
+#' useMBSSTaxaInfo = "only_MBSS"
 #'
 #' df_qc_taxa_bugs <- qc_taxa(DF_User, DF_Official, fun.Community, useMBSSTaxaInfo)
 #'

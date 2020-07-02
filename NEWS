@@ -3,7 +3,12 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-07-01 15:55:27
+    #> Last Update: 2020-07-02 14:55:49
+
+# MBSStools v1.1.0.9018 (2020-07-02)
+
+  - qc\_taxa
+      - Fix typo in example.
 
 # MBSStools v1.1.0.9017 (2020-07-01)
 

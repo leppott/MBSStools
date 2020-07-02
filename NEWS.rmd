@@ -17,6 +17,11 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.1.0.9018 (2020-07-02)
+================
+* qc_taxa
+    + Fix typo in example.
+
 MBSStools v1.1.0.9017 (2020-07-01)
 ================
 * metric.scores; Issue #29
