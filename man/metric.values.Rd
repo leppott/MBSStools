@@ -75,6 +75,12 @@ Additional fields needed:
 
 + FAM_TV (need to include all the same fields, just leave blank).
 
+For the EXCLUDE column there is additional QC to account for common non-standard
+entries.
+
+* "Y" will convert to TRUE.
+* "N", NA, or "" will convert to FALSE.
+
 Fish
 
 Fish metric values assumes the following fields (all upper case)

@@ -3,7 +3,12 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-07-02 14:55:49
+    #> Last Update: 2020-07-02 15:27:36
+
+# MBSStools v1.1.0.9019 (2020-07-02)
+
+  - metric.values; Issue \#30
+      - Add basic QC fixes for non-standard bug files.
 
 # MBSStools v1.1.0.9018 (2020-07-02)
 

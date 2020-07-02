@@ -46,6 +46,12 @@
 #'
 #' + FAM_TV (need to include all the same fields, just leave blank).
 #'
+#' For the EXCLUDE column there is additional QC to account for common non-standard
+#' entries.
+#'
+#' * "Y" will convert to TRUE.
+#' * "N", NA, or "" will convert to FALSE.
+#'
 #' Fish
 #'
 #' Fish metric values assumes the following fields (all upper case)
@@ -140,6 +146,8 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @export
 metric.values <- function(fun.DF, fun.Community, fun.MetricNames=NULL, boo.Adjust=FALSE){##FUNCTION.metric.values.START
+  # QC, tibble to data frame
+  fun.DF <- as.data.frame(fun.DF)
   #fun.Community <- toupper(fun.Community)
   # convert community to lowercase
   fun.Community <- tolower(fun.Community)
@@ -189,6 +197,16 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
   }## IF ~ QC, Strata ~ END
   #
   # QC, EXCLUDE
+  # fix for common non-standard entries.
+  qc_col   <- "EXCLUDE"
+  myDF[, qc_col] <- as.character(myDF[,qc_col])
+  # Use grepl to check otherwise fails if do a normal subset
+  # myDF[myDF[, qc_col] == "Y", qc_col] <- TRUE # This fails of non present
+  myDF[grepl("Y", myDF[, qc_col]), qc_col] <- TRUE
+  myDF[grepl("N", myDF[, qc_col]), qc_col] <- FALSE
+  myDF[grepl("", myDF[, qc_col]), qc_col] <- FALSE
+  myDF[is.na(myDF[, qc_col]), qc_col] <- FALSE
+  myDF[, qc_col] <- as.logical(myDF[, qc_col])
   # Valid values are: TRUE and FALSE
   qc_col   <- "EXCLUDE"
   qc_val   <- c("TRUE", "FALSE")

@@ -17,6 +17,11 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.1.0.9019 (2020-07-02)
+================
+* metric.values; Issue #30
+    + Add basic QC fixes for non-standard bug files.
+
 MBSStools v1.1.0.9018 (2020-07-02)
 ================
 * qc_taxa
