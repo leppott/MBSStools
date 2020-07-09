@@ -79,6 +79,7 @@ For the EXCLUDE column there is additional QC to account for common non-standard
 entries.
 
 * "Y" or "yes" will convert to TRUE.
+
 * "N", "no", NA, or "" will convert to FALSE.
 
 Fish

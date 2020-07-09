@@ -16,6 +16,11 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+MBSStools v1.1.0.9021 (2020-07-09)
+================
+* metric.values; Issue #30 and 31
+    + Modify Exclude column QC check.
+
 MBSStools v1.1.0.9020 (2020-07-09)
 ================
 * metric.values; Issue #34

@@ -3,7 +3,12 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-07-09 08:53:09
+    #> Last Update: 2020-07-09 09:22:53
+
+# MBSStools v1.1.0.9021 (2020-07-09)
+
+  - metric.values; Issue \#30 and 31
+      - Modify Exclude column QC check.
 
 # MBSStools v1.1.0.9020 (2020-07-09)
 

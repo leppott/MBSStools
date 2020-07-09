@@ -50,6 +50,7 @@
 #' entries.
 #'
 #' * "Y" or "yes" will convert to TRUE.
+#'
 #' * "N", "no", NA, or "" will convert to FALSE.
 #'
 #' Fish
@@ -199,12 +200,14 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
   # QC, EXCLUDE
   # fix for common non-standard entries.
   qc_col   <- "EXCLUDE"
-  myDF[, qc_col] <- as.character(myDF[,qc_col])
+  myDF[, qc_col] <- toupper(as.character(myDF[,qc_col]))
   # Use grepl to check otherwise fails if do a normal subset
   # myDF[myDF[, qc_col] == "Y", qc_col] <- TRUE # This fails of non present
   myDF[grepl("Y", myDF[, qc_col]), qc_col] <- TRUE
+  myDF[grepl("YES", myDF[, qc_col]), qc_col] <- TRUE
   myDF[grepl("N", myDF[, qc_col]), qc_col] <- FALSE
-  myDF[grepl("", myDF[, qc_col]), qc_col] <- FALSE
+  myDF[grepl("NO", myDF[, qc_col]), qc_col] <- FALSE
+  myDF[is.null(myDF[, qc_col]), qc_col] <- FALSE
   myDF[is.na(myDF[, qc_col]), qc_col] <- FALSE
   myDF[, qc_col] <- as.logical(myDF[, qc_col])
   # Valid values are: TRUE and FALSE
@@ -223,8 +226,8 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
   }## IF ~ QC, Strata ~ END
   #
   # QC, FFG
-  # Valid values for FFG: col, fil, pre, scr, shr
-  # "Collector" "Shredder"  "Predator"  ""          "Filterer"  "Scraper"
+  # Valid values for FFG: col, fil, pre, scr, shr, pie
+  # "Collector" "Shredder"  "Predator"  ""          "Filterer"  "Scraper", "Piercer"
   # remove white space to get all combos and make unique
   qc_col   <- "FFG"
   qc_val   <- toupper(c(NA, "", "Collector", "Shredder", "Predator", "Filterer", "Scraper", "Piercer"))
