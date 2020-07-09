@@ -19,7 +19,7 @@ library(ggplot2)
 shinyUI(fluidPage(
 
   # Application title
-  titlePanel("MBSStools, IBI Calculator"),
+  titlePanel("MBSStools, IBI Calculator, v1.1.0.9020"),
 
   # SideBar
   sidebarLayout(

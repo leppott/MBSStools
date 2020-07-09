@@ -5,8 +5,8 @@ account: leppott
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 980188
-bundleId: 3340627
+bundleId: 3345126
 url: https://leppott.shinyapps.io/MBSStools/
-when: 1593634532.52306
+when: 1593719216.4217
 asMultiple: FALSE
 asStatic: FALSE

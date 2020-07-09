@@ -36,7 +36,7 @@
 #' + (PHYLUM), CLASS, ORDER, FAMILY, GENUS, OTHER_TAXA, TRIBE, FFG, HABIT,
 #' FINALTOLVAL07
 #'
-#' Valid values for FFG: col, fil, pre, scr, shr
+#' Valid values for FFG: col, fil, pre, scr, shr, pie
 #'
 #' Valid values for HABIT: BU, CB, CN, SP, SW
 #'
@@ -49,8 +49,8 @@
 #' For the EXCLUDE column there is additional QC to account for common non-standard
 #' entries.
 #'
-#' * "Y" will convert to TRUE.
-#' * "N", NA, or "" will convert to FALSE.
+#' * "Y" or "yes" will convert to TRUE.
+#' * "N", "no", NA, or "" will convert to FALSE.
 #'
 #' Fish
 #'
@@ -227,7 +227,7 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
   # "Collector" "Shredder"  "Predator"  ""          "Filterer"  "Scraper"
   # remove white space to get all combos and make unique
   qc_col   <- "FFG"
-  qc_val   <- toupper(c(NA, "", "Collector", "Shredder", "Predator", "Filterer", "Scraper"))
+  qc_val   <- toupper(c(NA, "", "Collector", "Shredder", "Predator", "Filterer", "Scraper", "Piercer"))
   qc_user <- unique(unlist(strsplit(gsub("\\s", "", toupper(unique(myDF[, qc_col]))), ",")))
   qc_check <- qc_user %in% qc_val
   qc_invalid <- qc_user[!qc_check]
@@ -269,6 +269,7 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
     myDF["FFG_pre"] <- grepl("PREDATOR",toupper(myDF[,"FFG"]))
     myDF["FFG_scr"] <- grepl("SCRAPER",toupper(myDF[,"FFG"]))
     myDF["FFG_shr"] <- grepl("SHREDDER",toupper(myDF[,"FFG"]))
+    myDF["FFG_pi"] <- grepl("PIERCER",toupper(myDF[,"FFG"]))
   # Calculate Metrics (could have used pipe, %>%)
   met.val <- dplyr::summarise(dplyr::group_by(myDF, SITE, INDEX.NAME, STRATA_R)
              #

@@ -65,7 +65,7 @@ HIGHLAND).
 + (PHYLUM), CLASS, ORDER, FAMILY, GENUS, OTHER_TAXA, TRIBE, FFG, HABIT,
 FINALTOLVAL07
 
-Valid values for FFG: col, fil, pre, scr, shr
+Valid values for FFG: col, fil, pre, scr, shr, pie
 
 Valid values for HABIT: BU, CB, CN, SP, SW
 
@@ -78,8 +78,8 @@ Additional fields needed:
 For the EXCLUDE column there is additional QC to account for common non-standard
 entries.
 
-* "Y" will convert to TRUE.
-* "N", NA, or "" will convert to FALSE.
+* "Y" or "yes" will convert to TRUE.
+* "N", "no", NA, or "" will convert to FALSE.
 
 Fish
 

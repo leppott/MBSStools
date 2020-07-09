@@ -16,6 +16,12 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+MBSStools v1.1.0.9020 (2020-07-09)
+================
+* metric.values; Issue #34
+    + Added Piercer as valid FFG entry.
+* UI.R
+    + Added version number to title of Shiny app.
 
 MBSStools v1.1.0.9019 (2020-07-02)
 ================

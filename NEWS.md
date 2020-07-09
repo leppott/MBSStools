@@ -3,7 +3,14 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-07-02 15:27:36
+    #> Last Update: 2020-07-09 08:53:09
+
+# MBSStools v1.1.0.9020 (2020-07-09)
+
+  - metric.values; Issue \#34
+      - Added Piercer as valid FFG entry.
+  - UI.R
+      - Added version number to title of Shiny app.
 
 # MBSStools v1.1.0.9019 (2020-07-02)
 
