@@ -6,7 +6,7 @@ library(MBSStools)
 library(DT)
 library(ggplot2)
 # library(plotly)
-# library(shinyjs) # for testing, comment out in final version
+library(shinyjs) # used for download button enable
 
 # Drop-down boxes
 #MMIs <- c("BIBI_genus", "BIBI_family", "FIBI")

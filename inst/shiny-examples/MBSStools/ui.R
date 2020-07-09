@@ -13,13 +13,13 @@ library(MBSStools)
 library(DT)
 library(ggplot2)
 #library(plotly)
-# library(shinyjs) # for testing, comment out in final version
+library(shinyjs) # used for togglestate of download button
 
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
 
   # Application title
-  titlePanel("MBSStools, IBI Calculator, v1.1.0.9021"),
+  titlePanel("MBSStools, IBI Calculator, v1.1.0.9022"),
 
   # SideBar
   sidebarLayout(
@@ -66,8 +66,8 @@ shinyUI(fluidPage(
       # Button
       , p("Select button to download zip file with input and results.")
       , p("Check 'results_log.txt' for any warnings or messages.")
-      , downloadButton("b_downloadData", "Download")
-
+      , useShinyjs()
+      , shinyjs::disabled(downloadButton("b_downloadData", "Download"))
 
     )##sidebarPanel~END
     , mainPanel(

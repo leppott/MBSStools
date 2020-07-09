@@ -13,6 +13,7 @@ library(MBSStools)
 library(DT)
 library(ggplot2)
 # library(plotly)
+library(shinyjs)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
@@ -229,6 +230,8 @@ shinyServer(function(input, output) {
                             , full.names = TRUE)
       zip(file.path(".", "Results", "results.zip"), fn_4zip)
 
+      # enable download button
+      shinyjs::enable("b_downloadData")
 
       # #
       # return(myMetric.Values)
@@ -337,7 +340,16 @@ shinyServer(function(input, output) {
   # )##renderImage~END
 
 
-  # b_download ####
+  # b_downloadData ####
+
+  # disable button unless have zip file
+  # Enable in b_Calc instead
+  # observe({
+  #   fn_zip_toggle <- paste0("results", ".zip")
+  #   shinyjs::toggleState(id="b_downloadData", condition = file.exists(file.path(".", "Results", fn_zip_toggle)) == TRUE)
+  # })##~toggleState~END
+
+
   # Downloadable csv of selected dataset
   output$b_downloadData <- downloadHandler(
     # use index and date time as file name

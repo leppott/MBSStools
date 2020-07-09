@@ -3,11 +3,17 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-07-09 09:22:53
+    #> Last Update: 2020-07-09 10:55:39
+
+# MBSStools v1.1.0.9022 (2020-07-09)
+
+  - Shiny app, ensure download button is not active until create zip
+    file; Issue \#32
+      - Add shinyjs to DESCRIPTION
 
 # MBSStools v1.1.0.9021 (2020-07-09)
 
-  - metric.values; Issue \#30 and 31
+  - metric.values; Issue \#30 and \#31
       - Modify Exclude column QC check.
 
 # MBSStools v1.1.0.9020 (2020-07-09)
