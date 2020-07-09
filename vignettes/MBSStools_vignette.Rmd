@@ -291,11 +291,15 @@ wd <- getwd()
 MapTaxaObs(Obs, XWalk, wd, onlymatches = FALSE)
 ```
 
-The intent behind this function was to recreate the fish taxa distribution maps.  But the data inputs are not specific to fish and can be used for benthic macroinvertebrate data.
+The intent behind this function was to recreate the fish taxa distribution maps on the MBSS website.  
+
+http://eyesonthebay.dnr.maryland.gov/mbss/fishes.cfm
+
+The data inputs are not specific to fish and can be used for benthic macroinvertebrate data or any other presence/absence data.
 
 The taxa distribution map for brown trout is shown below.
 
-```{r TaxaMap Brown Trout, echo=FALSE, results="hide", fig.show='hold', warnings=FALSE, eval=TRUE}
+```{r TaxaMap_BrownTrout, echo=FALSE, results="hide", fig.show='hold', warnings=FALSE, eval=FALSE}
 # example map.
 # include only brown trout
 # brntrout.png
@@ -321,8 +325,6 @@ myFiles <- c("AllFish_95to16.xls", "TaxaMapsCrossWalk20170731.xlsx")
 file.copy(file.path(path.package("MBSStools"),"extdata",myFiles),file.path(wd,"Data",myFiles))
 ### GIS
 unzip(file.path(path.package("MBSStools"),"extdata","MD_GIS.zip"),exdir=file.path(wd,"GIS"))
-
-
 
 # data files
 obs <- "AllFish_95to16.xls"
@@ -402,6 +404,7 @@ taxon <- as.character(map.taxa$CommonName[i])
  #reset old working directory
  #setwd <- oldwd
 ```
+![Taxa distribution for Brown Trout.](map_BrownTrout.png)
 
 ## Stream Discharge
 Calculate stream discharge based on field measurements.  Side channels that are properly identified in the data will be included.

@@ -3,7 +3,11 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-07-09 10:55:39
+    #> Last Update: 2020-07-09 12:04:57
+
+# MBSStools v1.1.0.9023 (2020-07-09)
+
+  - Rebuild vignette with taxa distribution map as image; Issue \#33
 
 # MBSStools v1.1.0.9022 (2020-07-09)
 
