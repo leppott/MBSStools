@@ -16,6 +16,11 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+MBSStools v1.1.0.9024 (2020-12-23)
+================
+* docs: ReadMe, add CodeFactor badge.
+* docs: ReadMe, Remove TravisCI badge as service is shutting down free accounts.
+
 MBSStools v1.1.0.9023 (2020-07-09)
 ================
 * Rebuild vignette with taxa distribution map as image; Issue #33

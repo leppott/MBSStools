@@ -234,6 +234,7 @@ shinyServer(function(input, output) {
       shinyjs::enable("b_downloadData")
 
       # #
+      message(paste0("Working Directory = ", getwd()))
       # return(myMetric.Values)
       # end sink
       #flush.console()

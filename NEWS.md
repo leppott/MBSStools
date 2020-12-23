@@ -3,7 +3,13 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-07-09 12:04:57
+    #> Last Update: 2020-12-23 09:57:57
+
+# MBSStools v1.1.0.9024 (2020-12-23)
+
+  - docs: ReadMe, add CodeFactor badge.
+  - docs: ReadMe, Remove TravisCI badge as service is shutting down free
+    accounts.
 
 # MBSStools v1.1.0.9023 (2020-07-09)
 

@@ -74,6 +74,10 @@ citation(myPkg)
 PkgDown website
 pkgdown::build_site()
 
+https://www.r-bloggers.com/2020/12/top-10-tips-to-make-your-r-package-even-more-awesome/
+
+use separate branch with GitHub actions.
+
 
 ## Including Data
 All data should have already been created.
@@ -95,3 +99,9 @@ https://r-pkgs.org/tests.html
 Set up folders with `devtools::test()`.  This is also the command to run tests.
 
 Create test file `usethis::use_test("name")`
+
+# Badges
+
+CodeFactor
+
+[![CodeFactor](https://www.codefactor.io/repository/github/leppott/MBSStools/badge)](https://www.codefactor.io/repository/github/leppott/MBSStools)

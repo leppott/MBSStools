@@ -3,7 +3,7 @@ README-MBSStools
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-    #> Last Update: 2019-05-17 11:49:50
+    #> Last Update: 2020-12-23 09:45:34
 
 ## Badges
 
@@ -12,6 +12,7 @@ README-MBSStools
 license](https://img.shields.io/github/license/leppott/MBSStools.svg)](https://github.com/leppott/MBSStools/blob/master/LICENSE)
 [![Travis-CI Build
 Status](https://travis-ci.org/leppott/MBSStools.svg?branch=master)](https://travis-ci.org/leppott/MBSStools)
+[![CodeFactor](https://www.codefactor.io/repository/github/leppott/MBSStools/badge)](https://www.codefactor.io/repository/github/leppott/MBSStools)
 [![GitHub
 issues](https://img.shields.io/github/issues/leppott/MBSStools.svg)](https://GitHub.com/leppott/MBSStools/issues/)
 
