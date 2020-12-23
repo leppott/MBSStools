@@ -16,6 +16,10 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+MBSStools v1.1.0.9025 (2020-12-23)
+================
+* docs: ReadMe, not all changes updated from previous update.
+
 MBSStools v1.1.0.9024 (2020-12-23)
 ================
 * docs: ReadMe, add CodeFactor badge.
