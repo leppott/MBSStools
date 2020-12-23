@@ -3,7 +3,11 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-12-23 10:03:20
+    #> Last Update: 2020-12-23 10:10:05
+
+# MBSStools v1.1.0.9026 (2020-12-23)
+
+  - docs: ReadMe, add lifecycle badge.
 
 # MBSStools v1.1.0.9025 (2020-12-23)
 
@@ -12,6 +16,7 @@ NEWS-MBSStools
 # MBSStools v1.1.0.9024 (2020-12-23)
 
   - docs: ReadMe, add CodeFactor badge.
+
   - docs: ReadMe, Remove TravisCI badge as service is shutting down free
     accounts.
 
@@ -23,18 +28,23 @@ NEWS-MBSStools
 
   - Shiny app, ensure download button is not active until create zip
     file; Issue \#32
+    
       - Add shinyjs to DESCRIPTION
 
 # MBSStools v1.1.0.9021 (2020-07-09)
 
   - metric.values; Issue \#30 and \#31
+    
       - Modify Exclude column QC check.
 
 # MBSStools v1.1.0.9020 (2020-07-09)
 
   - metric.values; Issue \#34
+    
       - Added Piercer as valid FFG entry.
+
   - UI.R
+    
       - Added version number to title of Shiny app.
 
 # MBSStools v1.1.0.9019 (2020-07-02)

@@ -3,11 +3,13 @@ README-MBSStools
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-12-23 10:01:56
+    #> Last Update: 2020-12-23 10:06:17
 
 ## Badges
 
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://GitHub.com/leppott/MBSStools/graphs/commit-activity)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![GitHub
 license](https://img.shields.io/github/license/leppott/MBSStools.svg)](https://github.com/leppott/MBSStools/blob/master/LICENSE)
 [![CodeFactor](https://www.codefactor.io/repository/github/leppott/MBSStools/badge)](https://www.codefactor.io/repository/github/leppott/MBSStools)

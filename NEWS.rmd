@@ -16,6 +16,10 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+MBSStools v1.1.0.9026 (2020-12-23)
+================
+* docs: ReadMe, add lifecycle badge.
+
 MBSStools v1.1.0.9025 (2020-12-23)
 ================
 * docs: ReadMe, not all changes updated from previous update.
@@ -23,6 +27,7 @@ MBSStools v1.1.0.9025 (2020-12-23)
 MBSStools v1.1.0.9024 (2020-12-23)
 ================
 * docs: ReadMe, add CodeFactor badge.
+
 * docs: ReadMe, Remove TravisCI badge as service is shutting down free accounts.
 
 MBSStools v1.1.0.9023 (2020-07-09)
@@ -32,18 +37,23 @@ MBSStools v1.1.0.9023 (2020-07-09)
 MBSStools v1.1.0.9022 (2020-07-09)
 ================
 * Shiny app, ensure download button is not active until create zip file; Issue #32 
+
     + Add shinyjs to DESCRIPTION
 
 MBSStools v1.1.0.9021 (2020-07-09)
 ================
 * metric.values; Issue #30 and #31
+
     + Modify Exclude column QC check.
 
 MBSStools v1.1.0.9020 (2020-07-09)
 ================
 * metric.values; Issue #34
+
     + Added Piercer as valid FFG entry.
+    
 * UI.R
+
     + Added version number to title of Shiny app.
 
 MBSStools v1.1.0.9019 (2020-07-02)
