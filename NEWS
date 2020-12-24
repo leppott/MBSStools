@@ -3,9 +3,15 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-12-24 12:25:41
+    #> Last Update: 2020-12-24 12:36:40
 
-# MBSStools v1.1.0.9026 (2020-12-24)
+# MBSStools v1.1.0.9028 (2020-12-24)
+
+  - docs: Remove docs folder for pkgdown in main branch
+      - pkgdown now handled by GitHub Action and is stored in the
+        gh-pages branch
+
+# MBSStools v1.1.0.9027 (2020-12-24)
 
   - docs: Add pkgdown github action
   - ci: Remove travis.yml (free service shutting down)
