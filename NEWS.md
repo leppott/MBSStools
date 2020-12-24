@@ -3,7 +3,11 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-12-24 12:45:34
+    #> Last Update: 2020-12-24 13:04:20
+
+# MBSStools v1.1.0.9030 (2020-12-24)
+
+  - docs: Add test-coverage gh Action, codecov.io
 
 # MBSStools v1.1.0.9029 (2020-12-24)
 
