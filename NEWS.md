@@ -3,22 +3,27 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-12-23 10:10:05
+    #> Last Update: 2020-12-24 12:25:41
+
+# MBSStools v1.1.0.9026 (2020-12-24)
+
+  - docs: Add pkgdown github action
+  - ci: Remove travis.yml (free service shutting down)
 
 # MBSStools v1.1.0.9026 (2020-12-23)
 
-  - docs: ReadMe, add lifecycle badge.
+  - docs: ReadMe, add lifecycle badge
 
 # MBSStools v1.1.0.9025 (2020-12-23)
 
-  - docs: ReadMe, not all changes updated from previous update.
+  - docs: ReadMe, not all changes updated from previous update
 
 # MBSStools v1.1.0.9024 (2020-12-23)
 
-  - docs: ReadMe, add CodeFactor badge.
+  - docs: ReadMe, add CodeFactor badge
 
   - docs: ReadMe, Remove TravisCI badge as service is shutting down free
-    accounts.
+    accounts
 
 # MBSStools v1.1.0.9023 (2020-07-09)
 
