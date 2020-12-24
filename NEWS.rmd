@@ -16,6 +16,12 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+MBSStools v1.1.0.9031 (2020-12-24)
+================
+* docs: Readme, add codecov badge
+* docs: Readme, add gh R-CMD-check badge
+* docs: Readme, sort badges
+
 MBSStools v1.1.0.9030 (2020-12-24)
 ================
 * docs: Add test-coverage gh Action, codecov.io

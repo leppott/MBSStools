@@ -3,7 +3,13 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-12-24 13:04:20
+    #> Last Update: 2020-12-24 13:19:27
+
+# MBSStools v1.1.0.9031 (2020-12-24)
+
+  - docs: Readme, add codecov badge
+  - docs: Readme, add gh R-CMD-check badge
+  - docs: Readme, sort badges
 
 # MBSStools v1.1.0.9030 (2020-12-24)
 
