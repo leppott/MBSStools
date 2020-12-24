@@ -197,7 +197,7 @@ MapTaxaObs <- function(obs, xWalk, dirMain = getwd(), onlymatches = TRUE
     coastline <- rgdal::readOGR(dsn = dsn, layer = "MD_Coast_Hydrology", verbose=verbose)
     counties  <- rgdal::readOGR(dsn = dsn, layer = "MD_Boundary_County_Detailed", verbose=verbose)
 
-    for (i in 1:nrow(map.taxa)) {##FOR.i.START
+    for (i in seq_len(nrow(map.taxa))) {##FOR.i.START
       taxon <- as.character(map.taxa$CommonName[i])
       filename <- map.taxa$MapName[i]
       df.taxon.sites <- subset(df.taxa.obs, df.taxa.obs[,"CommonName"]==taxon)

@@ -3,7 +3,11 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-12-24 12:36:40
+    #> Last Update: 2020-12-24 12:45:34
+
+# MBSStools v1.1.0.9029 (2020-12-24)
+
+refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 # MBSStools v1.1.0.9028 (2020-12-24)
 
