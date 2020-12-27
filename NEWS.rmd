@@ -16,6 +16,12 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+
+MBSStools v1.1.0.9032 (2020-12-27)
+================
+* docs: DESCRIPTION, add Bug Reports entry
+* tests: qc_taxa, replace = with <-
+
 MBSStools v1.1.0.9031 (2020-12-24)
 ================
 * docs: Readme, add codecov badge
@@ -54,6 +60,7 @@ MBSStools v1.1.0.9024 (2020-12-23)
 * docs: ReadMe, add CodeFactor badge
 
 * docs: ReadMe, Remove TravisCI badge as service is shutting down free accounts
+* ci: Remove TravisCI yaml and switch to GitHub Actions CI
 
 MBSStools v1.1.0.9023 (2020-07-09)
 ================

@@ -1,10 +1,10 @@
 # qc_taxa ####
 # bugs, only_mbss ####
 test_that("qc_taxa, bugs, only_MBSS", {
-  DF_User<- taxa_bugs_genus
-  DF_Official = NULL   # NULL df_mt_bugs
-  fun.Community = "bugs"
-  useMBSSTaxaInfo = "only_MBSS"
+  DF_User <- taxa_bugs_genus
+  DF_Official <-  NULL   # NULL df_mt_bugs
+  fun.Community <- "bugs"
+  useMBSSTaxaInfo <- "only_MBSS"
   df_qc_taxa <- qc_taxa(DF_User, DF_Official, fun.Community, useMBSSTaxaInfo)
   # Copied expected output
   names_qc <- c("TAXON",                      "INDEX.NAME",                 "SITE",
@@ -25,9 +25,9 @@ test_that("qc_taxa, bugs, only_MBSS", {
 # bugs, only_user ####
 test_that("qc_taxa, bugs, only_user", {
   DF_User<- taxa_bugs_genus
-  DF_Official = NULL   # NULL df_mt_bugs
-  fun.Community = "bugs"
-  useMBSSTaxaInfo = "only_user"
+  DF_Official <- NULL   # NULL df_mt_bugs
+  fun.Community <- "bugs"
+  useMBSSTaxaInfo <- "only_user"
   df_qc_taxa <- qc_taxa(DF_User, DF_Official, fun.Community, useMBSSTaxaInfo)
   # Copied expected output
   names_qc <- c("TAXON" ,               "INDEX.NAME"   ,          "SITE"    ,
@@ -48,9 +48,9 @@ test_that("qc_taxa, bugs, only_user", {
 # bugs, add_new ####
 test_that("qc_taxa, bugs, add_new", {
   DF_User<- taxa_bugs_genus
-  DF_Official = NULL   # NULL df_mt_bugs
-  fun.Community = "bugs"
-  useMBSSTaxaInfo = "add_new"
+  DF_Official <- NULL   # NULL df_mt_bugs
+  fun.Community <- "bugs"
+  useMBSSTaxaInfo <- "add_new"
   df_qc_taxa <- qc_taxa(DF_User, DF_Official, fun.Community, useMBSSTaxaInfo)
   # Copied expected output
   names_qc <- c("TAXON"     ,                "INDEX.NAME"    ,            "SITE"   ,
@@ -71,9 +71,9 @@ test_that("qc_taxa, bugs, add_new", {
 # fish, only_mbss ####
 test_that("qc_taxa, fish, only_MBSS", {
   DF_User<- taxa_fish
-  DF_Official = NULL  # NULL df_mt_fish
-  fun.Community = "fish"
-  useMBSSTaxaInfo = "only_MBSS"
+  DF_Official <- NULL  # NULL df_mt_fish
+  fun.Community <- "fish"
+  useMBSSTaxaInfo <- "only_MBSS"
   df_qc_taxa <- qc_taxa(DF_User, DF_Official, fun.Community, useMBSSTaxaInfo)
   # Copied expected output
   names_qc <- c("SPECIES"        ,      "SITE"          ,       "TOTAL"         ,       "TYPE"              ,
@@ -91,9 +91,9 @@ test_that("qc_taxa, fish, only_MBSS", {
 # fish, only_user ####
 test_that("qc_taxa, fish, only_user", {
   DF_User<- taxa_fish
-  DF_Official = NULL  # NULL df_mt_fish
-  fun.Community = "fish"
-  useMBSSTaxaInfo = "only_user"
+  DF_Official <- NULL  # NULL df_mt_fish
+  fun.Community <- "fish"
+  useMBSSTaxaInfo <- "only_user"
   df_qc_taxa <- qc_taxa(DF_User, DF_Official, fun.Community, useMBSSTaxaInfo)
   # Copied expected output
   names_qc <- c("SPECIES"       ,    "SITE"          ,    "TOTAL"         ,    "TYPE_Official" ,
@@ -111,9 +111,9 @@ test_that("qc_taxa, fish, only_user", {
 # fish, add_new ####
 test_that("qc_taxa, fish, add_new", {
   DF_User<- taxa_fish
-  DF_Official = NULL  # NULL df_mt_fish
-  fun.Community = "fish"
-  useMBSSTaxaInfo = "add_new"
+  DF_Official <- NULL  # NULL df_mt_fish
+  fun.Community <- "fish"
+  useMBSSTaxaInfo <- "add_new"
   df_qc_taxa <- qc_taxa(DF_User, DF_Official, fun.Community, useMBSSTaxaInfo)
   # Copied expected output
   names_qc <- c("SPECIES"        ,      "SITE"           ,      "TOTAL"         ,       "TYPE"    ,

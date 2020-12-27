@@ -3,7 +3,12 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-12-24 13:19:27
+    #> Last Update: 2020-12-27 12:34:41
+
+# MBSStools v1.1.0.9032 (2020-12-27)
+
+  - docs: DESCRIPTION, add Bug Reports entry
+  - tests: qc\_taxa, replace = with \<-
 
 # MBSStools v1.1.0.9031 (2020-12-24)
 
@@ -44,6 +49,8 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
   - docs: ReadMe, Remove TravisCI badge as service is shutting down free
     accounts
+
+  - ci: Remove TravisCI yaml and switch to GitHub Actions CI
 
 # MBSStools v1.1.0.9023 (2020-07-09)
 
