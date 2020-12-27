@@ -3,12 +3,13 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-12-27 12:34:41
+    #> Last Update: 2020-12-27 12:48:09
 
 # MBSStools v1.1.0.9032 (2020-12-27)
 
   - docs: DESCRIPTION, add Bug Reports entry
   - tests: qc\_taxa, replace = with \<-
+  - refactor: Add foo:: to missing functions.
 
 # MBSStools v1.1.0.9031 (2020-12-24)
 

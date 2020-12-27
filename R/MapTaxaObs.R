@@ -101,36 +101,36 @@ MapTaxaObs <- function(obs, xWalk, dirMain = getwd(), onlymatches = TRUE
     # 2. Testing ####
     # Test for existence of required data subdirectory and data files
     fl.files <-"\n"
-    if (!file_test("-d", file.path(dirMain, dirData))) {##IF.dirData.START
-        if (file_test("-f", file.path(dirMain, dirData))) {
+    if (!utils::file_test("-d", file.path(dirMain, dirData))) {##IF.dirData.START
+        if (utils::file_test("-f", file.path(dirMain, dirData))) {
             fl.files <- paste(fl.files, "Path can't be created because a file with that name already exists.", sep = "\n")
         } else {
             fl.files <- paste(fl.files, "Data subdirectory does not exist.", sep = "\n")
         }
     } else {
-        if (!file_test("-f", file.path(dirMain, dirData, obs))) {
+        if (!utils::file_test("-f", file.path(dirMain, dirData, obs))) {
             fl.files <- paste(fl.files, "Observation file does not exist.", sep="\n")
         }
-        if (!file_test("-f", file.path(dirMain, dirData, xWalk))) {
+        if (!utils::file_test("-f", file.path(dirMain, dirData, xWalk))) {
             fl.files <- paste(fl.files, "Crosswalk file does not exist.",sep = "\n")
         }
     }##IF.dirData.END
 
     # Test for existence of required data subdirectory and data files
-    if (!file_test("-d", file.path(dirMain, dirGIS))) {##IF.dirGIS.START
-        if (file_test("-f", file.path(dirMain, dirGIS))) {
+    if (!utils::file_test("-d", file.path(dirMain, dirGIS))) {##IF.dirGIS.START
+        if (utils::file_test("-f", file.path(dirMain, dirGIS))) {
             fl.files <- paste(fl.files, "Path can't be created because a file with that name already exists.", sep = "\n")
         } else {
             fl.files <- paste(fl.files, "GIS subdirectory does not exist.", sep = "\n")
         }
     } else {
-        if (!file_test("-f", file.path(dirMain, dirGIS, sh.state))) {
+        if (!utils::file_test("-f", file.path(dirMain, dirGIS, sh.state))) {
             fl.files <- paste(fl.files, "State boundary shapefile does not exist.", sep = "\n")
         }
-        if (!file_test("-f", file.path(dirMain, dirGIS, sh.coast))) {
+        if (!utils::file_test("-f", file.path(dirMain, dirGIS, sh.coast))) {
             fl.files <- paste(fl.files, "Coast boundary shapefile does not exist.", sep = "\n")
         }
-        if (!file_test("-f", file.path(dirMain, dirGIS, sh.county))) {
+        if (!utils::file_test("-f", file.path(dirMain, dirGIS, sh.county))) {
             fl.files <- paste(fl.files, "County boundary shapefile does not exist.", sep = "\n")
         }
     }##IF.dirGIS.END
@@ -140,8 +140,8 @@ MapTaxaObs <- function(obs, xWalk, dirMain = getwd(), onlymatches = TRUE
     }##IF.!=.END
 
     # Make the Maps subdirectory if it doesn't exist
-    if (!file_test("-d", file.path(dirMain, dirMaps))) {##IF.dirMaps.START
-        if (file_test("-f", file.path(dirMain, dirMaps))) {
+    if (!utils::file_test("-d", file.path(dirMain, dirMaps))) {##IF.dirMaps.START
+        if (utils::file_test("-f", file.path(dirMain, dirMaps))) {
             stop("Path can't be created because a file with that name already exists.")
         } else {
             dir.create(file.path(dirMain, dirMaps))
@@ -203,8 +203,8 @@ MapTaxaObs <- function(obs, xWalk, dirMain = getwd(), onlymatches = TRUE
       df.taxon.sites <- subset(df.taxa.obs, df.taxa.obs[,"CommonName"]==taxon)
       df.taxon.sites <- subset(df.taxon.sites, !is.na(df.taxon.sites["Latitude83"]))
       ##PLOT.START
-      png(file=paste0("Maps/",filename,".png"), width=8.5*ppi,height=5.5*ppi,
-          pointsize=12, bg="white")
+      grDevices::png(file=paste0("Maps/",filename,".png"), width=8.5*ppi, height=5.5*ppi
+                     , pointsize=12, bg="white")
         plot(state, col="white", border="gray")
         plot(coastline, add = TRUE, col="light blue", border=FALSE)
         plot(counties, add = TRUE, col="white", border="darkslategray", lwd=0.5)
@@ -212,8 +212,8 @@ MapTaxaObs <- function(obs, xWalk, dirMain = getwd(), onlymatches = TRUE
         proj.sites <- rgdal::project(cbind(df.taxon.sites$Longitude83,df.taxon.sites$Latitude83),
                               "+proj=lcc +lat_1=39.45 +lat_2=38.3 +lat_0=37.66666666666666 +lon_0=-77
                 +x_0=400000 +y_0=0 +datum=NAD83 +units=m +no_defs")
-        points(proj.sites[,1], proj.sites[,2], pch=21, col="black", bg="green", cex=1.0)
-      dev.off()
+        graphics::points(proj.sites[,1], proj.sites[,2], pch=21, col="black", bg="green", cex=1.0)
+      grDevices::dev.off()
       # user feedback
       if (verbose==TRUE) {##IF.verbose.START
         message(paste0("Saving map ",i," of ",nrow(map.taxa),"; ",taxon,"."))
@@ -230,7 +230,7 @@ MapTaxaObs <- function(obs, xWalk, dirMain = getwd(), onlymatches = TRUE
       message(paste0("There are no non-matching taxa names."))
     } else {
       file.output <- paste0("Maps/Taxa.NoMatch.csv")
-      write.csv(df.taxa.nomatch, file.output)
+      utils::write.csv(df.taxa.nomatch, file.output)
       message(paste0("There are ",n.nomatch," non-matching taxa names.  The non-matches are saved in a table with the maps."))
       #
     }

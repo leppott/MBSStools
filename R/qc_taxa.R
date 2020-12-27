@@ -161,7 +161,7 @@ qc_taxa <- function(DF_User
   # Download "official" list if none provided
   if(is.null(DF_Official)){
     # 404 Error if file not found
-    df_mt <- read.csv(url_mt)
+    df_mt <- utils::read.csv(url_mt)
   } else {
     df_mt <- data.frame(DF_Official)
   }## IF ~ is.null(DF_Official) ~ END

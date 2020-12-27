@@ -217,9 +217,9 @@ metric.scores <- function(DF_Metrics, MetricNames, IndexName, IndexRegion, DF_Th
         #
         if(fun.ScoreRegime=="100"){##IF.scoring.START
           if(fun.Direction=="Decrease"){
-            fun.Result <- median(c(0,100,100*((fun.Value-fun.Lo)/(fun.Hi-fun.Lo))))
+            fun.Result <- stats::median(c(0,100,100*((fun.Value-fun.Lo)/(fun.Hi-fun.Lo))))
           }else if (fun.Direction=="Increase") {
-            fun.Result <- median(c(0,100,100*((fun.Hi-fun.Value)/(fun.Hi-fun.Lo))))
+            fun.Result <- stats::median(c(0,100,100*((fun.Hi-fun.Value)/(fun.Hi-fun.Lo))))
           }
         } else if(fun.ScoreRegime=="135"){
           if(fun.Direction=="Decrease") {

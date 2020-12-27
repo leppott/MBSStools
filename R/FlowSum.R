@@ -99,12 +99,12 @@ FlowSum <- function(df, df.names = c("SITEYR"
   #http://stackoverflow.com/questions/14846547/calculating-difference-row-values-by-group-in-r
   # move change c(0,diff(x)) to c(diff(x),0) to subtract previous not following row.
   #data.calc$width <- ave(fun.df$Lat..Loc..m., fun.df$SITEYR, FUN=function(x) c(diff(x),0))
-  data.calc[,name.Width] <- ave(data.calc[,name.LatLoc], data.calc[,name.SampRep], FUN=function(x) c(diff(x),0))
+  data.calc[,name.Width] <- stats::ave(data.calc[,name.LatLoc], data.calc[,name.SampRep], FUN=function(x) c(diff(x),0))
   # 1.2. Calculate Cell Flow
   data.calc[,name.DisCell] <- (data.calc[,name.Width] * data.calc[,name.Depth] * data.calc[,name.Velocity])
   #View(data.calc)
   # 1. 3. Summarize flow by SampID
-  data.agg <- aggregate(data.calc[,name.DisCell] ~ data.calc[,name.SampID], data=data.calc, FUN="sum")
+  data.agg <- stats::aggregate(data.calc[,name.DisCell] ~ data.calc[,name.SampID], data=data.calc, FUN="sum")
   names(data.agg) <- c(name.SampID, name.Dis.cms)
   #names(data.agg)[names(data.agg)==name.DisCell] <- name.Dis.cms
   data.agg[,name.Dis.cfs.calc] <- 35.314*data.agg[,name.Dis.cms]
