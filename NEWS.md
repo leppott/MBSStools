@@ -3,7 +3,22 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2020-12-27 12:48:09
+    #> Last Update: 2021-01-10 19:18:35
+
+# MBSStools v1.1.0.9033 (2021-01-10)
+
+  - chore: Remove Excel files from data folder
+      - AllFish\_95to16.xls
+      - TaxaMapsCrossWalk20170731.xlsx
+  - style: Trim to 80 character lines
+      - FlowSum.R
+  - chore: Remove orphaned package from DESCRIPTION
+      - plotly in Suggests
+  - chore: Add non standard files to .Rbuildignore
+      - NEWS.rmd
+      - README.Rmd
+  - chore: Change default for ion.ref parameter in IonConrib to NA
+      - Use MBSS.Ion.Ref if NA
 
 # MBSStools v1.1.0.9032 (2020-12-27)
 

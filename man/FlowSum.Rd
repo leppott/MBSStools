@@ -38,14 +38,16 @@ No special libraries are needed for this function.
 }
 \examples{
 # calculate flow
-flow.cell <- FlowSum(MBSS.flow,returnType="cell")
+flow.cell <- FlowSum(MBSS.flow, returnType = "cell")
 flow.sample <- FlowSum(MBSS.flow)
 # examine data
 View(flow.cell)
 View(flow.sample)
 # Example Save file (tab delimited text file)
-#datetime <- format(Sys.time(),"\%Y\%m\%d_\%H\%M\%S")
+#datetime <- format(Sys.time(), "\%Y\%m\%d_\%H\%M\%S")
 #myYear <- "15"
-#write.table(flow.sample,paste0("SumFlow",myYear,"_",datetime,".tab"),
-row.names=FALSE,sep="\t")
+#write.table(flow.sample
+#           , paste0("SumFlow", myYear, "_", datetime, ".tab")
+#           , row.names=FALSE,sep="\t")
+
 }

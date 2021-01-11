@@ -8,3 +8,7 @@
 ^pkgdown$
 ^_test$
 ^\.github$
+^LICENSE\.md$
+^data-raw$
+^NEWS.rmd
+^README.Rmd

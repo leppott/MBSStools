@@ -17,12 +17,14 @@
 #'
 #' @param ion.data Input data.  Column names match rows in the ref table
 #' @param ion.ref Reference data for ions; Name (matches columns in data),
-#'  Multiplier, and SortOrder. Default is included ref table.
+#'  Multiplier, and SortOrder. Default is NA, uses included ref table.
 #' @param col.Cond Column name with conductivity in "data".  Default is blank.
 #' If blank only ions present are used to calculate total conductivity for
 #' samples.
+#'
 #' @return Returns a data frame with additional fields for "multiplier", "ion
 #' conductivity", "total conductivity", "percent contribution" (per ion).
+#'
 #' @examples
 #' # Load Data
 #' data.ion <- MBSS.Ion.Data
@@ -63,13 +65,21 @@
 #' main=mySite, xlab="Percent Contribution"
 #'        , axes=TRUE, horiz=TRUE, las=1)
 #' mtext(paste0("Conductivity (uS/cm) = ",round(data.plot[,"Cond.Total"],1)))
+#'
 #' @export
-IonContrib <- function(ion.data, ion.ref=MBSS.Ion.Ref, col.Cond="") {##FUNCTION.IonContrib.START
+IonContrib <- function(ion.data
+                       , ion.ref = NA
+                       , col.Cond = "") {##FUNCTION.IonContrib.START
   #
   # # # QC
   # ion.data <- MBSS.Ion.Data
   # ion.ref <- MBSS.Ion.Ref
   # col.Cond <- ""
+
+  if(is.na(ion.ref)) {
+    ion.ref = MBSStools::MBSS.Ion.Ref
+  }##IF ~ is.na(ion.ref) ~ END
+
   # 0. Rename Data
   data.calc <- as.data.frame(ion.data)
   ion.ref <- as.data.frame(ion.ref)
