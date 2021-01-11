@@ -88,7 +88,9 @@
 #' @param boo.Adjust Optional boolean value on whether to perform adjustments of
 #'  values prior to scoring.  Default = FALSE but will always be TRUE for fish
 #'  metrics.
+#'
 #' @return data frame of SampleID and metric values
+#'
 #' @examples
 #' # Metrics, MBSS Index, Fish
 #' myIndex <- "MBSS.2005.Fish"
@@ -165,8 +167,23 @@ metric.values <- function(fun.DF
   #   metric.values.algae(fun.DF, fun.MetricNames, boo.Adjust)
   }##IF.END
 }##FUNCTION.metric.values.START
-#
-#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @title Calculate Metric Values for Benthic Macroinvertebrates
+#'
+#' @description Subfunction of metric.values()
+#'
+#' @param myDF Data frame of taxa (list required fields)
+#' @param MetricNames Optional vector of metric names to be returned.  If
+#' none are supplied then all will be returned.
+#' @param boo.Adjust Optional boolean value on whether to perform adjustments of
+#'  values prior to scoring.  Default = FALSE but will always be TRUE for fish
+#'  metrics.
+#'
+#' @return data frame of SampleID and metric values to metric.values()
+#'
+#' @examples
+#' # None
+#'
 #' @export
 metric.values.bugs <- function(myDF
                                , MetricNames = NULL
@@ -543,8 +560,24 @@ metric.values.bugs <- function(myDF
   # df to report back
   return(met.val)
 }##FUNCTION.metric.values.bugs.END
-#
-#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @title Calculate Metric Values for Fish
+#'
+#' @description Subfunction of metric.values()
+#'
+#' @param myDF Data frame of taxa (list required fields)
+#' @param SampleID Sample ID column
+#' @param MetricNames Optional vector of metric names to be returned.  If
+#' none are supplied then all will be returned.
+#' @param boo.Adjust Optional boolean value on whether to perform adjustments of
+#'  values prior to scoring.  Default = FALSE but will always be TRUE for fish
+#'  metrics.
+#'
+#' @return data frame of SampleID and metric values to metric.values()
+#'
+#' @examples
+#' # None
+#'
 #' @export
 metric.values.fish <- function(myDF
                                , SampleID
@@ -760,8 +793,23 @@ metric.values.fish <- function(myDF
   # df to report back
   return(met.val)
 }##FUNCTION.metric.values.fish.END
-#
-#
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#' @title Calculate Metric Values for Algae
+#'
+#' @description Subfunction of metric.values()
+#'
+#' @param myDF Data frame of taxa (list required fields)
+#' @param MetricNames Optional vector of metric names to be returned.  If
+#' none are supplied then all will be returned.
+#' @param boo.Adjust Optional boolean value on whether to perform adjustments of
+#'  values prior to scoring.  Default = FALSE but will always be TRUE for fish
+#'  metrics.
+#'
+#' @return data frame of SampleID and metric values to metric.values()
+#'
+#' @examples
+#' # None
+#'
 #' @export
 metric.values.algae <- function(myDF
                                 , MetricNames=NULL

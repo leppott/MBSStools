@@ -47,7 +47,7 @@ contrib.ion <- IonContrib(data.ion)
 contrib.ion.2 <- IonContrib(data.ion, ref.ion)
 #View(contrib.ion.2)
 # Calculate Percent Contribution by Ion (data table, reference table, and
-conductivity values)
+# conductivity values)
 ## add dummy conductivity values for each sample
 myCond <- "Cond"
 data.ion[,myCond] <- 4000

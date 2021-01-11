@@ -16,6 +16,12 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+MBSStools v1.1.0.9035 (2021-01-11)
+================
+* chore: Fix comment line without leading comment symbol
+* chore: Document subfunctions of metric.values()
+* chore: Rename files in inst\extdata with non-portable names
+
 MBSStools v1.1.0.9034 (2021-01-10)
 ================
 * chore: Add bindings for global variables

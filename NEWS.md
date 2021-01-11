@@ -3,7 +3,13 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-01-10 22:04:41
+    #> Last Update: 2021-01-11 07:02:05
+
+# MBSStools v1.1.0.9035 (2021-01-11)
+
+  - chore: Fix comment line without leading comment symbol
+  - chore: Document subfunctions of metric.values()
+  - chore: Rename files in instwith non-portable names
 
 # MBSStools v1.1.0.9034 (2021-01-10)
 
