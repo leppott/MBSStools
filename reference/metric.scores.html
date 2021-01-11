@@ -41,7 +41,8 @@
 
 <meta property="og:title" content="Score metrics — metric.scores" />
 <meta property="og:description" content="This function calculates metric scores based on a Thresholds data frame.
-Can generate scores for 1/3/5 (ScoreRegime=&quot;135&quot;) for MD DNR MBSS FIBI and BIBI." />
+Can generate scores for 1/3/5 (ScoreRegime=&quot;135&quot;) for MD DNR MBSS FIBI and
+BIBI." />
 
 
 
@@ -73,7 +74,7 @@ Can generate scores for 1/3/5 (ScoreRegime=&quot;135&quot;) for MD DNR MBSS FIBI
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9033</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9034</span>
       </span>
     </div>
 
@@ -131,7 +132,8 @@ Can generate scores for 1/3/5 (ScoreRegime=&quot;135&quot;) for MD DNR MBSS FIBI
 
     <div class="ref-description">
     <p>This function calculates metric scores based on a Thresholds data frame.
-Can generate scores for 1/3/5 (ScoreRegime="135") for MD DNR MBSS FIBI and BIBI.</p>
+Can generate scores for 1/3/5 (ScoreRegime="135") for MD DNR MBSS FIBI and
+BIBI.</p>
     </div>
 
     <pre class="usage"><span class='fu'>metric.scores</span><span class='op'>(</span><span class='va'>DF_Metrics</span>, <span class='va'>MetricNames</span>, <span class='va'>IndexName</span>, <span class='va'>IndexRegion</span>, <span class='va'>DF_Thresh</span><span class='op'>)</span></pre>
@@ -186,18 +188,22 @@ Metric, Direction, Thresh.Lo, Thresh.Hi, ScoreRegime)</p></td>
 <span class='va'>myDF.Fish</span> <span class='op'>&lt;-</span> <span class='va'>taxa_fish</span>
 <span class='va'>myMetric.Values.Fish</span> <span class='op'>&lt;-</span> <span class='fu'><a href='metric.values.html'>metric.values</a></span><span class='op'>(</span><span class='va'>myDF.Fish</span>, <span class='st'>"fish"</span>, <span class='va'>myMetrics.Fish</span>,
 <span class='cn'>TRUE</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>myMetric.Values.Fish</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in check_for_XQuartz(): X11 library is missing: install XQuartz from xquartz.macosforge.org</span></div><div class='input'><span class='co'># SCORE</span>
+<span class='co'># View(myMetric.Values.Fish)</span>
+<span class='co'># SCORE</span>
 <span class='va'>Metrics.Fish.Scores</span> <span class='op'>&lt;-</span> <span class='fu'>metric.scores</span><span class='op'>(</span><span class='va'>myMetric.Values.Fish</span>, <span class='va'>myMetrics.Fish</span>,
 <span class='st'>"Index.Name"</span>, <span class='st'>"FIBISTRATA"</span>, <span class='va'>thresh</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>One or more fish samples (n = 1) had zero organisms and was scored as a 1 (metrics and IBI).</span></div><div class='input'><span class='co'># View Results</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>Metrics.Fish.Scores</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in check_for_XQuartz(): X11 library is missing: install XQuartz from xquartz.macosforge.org</span></div><div class='input'><span class='co'># Add Narrative</span>
+</div><div class='output co'>#&gt; <span class='message'>One or more fish samples (n = 1) had zero organisms and was scored as a 1</span>
+#&gt; <span class='message'>                              (metrics and IBI).</span></div><div class='input'><span class='co'># View Results</span>
+<span class='co'># View(Metrics.Fish.Scores)</span>
+<span class='co'># Add Narrative</span>
 <span class='va'>myBreaks</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span>
 <span class='va'>myLabels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Very Poor"</span>, <span class='st'>"Poor"</span>, <span class='st'>"Fair"</span>, <span class='st'>"Good"</span><span class='op'>)</span>
 <span class='va'>Metrics.Fish.Scores</span><span class='op'>$</span><span class='va'>IBI_Nar</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cut.html'>cut</a></span><span class='op'>(</span><span class='va'>Metrics.Fish.Scores</span><span class='op'>$</span><span class='va'>IBI</span>
-                                   , breaks<span class='op'>=</span><span class='va'>myBreaks</span>, labels<span class='op'>=</span><span class='va'>myLabels</span>
-                                   , include.lowest<span class='op'>=</span><span class='cn'>TRUE</span>, right<span class='op'>=</span><span class='cn'>FALSE</span>, ordered_result<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+                                   , breaks<span class='op'>=</span><span class='va'>myBreaks</span>
+                                   , labels<span class='op'>=</span><span class='va'>myLabels</span>
+                                   , include.lowest<span class='op'>=</span><span class='cn'>TRUE</span>
+                                   , right<span class='op'>=</span><span class='cn'>FALSE</span>
+                                   , ordered_result<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
 <span class='co'># QC, IBI Numeric vs. Narrative</span>
 <span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>Metrics.Fish.Scores</span><span class='op'>$</span><span class='va'>IBI</span>, <span class='va'>Metrics.Fish.Scores</span><span class='op'>$</span><span class='va'>IBI_Nar</span>, useNA<span class='op'>=</span><span class='st'>"ifany"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;                   
@@ -232,21 +238,27 @@ Metric, Direction, Thresh.Lo, Thresh.Hi, ScoreRegime)</p></td>
 <span class='va'>myDF.Bugs.MBSS</span> <span class='op'>&lt;-</span> <span class='va'>taxa_bugs_genus</span>
 <span class='va'>myMetric.Values.Bugs.MBSS</span> <span class='op'>&lt;-</span> <span class='fu'><a href='metric.values.html'>metric.values</a></span><span class='op'>(</span><span class='va'>myDF.Bugs.MBSS</span>, <span class='st'>"bugs"</span>,
 <span class='va'>myMetrics.Bugs.MBSS</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>myMetric.Values.Bugs.MBSS</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in check_for_XQuartz(): X11 library is missing: install XQuartz from xquartz.macosforge.org</span></div><div class='input'><span class='co'># SCORE</span>
+<span class='co'># View(myMetric.Values.Bugs.MBSS)</span>
+<span class='co'># SCORE</span>
 <span class='va'>Metrics.Bugs.Scores.MBSS</span> <span class='op'>&lt;-</span> <span class='fu'>metric.scores</span><span class='op'>(</span><span class='va'>myMetric.Values.Bugs.MBSS</span>,
 <span class='va'>myMetrics.Bugs.MBSS</span>, <span class='st'>"INDEX.NAME"</span>, <span class='st'>"STRATA_R"</span>, <span class='va'>thresh</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>One or more bug samples had &lt; 60 (n = 0) or &gt; 120 (n = 90) organisms.</span>
-#&gt; <span class='message'>These samples should be further examined.</span></div><div class='input'><span class='co'># View Results</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>Metrics.Bugs.Scores.MBSS</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in check_for_XQuartz(): X11 library is missing: install XQuartz from xquartz.macosforge.org</span></div><div class='input'><span class='co'># Add Narrative</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>                                 These samples should be further examined.</span></div><div class='input'><span class='co'># View Results</span>
+<span class='co'># View(Metrics.Bugs.Scores.MBSS)</span>
+<span class='co'># Add Narrative</span>
 <span class='va'>myBreaks</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span>
 <span class='va'>myLabels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Very Poor"</span>, <span class='st'>"Poor"</span>, <span class='st'>"Fair"</span>, <span class='st'>"Good"</span><span class='op'>)</span>
 <span class='va'>Metrics.Bugs.Scores.MBSS</span><span class='op'>$</span><span class='va'>IBI_Nar</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cut.html'>cut</a></span><span class='op'>(</span><span class='va'>Metrics.Bugs.Scores.MBSS</span><span class='op'>$</span><span class='va'>IBI</span>
-                                   , breaks<span class='op'>=</span><span class='va'>myBreaks</span>, labels<span class='op'>=</span><span class='va'>myLabels</span>
-                                   , include.lowest<span class='op'>=</span><span class='cn'>TRUE</span>, right<span class='op'>=</span><span class='cn'>FALSE</span>, ordered_result<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+                                   , breaks<span class='op'>=</span><span class='va'>myBreaks</span>
+                                   , labels<span class='op'>=</span><span class='va'>myLabels</span>
+                                   , include.lowest<span class='op'>=</span><span class='cn'>TRUE</span>
+                                   , right<span class='op'>=</span><span class='cn'>FALSE</span>
+                                   , ordered_result<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
 <span class='co'># QC, IBI Numeric vs. Narrative</span>
-<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>Metrics.Bugs.Scores.MBSS</span><span class='op'>$</span><span class='va'>IBI</span>, <span class='va'>Metrics.Bugs.Scores.MBSS</span><span class='op'>$</span><span class='va'>IBI_Nar</span>, useNA<span class='op'>=</span><span class='st'>"ifany"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>Metrics.Bugs.Scores.MBSS</span><span class='op'>$</span><span class='va'>IBI</span>
+      , <span class='va'>Metrics.Bugs.Scores.MBSS</span><span class='op'>$</span><span class='va'>IBI_Nar</span>
+      , useNA<span class='op'>=</span><span class='st'>"ifany"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;                   
 #&gt;                    Very Poor Poor Fair Good
 #&gt;   1                        3    0    0    0
@@ -308,21 +320,26 @@ Metric, Direction, Thresh.Lo, Thresh.Hi, ScoreRegime)</p></td>
 <span class='va'>myDF.Bugs.MSW</span> <span class='op'>&lt;-</span> <span class='va'>taxa_bugs_family</span>
 <span class='va'>myMetric.Values.Bugs.MSW</span> <span class='op'>&lt;-</span> <span class='fu'><a href='metric.values.html'>metric.values</a></span><span class='op'>(</span><span class='va'>myDF.Bugs.MSW</span>, <span class='st'>"bugs"</span>,
 <span class='va'>myMetrics.Bugs.MSW</span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>myMetric.Values.Bugs.MSW</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in check_for_XQuartz(): X11 library is missing: install XQuartz from xquartz.macosforge.org</span></div><div class='input'><span class='co'># SCORE</span>
+<span class='co'># View(myMetric.Values.Bugs.MSW)</span>
+<span class='co'># SCORE</span>
 <span class='va'>Metrics.Bugs.Scores.MSW</span> <span class='op'>&lt;-</span> <span class='fu'>metric.scores</span><span class='op'>(</span><span class='va'>myMetric.Values.Bugs.MSW</span>,
 <span class='va'>myMetrics.Bugs.MSW</span>, <span class='st'>"INDEX.NAME"</span>, <span class='st'>"STRATA_R"</span>, <span class='va'>thresh</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='message'>One or more bug samples had &lt; 60 (n = 0) or &gt; 120 (n = 102) organisms.</span>
-#&gt; <span class='message'>These samples should be further examined.</span></div><div class='input'><span class='co'># View Results</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>Metrics.Bugs.Scores.MSW</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in check_for_XQuartz(): X11 library is missing: install XQuartz from xquartz.macosforge.org</span></div><div class='input'><span class='co'># Add Narrative</span>
+#&gt; <span class='message'></span>
+#&gt; <span class='message'>                                 These samples should be further examined.</span></div><div class='input'><span class='co'># View Results</span>
+<span class='co'># View(Metrics.Bugs.Scores.MSW)</span>
+<span class='co'># Add Narrative</span>
 <span class='va'>myBreaks</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span>
 <span class='va'>myLabels</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Very Poor"</span>, <span class='st'>"Poor"</span>, <span class='st'>"Fair"</span>, <span class='st'>"Good"</span><span class='op'>)</span>
 <span class='va'>Metrics.Bugs.Scores.MSW</span><span class='op'>$</span><span class='va'>IBI_Nar</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/cut.html'>cut</a></span><span class='op'>(</span><span class='va'>Metrics.Bugs.Scores.MSW</span><span class='op'>$</span><span class='va'>IBI</span>
-                                   , breaks<span class='op'>=</span><span class='va'>myBreaks</span>, labels<span class='op'>=</span><span class='va'>myLabels</span>
-                                   , include.lowest<span class='op'>=</span><span class='cn'>TRUE</span>, right<span class='op'>=</span><span class='cn'>FALSE</span>, ordered_result<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
+                                   , breaks<span class='op'>=</span><span class='va'>myBreaks</span>
+                                   , labels<span class='op'>=</span><span class='va'>myLabels</span>
+                                   , include.lowest<span class='op'>=</span><span class='cn'>TRUE</span>
+                                   , right<span class='op'>=</span><span class='cn'>FALSE</span>
+                                   , ordered_result<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span>
 <span class='co'># QC, IBI Numeric vs. Narrative</span>
-<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>Metrics.Bugs.Scores.MSW</span><span class='op'>$</span><span class='va'>IBI</span>, <span class='va'>Metrics.Bugs.Scores.MSW</span><span class='op'>$</span><span class='va'>IBI_Nar</span>, useNA<span class='op'>=</span><span class='st'>"ifany"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>Metrics.Bugs.Scores.MSW</span><span class='op'>$</span><span class='va'>IBI</span>, <span class='va'>Metrics.Bugs.Scores.MSW</span><span class='op'>$</span><span class='va'>IBI_Nar</span>
+, useNA<span class='op'>=</span><span class='st'>"ifany"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;                   
 #&gt;                    Very Poor Poor Fair Good
 #&gt;   1                        4    0    0    0

@@ -78,7 +78,7 @@ same Channel Number." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9033</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9034</span>
       </span>
     </div>
 
@@ -235,9 +235,9 @@ summary table of the sample velocities (sample); "sample" is the default.</p></t
 #&gt; "CORS-204-R-2015", "CORS-204-R-2015", "CORS-204-R-2015", "CORS-204-R-2015", "CORS-204-R-2015", "CORS-204-R-2015", "CORS-204-R-2015", "CORS-204-R-2015", "DCRL-101-X-2015", "DCRL-101-X-2015", "DCRL-101-X-2015", "DCRL-101-X-2015", "DCRL-101-X-2015", "DCRL-101-X-2015", "DCRL-101-X-2015", "DCRL-101-X-2015", "DCRL-101-X-2015", "DCRL-101-X-2015", "DCRL-101-X-2015", "DCRL-101-X-2015", "DCRL-101-X-2015", "DEER-101-R-2015", "DEER-101-R-2015", "DEER-101-R-2015", "DEER-101-R-2015", "DEER-101-R-2015", "DEER-101-R-2015", 
 #&gt; "DEER-101-R-2015", "DEER-101-R-2015", "DEER-101-R-2015", "DEER-101-R-2015", "DEER-101-R-2015", "DEER-101-R-2015", "DEER-117-R-2015", "DEER-117-R-2015", "DEER-117-R-2015", "DEER-117-R-2015", "DEER-117-R-2015", "DEER-117-R-2015", "DEER-117-R-2015", "DEER-117-R-2015", "DEER-117-R-2015", "DEER-117-R-2015", "DEER-117-R-2015", "DEER-117-R-2015", "DEER-117-R-2015", "DEER-117-R-2015", "DEER-408-R-2015", "DEER-408-R-2015", "DEER-408-R-2015", "DEER-408-R-2015", "DEER-408-R-2015", "DEER-408-R-2015", "DEER-408-R-2015", 
 #&gt; "DEER-408-R-2015", "DEER-408-R-2015", "DEER-408-R-2015", "DEER-408-R-2015", "DEER-408-R-2015", "DEER-408-R-2015", "DEER-408-R-2015", "DEER-408-R-2015", "DIVI-107-R-2015", "DIVI-107-R-2015", "DIVI-107-R-2015", "D</div><div class='output co'>#&gt; <span class='error'>Error in model.frame.default(formula = data.calc[, name.DisCell] ~ data.calc[,     name.SampID], data = data.calc): invalid type (list) for variable 'data.calc[, name.DisCell]'</span></div><div class='input'><span class='co'># examine data</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>flow.cell</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in as.data.frame(x): object 'flow.cell' not found</span></div><div class='input'><span class='fu'><a href='https://rdrr.io/r/utils/View.html'>View</a></span><span class='op'>(</span><span class='va'>flow.sample</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='error'>Error in as.data.frame(x): object 'flow.sample' not found</span></div><div class='input'><span class='co'># Example Save file (tab delimited text file)</span>
+<span class='co'>#View(flow.cell)</span>
+<span class='co'>#View(flow.sample)</span>
+<span class='co'># Example Save file (tab delimited text file)</span>
 <span class='co'>#datetime &lt;- format(Sys.time(), "%Y%m%d_%H%M%S")</span>
 <span class='co'>#myYear &lt;- "15"</span>
 <span class='co'>#write.table(flow.sample</span>

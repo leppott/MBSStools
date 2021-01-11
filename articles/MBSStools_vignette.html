@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9033</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9034</span>
       </span>
     </div>
 
@@ -184,7 +184,8 @@
 <span class="co">#View(myMetric.Values.Fish)</span>
 <span class="co"># SCORE</span>
 <span class="va">Metrics.Fish.Scores</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metric.scores.html">metric.scores</a></span><span class="op">(</span><span class="va">myMetric.Values.Fish</span>, <span class="va">myMetrics.Fish</span>, <span class="st">"Index.Name"</span>, <span class="st">"FIBISTRATA"</span>, <span class="va">thresh</span><span class="op">)</span></code></pre></div>
-<pre><code>## One or more fish samples (n = 1) had zero organisms and was scored as a 1 (metrics and IBI).</code></pre>
+<pre><code>## One or more fish samples (n = 1) had zero organisms and was scored as a 1
+##                               (metrics and IBI).</code></pre>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># View Results</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">Metrics.Fish.Scores</span><span class="op">)</span><span class="op">)</span></code></pre></div>
@@ -616,7 +617,8 @@
 <span class="co"># SCORE</span>
 <span class="va">Metrics.Bugs.Scores.MBSS</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metric.scores.html">metric.scores</a></span><span class="op">(</span><span class="va">myMetric.Values.Bugs.MBSS</span>, <span class="va">myMetrics.Bugs.MBSS</span>, <span class="st">"INDEX.NAME"</span>, <span class="st">"STRATA_R"</span>, <span class="va">thresh</span><span class="op">)</span></code></pre></div>
 <pre><code>## One or more bug samples had &lt; 60 (n = 0) or &gt; 120 (n = 90) organisms.
-## These samples should be further examined.</code></pre>
+## 
+##                                  These samples should be further examined.</code></pre>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># View Results</span>
 <span class="co">#View(Metrics.Bugs.Scores.MBSS)</span>
@@ -1053,7 +1055,8 @@
 <span class="co"># SCORE</span>
 <span class="va">Metrics.Bugs.Scores.MSW</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metric.scores.html">metric.scores</a></span><span class="op">(</span><span class="va">myMetric.Values.Bugs.MSW</span>, <span class="va">myMetrics.Bugs.MSW</span>, <span class="st">"INDEX.NAME"</span>, <span class="st">"STRATA_R"</span>, <span class="va">thresh</span><span class="op">)</span></code></pre></div>
 <pre><code>## One or more bug samples had &lt; 60 (n = 0) or &gt; 120 (n = 102) organisms.
-## These samples should be further examined.</code></pre>
+## 
+##                                  These samples should be further examined.</code></pre>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># View Results</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">Metrics.Bugs.Scores.MSW</span><span class="op">)</span><span class="op">)</span></code></pre></div>
