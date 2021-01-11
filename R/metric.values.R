@@ -25,8 +25,8 @@
 #' * N_TAXA = Number of taxon collected in sample.
 #'
 #' * EXCLUDE = Non-unique taxa (i.e., parent taxon with one or more children
-#' taxa present in sample).  Logical field.  TRUE = do not include in taxa richness
-#' metrics.
+#' taxa present in sample).  Logical field.  TRUE = do not include in taxa
+#' richness metrics.
 #'
 #' * STRATA_R = Benthic macroinvertebrate region (COASTAL, EPIEDMONT, or
 #' HIGHLAND).
@@ -46,8 +46,8 @@
 #'
 #' + FAM_TV (need to include all the same fields, just leave blank).
 #'
-#' For the EXCLUDE column there is additional QC to account for common non-standard
-#' entries.
+#' For the EXCLUDE column there is additional QC to account for common
+#' non-standard entries.
 #'
 #' * "Y" or "yes" will convert to TRUE.
 #'
@@ -100,7 +100,7 @@
 #' # Taxa Data
 #' myDF.Fish <- taxa_fish
 #' myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish)
-#' View(myMetric.Values.Fish)
+#' #View(myMetric.Values.Fish)
 #'
 #' # Metrics, Index, Benthic Macroinvertebrates, genus
 #' # (generate values then scores)
@@ -114,7 +114,7 @@
 #' myDF.Bugs.MBSS <- taxa_bugs_genus
 #' myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs",
 #' myMetrics.Bugs.MBSS)
-#' View(myMetric.Values.Bugs.MBSS)
+#' #View(myMetric.Values.Bugs.MBSS)
 #'
 #' # Metrics, MSW Index, Benthic Macroinvertebrates, family
 #' myIndex <- "MSW.1999.Bugs"
@@ -127,14 +127,15 @@
 #' myDF.Bugs.MSW <- taxa_bugs_family
 #' myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs",
 #' myMetrics.Bugs.MSW)
-#' View(myMetric.Values.Bugs.MSW)
+#' #View(myMetric.Values.Bugs.MSW)
 #~~~~~~~~~~~~~~~~~~~~~~~~~~
 # # QC
 # ## Fish
 # myIndex <- "MBSS.2005.Fish"
 # thresh <- metrics_scoring
 # (myMetrics.Fish <- as.character(
-#   droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"MetricName.Other"]))))
+#   droplevels(unique(thresh[thresh[,"Index.Name"]==
+#                                              myIndex,"MetricName.Other"]))))
 # myDF <- taxa_fish # myDF.Fish
 # # myMetric.Values.Fish <- metric.values(myDF, "SampleID", "fish",
 # #                                       myMetrics.Fish, TRUE)
@@ -146,7 +147,10 @@
 # boo.Adjust <- FALSE
 #~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @export
-metric.values <- function(fun.DF, fun.Community, fun.MetricNames=NULL, boo.Adjust=FALSE){##FUNCTION.metric.values.START
+metric.values <- function(fun.DF
+                          , fun.Community
+                          , fun.MetricNames=NULL
+                          , boo.Adjust=FALSE){
   # QC, tibble to data frame
   fun.DF <- as.data.frame(fun.DF)
   #fun.Community <- toupper(fun.Community)
@@ -164,7 +168,25 @@ metric.values <- function(fun.DF, fun.Community, fun.MetricNames=NULL, boo.Adjus
 #
 #
 #' @export
-metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.metric.values.bugs.START
+metric.values.bugs <- function(myDF
+                               , MetricNames = NULL
+                               , boo.Adjust){
+  # bindings for global variables ----
+  SITE <- INDEX.NAME <- STRATA_R <- N_TAXA  <- TAXON <- FINALTOLVAL07 <-
+    FAM_TV <-EXCLUDE <-  NULL
+
+  CLASS <- ORDER <- FAMILY <- TRIBE <- GENUS <- NULL
+
+  FFG_col <- FFG_fil <- FFG_pre <- FFG_scr <- FFG_shr <- Habit_BU <-
+    Habit_CB <- Habit_CN <- Habit_SP <- Habit_SW <- NULL
+
+  ni_total <- ni_Dipt <- ni_Ephem <- ni_Chiro <- ni_Tanyt <- ni_tv_intolurb <-
+    ni_ffg_scrap <- ni_habit_clmbrs <- ni_habit_clngrs <- ni_habit_swmmrs <-
+    nt_total <- nt_EPT <- nt_Ephem <- nt_ffg_scrap <- pi_Ephem <-
+    pi_habit_clmbrs <- pi_Chiro <- pi_habit_clngrs <- pi_Tanyt <-
+    pi_ffg_scrap <- pi_habit_swmmrs <- pi_Dipt <- pi_tv_intolurb <- nt_Dipt <-
+    nt_tv_intol <- x_Becks <- nt_tvfam_intol <- NULL
+
   # convert Field Names to UPPER CASE
   names(myDF) <- toupper(names(myDF))# Remove Non-Target Taxa
   #myDF <- myDF[myDF[,"NonTarget"]==0,]
@@ -227,11 +249,15 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
   #
   # QC, FFG
   # Valid values for FFG: col, fil, pre, scr, shr, pie
-  # "Collector" "Shredder"  "Predator"  ""          "Filterer"  "Scraper", "Piercer"
+  # "Collector" "Shredder"  "Predator"  ""          "Filterer"  "Scraper"
+  # , "Piercer"
   # remove white space to get all combos and make unique
   qc_col   <- "FFG"
-  qc_val   <- toupper(c(NA, "", "Collector", "Shredder", "Predator", "Filterer", "Scraper", "Piercer"))
-  qc_user <- unique(unlist(strsplit(gsub("\\s", "", toupper(unique(myDF[, qc_col]))), ",")))
+  qc_val   <- toupper(c(NA, "", "Collector", "Shredder", "Predator", "Filterer"
+                        , "Scraper", "Piercer"))
+  qc_user <- unique(unlist(strsplit(gsub("\\s", ""
+                                         , toupper(unique(myDF[, qc_col])))
+                                    , ",")))
   qc_check <- qc_user %in% qc_val
   qc_invalid <- qc_user[!qc_check]
   if(length(qc_check) != sum(qc_check)){
@@ -248,7 +274,9 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
   # remove white space to get all combos and make unique
   qc_col   <- "HABIT"
   qc_val   <- c(NA, "", "-", "BU", "CB", "CN", "SP", "SW", "DV", "SK")
-  qc_user <- unique(unlist(strsplit(gsub("\\s", "", toupper(unique(myDF[, qc_col]))), ",")))
+  qc_user <- unique(unlist(strsplit(gsub("\\s", ""
+                                         , toupper(unique(myDF[, qc_col])))
+                                    , ",")))
   qc_check <- qc_user %in% qc_val
   qc_invalid <- qc_user[!qc_check]
   if(length(qc_check) != sum(qc_check)){
@@ -260,7 +288,8 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
     stop(myMsg)
   }## IF ~ QC, Habit ~ END
 
-  # Add extra columns for FFG and Habit (need unique values for functions in summarise)
+  # Add extra columns for FFG and Habit (need unique values for functions in
+  #              summarise)
   # each will be TRUE or FALSE
     myDF["Habit_BU"] <- grepl("BU",toupper(myDF[,"HABIT"]))
     myDF["Habit_CB"] <- grepl("CB",toupper(myDF[,"HABIT"]))
@@ -283,7 +312,8 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
              ,ni_Ephem=sum(N_TAXA[ORDER=="Ephemeroptera"])
              ,ni_Trich=sum(N_TAXA[ORDER=="Trichoptera"])
              ,ni_Pleco=sum(N_TAXA[ORDER=="Plecoptera"])
-             ,ni_EPT=sum(N_TAXA[ORDER=="Ephemeroptera" | ORDER=="Trichoptera" | ORDER=="Plecoptera"])
+             ,ni_EPT=sum(N_TAXA[ORDER=="Ephemeroptera" | ORDER=="Trichoptera" |
+                                  ORDER=="Plecoptera"])
               #
              # percent individuals
              ,pi_Amph=sum(N_TAXA[ORDER=="Amphipoda"]) / ni_total
@@ -302,7 +332,8 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
              ,pi_Ephem= ni_Ephem/ ni_total
              #EphemNoCaen
              #EPTsenstive
-             ,pi_EPT=sum(N_TAXA[ORDER=="Ephemeroptera" | ORDER=="Trichoptera" | ORDER=="Plecoptera"]) / ni_total
+             ,pi_EPT=sum(N_TAXA[ORDER=="Ephemeroptera" | ORDER=="Trichoptera" |
+                                  ORDER=="Plecoptera"]) / ni_total
              ,pi_Gast=sum(N_TAXA[CLASS=="Gastropoda"]) / ni_total
              ,pi_Iso=sum(N_TAXA[ORDER=="Isopoda"]) / ni_total
              #Moll
@@ -315,20 +346,33 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
              #
              # number of taxa
               ,nt_total=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE])
-              ,nt_Coleo=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & ORDER=="Coleoptera"])
-             # ,nt_CruMol=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & (Phylum=="Mollusca" | SubPhylum="Crustacea")])
-             ,nt_Dipt=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & ORDER=="Diptera"])
-             ,nt_Ephem=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & ORDER=="Ephemeroptera"])
-             ,nt_EPT=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & (ORDER=="Ephemeroptera"| ORDER=="Trichoptera" | ORDER=="Plecoptera")])
-             ,nt_Oligo=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & CLASS=="Oligochaeta"])
-             ,nt_Pleco=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & ORDER=="Plecoptera"])
-             ,nt_Ptero=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & GENUS=="Pteronarcys"])
-             ,nt_Trich=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & ORDER=="Trichoptera"])
-             # Amph, Bival, Gast, Deca, Insect, Isopod, intolMol, Oligo, POET, Tubif
+              ,nt_Coleo=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                  ORDER=="Coleoptera"])
+             # ,nt_CruMol=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+             #      (Phylum=="Mollusca" | SubPhylum="Crustacea")])
+             ,nt_Dipt=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                ORDER=="Diptera"])
+             ,nt_Ephem=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                 ORDER=="Ephemeroptera"])
+             ,nt_EPT=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                               (ORDER=="Ephemeroptera"|
+                                                  ORDER=="Trichoptera" |
+                                                  ORDER=="Plecoptera")])
+             ,nt_Oligo=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                 CLASS=="Oligochaeta"])
+             ,nt_Pleco=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                 ORDER=="Plecoptera"])
+             ,nt_Ptero=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                 GENUS=="Pteronarcys"])
+             ,nt_Trich=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                 ORDER=="Trichoptera"])
+             # Amph, Bival, Gast, Deca, Insect, Isopod, intolMol, Oligo, POET
+             #    , Tubif
              # intol
              #
              # Midges
-             ,nt_Chiro=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & FAMILY=="Chironomidae"])
+             ,nt_Chiro=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                 FAMILY=="Chironomidae"])
              ,ni_Chiro=sum(N_TAXA[FAMILY=="Chironomidae"])
              ,pi_Chiro= ni_Chiro/ ni_total
              #,pi_CrCh2Chi
@@ -347,21 +391,32 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
              # / nt_total
              #
              # tolerance
-             ,nt_tv_intol=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & FINALTOLVAL07<=3])
-             ,nt_tvfam_intol = dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & FAM_TV<=3 & !is.na(FAM_TV)])
-             ,nt_tv_toler=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & FINALTOLVAL07>=7])
-             , ni_tv_intolurb = sum(N_TAXA[FINALTOLVAL07<=3 & !is.na(FINALTOLVAL07)])
+             ,nt_tv_intol=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                    FINALTOLVAL07<=3])
+             ,nt_tvfam_intol = dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                         FAM_TV<=3 &
+                                                         !is.na(FAM_TV)])
+             ,nt_tv_toler=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                    FINALTOLVAL07>=7])
+             , ni_tv_intolurb = sum(N_TAXA[FINALTOLVAL07<=3 &
+                                             !is.na(FINALTOLVAL07)])
              #,pi_tv_intolurb=ni_tv_intolurb/sum(N_TAXA[!is.na(FINALTOLVAL07)])
              ,pi_tv_intolurb=ni_tv_intolurb/ni_total
-             # pi_Baet2Eph, pi_Hyd2EPT, pi_Hyd2Tri, pi_intol, pi_toler, , nt_intMol,
+             # pi_Baet2Eph, pi_Hyd2EPT, pi_Hyd2Tri, pi_intol, pi_toler,
+             #     , nt_intMol,
              # pt toler
              #
              # ffg
-             ,nt_ffg_col=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & FFG_col==TRUE])
-             ,nt_ffg_filt=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & FFG_fil==TRUE])
-             ,nt_ffg_pred=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & FFG_pre==TRUE])
-             ,nt_ffg_scrap=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & FFG_scr==TRUE])
-             ,nt_ffg_shred=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & FFG_shr==TRUE])
+             ,nt_ffg_col=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                   FFG_col==TRUE])
+             ,nt_ffg_filt=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                    FFG_fil==TRUE])
+             ,nt_ffg_pred=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                    FFG_pre==TRUE])
+             ,nt_ffg_scrap=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                     FFG_scr==TRUE])
+             ,nt_ffg_shred=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                     FFG_shr==TRUE])
              ,pi_ffg_col=sum(N_TAXA[FFG_col==TRUE]) / ni_total
              ,pi_ffg_filt=sum(N_TAXA[FFG_fil==TRUE]) / ni_total
              ,pi_ffg_pred=sum(N_TAXA[FFG_pre==TRUE]) / ni_total
@@ -379,11 +434,16 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
              ,pi_habit_sprawl=sum(N_TAXA[Habit_SP==TRUE]) / ni_total
              , ni_habit_swmmrs = sum(N_TAXA[Habit_SW==TRUE])
              ,pi_habit_swmmrs= ni_habit_swmmrs/ ni_total
-             ,nt_habit_burrow=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & Habit_BU==TRUE])
-             ,nt_habit_clmbrs=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & Habit_CB==TRUE])
-             ,nt_habit_clngrs=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & Habit_CN==TRUE])
-             ,nt_habit_sprawl=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & Habit_SP==TRUE])
-             ,nt_habit_swmmrs=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & Habit_SW==TRUE])
+             ,nt_habit_burrow=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                        Habit_BU==TRUE])
+             ,nt_habit_clmbrs=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                        Habit_CB==TRUE])
+             ,nt_habit_clngrs=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                        Habit_CN==TRUE])
+             ,nt_habit_sprawl=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                        Habit_SP==TRUE])
+             ,nt_habit_swmmrs=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                        Habit_SW==TRUE])
              # pt for each
               #
              # # voltinism
@@ -391,18 +451,28 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
              # ,pi_volt_multi=sum(N_TAXA[Voltinism=="multivoltine"]) / ni_total
              # ,pi_volt_semi=sum(N_TAXA[Voltinism=="semivoltine"]) / ni_total
              # ,pi_volt_uni=sum(N_TAXA[Voltinism=="univoltine"]) / ni_total
-             # ,nt_volt_multi=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & Voltinism=="multivoltine"])
-             # ,nt_volt_semi=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & Voltinism=="semivoltine"])
-             # ,nt_volt_uni=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & Voltinism=="univoltine"])
+             # ,nt_volt_multi=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+             #    Voltinism=="multivoltine"])
+             # ,nt_volt_semi=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+             #    Voltinism=="semivoltine"])
+             # ,nt_volt_uni=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+             #   Voltinism=="univoltine"])
              # #
              # indices
              ,pi_dom01=max(N_TAXA)/ni_total
-             #,x_Becks.CLASS1=n_distinct(N_TAXA[EXCLUDE!=TRUE & TolVal>=0 & TolVal<=2.5])
-             #,x_Becks.CLASS2=n_distinct(N_TAXA[EXCLUDE!=TRUE & TolVal>=2.5 & TolVal<=4])
-             ,x_Becks=(2*dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & FINALTOLVAL07>=0 & FINALTOLVAL07<=2.5]))+(1*dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & FINALTOLVAL07>=2.5 & FINALTOLVAL07<=4]))
+             #,x_Becks.CLASS1=n_distinct(N_TAXA[EXCLUDE!=TRUE &
+             #    TolVal>=0 & TolVal<=2.5])
+             #,x_Becks.CLASS2=n_distinct(N_TAXA[EXCLUDE!=TRUE &
+             #    TolVal>=2.5 & TolVal<=4])
+             ,x_Becks=(2*dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+                                                   FINALTOLVAL07>=0 &
+                                                   FINALTOLVAL07<=2.5])) +
+               (1*dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & FINALTOLVAL07>=2.5 &
+                                            FINALTOLVAL07<=4]))
              #,x_HBI_num=sum(N_TAXA*TolVal)
              #,x_HBI_denom=sum(N_TAXA[!is.na(TolVal) & TolVal>0])
-             ,x_HBI=sum(N_TAXA*FINALTOLVAL07)/sum(N_TAXA[!is.na(FINALTOLVAL07) & FINALTOLVAL07>0])
+             ,x_HBI=sum(N_TAXA*FINALTOLVAL07) /
+               sum(N_TAXA[!is.na(FINALTOLVAL07) & FINALTOLVAL07 > 0])
            #  ,x_Shan_Num=log(3.14)
           #   ,x_Shan_e=x_Shan_Num/log(exp(1))
           #   ,x_Shan_2=x_Shan_Num/log(2)
@@ -415,7 +485,8 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
               # H / Hmax  Hmax is log(nt_total)
              # #
              # # BCG
-             # ,nt_BCG_att123=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE & (BCG_Atr=="1" | BCG_Atr=="2" | BCG_Atr=="3")])
+             # ,nt_BCG_att123=dplyr::n_distinct(TAXON[EXCLUDE!=TRUE &
+          # (BCG_Atr=="1" | BCG_Atr=="2" | BCG_Atr=="3")])
              # nt_att 12, 123, 2, 23, 234, 4, 5, 5, 56
              # nt_EPT_att123
              # pi_att 12, 123, 23, 45, 5, 56
@@ -459,16 +530,15 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
   # replace NA with 0
   met.val[is.na(met.val)] <- 0
   # # subset to only metrics specified by user
-  myFlds.MBSS <- c("totind", "ntaxa", "nept", "nephem", "totephem", "nscrape", "totclimb"
-                   , "totchiron", "totcling", "tottany", "totscrape", "totswim"
-                   , "totdipt", "totintol_urb", "pephem", "pclimb", "pchiron"
-                   , "pcling", "ptany", "pscrape", "pswim", "pdipt", "pintol_urb"
-                   , "ndipt", "nintol", "becks", "nintol_FAM")
-
-
+  myFlds.MBSS <- c("totind", "ntaxa", "nept", "nephem", "totephem", "nscrape"
+                   , "totclimb", "totchiron", "totcling", "tottany", "totscrape"
+                   , "totswim", "totdipt", "totintol_urb", "pephem", "pclimb"
+                   , "pchiron", "pcling", "ptany", "pscrape", "pswim", "pdipt"
+                   , "pintol_urb", "ndipt", "nintol", "becks", "nintol_FAM")
 
   if (!is.null(MetricNames)){
-    met.val <- met.val[,c("SITE", "STRATA_R", "INDEX.NAME", myFlds.MBSS )] #totind, MetricNames)]
+    met.val <- met.val[,c("SITE", "STRATA_R", "INDEX.NAME", myFlds.MBSS )]
+    #totind, MetricNames)]
   }
   # df to report back
   return(met.val)
@@ -476,11 +546,27 @@ metric.values.bugs <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.me
 #
 #
 #' @export
-metric.values.fish <- function(myDF, SampleID, MetricNames=NULL, boo.Adjust){##FUNCTION.metric.values.fish.START
+metric.values.fish <- function(myDF
+                               , SampleID
+                               , MetricNames = NULL
+                               , boo.Adjust) {
+  # bindings for global variables ----
+  fun.DF <- fun.MetricNames <- NULL
+
+  Index.Name <- SITE <- FIBISTRATA <- ACREAGE <- LEN_SAMP <- AVWID <- TOTAL <-
+    TYPE <- PTOLR <- SPECIES <- SILT <- TROPHIC_MBSS <- area <- TOTBIOM <-
+    NULL
+
+  ni_rbs <- ni_total <- ni_brooktrout <- ni_sculpin <- ni_lithophil <-
+    ni_genomninvrt <- ni_insectivore <- ni_tv_toler <- x_biomass_total <-
+    ni_m2 <- pi_dom01 <- x_biomass_m2 <- nt_benthic <- pi_brooktrout <-
+    pi_genomninvrt <- pi_insectivore <- pi_lithophil <- pi_rbs <-
+    pi_sculpin <- pi_tv_toler <- NULL
+
   # 2020-05-20, remove SampleID as 2nd term
   # QC
   boo_DEBUG <- FALSE
-  if(boo_DEBUG==TRUE){##IF~boo_DEBUG~START
+  if(boo_DEBUG==TRUE){
     myDF <- fun.DF
     MetricNames <- fun.MetricNames
   }##IF~boo_DEBUG~END
@@ -490,8 +576,8 @@ metric.values.fish <- function(myDF, SampleID, MetricNames=NULL, boo.Adjust){##F
   #
   # QC Column Names
   # set case on fields
-  myFlds <- c("SITE", "Index.Name", "SPECIES", "TOTAL", "TYPE", "PTOLR", "NATIVE_MBSS"
-              , "TROPHIC_MBSS", "SILT", "TOTBIOM"
+  myFlds <- c("SITE", "Index.Name", "SPECIES", "TOTAL", "TYPE", "PTOLR"
+              , "NATIVE_MBSS", "TROPHIC_MBSS", "SILT", "TOTBIOM"
               , "FIBISTRATA", "ACREAGE", "LEN_SAMP", "AVWID")
   # Error check on fields
   if (length(myFlds)!=sum(myFlds %in% names(myDF))) {
@@ -525,11 +611,17 @@ metric.values.fish <- function(myDF, SampleID, MetricNames=NULL, boo.Adjust){##F
   }## IF ~ QC, Strata ~ END
 
   # Calculate Metrics (could have used pipe, %>%)
-  met.val <- dplyr::summarise(dplyr::group_by(myDF, Index.Name, SITE, FIBISTRATA
-                                              , ACREAGE, LEN_SAMP, AVWID)
+  met.val <- dplyr::summarise(dplyr::group_by(myDF
+                                              , Index.Name
+                                              , SITE
+                                              , FIBISTRATA
+                                              , ACREAGE
+                                              , LEN_SAMP
+                                              , AVWID)
                        #
                        # MBSS 2005, 11 metrics
-                       # (can do metrics as one step but MBSS output has numerator so will get that as well)
+                       # (can do metrics as one step but MBSS output has
+                       # numerator so will get that as well)
                        #
                        # individuals, total
                        ,ni_total=sum(TOTAL)
@@ -547,14 +639,19 @@ metric.values.fish <- function(myDF, SampleID, MetricNames=NULL, boo.Adjust){##F
                         #
                        # number of taxa
                        ,nt_total=dplyr::n_distinct(SPECIES)
-                       ,nt_benthic=dplyr::n_distinct(SPECIES[TYPE=="DARTER"|TYPE=="SCULPIN"|TYPE=="MADTOM"|TYPE=="LAMPREY"])
+                       ,nt_benthic=dplyr::n_distinct(SPECIES[TYPE=="DARTER"|
+                                                               TYPE=="SCULPIN"|
+                                                               TYPE=="MADTOM"|
+                                                               TYPE=="LAMPREY"])
                       #
                        # Feeding
                        # % Lithophilic spawners
                        ,ni_lithophil=sum(TOTAL[SILT=="Y"])
                        ,pi_lithophil=ni_lithophil/ni_total
                        # % gen, omn, invert
-                       , ni_genomninvrt=sum(TOTAL[TROPHIC_MBSS=="GE" | TROPHIC_MBSS=="OM" | TROPHIC_MBSS=="IV"])
+                       , ni_genomninvrt=sum(TOTAL[TROPHIC_MBSS=="GE" |
+                                                    TROPHIC_MBSS=="OM" |
+                                                    TROPHIC_MBSS=="IV"])
                        ,pi_genomninvrt=ni_genomninvrt / ni_total
                        # % insectivore
                       ,ni_insectivore=sum(TOTAL[TROPHIC_MBSS=="IS"])
@@ -577,7 +674,8 @@ metric.values.fish <- function(myDF, SampleID, MetricNames=NULL, boo.Adjust){##F
                        ,x_biomass_m2=x_biomass_total/area #/(StWidAvg*StLength)
                        # #
                        # # BCG
-                       # ,nt_BCG_att123=n_distinct(Count[EXCLUDE!=TRUE & (BCG_Atr=="1" | BCG_Atr=="2" | BCG_Atr=="3")])
+                       # ,nt_BCG_att123=n_distinct(Count[EXCLUDE!=TRUE &
+                      # (BCG_Atr=="1" | BCG_Atr=="2" | BCG_Atr=="3")])
                        #
                        # MBSS metric names
                        , STRMAREA  = area
@@ -614,14 +712,16 @@ metric.values.fish <- function(myDF, SampleID, MetricNames=NULL, boo.Adjust){##F
   #
   # # subset to only metrics specified by user
   # if (!is.null(MetricNames)){
-  #   met.val <- met.val[,c(Index.Name, SITE, FIBISTRATA, ACREAGE, LEN_SAMP, MetricNames)]
+  #   met.val <- met.val[,c(Index.Name, SITE, FIBISTRATA, ACREAGE, LEN_SAMP
+  # , MetricNames)]
   # }
   myFlds_Remove <- c("ni_total", "ni_rbs", "pi_rbs", "ni_brooktrout"
                      , "pi_brooktrout", "ni_sculpin", "pi_sculpin", "nt_total"
-                     , "nt_benthic", "ni_lithophil", "pi_lithophil", "ni_genomninvrt"
-                     , "pi_genomninvrt", "ni_insectivore", "pi_insectivore", "ni_tv_toler"
-                     , "pi_tv_toler", "pi_dom01", "area", "ni_m2"
-                     , "x_biomass_total", "x_biomass_m2")
+                     , "nt_benthic", "ni_lithophil", "pi_lithophil"
+                     , "ni_genomninvrt", "pi_genomninvrt", "ni_insectivore"
+                     , "pi_insectivore", "ni_tv_toler", "pi_tv_toler"
+                     , "pi_dom01", "area", "ni_m2", "x_biomass_total"
+                     , "x_biomass_m2")
   met.val <- met.val[,-match(myFlds_Remove,names(met.val))]
 
 
@@ -644,9 +744,12 @@ metric.values.fish <- function(myDF, SampleID, MetricNames=NULL, boo.Adjust){##F
       met.val[,"NUMBENTSP_b"][met.val[, "FIBISTRATA"] == "EPIEDMONT"] <- -2.36
       met.val[,"NUMBENTSP_b"][met.val[, "FIBISTRATA"] == "HIGHLAND"]  <- -2.35
       # Calc Expected
-      met.val[,"NUMBENTSP_Exp"] <- (met.val[,"NUMBENTSP_m"] * log10(met.val[,"ACREAGE"])) + met.val[,"NUMBENTSP_b"]
+      met.val[,"NUMBENTSP_Exp"] <- (met.val[,"NUMBENTSP_m"] *
+                                      log10(met.val[,"ACREAGE"])) +
+                                      met.val[,"NUMBENTSP_b"]
       # Calc Adjusted
-      met.val[,"NUMBENTSP_Adj"] <- met.val[,"NUMBENTSP_Obs"] / met.val[,"NUMBENTSP_Exp"]
+      met.val[,"NUMBENTSP_Adj"] <- met.val[, "NUMBENTSP_Obs"] /
+                                            met.val[, "NUMBENTSP_Exp"]
       # Rename base metric with adjusted value
       met.val[,"NUMBENTSP"] <- met.val[,"NUMBENTSP_Adj"]
       # NA to zero
@@ -660,9 +763,17 @@ metric.values.fish <- function(myDF, SampleID, MetricNames=NULL, boo.Adjust){##F
 #
 #
 #' @export
-metric.values.algae <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.metric.values.algae.START
+metric.values.algae <- function(myDF
+                                , MetricNames=NULL
+                                , boo.Adjust) {
+  # bindings for global variables ----
+  SampleID <- N_TAXA <- NULL
+
   # Calculate Metrics (could have used pipe, %>%)
-    met.val <- dplyr::summarise(dplyr::group_by(myDF, SampleID, "Index.Name", "Index.Region")
+    met.val <- dplyr::summarise(dplyr::group_by(myDF
+                                                , SampleID
+                                                , "Index.Name"
+                                                , "Index.Region")
                 #
                 # individuals, total
                 ,ni_total=sum(N_TAXA)
@@ -672,8 +783,12 @@ metric.values.algae <- function(myDF, MetricNames=NULL, boo.Adjust){##FUNCTION.m
     met.val[is.na(met.val)] <- 0
     # subset to only metrics specified by user
     if (!is.null(MetricNames)){
-      met.val <- met.val[,c(SampleID, "Index.Name", "Index.Region", "ni_total", MetricNames)]
+      met.val <- met.val[,c(SampleID
+                            , "Index.Name"
+                            , "Index.Region"
+                            , "ni_total"
+                            , MetricNames)]
     }
     # df to report back
     return(met.val)
-}##FUNCTION.metric.values.algae.END
+}##FUNCTION ~ metric.values.algae ~ END

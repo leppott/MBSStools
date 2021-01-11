@@ -54,8 +54,8 @@ Bug metric values assumes the following fields (all upper case)
 * N_TAXA = Number of taxon collected in sample.
 
 * EXCLUDE = Non-unique taxa (i.e., parent taxon with one or more children
-taxa present in sample).  Logical field.  TRUE = do not include in taxa richness
-metrics.
+taxa present in sample).  Logical field.  TRUE = do not include in taxa
+richness metrics.
 
 * STRATA_R = Benthic macroinvertebrate region (COASTAL, EPIEDMONT, or
 HIGHLAND).
@@ -75,8 +75,8 @@ Additional fields needed:
 
 + FAM_TV (need to include all the same fields, just leave blank).
 
-For the EXCLUDE column there is additional QC to account for common non-standard
-entries.
+For the EXCLUDE column there is additional QC to account for common
+non-standard entries.
 
 * "Y" or "yes" will convert to TRUE.
 
@@ -120,7 +120,7 @@ thresh <- metrics_scoring
 # Taxa Data
 myDF.Fish <- taxa_fish
 myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish)
-View(myMetric.Values.Fish)
+#View(myMetric.Values.Fish)
 
 # Metrics, Index, Benthic Macroinvertebrates, genus
 # (generate values then scores)
@@ -134,7 +134,7 @@ thresh <- metrics_scoring
 myDF.Bugs.MBSS <- taxa_bugs_genus
 myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs",
 myMetrics.Bugs.MBSS)
-View(myMetric.Values.Bugs.MBSS)
+#View(myMetric.Values.Bugs.MBSS)
 
 # Metrics, MSW Index, Benthic Macroinvertebrates, family
 myIndex <- "MSW.1999.Bugs"
@@ -147,5 +147,5 @@ thresh <- metrics_scoring
 myDF.Bugs.MSW <- taxa_bugs_family
 myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs",
 myMetrics.Bugs.MSW)
-View(myMetric.Values.Bugs.MSW)
+#View(myMetric.Values.Bugs.MSW)
 }

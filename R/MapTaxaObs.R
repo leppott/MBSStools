@@ -32,8 +32,10 @@
 #' Default = "Maps"
 #' @param verbose Boolean value for including feedback to the user that the
 #' script is working.  Default = TRUE.
+#'
 #' @return Saves the maps and a dataframe of observed taxa not matching xwalk
 #' taxa to the dirMaps folder.
+#'
 #' @examples
 #' # Set Working Directory
 #' wd <- getwd()
@@ -66,10 +68,15 @@
 #' MapTaxaObs(Obs, XWalk, wd)
 #
 #' @export
-MapTaxaObs <- function(obs, xWalk, dirMain = getwd(), onlymatches = TRUE
-                       , dirData = "Data", dirGIS = "GIS", dirMaps = "Maps"
+MapTaxaObs <- function(obs
+                       , xWalk
+                       , dirMain = getwd()
+                       , onlymatches = TRUE
+                       , dirData = "Data"
+                       , dirGIS = "GIS"
+                       , dirMaps = "Maps"
                        , verbose = TRUE
-                       ) {##FUNCTION.MapTaxaObs.START
+                       ) {
     # # # # 0. QC
     # obs <- "AllFish_95to16.xls"
     # xWalk <- "TaxaMapsCrossWalk2.xlsx"
@@ -80,6 +87,11 @@ MapTaxaObs <- function(obs, xWalk, dirMain = getwd(), onlymatches = TRUE
     # dirMaps <- "Maps"
     # verbose <- TRUE
     # i <- 1
+
+    # 2021-01-10
+    # Define missing variables
+    # bindings for global variables -----
+    CommonName <- MapName <- NULL
 
     # 1. Define Parameters ####
     #mainDir <- dir
@@ -175,10 +187,10 @@ MapTaxaObs <- function(obs, xWalk, dirMain = getwd(), onlymatches = TRUE
     if (onlymatches == TRUE) {
         # Create a data frame of common names and filenames for matching taxa
         map.taxa <- subset(df.lu.taxa, CommonName %in% df.taxa.match[,"CommonName"],
-                           select = c(CommonName,MapName))
+                           select = c(CommonName, MapName))
     } else {
         map.taxa.match <- subset(df.lu.taxa, CommonName %in% df.taxa.match[,"CommonName"],
-                            select = c(CommonName,MapName))
+                            select = c(CommonName, MapName))
         taxa.nomatch <- subset(df.taxa.obs, CommonName %in% df.taxa.nomatch[,"CommonName"],
                             select = CommonName)
         map.taxa.nomatch <- as.data.frame(unique(sort(taxa.nomatch$CommonName)))

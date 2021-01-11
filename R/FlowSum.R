@@ -34,8 +34,8 @@
 #' flow.cell <- FlowSum(MBSS.flow, returnType = "cell")
 #' flow.sample <- FlowSum(MBSS.flow)
 #' # examine data
-#' View(flow.cell)
-#' View(flow.sample)
+#' #View(flow.cell)
+#' #View(flow.sample)
 #' # Example Save file (tab delimited text file)
 #' #datetime <- format(Sys.time(), "%Y%m%d_%H%M%S")
 #' #myYear <- "15"

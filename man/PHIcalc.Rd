@@ -36,7 +36,7 @@ No special libraries are needed for this function.
 # calculate PHI
 PHI <- PHIcalc(MBSS.PHI)
 # examine data
-View(PHI)
+#View(PHI)
 # Example Save file
 #datetime <- format(Sys.time(),"\%Y\%m\%d_\%H\%M\%S")
 #write.table(PHI,paste0("PHI_",datetime,".tab"),row.names=FALSE,sep="\t")

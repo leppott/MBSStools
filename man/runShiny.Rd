@@ -10,8 +10,8 @@ runShiny()
 Launches Shiny app for MBSStools.
 }
 \details{
-The Shiny app based on the R package MBSStools is included in the R package.
-This function launches that app.
+The Shiny app based on the R package MBSStools is included in the R
+package. This function launches that app.
 
 The Shiny app is online at:
 https://leppott.shinyapps.io/MBSStools

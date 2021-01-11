@@ -42,17 +42,17 @@ data.ion <- MBSS.Ion.Data
 ref.ion <- MBSS.Ion.Ref
 # Calculate Percent Contribution by Ion (data table only)
 contrib.ion <- IonContrib(data.ion)
-View(contrib.ion)
+#View(contrib.ion)
 # Calculate Percent Contribution by Ion (data table and reference table)
 contrib.ion.2 <- IonContrib(data.ion, ref.ion)
-View(contrib.ion.2)
+#View(contrib.ion.2)
 # Calculate Percent Contribution by Ion (data table, reference table, and
 conductivity values)
 ## add dummy conductivity values for each sample
 myCond <- "Cond"
 data.ion[,myCond] <- 4000
 contrib.ion.3 <- IonContrib(data.ion, ref.ion, myCond)
-View(contrib.ion.3)
+#View(contrib.ion.3)
 # Save Results (use write.table())
 # Plot Results
 myIons <- c("Chloride (mg/L)", "Bromide (mg/L)", "Nitrate-N (mg/L)",

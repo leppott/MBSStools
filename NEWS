@@ -3,7 +3,24 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-01-10 19:18:35
+    #> Last Update: 2021-01-10 22:04:41
+
+# MBSStools v1.1.0.9034 (2021-01-10)
+
+  - chore: Add bindings for global variables
+      - MapTaxaObs
+      - metric.scores
+      - metric.values
+  - style: Trim lines to 80 characters
+      - metric.scores
+      - runShiny
+      - PHIcalc
+  - chore: Remove View() from examples
+      - metric.scores
+      - metric.values
+      - PHIcalc
+      - IonContrib
+      - FlowSum
 
 # MBSStools v1.1.0.9033 (2021-01-10)
 

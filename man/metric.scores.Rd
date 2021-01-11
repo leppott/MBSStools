@@ -25,7 +25,8 @@ vector of scores
 }
 \description{
 This function calculates metric scores based on a Thresholds data frame.
-Can generate scores for 1/3/5 (ScoreRegime="135") for MD DNR MBSS FIBI and BIBI.
+Can generate scores for 1/3/5 (ScoreRegime="135") for MD DNR MBSS FIBI and
+BIBI.
 }
 \details{
 The inputs and outputs have been designed to mimic those used by MBSS staff.
@@ -45,18 +46,21 @@ thresh <- metrics_scoring
 myDF.Fish <- taxa_fish
 myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish,
 TRUE)
-View(myMetric.Values.Fish)
+# View(myMetric.Values.Fish)
 # SCORE
 Metrics.Fish.Scores <- metric.scores(myMetric.Values.Fish, myMetrics.Fish,
 "Index.Name", "FIBISTRATA", thresh)
 # View Results
-View(Metrics.Fish.Scores)
+# View(Metrics.Fish.Scores)
 # Add Narrative
 myBreaks <- c(1:5)
 myLabels <- c("Very Poor", "Poor", "Fair", "Good")
 Metrics.Fish.Scores$IBI_Nar <- cut(Metrics.Fish.Scores$IBI
-                                   , breaks=myBreaks, labels=myLabels
-                                   , include.lowest=TRUE, right=FALSE, ordered_result=TRUE)
+                                   , breaks=myBreaks
+                                   , labels=myLabels
+                                   , include.lowest=TRUE
+                                   , right=FALSE
+                                   , ordered_result=TRUE)
 # QC, IBI Numeric vs. Narrative
 table(Metrics.Fish.Scores$IBI, Metrics.Fish.Scores$IBI_Nar, useNA="ifany")
 
@@ -72,20 +76,25 @@ thresh <- metrics_scoring
 myDF.Bugs.MBSS <- taxa_bugs_genus
 myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs",
 myMetrics.Bugs.MBSS)
-View(myMetric.Values.Bugs.MBSS)
+# View(myMetric.Values.Bugs.MBSS)
 # SCORE
 Metrics.Bugs.Scores.MBSS <- metric.scores(myMetric.Values.Bugs.MBSS,
 myMetrics.Bugs.MBSS, "INDEX.NAME", "STRATA_R", thresh)
 # View Results
-View(Metrics.Bugs.Scores.MBSS)
+# View(Metrics.Bugs.Scores.MBSS)
 # Add Narrative
 myBreaks <- c(1:5)
 myLabels <- c("Very Poor", "Poor", "Fair", "Good")
 Metrics.Bugs.Scores.MBSS$IBI_Nar <- cut(Metrics.Bugs.Scores.MBSS$IBI
-                                   , breaks=myBreaks, labels=myLabels
-                                   , include.lowest=TRUE, right=FALSE, ordered_result=TRUE)
+                                   , breaks=myBreaks
+                                   , labels=myLabels
+                                   , include.lowest=TRUE
+                                   , right=FALSE
+                                   , ordered_result=TRUE)
 # QC, IBI Numeric vs. Narrative
-table(Metrics.Bugs.Scores.MBSS$IBI, Metrics.Bugs.Scores.MBSS$IBI_Nar, useNA="ifany")
+table(Metrics.Bugs.Scores.MBSS$IBI
+      , Metrics.Bugs.Scores.MBSS$IBI_Nar
+      , useNA="ifany")
 
 # QC bug count
 Metrics.Bugs.Scores.MBSS[Metrics.Bugs.Scores.MBSS[,"totind"]>120,
@@ -108,18 +117,22 @@ thresh <- metrics_scoring
 myDF.Bugs.MSW <- taxa_bugs_family
 myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs",
 myMetrics.Bugs.MSW)
-View(myMetric.Values.Bugs.MSW)
+# View(myMetric.Values.Bugs.MSW)
 # SCORE
 Metrics.Bugs.Scores.MSW <- metric.scores(myMetric.Values.Bugs.MSW,
 myMetrics.Bugs.MSW, "INDEX.NAME", "STRATA_R", thresh)
 # View Results
-View(Metrics.Bugs.Scores.MSW)
+# View(Metrics.Bugs.Scores.MSW)
 # Add Narrative
 myBreaks <- c(1:5)
 myLabels <- c("Very Poor", "Poor", "Fair", "Good")
 Metrics.Bugs.Scores.MSW$IBI_Nar <- cut(Metrics.Bugs.Scores.MSW$IBI
-                                   , breaks=myBreaks, labels=myLabels
-                                   , include.lowest=TRUE, right=FALSE, ordered_result=TRUE)
+                                   , breaks=myBreaks
+                                   , labels=myLabels
+                                   , include.lowest=TRUE
+                                   , right=FALSE
+                                   , ordered_result=TRUE)
 # QC, IBI Numeric vs. Narrative
-table(Metrics.Bugs.Scores.MSW$IBI, Metrics.Bugs.Scores.MSW$IBI_Nar, useNA="ifany")
+table(Metrics.Bugs.Scores.MSW$IBI, Metrics.Bugs.Scores.MSW$IBI_Nar
+, useNA="ifany")
 }
