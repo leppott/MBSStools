@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>metrics_scoring — metrics_scoring • MBSStools</title>
+<title>Calculate Metric Values for Fish — metric.values.fish • MBSStools</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="metrics_scoring — metrics_scoring" />
-<meta property="og:description" content="MBSS IBI scoring information.  Used for scoring metrics in BIBI and FIBI." />
+<meta property="og:title" content="Calculate Metric Values for Fish — metric.values.fish" />
+<meta property="og:description" content="Subfunction of metric.values()" />
 
 
 
@@ -123,25 +123,49 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>metrics_scoring</h1>
-    <small class="dont-index">Source: <a href='https://github.com/leppott/MBSStools/blob/master/R/data.r'><code>R/data.r</code></a></small>
-    <div class="hidden name"><code>metrics_scoring.Rd</code></div>
+    <h1>Calculate Metric Values for Fish</h1>
+    <small class="dont-index">Source: <a href='https://github.com/leppott/MBSStools/blob/master/R/metric.values.R'><code>R/metric.values.R</code></a></small>
+    <div class="hidden name"><code>metric.values.fish.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>MBSS IBI scoring information.  Used for scoring metrics in BIBI and FIBI.</p>
+    <p>Subfunction of metric.values()</p>
     </div>
 
-    <pre class="usage"><span class='va'>metrics_scoring</span></pre>
+    <pre class="usage"><span class='fu'>metric.values.fish</span><span class='op'>(</span><span class='va'>myDF</span>, <span class='va'>SampleID</span>, MetricNames <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>boo.Adjust</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>myDF</th>
+      <td><p>Data frame of taxa (list required fields)</p></td>
+    </tr>
+    <tr>
+      <th>SampleID</th>
+      <td><p>Sample ID column</p></td>
+    </tr>
+    <tr>
+      <th>MetricNames</th>
+      <td><p>Optional vector of metric names to be returned.  If
+none are supplied then all will be returned.</p></td>
+    </tr>
+    <tr>
+      <th>boo.Adjust</th>
+      <td><p>Optional boolean value on whether to perform adjustments of
+values prior to scoring.  Default = FALSE but will always be TRUE for fish
+metrics.</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a dataframe with 69 observations and 8 variables:</p>
-    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
+    <p>data frame of SampleID and metric values to metric.values()</p>
 
-    <p>Reference scoring thresholds for BIBI and FIBI, Southerland et al. 2005.</p>
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># None</span>
 
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
