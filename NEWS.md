@@ -3,7 +3,11 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-01-11 07:02:05
+    #> Last Update: 2021-01-12 07:11:05
+
+# MBSStools v1.1.0.9036 (2021-01-12)
+
+  - chore: Rename files in instwith non-portable names
 
 # MBSStools v1.1.0.9035 (2021-01-11)
 
