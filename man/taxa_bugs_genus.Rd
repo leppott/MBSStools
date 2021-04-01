@@ -14,6 +14,7 @@ MBSS 2016 benthic macroinvertebrate genus data.
 taxa_bugs_genus
 }
 \description{
-MBSS benthic macroinvertebrate genus taxa information from 2016.  Used as example for calculating metrics and index.
+MBSS benthic macroinvertebrate genus taxa information from 2016.  Used as
+example for calculating metrics and index.
 }
 \keyword{datasets}

@@ -14,6 +14,7 @@ MBSS 2016 benthic macroinvertebrate saved as MSW family data.
 taxa_bugs_family
 }
 \description{
-MSW benthic macroinvertebrate family taxa information from MBSS 2016 data.  Used as example for calculating metrics and index.
+MSW benthic macroinvertebrate family taxa information from MBSS 2016 data.
+Used as example for calculating metrics and index.
 }
 \keyword{datasets}

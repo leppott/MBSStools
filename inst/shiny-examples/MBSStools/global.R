@@ -27,25 +27,33 @@ df_mt_fish  <- read.csv(url_mt_fish)
 url_mt_bugs <- "https://github.com/leppott/MBSStools_SupportFiles/raw/master/Data/CHAR_Bugs.csv"
 df_mt_bugs  <- read.csv(url_mt_bugs)
 
-# Metrics.Bugs.Scores.MBSS <- read.csv(file.path(".", "Results", "Metrics.Bugs.Scores.MBSS.csv"))
+# Metrics.Bugs.Scores.MBSS <- read.csv(file.path(".", "Results"
+# , "Metrics.Bugs.Scores.MBSS.csv"))
 #
-# Metrics.Fish.Scores <- read.csv(file.path(".", "Results", "Metrics.Fish.Scores.csv"))
+# Metrics.Fish.Scores <- read.csv(file.path(".", "Results"
+# , "Metrics.Fish.Scores.csv"))
 
 
-# plot_BIBI <- ggplot(Metrics.Bugs.Scores.MBSS, aes(IBI), fill=STRATA_R, shape=STRATA_R) +
+# plot_BIBI <- ggplot(Metrics.Bugs.Scores.MBSS, aes(IBI), fill=STRATA_R
+# , shape=STRATA_R) +
 #                     geom_dotplot(aes(fill=STRATA_R)) +
 #                     labs(x="BIBI") + geom_vline(xintercept = 3) +
 #                     scale_x_continuous(limits = c(1, 5)) +
-#                     scale_fill_discrete(name="STRATA", breaks=c("COASTAL", "EPIEDMONT", "HIGHLAND")) +
-#                     theme(axis.title.y=element_blank(), axis.ticks.y=element_blank(), axis.text.y=element_blank())
+#                     scale_fill_discrete(name="STRATA", breaks=c("COASTAL"
+# , "EPIEDMONT", "HIGHLAND")) +
+#                     theme(axis.title.y=element_blank()
+# , axis.ticks.y=element_blank(), axis.text.y=element_blank())
 #
-# plot_FIBI <- ggplot(Metrics.Fish.Scores, aes(IBI), fill=FIBISTRATA, shape=FIBISTRATA) +
+# plot_FIBI <- ggplot(Metrics.Fish.Scores, aes(IBI), fill=FIBISTRATA
+# , shape=FIBISTRATA) +
 #                     geom_dotplot(aes(fill=FIBISTRATA)) + #balks at bins=30
 #                     labs(x="FIBI") +
 #                     geom_vline(xintercept = 3) +
 #                     scale_x_continuous(limits = c(1, 5)) +
-#                     scale_fill_discrete(name="STRATA", breaks=c("COASTAL", "EPIEDMONT", "HIGHLAND", "COLD")) +
-#                     theme(axis.title.y=element_blank(), axis.ticks.y=element_blank(), axis.text.y=element_blank())
+#                     scale_fill_discrete(name="STRATA", breaks=c("COASTAL"
+# , "EPIEDMONT", "HIGHLAND", "COLD")) +
+#                     theme(axis.title.y=element_blank()
+# , axis.ticks.y=element_blank(), axis.text.y=element_blank())
 #
 
 # https://stackoverflow.com/questions/51292957/is-there-a-way-to-open-a-users-vignette-in-a-shiny-link

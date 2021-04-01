@@ -77,7 +77,7 @@ IonContrib <- function(ion.data
   # col.Cond <- ""
 
   if(is.na(ion.ref)) {
-    ion.ref = MBSStools::MBSS.Ion.Ref
+    ion.ref <- MBSStools::MBSS.Ion.Ref
   }##IF ~ is.na(ion.ref) ~ END
 
   # 0. Rename Data
@@ -89,31 +89,40 @@ IonContrib <- function(ion.data
   ion.ref.MyIons <- ion.ref[ion.ref$Name %in% myIons,]
   #     ** Need to ensure are in SortOrder
   # 2. Add Multiplier to Data
-  data.calc[,c(paste0("Mult.",myIons))] <- ion.ref.MyIons[ion.ref.MyIons[,"Name"]==myIons,"Multiplier"]
+  data.calc[,c(paste0("Mult.",myIons))] <- ion.ref.MyIons[ion.ref.MyIons[
+                                                  ,"Name"]==myIons,"Multiplier"]
   # 3. Calculate Conductivty Per Ion
-  data.calc[,c(paste0("Cond.",myIons))] <- data.calc[,myIons] * data.calc[,c(paste0("Mult.",myIons))]
+  data.calc[,c(paste0("Cond.",myIons))] <- data.calc[,myIons] * data.calc[
+                                                     ,c(paste0("Mult.",myIons))]
   # 4. Calculate Total Conductivity
   # 4.1. Subtotal Conductivity based on Ions present in data file
   CondSubTotal <-"Cond.SubTotal"
   data.calc[,CondSubTotal] <- rowSums(data.calc[,c(paste0("Cond.",myIons))])
   # 4.2. Total Conductivity
-  # Use provided name for total cond.  If "blank" use only ions given in data file.
+  # Use provided name for total cond.
+  #    If "blank" use only ions given in data file.
   # If have a name will need to computer "Other"
   ## make subtotal = total, just in case total col is invalid
   CondTotal <- "Cond.Total"
   data.calc[,CondTotal] <- data.calc[,CondSubTotal]
   if (col.Cond!=""){
     data.calc[,"Cond.Total"] <- data.calc[,col.Cond]
-    cat("Conductivity values provided. \n Ion contributions (including 'other') calculated from these values.")
+    cat("Conductivity values provided. \n
+        Ion contributions (including 'other') calculated from these values.")
   } else {
-    cat("*No* conductivity values provided.  \n Ion contributions calculated from the sum of calculated ion conductivity values.")
+    cat("*No* conductivity values provided.  \n
+        Ion contributions calculated from the sum of calculated ion conductivity
+        values.")
   }
   Other <- "Other (mg/L)"
-  data.calc[,paste0("Cond.",Other)] <- data.calc[,"Cond.Total"] - data.calc[,CondSubTotal]
+  data.calc[,paste0("Cond.",Other)] <- data.calc[,"Cond.Total"] - data.calc[
+                                                                  ,CondSubTotal]
   # 5. Calculate Percent Contribution Per Ion
-  data.calc[,paste0("PctContrib.",c(myIons,Other))] <- data.calc[,c(paste0("Cond.",c(myIons,Other)))] / data.calc[,CondTotal]
+  data.calc[,paste0("PctContrib.",c(myIons,Other))] <- data.calc[
+                    ,c(paste0("Cond.",c(myIons,Other)))] / data.calc[,CondTotal]
   # 6. Add QC field for percentages
-  data.calc[,"QC.PctContrib"] <- rowSums(data.calc[c(paste0("PctContrib.",c(myIons,Other)))])
+  data.calc[,"QC.PctContrib"] <- rowSums(data.calc[c(paste0("PctContrib."
+                                                            ,c(myIons,Other)))])
   # 7. Return Data Frame
   return(data.calc)
 }##FUNCTION.IonContrib.END

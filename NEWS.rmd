@@ -16,6 +16,22 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+
+MBSStools v1.1.0.9037 (2021-04-01)
+================
+* style:  Fix items from goodpractice::gp()
+    + Trim lines to 80 characters
+        - IonContrib
+        - test-qc_taxa
+        - qc_taxa
+        - data
+        - MapTaxaObs
+        - server
+        - global
+    + Replace '=' with '<-'
+        - IonContrib
+* style: Fix typos
+
 MBSStools v1.1.0.9036 (2021-01-12)
 ================
 * chore: Rename files in inst\extdata with non-portable names
@@ -55,7 +71,7 @@ MBSStools v1.1.0.9033 (2021-01-10)
 * chore: Add non standard files to .Rbuildignore
     + NEWS.rmd
     + README.Rmd
-* chore: Change default for ion.ref parameter in IonConrib to NA
+* chore: Change default for ion.ref parameter in IonContrib to NA
     + Use MBSS.Ion.Ref if NA
 
 MBSStools v1.1.0.9032 (2020-12-27)

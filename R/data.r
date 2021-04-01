@@ -2,7 +2,8 @@
 #'
 #' MBSS Physical Habitat Index (PHI) data.
 #'
-#' @source PHI worksheet (Excel) master file from Paul et al. 2003_MBSS (ea-03-4_phi).
+#' @source PHI worksheet (Excel) master file from Paul et al. 2003_MBSS
+#' (ea-03-4_phi).
 #' @format a data frame with 81 observations and 20 variables:
 #'
 #'
@@ -30,7 +31,8 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' MBSS.Ion.Ref
 #'
-#' MBSS ion reference data.  Used for calculating percent contribution of an ion to overall sample conductivity.
+#' MBSS ion reference data.  Used for calculating percent contribution of an ion
+#'  to overall sample conductivity.
 #'
 #' @source Reference values for ion contribution calculations.
 #' @format a data frame with 13 observations and 8 variables:
@@ -42,7 +44,8 @@
 #'
 #' MBSS IBI scoring information.  Used for scoring metrics in BIBI and FIBI.
 #'
-#' @source Reference scoring thresholds for BIBI and FIBI, Southerland et al. 2005.
+#' @source Reference scoring thresholds for BIBI and FIBI, Southerland et al.
+#' 2005.
 #' @format a dataframe with 69 observations and 8 variables:
 #'
 #'
@@ -50,7 +53,8 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' taxa_fish
 #'
-#' MBSS fish taxa information from 2016.  Used as example for calculating metrics and index.
+#' MBSS fish taxa information from 2016.  Used as example for calculating
+#' metrics and index.
 #' One additional "No Fish Observed" sampled added for testing.
 #'
 #' @source MBSS 2016 fish data.
@@ -61,7 +65,8 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' taxa_bugs_genus
 #'
-#' MBSS benthic macroinvertebrate genus taxa information from 2016.  Used as example for calculating metrics and index.
+#' MBSS benthic macroinvertebrate genus taxa information from 2016.  Used as
+#' example for calculating metrics and index.
 #'
 #' @source MBSS 2016 benthic macroinvertebrate genus data.
 #' @format a dataframe with 5066 observations and 20 variables:
@@ -71,7 +76,8 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' taxa_bugs_family
 #'
-#' MSW benthic macroinvertebrate family taxa information from MBSS 2016 data.  Used as example for calculating metrics and index.
+#' MSW benthic macroinvertebrate family taxa information from MBSS 2016 data.
+#' Used as example for calculating metrics and index.
 #'
 #' @source MBSS 2016 benthic macroinvertebrate saved as MSW family data.
 #' @format a dataframe with 2749 observations and 20 variables:

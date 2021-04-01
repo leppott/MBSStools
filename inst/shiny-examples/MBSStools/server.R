@@ -69,7 +69,9 @@ shinyServer(function(input, output) {
     write.table(df_input, fn_input, row.names=FALSE, col.names=TRUE, sep="\t")
 
     # Copy to "Results" folder - Import "as is"
-    file.copy(input$fn_input$datapath, file.path(".", "Results", input$fn_input$name))
+    file.copy(input$fn_input$datapath, file.path("."
+                                                 , "Results"
+                                                 , input$fn_input$name))
 
     # read.table(file = inFile$datapath, header = input$header,
     #          sep = input$sep, quote = input$quote)
@@ -91,7 +93,10 @@ shinyServer(function(input, output) {
 
       # sink output
       #fn_sink <- file.path(".", "Results", "results_log.txt")
-      file_sink <- file(file.path(".", "Results", "results_log.txt"), open = "wt")
+      file_sink <- file(file.path("."
+                                  , "Results"
+                                  , "results_log.txt")
+                        , open = "wt")
       sink(file_sink, type = "output", append = TRUE)
       sink(file_sink, type = "message", append = TRUE)
       # Log
@@ -153,7 +158,8 @@ shinyServer(function(input, output) {
 
       #myIndex <- input$MMI
       thresh <- MBSStools::metrics_scoring
-      myMetrics <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"MetricName.Other"])))
+      myMetrics <- as.character(droplevels(unique(thresh[thresh[
+        ,"Index.Name"]==myIndex,"MetricName.Other"])))
       #
      # myCommunity <- Community[match(myIndex, MMIs)]
       myCol_Strata <- col_Strata[match(myIndex, MMIs)]
@@ -165,7 +171,8 @@ shinyServer(function(input, output) {
       #
       # Save
       # fn_metval <- file.path(".", "Results", "results_metval.tsv")
-      # write.table(df_metval, fn_metval, row.names = FALSE, col.names = TRUE, sep="\t")
+      # write.table(df_metval, fn_metval, row.names = FALSE, col.names = TRUE
+      #, sep="\t")
       fn_metval <- file.path(".", "Results", "results_metval.csv")
       write.csv(df_metval, fn_metval, row.names = FALSE)
       #
@@ -193,7 +200,8 @@ shinyServer(function(input, output) {
                               , ordered_result=TRUE)
       # Save
       # fn_metsc <- file.path(".", "Results", "results_metsc.tsv")
-      # write.table(df_metsc, fn_metsc, row.names = FALSE, col.names = TRUE, sep="\t")
+      # write.table(df_metsc, fn_metsc, row.names = FALSE, col.names = TRUE
+      # , sep="\t")
       fn_metsc <- file.path(".", "Results", "results_metsc.csv")
       write.csv(df_metsc, fn_metsc, row.names = FALSE)
 
@@ -205,13 +213,17 @@ shinyServer(function(input, output) {
 
       # Plot
       p1 <- ggplot(df_metsc, aes(IBI), fill=myCol_Strata, shape=myCol_Strata) +
-                  geom_dotplot(aes_string(fill=myCol_Strata), method="histodot", binwidth = 1/5) +
+                  geom_dotplot(aes_string(fill=myCol_Strata)
+                               , method="histodot"
+                               , binwidth = 1/5) +
                   #geom_dotplot(aes_string(fill=myCol_Strata)) +
                   labs(x=myIndex) +
                   geom_vline(xintercept = 3) +
                   scale_x_continuous(limits = c(1, 5)) +
                   # scale_fill_discrete(name="STRATA"
-                  #                     , breaks=c("COASTAL", "EPIEDMONT", "HIGHLAND")) +
+                  #                     , breaks=c("COASTAL"
+        #                                          , "EPIEDMONT"
+        #                                          , "HIGHLAND")) +
                   theme(axis.title.y=element_blank()
                         , axis.ticks.y=element_blank()
                         , axis.text.y=element_blank())
@@ -347,7 +359,8 @@ shinyServer(function(input, output) {
   # Enable in b_Calc instead
   # observe({
   #   fn_zip_toggle <- paste0("results", ".zip")
-  #   shinyjs::toggleState(id="b_downloadData", condition = file.exists(file.path(".", "Results", fn_zip_toggle)) == TRUE)
+  #   shinyjs::toggleState(id="b_downloadData", condition =
+  #              file.exists(file.path(".", "Results", fn_zip_toggle)) == TRUE)
   # })##~toggleState~END
 
 
@@ -357,7 +370,9 @@ shinyServer(function(input, output) {
     #myDateTime <- format(Sys.time(), "%Y%m%d_%H%M%S")
 
     filename = function() {
-      paste(input$MMI, "_", format(Sys.time(), "%Y%m%d_%H%M%S"), ".zip", sep = "")
+      paste(input$MMI, "_"
+            , format(Sys.time(), "%Y%m%d_%H%M%S"), ".zip"
+            , sep = "")
     },
     content = function(fname) {##content~START
      # tmpdir <- tempdir()
@@ -373,7 +388,8 @@ shinyServer(function(input, output) {
       #
       # Create Zip file
       #zip(zipfile = fname, files=fs)
-      #if(file.exists(paste0(fname, ".zip"))) {file.rename(paste0(fname, ".zip"), fname)}
+      #if(file.exists(paste0(fname, ".zip"))) {file.rename(paste0(fname, ".zip")
+      # , fname)}
 
       file.copy(file.path(".", "Results", "results.zip"), fname)
 

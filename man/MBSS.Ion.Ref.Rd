@@ -14,6 +14,7 @@ Reference values for ion contribution calculations.
 MBSS.Ion.Ref
 }
 \description{
-MBSS ion reference data.  Used for calculating percent contribution of an ion to overall sample conductivity.
+MBSS ion reference data.  Used for calculating percent contribution of an ion
+ to overall sample conductivity.
 }
 \keyword{datasets}

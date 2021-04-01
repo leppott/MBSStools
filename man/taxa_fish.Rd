@@ -14,7 +14,8 @@ MBSS 2016 fish data.
 taxa_fish
 }
 \description{
-MBSS fish taxa information from 2016.  Used as example for calculating metrics and index.
+MBSS fish taxa information from 2016.  Used as example for calculating
+metrics and index.
 One additional "No Fish Observed" sampled added for testing.
 }
 \keyword{datasets}
