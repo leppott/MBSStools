@@ -81,7 +81,7 @@ Plotting is done outside of this function." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9036</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9037</span>
       </span>
     </div>
 
@@ -188,11 +188,15 @@ conductivity", "total conductivity", "percent contribution" (per ion).</p>
 <span class='co'># Calculate Percent Contribution by Ion (data table only)</span>
 <span class='va'>contrib.ion</span> <span class='op'>&lt;-</span> <span class='fu'>IonContrib</span><span class='op'>(</span><span class='va'>data.ion</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; *No* conductivity values provided.  
-#&gt;  Ion contributions calculated from the sum of calculated ion conductivity values.</div><div class='input'><span class='co'>#View(contrib.ion)</span>
+#&gt; 
+#&gt;         Ion contributions calculated from the sum of calculated ion conductivity
+#&gt;         values.</div><div class='input'><span class='co'>#View(contrib.ion)</span>
 <span class='co'># Calculate Percent Contribution by Ion (data table and reference table)</span>
 <span class='va'>contrib.ion.2</span> <span class='op'>&lt;-</span> <span class='fu'>IonContrib</span><span class='op'>(</span><span class='va'>data.ion</span>, <span class='va'>ref.ion</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; *No* conductivity values provided.  
-#&gt;  Ion contributions calculated from the sum of calculated ion conductivity values.</div><div class='input'><span class='co'>#View(contrib.ion.2)</span>
+#&gt; 
+#&gt;         Ion contributions calculated from the sum of calculated ion conductivity
+#&gt;         values.</div><div class='input'><span class='co'>#View(contrib.ion.2)</span>
 <span class='co'># Calculate Percent Contribution by Ion (data table, reference table, and</span>
 <span class='co'># conductivity values)</span>
 <span class='co'>## add dummy conductivity values for each sample</span>
@@ -200,7 +204,8 @@ conductivity", "total conductivity", "percent contribution" (per ion).</p>
 <span class='va'>data.ion</span><span class='op'>[</span>,<span class='va'>myCond</span><span class='op'>]</span> <span class='op'>&lt;-</span> <span class='fl'>4000</span>
 <span class='va'>contrib.ion.3</span> <span class='op'>&lt;-</span> <span class='fu'>IonContrib</span><span class='op'>(</span><span class='va'>data.ion</span>, <span class='va'>ref.ion</span>, <span class='va'>myCond</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; <span class='warning'>Warning: the condition has length &gt; 1 and only the first element will be used</span></div><div class='output co'>#&gt; Conductivity values provided. 
-#&gt;  Ion contributions (including 'other') calculated from these values.</div><div class='input'><span class='co'>#View(contrib.ion.3)</span>
+#&gt; 
+#&gt;         Ion contributions (including 'other') calculated from these values.</div><div class='input'><span class='co'>#View(contrib.ion.3)</span>
 <span class='co'># Save Results (use write.table())</span>
 <span class='co'># Plot Results</span>
 <span class='va'>myIons</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Chloride (mg/L)"</span>, <span class='st'>"Bromide (mg/L)"</span>, <span class='st'>"Nitrate-N (mg/L)"</span>,

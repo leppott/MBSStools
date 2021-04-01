@@ -40,8 +40,9 @@
 
 
 <meta property="og:title" content="Quality Control Check on User Data Against Master Taxa List — qc_taxa" />
-<meta property="og:description" content="This function compares the user's data frame to a data frame with the official
-(or user supplied) master taxa list (fish or benthic macroinvertebrates)." />
+<meta property="og:description" content="This function compares the user's data frame to a data frame with the
+official (or user supplied) master taxa list (fish or benthic
+macroinvertebrates)." />
 
 
 
@@ -73,7 +74,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9036</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9037</span>
       </span>
     </div>
 
@@ -130,8 +131,9 @@
     </div>
 
     <div class="ref-description">
-    <p>This function compares the user's data frame to a data frame with the official
-(or user supplied) master taxa list (fish or benthic macroinvertebrates).</p>
+    <p>This function compares the user's data frame to a data frame with the
+official (or user supplied) master taxa list (fish or benthic
+macroinvertebrates).</p>
     </div>
 
     <pre class="usage"><span class='fu'>qc_taxa</span><span class='op'>(</span>
@@ -150,12 +152,14 @@
     </tr>
     <tr>
       <th>DF_Official</th>
-      <td><p>Official MBSS master taxa list.  Can be a local file or from a URL.
+      <td><p>Official MBSS master taxa list.  Can be a local file or
+from a URL.
 Default is NULL.  A NULL value will use the official online files.</p></td>
     </tr>
     <tr>
       <th>fun.Community</th>
-      <td><p>Community name for which to compare the master taxa list (bugs or fish).</p></td>
+      <td><p>Community name for which to compare the master taxa list
+(bugs or fish).</p></td>
     </tr>
     <tr>
       <th>useMBSSTaxaInfo</th>
@@ -174,20 +178,23 @@ Default = "only_MBSS".</p></td>
     <p>Output is a data frame with matches.</p>
 <p>Messages are output to the console with the number of matches and which user
 taxa did not match the official list.</p>
-<p>The official list is stored online but the user can input their own saved copy.</p>
-<p>Any columns in the user input file that match the official master taxa list will
-be renamed with the "_NonMBBS" suffix.</p>
-<p>New/different taxa in the user data are handled by the 'useMBSSTaxaInfo' parameter.
-For taxa that did not match the master taxa list the user has options on how to
-handle the differences for the phylogeny (e.g., columns for phylum, class,
-family, etc.) and autecology (e.g., columns for FFG, habit, tolerance value
-, etc.).  The options are below.</p>
-<p>* only_MBSS = use only MBSS master taxa information.  Any non-matching taxa will
-not have any master taxa information.</p>
-<p>* only_user = only use the information provided by the user.  Information from the 'MBSS'
-will not be used.  This should only be used for non-official calculations of the MBSS IBIs.</p>
-<p>* add_new = hybrid approach that uses MBSS master taxa information, when present, but includes user
-information for non-matching taxa if the column names match.</p>
+<p>The official list is stored online but the user can input their own saved
+copy.</p>
+<p>Any columns in the user input file that match the official master taxa list
+will be renamed with the "_NonMBBS" suffix.</p>
+<p>New/different taxa in the user data are handled by the 'useMBSSTaxaInfo'
+parameter.  For taxa that did not match the master taxa list the user has
+options on how to handle the differences for the phylogeny (e.g., columns for
+phylum, class, family, etc.) and autecology (e.g., columns for FFG, habit,
+tolerance value, etc.).  The options are below.</p>
+<p>* only_MBSS = use only MBSS master taxa information.  Any non-matching taxa
+will not have any master taxa information.</p>
+<p>* only_user = only use the information provided by the user.  Information
+from the 'MBSS' will not be used.  This should only be used for non-official
+calculations of the MBSS IBIs.</p>
+<p>* add_new = hybrid approach that uses MBSS master taxa information, when
+present, but includes user information for non-matching taxa if the column
+names match.</p>
 <p>Default master taxa lists are saved as CSV files online at:</p>
 <p>https://github.com/leppott/MBSStools_SupportFiles</p>
 <p>The files can be downloaded with the following code.</p>
@@ -197,14 +204,15 @@ df_mt_bugs &lt;- read.csv(url_mt_bugs)</p>
 <p>**Fish**
 url_mt_fish &lt;- "https://github.com/leppott/MBSStools_SupportFiles/raw/master/Data/CHAR_Fish.csv"
 df_mt_fish&lt;- read.csv(url_mt_fish)</p>
-<p>These files are maintained by MBSS staff.  Update dates will be logged on the GitHub repository.</p>
+<p>These files are maintained by MBSS staff.  Update dates will be logged on the
+GitHub repository.</p>
 <p>Expected fields include:</p>
 <p>**Benthic Macroinvertebrates**</p>
-<p>+ TAXON, Phylum, Class, Order, Family, Genus, Other_Taxa, Tribe, FFG, FAM_TV
-      , Habit, FinalTolVal07, Comment</p>
+<p>+ TAXON, Phylum, Class, Order, Family, Genus, Other_Taxa, Tribe, FFG,
+      FAM_TV, Habit, FinalTolVal07, Comment</p>
 <p>**Fish**</p>
-<p>+ SPECIES, TYPE, PTOLR, NATIVE, TROPHIC, SILT, PIRHALLA, DATA.ADDED, REASON
-      , SOURCE, FAM, GENUS, SP_SCI, IN_KEY, APPROX_ID</p>
+<p>+ SPECIES, TYPE, PTOLR, NATIVE, TROPHIC, SILT, PIRHALLA, DATA.ADDED,
+      REASON, SOURCE, FAM, GENUS, SP_SCI, IN_KEY, APPROX_ID</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
@@ -218,7 +226,10 @@ df_mt_fish&lt;- read.csv(url_mt_fish)</p>
 <span class='va'>fun.Community</span> <span class='op'>=</span> <span class='st'>"bugs"</span>
 <span class='va'>useMBSSTaxaInfo</span> <span class='op'>=</span> <span class='st'>"only_MBSS"</span>
 
-<span class='va'>df_qc_taxa_bugs</span> <span class='op'>&lt;-</span> <span class='fu'>qc_taxa</span><span class='op'>(</span><span class='va'>DF_User</span>, <span class='va'>DF_Official</span>, <span class='va'>fun.Community</span>, <span class='va'>useMBSSTaxaInfo</span><span class='op'>)</span>
+<span class='va'>df_qc_taxa_bugs</span> <span class='op'>&lt;-</span> <span class='fu'>qc_taxa</span><span class='op'>(</span><span class='va'>DF_User</span>
+                          , <span class='va'>DF_Official</span>
+                          , <span class='va'>fun.Community</span>
+                          , <span class='va'>useMBSSTaxaInfo</span><span class='op'>)</span>
 
 <span class='co'># QC input/output</span>
 <span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>DF_User</span><span class='op'>)</span>
@@ -237,7 +248,10 @@ df_mt_fish&lt;- read.csv(url_mt_fish)</p>
 <span class='va'>fun.Community</span> <span class='op'>=</span> <span class='st'>"fish"</span>
 <span class='va'>useMBSSTaxaInfo</span> <span class='op'>=</span> <span class='st'>"add_new"</span>
 
-<span class='va'>df_qc_taxa_fish</span> <span class='op'>&lt;-</span> <span class='fu'>qc_taxa</span><span class='op'>(</span><span class='va'>DF_User</span>, <span class='va'>DF_Official</span>, <span class='va'>fun.Community</span>, <span class='va'>useMBSSTaxaInfo</span><span class='op'>)</span>
+<span class='va'>df_qc_taxa_fish</span> <span class='op'>&lt;-</span> <span class='fu'>qc_taxa</span><span class='op'>(</span><span class='va'>DF_User</span>
+                           , <span class='va'>DF_Official</span>
+                           , <span class='va'>fun.Community</span>
+                           , <span class='va'>useMBSSTaxaInfo</span><span class='op'>)</span>
 
 <span class='co'># QC input/output</span>
 <span class='fu'><a href='https://rdrr.io/r/base/dim.html'>dim</a></span><span class='op'>(</span><span class='va'>DF_User</span><span class='op'>)</span>
