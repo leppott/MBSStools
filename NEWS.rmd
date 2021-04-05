@@ -17,6 +17,20 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.1.0.9039 (2021-04-04)
+================   
+
+* refactor: Update install code example
+    + README
+    + MBSStools_vignette.Rmd
+* refactor: Update example, MapTaxaObs
+    + Change getwd() to tempdir()
+    
+MBSStools v1.1.0.9038 (2021-04-04)
+================   
+
+* docs: Update spelling and language in MBSStools_vignette.Rmd
+
 MBSStools v1.1.0.9037 (2021-04-01)
 ================
 * style:  Fix items from goodpractice::gp()

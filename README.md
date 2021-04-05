@@ -3,7 +3,7 @@ README-MBSStools
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-01-10 19:18:18
+    #> Last Update: 2021-04-05 12:58:03
 
 Suite of tools for data manipulation and calculations for Maryland DNR
 MBSS program.
@@ -31,10 +31,15 @@ releases](https://img.shields.io/github/downloads/leppott/MBSStools/total.svg)](
 
 ## Installation
 
+To install the current version of this package use the code below to
+install from GitHub. The use of “force = TRUE” ensures the package is
+installed even if already present. If the package `remotes` is missing
+the code below will install it. Vigenettes are not insalled by default.
+The use of “build\_vignettes = TRUE” will install the vignettes.
+
 ``` r
-library(devtools)  #install if needed
-# Sys.setenv("TAR" = "internal") # needed for use with R v3.6.0
-install_github("leppott/MBSStools", force=TRUE, build_vignettes=TRUE)
+if(!require(remotes)){install.packages("remotes")}  #install if needed
+install_github("leppott/MBSStools", force=TRUE, build_vignettes = TRUE)
 ```
 
 ## Purpose

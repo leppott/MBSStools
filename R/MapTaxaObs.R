@@ -38,7 +38,7 @@
 #'
 #' @examples
 #' # Set Working Directory
-#' wd <- getwd()
+#' wd <- tempdir()
 #' # Create Example Data if Needed
 #' ## Create Directories
 #' myDir.create <- file.path(wd,"Data")
@@ -62,7 +62,7 @@
 #' # Inputs
 #' Obs <- "AllFish_95to16.xls"
 #' XWalk <- "TaxaMapsCrossWalk20170731.xlsx"
-#' wd <- getwd()
+#' wd <- tempdir()
 #'
 #' # Create maps
 #' MapTaxaObs(Obs, XWalk, wd)

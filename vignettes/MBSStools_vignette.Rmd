@@ -21,9 +21,8 @@ Many of the examples in this vignette are included in the example sections in th
 The R library is saved on GitHub (https://github.com/leppott/MBSStools) for ease of updating and distribution.  Issues can be tracked, fixed, and code is available for download.  Current users of `MBSStools` can update the library using the same code used to install the library (see below).  Devtools is required to download from GitHub.  At this time, there are no plans to submit `MBSStools` to CRAN (R's library repository).
 
 ```{r install, eval=FALSE}
-install.packages("devtools")
-library(devtools)
-install_github("leppott/MBSStools")
+if(!require(remotes)){install.packages("remotes")}  #install if needed
+install_github("leppott/MBSStools", force = TRUE, build_vignettes = TRUE)
 ```
 
 To contact the author directly email Erik.Leppo@tetratech.com.

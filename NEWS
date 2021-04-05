@@ -3,7 +3,19 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-04-01 15:01:16
+    #> Last Update: 2021-04-05 12:59:35
+
+# MBSStools v1.1.0.9039 (2021-04-04)
+
+-   refactor: Update install code example
+    -   README
+    -   MBSStools\_vignette.Rmd
+-   refactor: Update example, MapTaxaObs
+    -   Change getwd() to tempdir()
+
+# MBSStools v1.1.0.9038 (2021-04-04)
+
+-   docs: Update spelling and language in MBSStools\_vignette.Rmd
 
 # MBSStools v1.1.0.9037 (2021-04-01)
 
