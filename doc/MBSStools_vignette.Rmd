@@ -29,7 +29,7 @@ install_github("leppott/MBSStools")
 To contact the author directly email Erik.Leppo@tetratech.com.
 
 # Packages
-Serveral packages were used to build the functionality in `MBSStools`.  
+Several packages were used to build the functionality in `MBSStools`.  
 
 1. FlowSum; no extra packages
 
@@ -48,7 +48,7 @@ These packages should install automatically when `MBSStools` installs.  But if y
 To install packages follow the example of the code below for installing `dplyr`.
 
 ```{r install example 2, eval=FALSE}
-install.package("dplyr")
+install.packages("dplyr")
 ```
 
 
@@ -65,19 +65,19 @@ There are several functions included in the library each with a particular focus
 
 5. Physical Habitat Index (PHI) calculation.
 
-Example data included with each function.
+Example data are included with each function.
 
 ## IBI
 
-`MBSStools` calculates both the benthic macroinvertebrate IBI (BIBI) and fish IBI (FIBI).  THe IBIs are described in the document Southerland et al. 2005 that is included in the /extdata folder of the library.
+`MBSStools` calculates both the benthic macroinvertebrate IBI (BIBI) and fish IBI (FIBI).  The IBIs are described in the document Southerland et al. 2005 that is included in the /extdata folder of the library.
 
-There are two functions; metric.values() to calculate the metrics (e.g., total individuals or total taxa) and metric.scores() that converts the metric values to the appropriate score (e.g., 1, 3, or 5).  The functions are the save for fish and benthic macroinvertebrates.  Only the argument fun.Community needs to be changed to "bugs" or "fish".
+There are two functions; metric.values() to calculate the metrics (e.g., total individuals or total taxa) and metric.scores() that converts the metric values to the appropriate score (e.g., 1, 3, or 5).  The functions are the same for fish and benthic macroinvertebrates.  Only the argument fun.Community needs to be changed to "bugs" or "fish".
 
 `MBSStools` does **not** aggregate or compile taxa lists.  Taxa data with site/sample information, counts, phylogenetic (phylum, class, order, etc), and autecological (habit, tolerance value, and function feeding group) information is required as an input to the functions.  Fish data needs the additional values of watershed (catchment) area (in acres), average stream width, and reach length.
 
 In background is a file (/data-raw/metrics.scoring.tab) wiht a table of metric names, scoring thresholds, index name, and index regions.  These can be changed to modify the index names, bioregions, metric names, and scoring thresholds.  This table can be modified and used as input into the function.  For simplicity this table is included by default.
 
-The functions metric.values() and metric.scores() require the `dplyr` function.
+The functions metric.values() and metric.scores() require the `dplyr` library.
 
 ### IBI, Fish
 Calculates the fish IBI.
@@ -88,7 +88,7 @@ Fish metric values assumes the following fields (all upper case)
 
 * SITE = MBSS sample identifier.
 
-* FIBISTRATA = Fish region (COASTAL, EPIEDMONT, WARM, COLD).
+* FIBISTRATA = Fish region (COASTAL, COLD, EPIEDMONT, HIGHLAND).
 
 * ACREAGE = Catchment area in acres.
 
@@ -98,7 +98,7 @@ Fish metric values assumes the following fields (all upper case)
 
 * SPECIES = MBSS fish taxa name.
 
-* TOTAL = Number of fish collected in sample.
+* TOTAL = Number of sampled individuals corresponding to specified taxon.
 
 * TYPE = Fish group identifier (ALL CAPS); SCULPIN, DARTER, MADTOM, etc.
 
@@ -106,10 +106,12 @@ Fish metric values assumes the following fields (all upper case)
 
 * PTOLR = Pollution tolerance level (ALL CAPS); T, I, NO TYPE.
 
+** Sites with a single record indicating "No Fish Observed" receive a default score of 1.00.
+
 ```{r IBI Fish, echo=TRUE}
 # Metrics, Fish
 library(MBSStools)
-#(generate values then score)s
+#(generate values then scores)
 myIndex <- "MBSS.2005.Fish"
 # Thresholds
 thresh <- metrics_scoring
@@ -132,19 +134,23 @@ Bug metric values assumes the following fields (all upper case)
 
 * TAXON = MBSS benthic macroinvertebrate name.
 
-* N_TAXA = Number of taxon collected in sample.
+* N_TAXA = Number of sampled individuals corresponding to specified taxon.
 
-* EXCLUDE = Non-unique taxa (i.e., parent taxon with one or more children taxa present in sample). "Y" = do not include in taxa richness metrics. * STRATA_R = Benthic macroinvertebrate region (COASTAL, EPIEDMONT, or HIGHLAND).
+* EXCLUDE = Non-unique taxa (i.e., parent taxon with one or more children taxa present in sample). "Y" = do not include in taxa richness metrics. 
 
-* Phylogenetic fields
+* STRATA_R = Benthic macroinvertebrate region (COASTAL, EPIEDMONT, or HIGHLAND).
 
-+ (PHYLUM), CLASS, ORDER, FAMILY, GENUS, OTHER_TAXA, TRIBE, FFG, HABIT, FINALTOLVAL07
+* Phylogenetic fields:
++ PHYLUM, CLASS, ORDER, FAMILY, GENUS, OTHER_TAXA, TRIBE
 
-Valid values for FFG: col, fil, pre, scr, shr
+* Autoecological fields:
++ FFG, HABIT, FINALTOLVAL07
+
+Valid values for FFG: COLLECTOR, FILTERER, PIERCER, PREDATOR, SCRAPER, SHREDDER
 
 Valid values for HABIT: BU, CB, CN, SP, SW
 
-MSW data should be first combined to family level and EXCLUDE recalculated.
+Maryland Stream Waders (MSW) data should be first combined to family level and EXCLUDE recalculated.
 
 Additional fields needed:
 
@@ -177,7 +183,27 @@ knitr::kable(head(Metrics.Bugs.Scores.MBSS))
 ```
 
 ### IBI, Benthic Macroinvertebrates, MSW
-The Maryland Stream Wader index is from Stribling et al. 1999.  Family level identifications need to be provided by the user.  Metric values and scores shown below for example data.  This index has only two bioregions (CP = Coastal Plain and NCP = Non-Coastal Plain).
+The Maryland Stream Wader index is from Stribling et al. 1999. Metric values and scores shown below for example data.
+
+* SITE = Sample identifier.
+
+* TAXON = MSW benthic macroinvertebrate name (Family-level identification).
+
+* N_TAXA = Number of taxon collected in sample.
+
+* EXCLUDE = Non-unique taxa (i.e., parent taxon with one or more children taxa present in sample).
++ "Y" = do not include in taxa richness metrics.
+
+* STRATA_R =This index has only two bioregions (CP=Coastal Plain, NCP=Non-Coastal Plain).
+
+* Phylogenetic fields:  
++ PHYLUM, CLASS, ORDER, FAMILY
+
+* Autoecological field:
++ FAM_TV
+
+
+
 ```{r IBI Ben MSW, echo=TRUE}
 # Metrics, MSW Index, Benthic Macroinvertebrates, family
 myIndex <- "MSW.1999.Bugs"
@@ -196,10 +222,8 @@ knitr::kable(head(Metrics.Bugs.Scores.MSW))
 ```
 
 ## Fish Distribution Maps
-The intent of this function is to recreate the taxa distribution maps on the MBSS  websitehttp://eyesonthebay.dnr.maryland.gov/mbss/fishes.cfm.
-The maps for all taxa can be generated from a single line of code and then given to the web site maintainers as replacements. 
-
-The maps for all taxa can be generated from a single line of code and then given to the web site maintainers as replacements.  The maps generated with this function use a 'crosswalk' table that converts taxa names to map names.
+The intent of this function is to recreate the taxa distribution maps on the MBSS  website: http://eyesonthebay.dnr.maryland.gov/mbss/fishes.cfm.
+The maps for all taxa can be generated from a single line of code. The maps generated with this function use a 'crosswalk' table that converts taxa names to map names.
 
 The function MapTaxaObs() requires the `readxl` and `rgdal` packages.
 
@@ -276,7 +300,7 @@ head(df.lu.taxa)
 ```
 
 ## Map Creation
-The code below can be used to generate the maps (n=131) associated with the 1995 to 2016 data.  Any taxa without a match in the crosswalk table (n=54) are listed in a CSV file and the number reported to the user in the R console but maps are not generated (by default).  If the user wants all maps then the parameter 'onlymatches' should be set to 'FALSE' (as in the example below).
+The code below can be used to generate the maps (n=131) associated with the 1995 to 2016 data.  Any taxa without a match in the crosswalk table (n=54) are listed in a CSV file and the number reported to the user in the R console, but maps are not generated (by default).  If the user wants all maps then the parameter 'onlymatches' should be set to 'FALSE' (as in the example below).
 
 ```{r TaxaMaps Example Code, eval=FALSE}
 # Set Working Directory
@@ -406,7 +430,7 @@ taxon <- as.character(map.taxa$CommonName[i])
 ## Stream Discharge
 Calculate stream discharge based on field measurements.  Side channels that are properly identified in the data will be included.
 
-The function FlowSum() requires the no additional packages.
+The function FlowSum() requires no additional packages.
 
 ```{r Discharge, eval=FALSE}
 library(MBSStools)
@@ -425,13 +449,13 @@ write.table(flow.sample,paste0("SumFlow",myYear,"_",datetime,".tab"),row.names=F
 ```
 
 ## Ion Matrix
-The IonContrib() function calculates conductivity contribution from provided ion concentrations using Kohlrausch's Law. If a total conductivity measurement is not provided the total conductivity is calculated as the sum of all ions present in the data. If the user provides a conductivity measurement then ion contributions are a percentage of that number. In the latter case "Other" is added as an ion to capture any percentage of total conductivity not represented by the provided ions. Plotting is done outside of this function.
+The IonContrib() function calculates conductivity contribution from provided ion concentrations using Kohlrausch's Law. If a total conductivity measurement is not provided, the total conductivity is calculated as the sum of all ions present in the data. If the user provides a conductivity measurement, then ion contributions are a percentage of that number. In the latter case, "Other" is added as an ion to capture any percentage of total conductivity not represented by the provided ions. Plotting is done outside of this function.
 
 Data will need to be in "wide" format.  That is, a single record for each sample and the ions to be analyzed in columns.
 
 A reference table of ions and their equivalent ionic conductance at infinite dilution is provided with the function as "MBSS.Ion.Ref".  The function allows for input of a user supplied data frame if this table needs updating with more ions.
 
-The function IonContrib() requires the no additional packages.
+The function IonContrib() requires no additional packages.
 
 ```{r Ion Ref, echo=FALSE, results='asis'} 
 knitr::kable(MBSS.Ion.Ref)
@@ -503,14 +527,14 @@ There are two versions of the calculation based on pre- and post-2000.  The func
 
 The input is a data frame with column names matching the variables collected in the field along with SampleID, bioregion, and area (acres).
 
-The function PHIcalc() requires the no additional packages.
+The function PHIcalc() requires no additional packages.
 
 ```{r PHI Input, echo=FALSE, results='asis'}
 x <- MBSS.PHI
 knitr::kable(head(x))
 ```
 
-The function returns a dataframe of reslts that need to be saved (e.g., write.table()).  The result table from the example data is shown below.
+The function returns a dataframe of results that need to be saved (e.g., write.table()).  The result table from the example data is shown below.
 
 ```{r PHI Results, echo=TRUE}
 library(MBSStools)
@@ -522,10 +546,11 @@ knitr::kable(head(PHI))
 ```
 
 # Shiny
-Included in the package is an example Shiny package to calculates the three IBI's for MBSS.
+Included in the package is an example Shiny package to calculate the three IBI's for MBSS.  The the function runShiny() requires the “shinyjs” package. 
 
 ```{r runShiny, echo=TRUE, eval=FALSE}
 library(MBSStools)
+library(shinyjs)
 runShiny()
 ```
 
