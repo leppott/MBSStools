@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9037</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9039</span>
       </span>
     </div>
 
@@ -106,9 +106,8 @@
 <a href="#installation" class="anchor"></a>Installation</h1>
 <p>The R library is saved on GitHub (<a href="https://github.com/leppott/MBSStools" class="uri">https://github.com/leppott/MBSStools</a>) for ease of updating and distribution. Issues can be tracked, fixed, and code is available for download. Current users of <code>MBSStools</code> can update the library using the same code used to install the library (see below). Devtools is required to download from GitHub. At this time, there are no plans to submit <code>MBSStools</code> to CRAN (R’s library repository).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">devtools</span><span class="op">)</span>
-<span class="fu">install_github</span><span class="op">(</span><span class="st">"leppott/MBSStools"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org">remotes</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span><span class="op">}</span>  <span class="co">#install if needed</span>
+<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"leppott/MBSStools"</span>, force <span class="op">=</span> <span class="cn">TRUE</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p>To contact the author directly email <a href="mailto:Erik.Leppo@tetratech.com" class="email">Erik.Leppo@tetratech.com</a>.</p>
 </div>
 <div id="packages" class="section level1">

@@ -75,7 +75,7 @@ files are assumed to be Excel with the data on the first worksheet." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9037</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9039</span>
       </span>
     </div>
 
@@ -212,16 +212,16 @@ stops and prints missing directories/files to screen.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Set Working Directory</span>
-<span class='va'>wd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>wd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span>
 <span class='co'># Create Example Data if Needed</span>
 <span class='co'>## Create Directories</span>
 <span class='va'>myDir.create</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>wd</span>,<span class='st'>"Data"</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.exists</a></span><span class='op'>(</span><span class='va'>myDir.create</span><span class='op'>)</span><span class='op'>==</span><span class='cn'>FALSE</span>,<span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span><span class='op'>(</span><span class='va'>myDir.create</span><span class='op'>)</span>,<span class='st'>"Directory
 already exists"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "Directory\nalready exists"</div><div class='input'><span class='va'>myDir.create</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>wd</span>,<span class='st'>"GIS"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='va'>myDir.create</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>wd</span>,<span class='st'>"GIS"</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.exists</a></span><span class='op'>(</span><span class='va'>myDir.create</span><span class='op'>)</span><span class='op'>==</span><span class='cn'>FALSE</span>,<span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span><span class='op'>(</span><span class='va'>myDir.create</span><span class='op'>)</span>,<span class='st'>"Directory
 already exists"</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] "Directory\nalready exists"</div><div class='input'><span class='va'>myDir.create</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>wd</span>,<span class='st'>"Maps"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='va'>myDir.create</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>wd</span>,<span class='st'>"Maps"</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.exists</a></span><span class='op'>(</span><span class='va'>myDir.create</span><span class='op'>)</span><span class='op'>==</span><span class='cn'>FALSE</span>,<span class='fu'><a href='https://rdrr.io/r/base/files2.html'>dir.create</a></span><span class='op'>(</span><span class='va'>myDir.create</span><span class='op'>)</span>,<span class='st'>"Directory
 already exists"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; [1] TRUE</div><div class='input'><span class='co'>## Create Data</span>
@@ -229,29 +229,29 @@ already exists"</span><span class='op'>)</span>
 <span class='va'>myFiles</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"AllFish_95to16.xls"</span>, <span class='st'>"TaxaMapsCrossWalk20170731.xlsx"</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/base/files.html'>file.copy</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/find.package.html'>path.package</a></span><span class='op'>(</span><span class='st'>"MBSStools"</span><span class='op'>)</span>,<span class='st'>"extdata"</span>,<span class='va'>myFiles</span><span class='op'>)</span>,
 <span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>wd</span>,<span class='st'>"Data"</span>,<span class='va'>myFiles</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; [1] FALSE FALSE</div><div class='input'><span class='co'>### GIS</span>
+</div><div class='output co'>#&gt; [1] TRUE TRUE</div><div class='input'><span class='co'>### GIS</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/unzip.html'>unzip</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/find.package.html'>path.package</a></span><span class='op'>(</span><span class='st'>"MBSStools"</span><span class='op'>)</span>,<span class='st'>"extdata"</span>,<span class='st'>"MD_GIS.zip"</span><span class='op'>)</span>,
 exdir<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/file.path.html'>file.path</a></span><span class='op'>(</span><span class='va'>wd</span>,<span class='st'>"GIS"</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># Inputs</span>
 <span class='va'>Obs</span> <span class='op'>&lt;-</span> <span class='st'>"AllFish_95to16.xls"</span>
 <span class='va'>XWalk</span> <span class='op'>&lt;-</span> <span class='st'>"TaxaMapsCrossWalk20170731.xlsx"</span>
-<span class='va'>wd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/getwd.html'>getwd</a></span><span class='op'>(</span><span class='op'>)</span>
+<span class='va'>wd</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempdir</a></span><span class='op'>(</span><span class='op'>)</span>
 
 <span class='co'># Create maps</span>
 <span class='fu'>MapTaxaObs</span><span class='op'>(</span><span class='va'>Obs</span>, <span class='va'>XWalk</span>, <span class='va'>wd</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmpl5mUPo/file7f664a24d4a/reference</span></div><div class='output co'>#&gt; OGR data source with driver: ESRI Shapefile 
-#&gt; Source: "/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmpl5mUPo/file7f664a24d4a/reference/GIS", layer: "MD_State_Boundary"
+</div><div class='output co'>#&gt; <span class='message'>/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//Rtmputfxyb</span></div><div class='output co'>#&gt; OGR data source with driver: ESRI Shapefile 
+#&gt; Source: "/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmputfxyb/GIS", layer: "MD_State_Boundary"
 #&gt; with 2 features
 #&gt; It has 9 fields
 #&gt; Integer64 fields read as strings:  OBJECTID 
 #&gt; OGR data source with driver: ESRI Shapefile 
-#&gt; Source: "/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmpl5mUPo/file7f664a24d4a/reference/GIS", layer: "MD_Coast_Hydrology"
+#&gt; Source: "/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmputfxyb/GIS", layer: "MD_Coast_Hydrology"
 #&gt; with 1117 features
 #&gt; It has 9 fields
 #&gt; Integer64 fields read as strings:  OBJECTID 
 #&gt; OGR data source with driver: ESRI Shapefile 
-#&gt; Source: "/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmpl5mUPo/file7f664a24d4a/reference/GIS", layer: "MD_Boundary_County_Detailed"
+#&gt; Source: "/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmputfxyb/GIS", layer: "MD_Boundary_County_Detailed"
 #&gt; with 24 features
 #&gt; It has 7 fields
 #&gt; Integer64 fields read as strings:  OBJECTID DISTRICT COUNTY_FIP COUNTYNUM </div><div class='output co'>#&gt; <span class='error'>Error in as.double(y): cannot coerce type 'S4' to vector of type 'double'</span></div></pre>
