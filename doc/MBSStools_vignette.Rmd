@@ -75,7 +75,7 @@ There are two functions; metric.values() to calculate the metrics (e.g., total i
 
 `MBSStools` does **not** aggregate or compile taxa lists.  Taxa data with site/sample information, counts, phylogenetic (phylum, class, order, etc), and autecological (habit, tolerance value, and function feeding group) information is required as an input to the functions.  Fish data needs the additional values of watershed (catchment) area (in acres), average stream width, and reach length.
 
-In background is a file (/data-raw/metrics.scoring.tab) wiht a table of metric names, scoring thresholds, index name, and index regions.  These can be changed to modify the index names, bioregions, metric names, and scoring thresholds.  This table can be modified and used as input into the function.  For simplicity this table is included by default.
+A background file (/data-raw/metrics.scoring.tab) is included and provides a table with the metric names and scoring thresholds for each IBI and index region.  By default, this table is populated with the appropriate values for the MBSS IBIs.  This table can be modified.  
 
 The functions metric.values() and metric.scores() require the `dplyr` library.
 
@@ -120,11 +120,13 @@ thresh <- metrics_scoring
 # Taxa Data
 myDF.Fish <- taxa_fish
 myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish, TRUE)
-#View(myMetric.Values.Fish)
+View(myMetric.Values.Fish)
 # SCORE
 Metrics.Fish.Scores <- metric.scores(myMetric.Values.Fish, myMetrics.Fish, "Index.Name", "FIBISTRATA", thresh)
 # View Results
 knitr::kable(head(Metrics.Fish.Scores))
+#Write results to csv file
+write.csv(Metrics.Fish.Scores, “Filename.csv”)
 ```
 
 ### IBI, Benthic Macroinvertebrates, MBSS
@@ -168,11 +170,13 @@ thresh <- metrics_scoring
 # Taxa Data
 myDF.Bugs.MBSS <- taxa_bugs_genus
 myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs", myMetrics.Bugs.MBSS)
-#View(myMetric.Values.Bugs.MBSS)
+View(myMetric.Values.Bugs.MBSS)
 # SCORE
 Metrics.Bugs.Scores.MBSS <- metric.scores(myMetric.Values.Bugs.MBSS, myMetrics.Bugs.MBSS, "INDEX.NAME", "STRATA_R", thresh)
 # View Results
-#View(Metrics.Bugs.Scores.MBSS)
+View(Metrics.Bugs.Scores.MBSS)
+#Write results to csv file
+write.csv(Metrics.Bugs.Scores.MBSS, “Filename.csv”)
 
 # QC bug count
 Metrics.Bugs.Scores.MBSS[Metrics.Bugs.Scores.MBSS[,"totind"]>120,"QC_Count"] <- "LARGE"
@@ -333,17 +337,22 @@ library(rgdal)
 wd <- getwd()
 # Create Example Data if Needed
 ## Create Directories
+## Create a “Data” folder, a “GIS” folder, and a “Maps” folder
 myDir.create <- file.path(wd,"Data")
 ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
 myDir.create <- file.path(wd,"GIS")
 ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
 myDir.create <- file.path(wd,"Maps")
 ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
+
 ## Create Data
+## Make copies of datafiles and place into “Data” folder
 ### Taxa Data
 myFiles <- c("AllFish_95to16.xls", "TaxaMapsCrossWalk20170731.xlsx")
 file.copy(file.path(path.package("MBSStools"),"extdata",myFiles),file.path(wd,"Data",myFiles))
+
 ### GIS
+# Unzip GIS file in MBSS tools “extdata” folder and place in “GIS” folder
 unzip(file.path(path.package("MBSStools"),"extdata","MD_GIS.zip"),exdir=file.path(wd,"GIS"))
 
 
@@ -353,7 +362,7 @@ obs <- "AllFish_95to16.xls"
 xWalk <- "TaxaMapsCrossWalk20170731.xlsx"
 
 oldwd <- getwd()
-setwd("..") #resets to vignette dir when run as code chunk
+#setwd("..") resets to vignette dir when run as code chunk
 dirMain <- getwd()  
 dirData = "Data"
 dirGIS = "GIS"
@@ -367,7 +376,6 @@ taxa.lu <- system.file("extdata", xWalk, package = "MBSStools")
 df.taxa.obs <- readxl::read_excel(all.taxa,sheet=1,col_names=TRUE,skip=0)
 df.taxa.obs <- as.data.frame(df.taxa.obs)
 df.taxa.obs[,1] <- tolower(df.taxa.obs[,1])
-#df.taxa.obs <- as.data.frame(cbind(tolower(df.taxa.obs[,"TaxaName"]), df.taxa.obs[,2:3]))
 colnames(df.taxa.obs)[1] <- "CommonName"
 
 ## Trim to browntrout
@@ -378,8 +386,6 @@ df.taxa.obs <- df.taxa.obs[df.taxa.obs[,"CommonName"]=="brown trout",]
 df.lu.taxa <- readxl::read_excel(taxa.lu,sheet=1,col_names=TRUE,skip=0)
 df.lu.taxa <- as.data.frame(df.lu.taxa[,c("CommonName","MapName")])
 df.lu.taxa[,"CommonName"] <- tolower(df.lu.taxa[,"CommonName"])
-# df.lu.taxa <- as.data.frame(cbind(tolower(df.lu.taxa[,"CommonName"]),df.lu.taxa[,"MapName"]))
-# colnames(df.lu.taxa)[1:2] <- c("CommonName","MapName")
 
  # 4. Munge Data ####
 # Compare TaxaName to CommonName
@@ -397,7 +403,6 @@ colnames(df.taxa.match)[1] <- "CommonName"
 
 # 5. Mapping ####
 ppi <- 72
-#dsn<-paste(dirMain,dirGIS,sep="/")
 dsn <- file.path(dirMain, dirGIS)
 state     <- rgdal::readOGR(dsn = dsn, layer = "MD_State_Boundary", verbose=verbose)
 coastline <- rgdal::readOGR(dsn = dsn, layer = "MD_Coast_Hydrology", verbose=verbose)
@@ -416,7 +421,6 @@ taxon <- as.character(map.taxa$CommonName[i])
   plot(state, col="white", border="gray")
     plot(coastline, add = TRUE, col="light blue", border=FALSE)
     plot(counties, add = TRUE, col="white", border="darkslategray", lwd=0.5)
-    #xy <- df.taxon.sites[,2:3]
     proj.sites <- rgdal::project(cbind(df.taxon.sites$Longitude83,df.taxon.sites$Latitude83),
                           "+proj=lcc +lat_1=39.45 +lat_2=38.3 +lat_0=37.66666666666666 +lon_0=-77
             +x_0=400000 +y_0=0 +datum=NAD83 +units=m +no_defs")
@@ -472,12 +476,13 @@ Example code is below.  The user would then save the output (e.g., write.csv()).
 ```{r Ion Example, echo=TRUE, results='asis', warnings=FALSE}
 library(MBSStools)
 # Load Data
+# MBSS.Ion.Data = example dataset
 data.ion <- MBSS.Ion.Data
 # Load Reference Table
 ref.ion <- MBSS.Ion.Ref
 # Calculate Percent Contribution by Ion (data table only)
 contrib.ion <- IonContrib(data.ion)
-#knitr::kable(head(contrib.ion))
+knitr::kable(head(contrib.ion))
 ```
 
 Dot charts are a good way to display the data.  But any chart of the user's preference can be used.
@@ -489,16 +494,16 @@ data.ion <- MBSS.Ion.Data
 ref.ion <- MBSS.Ion.Ref
 # Calculate Percent Contribution by Ion (data table only)
 contrib.ion <- IonContrib(data.ion)
-#View(contrib.ion)
+View(contrib.ion)
 # Calculate Percent Contribution by Ion (data table and reference table)
 contrib.ion.2 <- IonContrib(data.ion, ref.ion)
-#View(contrib.ion.2)
+View(contrib.ion.2)
 # Calculate Percent Contribution by Ion (data table, reference table, and conductivity values)
 # ## add dummy conductivity values for each sample
-# myCond <- "Cond"
-# data.ion[,myCond] <- 4000
-# contrib.ion.3 <- IonContrib(data.ion, ref.ion, myCond)
-# View(contrib.ion.3)
+myCond <- "Cond"
+data.ion[,myCond] <- 4000
+contrib.ion.3 <- IonContrib(data.ion, ref.ion, myCond)
+View(contrib.ion.3)
 # Save Results (use write.table())
 # Plot Results
 myIons <- c("Chloride (mg/L)", "Bromide (mg/L)", "Nitrate-N (mg/L)", "Sulfate (mg/L)", "Sodium (mg/L)",
@@ -539,6 +544,7 @@ The function returns a dataframe of results that need to be saved (e.g., write.t
 ```{r PHI Results, echo=TRUE}
 library(MBSStools)
 # data
+# MBSS.PHI = example dataset
 myData <- MBSS.PHI
 # calculate PHI
 PHI <- PHIcalc(myData)
