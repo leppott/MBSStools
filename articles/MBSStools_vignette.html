@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9039</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9041</span>
       </span>
     </div>
 
@@ -106,14 +106,15 @@
 <a href="#installation" class="anchor"></a>Installation</h1>
 <p>The R library is saved on GitHub (<a href="https://github.com/leppott/MBSStools" class="uri">https://github.com/leppott/MBSStools</a>) for ease of updating and distribution. Issues can be tracked, fixed, and code is available for download. Current users of <code>MBSStools</code> can update the library using the same code used to install the library (see below). Devtools is required to download from GitHub. At this time, there are no plans to submit <code>MBSStools</code> to CRAN (R’s library repository).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org">remotes</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span><span class="op">}</span>  <span class="co">#install if needed</span>
-<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"leppott/MBSStools"</span>, force <span class="op">=</span> <span class="cn">TRUE</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">devtools</span><span class="op">)</span>
+<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"leppott/MBSStools"</span><span class="op">)</span></code></pre></div>
 <p>To contact the author directly email <a href="mailto:Erik.Leppo@tetratech.com" class="email">Erik.Leppo@tetratech.com</a>.</p>
 </div>
 <div id="packages" class="section level1">
 <h1 class="hasAnchor">
 <a href="#packages" class="anchor"></a>Packages</h1>
-<p>Serveral packages were used to build the functionality in <code>MBSStools</code>.</p>
+<p>Several packages were used to build the functionality in <code>MBSStools</code>.</p>
 <ol style="list-style-type: decimal">
 <li><p>FlowSum; no extra packages</p></li>
 <li><p>IonContrib; no extra packages</p></li>
@@ -125,7 +126,7 @@
 <p>These packages should install automatically when <code>MBSStools</code> installs. But if you encounter issues with a function not working ensure that the necessary package dependencies are installed.</p>
 <p>To install packages follow the example of the code below for installing <code>dplyr</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">install.package</span><span class="op">(</span><span class="st">"dplyr"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"dplyr"</span><span class="op">)</span></code></pre></div>
 </div>
 <div id="contents" class="section level1">
 <h1 class="hasAnchor">
@@ -138,15 +139,15 @@
 <li><p>Ion contribution to conductivity.</p></li>
 <li><p>Physical Habitat Index (PHI) calculation.</p></li>
 </ol>
-<p>Example data included with each function.</p>
+<p>Example data are included with each function.</p>
 <div id="ibi" class="section level2">
 <h2 class="hasAnchor">
 <a href="#ibi" class="anchor"></a>IBI</h2>
-<p><code>MBSStools</code> calculates both the benthic macroinvertebrate IBI (BIBI) and fish IBI (FIBI). THe IBIs are described in the document Southerland et al. 2005 that is included in the /extdata folder of the library.</p>
-<p>There are two functions; metric.values() to calculate the metrics (e.g., total individuals or total taxa) and metric.scores() that converts the metric values to the appropriate score (e.g., 1, 3, or 5). The functions are the save for fish and benthic macroinvertebrates. Only the argument fun.Community needs to be changed to “bugs” or “fish”.</p>
+<p><code>MBSStools</code> calculates both the benthic macroinvertebrate IBI (BIBI) and fish IBI (FIBI). The IBIs are described in the document Southerland et al. 2005 that is included in the /extdata folder of the library.</p>
+<p>There are two functions; metric.values() to calculate the metrics (e.g., total individuals or total taxa) and metric.scores() that converts the metric values to the appropriate score (e.g., 1, 3, or 5). The functions are the same for fish and benthic macroinvertebrates. Only the argument fun.Community needs to be changed to “bugs” or “fish”.</p>
 <p><code>MBSStools</code> does <strong>not</strong> aggregate or compile taxa lists. Taxa data with site/sample information, counts, phylogenetic (phylum, class, order, etc), and autecological (habit, tolerance value, and function feeding group) information is required as an input to the functions. Fish data needs the additional values of watershed (catchment) area (in acres), average stream width, and reach length.</p>
-<p>In background is a file (/data-raw/metrics.scoring.tab) wiht a table of metric names, scoring thresholds, index name, and index regions. These can be changed to modify the index names, bioregions, metric names, and scoring thresholds. This table can be modified and used as input into the function. For simplicity this table is included by default.</p>
-<p>The functions metric.values() and metric.scores() require the <code>dplyr</code> function.</p>
+<p>A background table (<code>metrics_scoring</code>) is included and provides a table with the metric names and scoring thresholds for each IBI and index region. This table is populated with the appropriate values for the MBSS IBIs. This table can be modified.</p>
+<p>The functions metric.values() and metric.scores() require the <code>dplyr</code> library.</p>
 <div id="ibi-fish" class="section level3">
 <h3 class="hasAnchor">
 <a href="#ibi-fish" class="anchor"></a>IBI, Fish</h3>
@@ -155,20 +156,21 @@
 <p>Fish metric values assumes the following fields (all upper case)</p>
 <ul>
 <li><p>SITE = MBSS sample identifier.</p></li>
-<li><p>FIBISTRATA = Fish region (COASTAL, EPIEDMONT, WARM, COLD).</p></li>
+<li><p>FIBISTRATA = Fish region (COASTAL, COLD, EPIEDMONT, HIGHLAND).</p></li>
 <li><p>ACREAGE = Catchment area in acres.</p></li>
 <li><p>LEN_SAMP = Length of stream sampled; typically 75-meters.</p></li>
 <li><p>AVWID = Average stream width (meters) for sampled site.</p></li>
 <li><p>SPECIES = MBSS fish taxa name.</p></li>
-<li><p>TOTAL = Number of fish collected in sample.</p></li>
+<li><p>TOTAL = Number of sampled individuals corresponding to specified taxon.</p></li>
 <li><p>TYPE = Fish group identifier (ALL CAPS); SCULPIN, DARTER, MADTOM, etc.</p></li>
 <li><p>TROPHIC_MBSS = MBSS tropic status designations (ALL CAPS); OM, GE, IS, IV, etc.</p></li>
 <li><p>PTOLR = Pollution tolerance level (ALL CAPS); T, I, NO TYPE.</p></li>
 </ul>
+<p>** Sites with a single record indicating “No Fish Observed” receive a default score of 1.00.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Metrics, Fish</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools">MBSStools</a></span><span class="op">)</span>
-<span class="co">#(generate values then score)s</span>
+<span class="co">#(generate values then scores)</span>
 <span class="va">myIndex</span> <span class="op">&lt;-</span> <span class="st">"MBSS.2005.Fish"</span>
 <span class="co"># Thresholds</span>
 <span class="va">thresh</span> <span class="op">&lt;-</span> <span class="va">metrics_scoring</span>
@@ -180,12 +182,293 @@
 <code class="sourceCode R"><span class="co"># Taxa Data</span>
 <span class="va">myDF.Fish</span> <span class="op">&lt;-</span> <span class="va">taxa_fish</span>
 <span class="va">myMetric.Values.Fish</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metric.values.html">metric.values</a></span><span class="op">(</span><span class="va">myDF.Fish</span>, <span class="st">"fish"</span>, <span class="va">myMetrics.Fish</span>, <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#View(myMetric.Values.Fish)</span>
-<span class="co"># SCORE</span>
-<span class="va">Metrics.Fish.Scores</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metric.scores.html">metric.scores</a></span><span class="op">(</span><span class="va">myMetric.Values.Fish</span>, <span class="va">myMetrics.Fish</span>, <span class="st">"Index.Name"</span>, <span class="st">"FIBISTRATA"</span>, <span class="va">thresh</span><span class="op">)</span></code></pre></div>
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">myMetric.Values.Fish</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<table class="table">
+<colgroup>
+<col width="4%">
+<col width="5%">
+<col width="3%">
+<col width="3%">
+<col width="2%">
+<col width="1%">
+<col width="2%">
+<col width="2%">
+<col width="3%">
+<col width="3%">
+<col width="2%">
+<col width="3%">
+<col width="3%">
+<col width="2%">
+<col width="2%">
+<col width="3%">
+<col width="3%">
+<col width="1%">
+<col width="1%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="3%">
+<col width="4%">
+<col width="3%">
+<col width="3%">
+<col width="4%">
+<col width="4%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Index.Name</th>
+<th align="left">SITE</th>
+<th align="left">FIBISTRATA</th>
+<th align="right">ACREAGE</th>
+<th align="right">LEN_SAMP</th>
+<th align="right">AVWID</th>
+<th align="right">STRMAREA</th>
+<th align="right">TOTCNT</th>
+<th align="right">ABUNSQM</th>
+<th align="right">PABDOM</th>
+<th align="right">TOTBIOM</th>
+<th align="right">BIOM_MSQ</th>
+<th align="right">NUMBENTSP</th>
+<th align="right">NUMBROOK</th>
+<th align="right">PBROOK</th>
+<th align="right">NUMGEOMIV</th>
+<th align="right">PGEOMIV</th>
+<th align="right">NUMIS</th>
+<th align="right">P_IS</th>
+<th align="right">NUMLITH</th>
+<th align="right">P_LITH</th>
+<th align="right">NUMROUND</th>
+<th align="right">PROUND</th>
+<th align="right">NUMSCULP</th>
+<th align="right">PSCULP</th>
+<th align="right">NUMTOL</th>
+<th align="right">PTOL</th>
+<th align="right">NUMBENTSP_Obs</th>
+<th align="right">NUMBENTSP_m</th>
+<th align="right">NUMBENTSP_b</th>
+<th align="right">NUMBENTSP_Exp</th>
+<th align="right">NUMBENTSP_Adj</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">MBSS.2005.Fish</td>
+<td align="left">_TEST</td>
+<td align="left">COASTAL</td>
+<td align="right">10.0000</td>
+<td align="right">75</td>
+<td align="right">5.000</td>
+<td align="right">375.000</td>
+<td align="right">0</td>
+<td align="right">0.0000000</td>
+<td align="right">0.00000</td>
+<td align="right">0</td>
+<td align="right">0.000000</td>
+<td align="right">0.0000000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00000</td>
+<td align="right">0</td>
+<td align="right">1.69</td>
+<td align="right">-3.33</td>
+<td align="right">-1.6400000</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">MBSS.2005.Fish</td>
+<td align="left">CHGX-432-S-1111</td>
+<td align="left">EPIEDMONT</td>
+<td align="right">273.0000</td>
+<td align="right">75</td>
+<td align="right">1.500</td>
+<td align="right">112.500</td>
+<td align="right">54</td>
+<td align="right">0.4800000</td>
+<td align="right">100.00000</td>
+<td align="right">160</td>
+<td align="right">1.422222</td>
+<td align="right">0.0000000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">54</td>
+<td align="right">100.00000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0.00000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">54</td>
+<td align="right">100.00000</td>
+<td align="right">0</td>
+<td align="right">1.25</td>
+<td align="right">-2.36</td>
+<td align="right">0.6852033</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">MBSS.2005.Fish</td>
+<td align="left">CHGX-435-R-1111</td>
+<td align="left">EPIEDMONT</td>
+<td align="right">416.1001</td>
+<td align="right">75</td>
+<td align="right">3.500</td>
+<td align="right">262.500</td>
+<td align="right">539</td>
+<td align="right">2.0533333</td>
+<td align="right">71.24304</td>
+<td align="right">2957</td>
+<td align="right">11.264762</td>
+<td align="right">0.0000000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">514</td>
+<td align="right">95.36178</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">155</td>
+<td align="right">28.75696</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">514</td>
+<td align="right">95.36178</td>
+<td align="right">0</td>
+<td align="right">1.25</td>
+<td align="right">-2.36</td>
+<td align="right">0.9139973</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="even">
+<td align="left">MBSS.2005.Fish</td>
+<td align="left">CHGX-537-R-1111</td>
+<td align="left">EPIEDMONT</td>
+<td align="right">820.6357</td>
+<td align="right">75</td>
+<td align="right">2.025</td>
+<td align="right">151.875</td>
+<td align="right">104</td>
+<td align="right">0.6847737</td>
+<td align="right">60.57692</td>
+<td align="right">455</td>
+<td align="right">2.995885</td>
+<td align="right">0.0000000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">100</td>
+<td align="right">96.15385</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">38</td>
+<td align="right">36.53846</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">90</td>
+<td align="right">86.53846</td>
+<td align="right">0</td>
+<td align="right">1.25</td>
+<td align="right">-2.36</td>
+<td align="right">1.2826880</td>
+<td align="right">0.0000000</td>
+</tr>
+<tr class="odd">
+<td align="left">MBSS.2005.Fish</td>
+<td align="left">CHGX-546-R-1111</td>
+<td align="left">EPIEDMONT</td>
+<td align="right">1732.0084</td>
+<td align="right">75</td>
+<td align="right">3.425</td>
+<td align="right">256.875</td>
+<td align="right">139</td>
+<td align="right">0.5411192</td>
+<td align="right">40.28777</td>
+<td align="right">3078</td>
+<td align="right">11.982482</td>
+<td align="right">0.5923513</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">83</td>
+<td align="right">59.71223</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">76</td>
+<td align="right">54.67626</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">60</td>
+<td align="right">43.16547</td>
+<td align="right">1</td>
+<td align="right">1.25</td>
+<td align="right">-2.36</td>
+<td align="right">1.6881875</td>
+<td align="right">0.5923513</td>
+</tr>
+<tr class="even">
+<td align="left">MBSS.2005.Fish</td>
+<td align="left">CHGX-648-S-1111</td>
+<td align="left">EPIEDMONT</td>
+<td align="right">3805.0000</td>
+<td align="right">75</td>
+<td align="right">8.950</td>
+<td align="right">671.250</td>
+<td align="right">293</td>
+<td align="right">0.4364991</td>
+<td align="right">31.39932</td>
+<td align="right">5020</td>
+<td align="right">7.478585</td>
+<td align="right">0.4727142</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">201</td>
+<td align="right">68.60068</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">141</td>
+<td align="right">48.12287</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">138</td>
+<td align="right">47.09898</td>
+<td align="right">1</td>
+<td align="right">1.25</td>
+<td align="right">-2.36</td>
+<td align="right">2.1154433</td>
+<td align="right">0.4727142</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># SCORE</span>
+<span class="va">Metrics.Fish.Scores</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metric.scores.html">metric.scores</a></span><span class="op">(</span><span class="va">myMetric.Values.Fish</span>
+                                     , <span class="va">myMetrics.Fish</span>
+                                     , <span class="st">"Index.Name"</span>
+                                     , <span class="st">"FIBISTRATA"</span>
+                                     , <span class="va">thresh</span><span class="op">)</span></code></pre></div>
 <pre><code>## One or more fish samples (n = 1) had zero organisms and was scored as a 1
 ##                               (metrics and IBI).</code></pre>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># View Results</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">Metrics.Fish.Scores</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <table class="table">
@@ -576,6 +859,9 @@
 </tr>
 </tbody>
 </table>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#Write results to csv file</span>
+<span class="co">#write.csv(Metrics.Fish.Scores, "Filename.csv")</span></code></pre></div>
 </div>
 <div id="ibi-benthic-macroinvertebrates-mbss" class="section level3">
 <h3 class="hasAnchor">
@@ -584,20 +870,23 @@
 <ul>
 <li><p>SITE = MBSS sample identifier.</p></li>
 <li><p>TAXON = MBSS benthic macroinvertebrate name.</p></li>
-<li><p>N_TAXA = Number of taxon collected in sample.</p></li>
-<li><p>EXCLUDE = Non-unique taxa (i.e., parent taxon with one or more children taxa present in sample). “Y” = do not include in taxa richness metrics. * STRATA_R = Benthic macroinvertebrate region (COASTAL, EPIEDMONT, or HIGHLAND).</p></li>
-<li><p>Phylogenetic fields</p></li>
-<li><p>(PHYLUM), CLASS, ORDER, FAMILY, GENUS, OTHER_TAXA, TRIBE, FFG, HABIT, FINALTOLVAL07</p></li>
+<li><p>N_TAXA = Number of sampled individuals corresponding to specified taxon.</p></li>
+<li><p>EXCLUDE = Non-unique taxa (i.e., parent taxon with one or more children taxa present in sample). “Y” = do not include in taxa richness metrics.</p></li>
+<li><p>STRATA_R = Benthic macroinvertebrate region (COASTAL, EPIEDMONT, or HIGHLAND).</p></li>
+<li><p>Phylogenetic fields:</p></li>
+<li><p>PHYLUM, CLASS, ORDER, FAMILY, GENUS, OTHER_TAXA, TRIBE</p></li>
+<li><p>Autoecological fields:</p></li>
+<li><p>FFG, HABIT, FINALTOLVAL07</p></li>
 </ul>
-<p>Valid values for FFG: col, fil, pre, scr, shr</p>
+<p>Valid values for FFG: COLLECTOR, FILTERER, PIERCER, PREDATOR, SCRAPER, SHREDDER</p>
 <p>Valid values for HABIT: BU, CB, CN, SP, SW</p>
-<p>MSW data should be first combined to family level and EXCLUDE recalculated.</p>
+<p>Maryland Stream Waders (MSW) data should be first combined to family level and EXCLUDE recalculated.</p>
 <p>Additional fields needed:</p>
 <ul>
 <li>FAM_TV (need to include all the same fields, just leave blank).</li>
 </ul>
 <p>In addition to the metric scores a QC check on samples with too many (&gt;120) or too few (&lt;60) organisms is returned in the results. Those with more than the maximum (120) should be subsampled down to within the target range.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Metrics, Index, Benthic Macroinvertebrates, genus</span>
 <span class="co"># (generate values then scores)</span>
 <span class="va">myIndex</span> <span class="op">&lt;-</span> <span class="st">"MBSS.2005.Bugs"</span>
@@ -608,19 +897,18 @@
 <pre><code>##  [1] "ntaxa"      "nept"       "nephem"     "pintol_urb" "pephem"    
 ##  [6] "nscrape"    "pclimb"     "pchiron"    "pcling"     "ptany"     
 ## [11] "pscrape"    "pswim"      "pdipt"</code></pre>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Taxa Data</span>
 <span class="va">myDF.Bugs.MBSS</span> <span class="op">&lt;-</span> <span class="va">taxa_bugs_genus</span>
 <span class="va">myMetric.Values.Bugs.MBSS</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metric.values.html">metric.values</a></span><span class="op">(</span><span class="va">myDF.Bugs.MBSS</span>, <span class="st">"bugs"</span>, <span class="va">myMetrics.Bugs.MBSS</span><span class="op">)</span>
-<span class="co">#View(myMetric.Values.Bugs.MBSS)</span>
 <span class="co"># SCORE</span>
 <span class="va">Metrics.Bugs.Scores.MBSS</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metric.scores.html">metric.scores</a></span><span class="op">(</span><span class="va">myMetric.Values.Bugs.MBSS</span>, <span class="va">myMetrics.Bugs.MBSS</span>, <span class="st">"INDEX.NAME"</span>, <span class="st">"STRATA_R"</span>, <span class="va">thresh</span><span class="op">)</span></code></pre></div>
 <pre><code>## One or more bug samples had &lt; 60 (n = 0) or &gt; 120 (n = 90) organisms.
 ## 
 ##                                  These samples should be further examined.</code></pre>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># View Results</span>
-<span class="co">#View(Metrics.Bugs.Scores.MBSS)</span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co">#Write results to csv file</span>
+<span class="co">#write.csv(Metrics.Bugs.Scores.MBSS, "Filename.csv")</span>
 
 <span class="co"># QC bug count</span>
 <span class="va">Metrics.Bugs.Scores.MBSS</span><span class="op">[</span><span class="va">Metrics.Bugs.Scores.MBSS</span><span class="op">[</span>,<span class="st">"totind"</span><span class="op">]</span><span class="op">&gt;</span><span class="fl">120</span>,<span class="st">"QC_Count"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"LARGE"</span>
@@ -1036,8 +1324,20 @@
 <div id="ibi-benthic-macroinvertebrates-msw" class="section level3">
 <h3 class="hasAnchor">
 <a href="#ibi-benthic-macroinvertebrates-msw" class="anchor"></a>IBI, Benthic Macroinvertebrates, MSW</h3>
-<p>The Maryland Stream Wader index is from Stribling et al. 1999. Family level identifications need to be provided by the user. Metric values and scores shown below for example data. This index has only two bioregions (CP = Coastal Plain and NCP = Non-Coastal Plain).</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<p>The Maryland Stream Wader index is from Stribling et al. 1999. Metric values and scores shown below for example data.</p>
+<ul>
+<li><p>SITE = Sample identifier.</p></li>
+<li><p>TAXON = MSW benthic macroinvertebrate name (Family-level identification).</p></li>
+<li><p>N_TAXA = Number of taxon collected in sample.</p></li>
+<li><p>EXCLUDE = Non-unique taxa (i.e., parent taxon with one or more children taxa present in sample).</p></li>
+<li><p>“Y” = do not include in taxa richness metrics.</p></li>
+<li><p>STRATA_R =This index has only two bioregions (CP=Coastal Plain, NCP=Non-Coastal Plain).</p></li>
+<li><p>Phylogenetic fields:<br></p></li>
+<li><p>PHYLUM, CLASS, ORDER, FAMILY</p></li>
+<li><p>Autoecological field:</p></li>
+<li><p>FAM_TV</p></li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Metrics, MSW Index, Benthic Macroinvertebrates, family</span>
 <span class="va">myIndex</span> <span class="op">&lt;-</span> <span class="st">"MSW.1999.Bugs"</span>
 <span class="co"># Thresholds</span>
@@ -1046,17 +1346,278 @@
 <span class="op">(</span><span class="va">myMetrics.Bugs.MSW</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">thresh</span><span class="op">[</span><span class="va">thresh</span><span class="op">[</span>,<span class="st">"Index.Name"</span><span class="op">]</span><span class="op">==</span><span class="va">myIndex</span>,<span class="st">"MetricName.Other"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] "ntaxa"      "nept"       "nephem"     "ndipt"      "pephem"    
 ## [6] "nintol_FAM" "becks"</code></pre>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Taxa Data</span>
 <span class="va">myDF.Bugs.MSW</span> <span class="op">&lt;-</span> <span class="va">taxa_bugs_family</span>
 <span class="va">myMetric.Values.Bugs.MSW</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metric.values.html">metric.values</a></span><span class="op">(</span><span class="va">myDF.Bugs.MSW</span>, <span class="st">"bugs"</span>, <span class="va">myMetrics.Bugs.MSW</span><span class="op">)</span>
-<span class="co">#View(myMetric.Values.Bugs.MSW)</span>
-<span class="co"># SCORE</span>
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">myMetric.Values.Bugs.MSW</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<table class="table">
+<colgroup>
+<col width="6%">
+<col width="3%">
+<col width="5%">
+<col width="2%">
+<col width="2%">
+<col width="1%">
+<col width="2%">
+<col width="3%">
+<col width="3%">
+<col width="3%">
+<col width="3%">
+<col width="3%">
+<col width="3%">
+<col width="3%">
+<col width="3%">
+<col width="3%">
+<col width="5%">
+<col width="3%">
+<col width="2%">
+<col width="3%">
+<col width="2%">
+<col width="2%">
+<col width="3%">
+<col width="2%">
+<col width="3%">
+<col width="4%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="4%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">SITE</th>
+<th align="left">STRATA_R</th>
+<th align="left">INDEX.NAME</th>
+<th align="right">totind</th>
+<th align="right">ntaxa</th>
+<th align="right">nept</th>
+<th align="right">nephem</th>
+<th align="right">totephem</th>
+<th align="right">nscrape</th>
+<th align="right">totclimb</th>
+<th align="right">totchiron</th>
+<th align="right">totcling</th>
+<th align="right">tottany</th>
+<th align="right">totscrape</th>
+<th align="right">totswim</th>
+<th align="right">totdipt</th>
+<th align="right">totintol_urb</th>
+<th align="right">pephem</th>
+<th align="right">pclimb</th>
+<th align="right">pchiron</th>
+<th align="right">pcling</th>
+<th align="right">ptany</th>
+<th align="right">pscrape</th>
+<th align="right">pswim</th>
+<th align="right">pdipt</th>
+<th align="right">pintol_urb</th>
+<th align="right">ndipt</th>
+<th align="right">nintol</th>
+<th align="right">becks</th>
+<th align="right">nintol_FAM</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">CHGX-432-S-1111</td>
+<td align="left">NCP</td>
+<td align="left">MSW.1999.Bugs</td>
+<td align="right">125</td>
+<td align="right">16</td>
+<td align="right">7</td>
+<td align="right">1</td>
+<td align="right">13</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">50</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">57</td>
+<td align="right">0</td>
+<td align="right">10.400000</td>
+<td align="right">0</td>
+<td align="right">40.00000</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">45.60000</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">CHGX-435-R-1111</td>
+<td align="left">NCP</td>
+<td align="left">MSW.1999.Bugs</td>
+<td align="right">119</td>
+<td align="right">7</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">81</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">85</td>
+<td align="right">0</td>
+<td align="right">0.000000</td>
+<td align="right">0</td>
+<td align="right">68.06723</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">71.42857</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">0</td>
+</tr>
+<tr class="odd">
+<td align="left">CHGX-537-R-1111</td>
+<td align="left">NCP</td>
+<td align="left">MSW.1999.Bugs</td>
+<td align="right">121</td>
+<td align="right">18</td>
+<td align="right">8</td>
+<td align="right">3</td>
+<td align="right">12</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">40</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">50</td>
+<td align="right">0</td>
+<td align="right">9.917355</td>
+<td align="right">0</td>
+<td align="right">33.05785</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">41.32231</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">5</td>
+</tr>
+<tr class="even">
+<td align="left">CHGX-546-R-1111</td>
+<td align="left">NCP</td>
+<td align="left">MSW.1999.Bugs</td>
+<td align="right">129</td>
+<td align="right">17</td>
+<td align="right">6</td>
+<td align="right">2</td>
+<td align="right">23</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">28</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">37</td>
+<td align="right">0</td>
+<td align="right">17.829457</td>
+<td align="right">0</td>
+<td align="right">21.70543</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">28.68217</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">6</td>
+</tr>
+<tr class="odd">
+<td align="left">CHGX-648-S-1111</td>
+<td align="left">NCP</td>
+<td align="left">MSW.1999.Bugs</td>
+<td align="right">116</td>
+<td align="right">18</td>
+<td align="right">11</td>
+<td align="right">4</td>
+<td align="right">40</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">31</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">38</td>
+<td align="right">0</td>
+<td align="right">34.482759</td>
+<td align="right">0</td>
+<td align="right">26.72414</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">32.75862</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">8</td>
+</tr>
+<tr class="even">
+<td align="left">EBUX-435-S-1111</td>
+<td align="left">NCP</td>
+<td align="left">MSW.1999.Bugs</td>
+<td align="right">137</td>
+<td align="right">19</td>
+<td align="right">10</td>
+<td align="right">3</td>
+<td align="right">40</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">34</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">46</td>
+<td align="right">0</td>
+<td align="right">29.197080</td>
+<td align="right">0</td>
+<td align="right">24.81752</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">33.57664</td>
+<td align="right">0</td>
+<td align="right">4</td>
+<td align="right">1</td>
+<td align="right">3</td>
+<td align="right">9</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="co"># SCORE</span>
 <span class="va">Metrics.Bugs.Scores.MSW</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metric.scores.html">metric.scores</a></span><span class="op">(</span><span class="va">myMetric.Values.Bugs.MSW</span>, <span class="va">myMetrics.Bugs.MSW</span>, <span class="st">"INDEX.NAME"</span>, <span class="st">"STRATA_R"</span>, <span class="va">thresh</span><span class="op">)</span></code></pre></div>
 <pre><code>## One or more bug samples had &lt; 60 (n = 0) or &gt; 120 (n = 102) organisms.
 ## 
 ##                                  These samples should be further examined.</code></pre>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># View Results</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">Metrics.Bugs.Scores.MSW</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <table class="table">
@@ -1412,8 +1973,7 @@
 <div id="fish-distribution-maps" class="section level2">
 <h2 class="hasAnchor">
 <a href="#fish-distribution-maps" class="anchor"></a>Fish Distribution Maps</h2>
-<p>The intent of this function is to recreate the taxa distribution maps on the MBSS websitehttp://eyesonthebay.dnr.maryland.gov/mbss/fishes.cfm. The maps for all taxa can be generated from a single line of code and then given to the web site maintainers as replacements.</p>
-<p>The maps for all taxa can be generated from a single line of code and then given to the web site maintainers as replacements. The maps generated with this function use a ‘crosswalk’ table that converts taxa names to map names.</p>
+<p>The intent of this function is to recreate the taxa distribution maps on the MBSS website: <a href="http://eyesonthebay.dnr.maryland.gov/mbss/fishes.cfm" class="uri">http://eyesonthebay.dnr.maryland.gov/mbss/fishes.cfm</a>. The maps for all taxa can be generated from a single line of code. The maps generated with this function use a ‘crosswalk’ table that converts taxa names to map names.</p>
 <p>The function MapTaxaObs() requires the <code>readxl</code> and <code>rgdal</code> packages.</p>
 <div id="data-inputs" class="section level3">
 <h3 class="hasAnchor">
@@ -1421,7 +1981,7 @@
 <p>The user will need GIS files for the state of Maryland for State, County, and Water.</p>
 <p>The inputs for this function, besides the three GIS shapefiles, are taxa observations and a taxa name crosswalk (translation) table between taxa names and map names.</p>
 <p>All inputs are included in the <code>MBSStools</code> library and can be copied to the current directory with the code below.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Set Working Directory</span>
 <span class="va">wd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># Create Example Data if Needed</span>
@@ -1463,8 +2023,8 @@
 <div id="map-creation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#map-creation" class="anchor"></a>Map Creation</h2>
-<p>The code below can be used to generate the maps (n=131) associated with the 1995 to 2016 data. Any taxa without a match in the crosswalk table (n=54) are listed in a CSV file and the number reported to the user in the R console but maps are not generated (by default). If the user wants all maps then the parameter ‘onlymatches’ should be set to ‘FALSE’ (as in the example below).</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<p>The code below can be used to generate the maps (n=131) associated with the 1995 to 2016 data. Any taxa without a match in the crosswalk table (n=54) are listed in a CSV file and the number reported to the user in the R console, but maps are not generated (by default). If the user wants all maps then the parameter ‘onlymatches’ should be set to ‘FALSE’ (as in the example below).</p>
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Set Working Directory</span>
 <span class="va">wd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span>
 
@@ -1475,20 +2035,27 @@
 
 <span class="co"># Create maps</span>
 <span class="fu"><a href="../reference/MapTaxaObs.html">MapTaxaObs</a></span><span class="op">(</span><span class="va">Obs</span>, <span class="va">XWalk</span>, <span class="va">wd</span>, onlymatches <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
-<p>The intent behind this function was to recreate the fish taxa distribution maps on the MBSS website.</p>
-<p><a href="http://eyesonthebay.dnr.maryland.gov/mbss/fishes.cfm" class="uri">http://eyesonthebay.dnr.maryland.gov/mbss/fishes.cfm</a></p>
-<p>The data inputs are not specific to fish and can be used for benthic macroinvertebrate data or any other presence/absence data.</p>
+<p>The intent behind this function was to recreate the fish taxa distribution maps. But the data inputs are not specific to fish and can be used for benthic macroinvertebrate data.</p>
 <p>The taxa distribution map for brown trout is shown below.</p>
-<div class="figure">
-<img src="map_BrownTrout.png" alt=""><p class="caption">Taxa distribution for Brown Trout.</p>
-</div>
+<pre><code>## Loading required package: sp</code></pre>
+<pre><code>## rgdal: version: 1.5-23, (SVN revision 1121)
+## Geospatial Data Abstraction Library extensions to R successfully loaded
+## Loaded GDAL runtime: GDAL 3.1.4, released 2020/10/20
+## Path to GDAL shared files: /Users/runner/work/_temp/Library/rgdal/gdal
+## GDAL binary built with GEOS: TRUE 
+## Loaded PROJ runtime: Rel. 6.3.1, February 10th, 2020, [PJ_VERSION: 631]
+## Path to PROJ shared files: /Users/runner/work/_temp/Library/rgdal/proj
+## Linking to sp version:1.4-5
+## To mute warnings of possible GDAL/OSR exportToProj4() degradation,
+## use options("rgdal_show_exportToProj4_warnings"="none") before loading rgdal.</code></pre>
+<p><img src="MBSStools_vignette_files/figure-html/TaxaMap%20Brown%20Trout-1.png" width="700"></p>
 </div>
 <div id="stream-discharge" class="section level2">
 <h2 class="hasAnchor">
 <a href="#stream-discharge" class="anchor"></a>Stream Discharge</h2>
 <p>Calculate stream discharge based on field measurements. Side channels that are properly identified in the data will be included.</p>
-<p>The function FlowSum() requires the no additional packages.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<p>The function FlowSum() requires no additional packages.</p>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools">MBSStools</a></span><span class="op">)</span>
 <span class="co"># data</span>
 <span class="va">MBSS.flow</span> <span class="op">&lt;-</span> <span class="va">MBSS.flow</span>
@@ -1501,15 +2068,15 @@
 <span class="co"># Example Save file (tab delimited text file)</span>
 <span class="va">datetime</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.time</a></span><span class="op">(</span><span class="op">)</span>,<span class="st">"%Y%m%d_%H%M%S"</span><span class="op">)</span>
 <span class="va">myYear</span> <span class="op">&lt;-</span> <span class="st">"15"</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/write.table.html">write.table</a></span><span class="op">(</span><span class="va">flow.sample</span>,<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"SumFlow"</span>,<span class="va">myYear</span>,<span class="st">"_"</span>,<span class="va">datetime</span>,<span class="st">".tab"</span><span class="op">)</span>,row.names<span class="op">=</span><span class="cn">FALSE</span>,sep<span class="op">=</span><span class="st">"\t"</span><span class="op">)</span></code></pre></div>
+<span class="co">#write.table(flow.sample,paste0("SumFlow",myYear,"_",datetime,".tab"),row.names=FALSE,sep="\t")</span></code></pre></div>
 </div>
 <div id="ion-matrix" class="section level2">
 <h2 class="hasAnchor">
 <a href="#ion-matrix" class="anchor"></a>Ion Matrix</h2>
-<p>The IonContrib() function calculates conductivity contribution from provided ion concentrations using Kohlrausch’s Law. If a total conductivity measurement is not provided the total conductivity is calculated as the sum of all ions present in the data. If the user provides a conductivity measurement then ion contributions are a percentage of that number. In the latter case “Other” is added as an ion to capture any percentage of total conductivity not represented by the provided ions. Plotting is done outside of this function.</p>
+<p>The IonContrib() function calculates conductivity contribution from provided ion concentrations using Kohlrausch’s Law. If a total conductivity measurement is not provided, the total conductivity is calculated as the sum of all ions present in the data. If the user provides a conductivity measurement, then ion contributions are a percentage of that number. In the latter case, “Other” is added as an ion to capture any percentage of total conductivity not represented by the provided ions. Plotting is done outside of this function.</p>
 <p>Data will need to be in “wide” format. That is, a single record for each sample and the ions to be analyzed in columns.</p>
 <p>A reference table of ions and their equivalent ionic conductance at infinite dilution is provided with the function as “MBSS.Ion.Ref”. The function allows for input of a user supplied data frame if this table needs updating with more ions.</p>
-<p>The function IonContrib() requires the no additional packages.</p>
+<p>The function IonContrib() requires no additional packages.</p>
 <table class="table">
 <colgroup>
 <col width="12%">
@@ -1798,9 +2365,10 @@
 </tbody>
 </table>
 <p>Example code is below. The user would then save the output (e.g., write.csv()).</p>
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools">MBSStools</a></span><span class="op">)</span>
 <span class="co"># Load Data</span>
+<span class="co"># MBSS.Ion.Data = example dataset</span>
 <span class="va">data.ion</span> <span class="op">&lt;-</span> <span class="va">MBSS.Ion.Data</span>
 <span class="co"># Load Reference Table</span>
 <span class="va">ref.ion</span> <span class="op">&lt;-</span> <span class="va">MBSS.Ion.Ref</span>
@@ -1809,29 +2377,396 @@
 <p><em>No</em> conductivity values provided.</p>
 <pre><code>    Ion contributions calculated from the sum of calculated ion conductivity
     values.</code></pre>
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#knitr::kable(head(contrib.ion))</span></code></pre></div>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">contrib.ion</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<table class="table">
+<colgroup>
+<col width="1%">
+<col width="1%">
+<col width="2%">
+<col width="2%">
+<col width="1%">
+<col width="2%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="1%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="2%">
+<col width="1%">
+<col width="1%">
+<col width="2%">
+<col width="3%">
+<col width="3%">
+<col width="2%">
+<col width="3%">
+<col width="3%">
+<col width="3%">
+<col width="3%">
+<col width="3%">
+<col width="2%">
+<col width="1%">
+</colgroup>
+<thead><tr class="header">
+<th align="left">Site</th>
+<th align="left">Stream Name</th>
+<th align="left">SHA Road Crossing</th>
+<th align="left">Ion Matrix</th>
+<th align="left">Date Collected</th>
+<th align="left">Time Collected</th>
+<th align="right">Chloride (mg/L)</th>
+<th align="right">Bromide (mg/L)</th>
+<th align="right">Nitrate-N (mg/L)</th>
+<th align="right">Sulfate (mg/L)</th>
+<th align="right">Sodium (mg/L)</th>
+<th align="right">Potassium (mg/L)</th>
+<th align="right">Magnesium (mg/L)</th>
+<th align="right">Calcium (mg/L)</th>
+<th align="right">Mult.Calcium (mg/L)</th>
+<th align="right">Mult.Magnesium (mg/L)</th>
+<th align="right">Mult.Sodium (mg/L)</th>
+<th align="right">Mult.Potassium (mg/L)</th>
+<th align="right">Mult.Sulfate (mg/L)</th>
+<th align="right">Mult.Chloride (mg/L)</th>
+<th align="right">Mult.Bromide (mg/L)</th>
+<th align="right">Mult.Nitrate-N (mg/L)</th>
+<th align="right">Cond.Calcium (mg/L)</th>
+<th align="right">Cond.Magnesium (mg/L)</th>
+<th align="right">Cond.Sodium (mg/L)</th>
+<th align="right">Cond.Potassium (mg/L)</th>
+<th align="right">Cond.Sulfate (mg/L)</th>
+<th align="right">Cond.Chloride (mg/L)</th>
+<th align="right">Cond.Bromide (mg/L)</th>
+<th align="right">Cond.Nitrate-N (mg/L)</th>
+<th align="right">Cond.SubTotal</th>
+<th align="right">Cond.Total</th>
+<th align="right">Cond.Other (mg/L)</th>
+<th align="right">PctContrib.Calcium (mg/L)</th>
+<th align="right">PctContrib.Magnesium (mg/L)</th>
+<th align="right">PctContrib.Sodium (mg/L)</th>
+<th align="right">PctContrib.Potassium (mg/L)</th>
+<th align="right">PctContrib.Sulfate (mg/L)</th>
+<th align="right">PctContrib.Chloride (mg/L)</th>
+<th align="right">PctContrib.Bromide (mg/L)</th>
+<th align="right">PctContrib.Nitrate-N (mg/L)</th>
+<th align="right">PctContrib.Other (mg/L)</th>
+<th align="right">QC.PctContrib</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td align="left">BELK-101-X</td>
+<td align="left">Gramies Run</td>
+<td align="left">MD 273 (Telegraph Rd.)</td>
+<td align="left">Pre-Application Baseline</td>
+<td align="left">2016-12-14</td>
+<td align="left">1899-12-30 10:48:00</td>
+<td align="right">40.9854</td>
+<td align="right">0.0255</td>
+<td align="right">0.6209</td>
+<td align="right">11.2139</td>
+<td align="right">19.36</td>
+<td align="right">1.897</td>
+<td align="right">8.153</td>
+<td align="right">12.11</td>
+<td align="right">2.967713</td>
+<td align="right">4.3612425</td>
+<td align="right">2.1783604</td>
+<td align="right">1.8793656</td>
+<td align="right">1.6655632</td>
+<td align="right">2.1524454</td>
+<td align="right">0.9774229</td>
+<td align="right">5.098974</td>
+<td align="right">35.93900</td>
+<td align="right">35.557210</td>
+<td align="right">42.17306</td>
+<td align="right">3.565157</td>
+<td align="right">18.67746</td>
+<td align="right">88.21883</td>
+<td align="right">0.0249243</td>
+<td align="right">3.165953</td>
+<td align="right">227.3216</td>
+<td align="right">227.3216</td>
+<td align="right">0</td>
+<td align="right">0.1580976</td>
+<td align="right">0.1564181</td>
+<td align="right">0.1855216</td>
+<td align="right">0.0156833</td>
+<td align="right">0.0821632</td>
+<td align="right">0.3880794</td>
+<td align="right">0.0001096</td>
+<td align="right">0.0139272</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">BELK-102-X</td>
+<td align="left">Gramies Run</td>
+<td align="left">MD 273 (Telegraph Rd.)</td>
+<td align="left">Pre-Application Baseline</td>
+<td align="left">2016-12-14</td>
+<td align="left">1899-12-30 10:59:00</td>
+<td align="right">36.2214</td>
+<td align="right">0.0244</td>
+<td align="right">0.5236</td>
+<td align="right">13.5295</td>
+<td align="right">16.08</td>
+<td align="right">2.103</td>
+<td align="right">9.403</td>
+<td align="right">14.09</td>
+<td align="right">4.361243</td>
+<td align="right">2.1783604</td>
+<td align="right">1.8793656</td>
+<td align="right">1.6655632</td>
+<td align="right">2.1524454</td>
+<td align="right">0.9774229</td>
+<td align="right">5.0989738</td>
+<td align="right">2.967713</td>
+<td align="right">61.44991</td>
+<td align="right">20.483123</td>
+<td align="right">30.22020</td>
+<td align="right">3.502680</td>
+<td align="right">29.12151</td>
+<td align="right">35.40363</td>
+<td align="right">0.1244150</td>
+<td align="right">1.553894</td>
+<td align="right">181.8594</td>
+<td align="right">181.8594</td>
+<td align="right">0</td>
+<td align="right">0.3378980</td>
+<td align="right">0.1126317</td>
+<td align="right">0.1661735</td>
+<td align="right">0.0192604</td>
+<td align="right">0.1601320</td>
+<td align="right">0.1946759</td>
+<td align="right">0.0006841</td>
+<td align="right">0.0085445</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">BELK-301-X</td>
+<td align="left">Big Elk Creek</td>
+<td align="left">MD 273 (Telegraph Rd.)</td>
+<td align="left">Pre-Application Baseline</td>
+<td align="left">2016-12-14</td>
+<td align="left">1899-12-30 09:15:00</td>
+<td align="right">31.3782</td>
+<td align="right">0.0276</td>
+<td align="right">4.8693</td>
+<td align="right">13.5987</td>
+<td align="right">14.06</td>
+<td align="right">3.166</td>
+<td align="right">6.906</td>
+<td align="right">15.73</td>
+<td align="right">2.178360</td>
+<td align="right">1.8793656</td>
+<td align="right">1.6655632</td>
+<td align="right">2.1524454</td>
+<td align="right">0.9774229</td>
+<td align="right">5.0989738</td>
+<td align="right">2.9677130</td>
+<td align="right">4.361243</td>
+<td align="right">34.26561</td>
+<td align="right">12.978899</td>
+<td align="right">23.41782</td>
+<td align="right">6.814642</td>
+<td align="right">13.29168</td>
+<td align="right">159.99662</td>
+<td align="right">0.0819089</td>
+<td align="right">21.236198</td>
+<td align="right">272.0834</td>
+<td align="right">272.0834</td>
+<td align="right">0</td>
+<td align="right">0.1259379</td>
+<td align="right">0.0477019</td>
+<td align="right">0.0860685</td>
+<td align="right">0.0250462</td>
+<td align="right">0.0488515</td>
+<td align="right">0.5880426</td>
+<td align="right">0.0003010</td>
+<td align="right">0.0780503</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">BELK-302-X</td>
+<td align="left">Big Elk Creek</td>
+<td align="left">MD 273 (Telegraph Rd.)</td>
+<td align="left">Pre-Application Baseline</td>
+<td align="left">2016-12-14</td>
+<td align="left">1899-12-30 09:19:00</td>
+<td align="right">30.4018</td>
+<td align="right">0.0280</td>
+<td align="right">4.5474</td>
+<td align="right">13.7224</td>
+<td align="right">14.01</td>
+<td align="right">3.049</td>
+<td align="right">6.583</td>
+<td align="right">15.92</td>
+<td align="right">1.879366</td>
+<td align="right">1.6655632</td>
+<td align="right">2.1524454</td>
+<td align="right">0.9774229</td>
+<td align="right">5.0989738</td>
+<td align="right">2.9677130</td>
+<td align="right">4.3612425</td>
+<td align="right">2.178360</td>
+<td align="right">29.91950</td>
+<td align="right">10.964403</td>
+<td align="right">30.15576</td>
+<td align="right">2.980162</td>
+<td align="right">69.97016</td>
+<td align="right">90.22382</td>
+<td align="right">0.1221148</td>
+<td align="right">9.905876</td>
+<td align="right">244.2418</td>
+<td align="right">244.2418</td>
+<td align="right">0</td>
+<td align="right">0.1224995</td>
+<td align="right">0.0448916</td>
+<td align="right">0.1234668</td>
+<td align="right">0.0122017</td>
+<td align="right">0.2864791</td>
+<td align="right">0.3694037</td>
+<td align="right">0.0005000</td>
+<td align="right">0.0405577</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">BRIG-301-X</td>
+<td align="left">Patuxent River</td>
+<td align="left">MD 94 (Woodbine Rd.)</td>
+<td align="left">Pre-Application Baseline</td>
+<td align="left">2016-12-13</td>
+<td align="left">1899-12-30 14:53:00</td>
+<td align="right">37.2093</td>
+<td align="right">0.0232</td>
+<td align="right">3.0927</td>
+<td align="right">4.2891</td>
+<td align="right">19.02</td>
+<td align="right">2.020</td>
+<td align="right">5.977</td>
+<td align="right">10.99</td>
+<td align="right">1.665563</td>
+<td align="right">2.1524454</td>
+<td align="right">0.9774229</td>
+<td align="right">5.0989738</td>
+<td align="right">2.9677130</td>
+<td align="right">4.3612425</td>
+<td align="right">2.1783604</td>
+<td align="right">1.879366</td>
+<td align="right">18.30454</td>
+<td align="right">12.865166</td>
+<td align="right">18.59058</td>
+<td align="right">10.299927</td>
+<td align="right">12.72882</td>
+<td align="right">162.27878</td>
+<td align="right">0.0505380</td>
+<td align="right">5.812314</td>
+<td align="right">240.9307</td>
+<td align="right">240.9307</td>
+<td align="right">0</td>
+<td align="right">0.0759743</td>
+<td align="right">0.0533978</td>
+<td align="right">0.0771615</td>
+<td align="right">0.0427506</td>
+<td align="right">0.0528319</td>
+<td align="right">0.6735497</td>
+<td align="right">0.0002098</td>
+<td align="right">0.0241244</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">BRIG-302-X</td>
+<td align="left">Patuxent River</td>
+<td align="left">MD 94 (Woodbine Rd.)</td>
+<td align="left">Pre-Application Baseline</td>
+<td align="left">2016-12-13</td>
+<td align="left">1899-12-30 15:02:00</td>
+<td align="right">37.6789</td>
+<td align="right">0.0215</td>
+<td align="right">3.0869</td>
+<td align="right">4.2854</td>
+<td align="right">18.62</td>
+<td align="right">2.035</td>
+<td align="right">5.958</td>
+<td align="right">11.00</td>
+<td align="right">2.152445</td>
+<td align="right">0.9774229</td>
+<td align="right">5.0989738</td>
+<td align="right">2.9677130</td>
+<td align="right">4.3612425</td>
+<td align="right">2.1783604</td>
+<td align="right">1.8793656</td>
+<td align="right">1.665563</td>
+<td align="right">23.67690</td>
+<td align="right">5.823486</td>
+<td align="right">94.94289</td>
+<td align="right">6.039296</td>
+<td align="right">18.68967</td>
+<td align="right">82.07822</td>
+<td align="right">0.0404064</td>
+<td align="right">5.141427</td>
+<td align="right">236.4323</td>
+<td align="right">236.4323</td>
+<td align="right">0</td>
+<td align="right">0.1001424</td>
+<td align="right">0.0246307</td>
+<td align="right">0.4015648</td>
+<td align="right">0.0255434</td>
+<td align="right">0.0790487</td>
+<td align="right">0.3471532</td>
+<td align="right">0.0001709</td>
+<td align="right">0.0217459</td>
+<td align="right">0</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
 <p>Dot charts are a good way to display the data. But any chart of the user’s preference can be used.</p>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Load Data</span>
 <span class="va">data.ion</span> <span class="op">&lt;-</span> <span class="va">MBSS.Ion.Data</span>
 <span class="co"># Load Reference Table</span>
 <span class="va">ref.ion</span> <span class="op">&lt;-</span> <span class="va">MBSS.Ion.Ref</span>
 <span class="co"># Calculate Percent Contribution by Ion (data table only)</span>
 <span class="va">contrib.ion</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/IonContrib.html">IonContrib</a></span><span class="op">(</span><span class="va">data.ion</span><span class="op">)</span>
-<span class="co">#View(contrib.ion)</span>
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">contrib.ion</span><span class="op">)</span>
 <span class="co"># Calculate Percent Contribution by Ion (data table and reference table)</span>
 <span class="va">contrib.ion.2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/IonContrib.html">IonContrib</a></span><span class="op">(</span><span class="va">data.ion</span>, <span class="va">ref.ion</span><span class="op">)</span></code></pre></div>
 <pre><code>## Warning in if (is.na(ion.ref)) {: the condition has length &gt; 1 and only the
 ## first element will be used</code></pre>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co">#View(contrib.ion.2)</span>
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">contrib.ion.2</span><span class="op">)</span>
 <span class="co"># Calculate Percent Contribution by Ion (data table, reference table, and conductivity values)</span>
 <span class="co"># ## add dummy conductivity values for each sample</span>
-<span class="co"># myCond &lt;- "Cond"</span>
-<span class="co"># data.ion[,myCond] &lt;- 4000</span>
-<span class="co"># contrib.ion.3 &lt;- IonContrib(data.ion, ref.ion, myCond)</span>
-<span class="co"># View(contrib.ion.3)</span>
+<span class="va">myCond</span> <span class="op">&lt;-</span> <span class="st">"Cond"</span>
+<span class="va">data.ion</span><span class="op">[</span>,<span class="va">myCond</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">4000</span>
+<span class="va">contrib.ion.3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/IonContrib.html">IonContrib</a></span><span class="op">(</span><span class="va">data.ion</span>, <span class="va">ref.ion</span>, <span class="va">myCond</span><span class="op">)</span></code></pre></div>
+<pre><code>## Warning in if (is.na(ion.ref)) {: the condition has length &gt; 1 and only the
+## first element will be used</code></pre>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">contrib.ion.3</span><span class="op">)</span>
 <span class="co"># Save Results (use write.table())</span>
 <span class="co"># Plot Results</span>
 <span class="va">myIons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Chloride (mg/L)"</span>, <span class="st">"Bromide (mg/L)"</span>, <span class="st">"Nitrate-N (mg/L)"</span>, <span class="st">"Sulfate (mg/L)"</span>, <span class="st">"Sodium (mg/L)"</span>,
@@ -1858,7 +2793,7 @@
 <p>The PHIcalc() function calculates the MBSS Physical Habitat Index (PHI), Paul et al. 2003. The report is included in the /extdata folder of the library.</p>
 <p>There are two versions of the calculation based on pre- and post-2000. The function determines the correct calculation based on the data provided.</p>
 <p>The input is a data frame with column names matching the variables collected in the field along with SampleID, bioregion, and area (acres).</p>
-<p>The function PHIcalc() requires the no additional packages.</p>
+<p>The function PHIcalc() requires no additional packages.</p>
 <table class="table">
 <colgroup>
 <col width="6%">
@@ -2039,10 +2974,11 @@
 </tr>
 </tbody>
 </table>
-<p>The function returns a dataframe of reslts that need to be saved (e.g., write.table()). The result table from the example data is shown below.</p>
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<p>The function returns a dataframe of results that need to be saved (e.g., write.table()). The result table from the example data is shown below.</p>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools">MBSStools</a></span><span class="op">)</span>
 <span class="co"># data</span>
+<span class="co"># MBSS.PHI = example dataset</span>
 <span class="va">myData</span> <span class="op">&lt;-</span> <span class="va">MBSS.PHI</span>
 <span class="co"># calculate PHI</span>
 <span class="va">PHI</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/PHIcalc.html">PHIcalc</a></span><span class="op">(</span><span class="va">myData</span><span class="op">)</span>
@@ -2376,9 +3312,10 @@
 <div id="shiny" class="section level1">
 <h1 class="hasAnchor">
 <a href="#shiny" class="anchor"></a>Shiny</h1>
-<p>Included in the package is an example Shiny package to calculates the three IBI’s for MBSS.</p>
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<p>Included in the package is an example Shiny package to calculate the three IBI’s for MBSS. The the function runShiny() requires the “shinyjs” package.</p>
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools">MBSStools</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://deanattali.com/shinyjs/">shinyjs</a></span><span class="op">)</span>
 <span class="fu"><a href="../reference/runShiny.html">runShiny</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
   </div>
