@@ -16,10 +16,21 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+MBSStools v1.1.0.9041 (2021-04-21)
+================  
+* refactor: Edits to MBSStools_vignette.Rmd
+    + Move files to proper folder (vignettes)
+    + Fix code blocks so run properly
+        - Comment out write.csv()
+        - Convert View() to kable(head()) where eval=TRUE
+    
+MBSStools v1.1.0.9040 (2021-04-21)
+================  
+* refactor: Edits to MBSStools_vignette.Rmd
+    + Merge pull request 42
 
 MBSStools v1.1.0.9039 (2021-04-04)
 ================   
-
 * refactor: Update install code example
     + README
     + MBSStools_vignette.Rmd
@@ -28,7 +39,6 @@ MBSStools v1.1.0.9039 (2021-04-04)
     
 MBSStools v1.1.0.9038 (2021-04-04)
 ================   
-
 * docs: Update spelling and language in MBSStools_vignette.Rmd
 
 MBSStools v1.1.0.9037 (2021-04-01)

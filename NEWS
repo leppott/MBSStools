@@ -3,7 +3,20 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-04-05 12:59:35
+    #> Last Update: 2021-04-21 10:35:49
+
+# MBSStools v1.1.0.9041 (2021-04-21)
+
+-   refactor: Edits to MBSStools\_vignette.Rmd
+    -   Move files to proper folder (vignettes)
+    -   Fix code blocks so run properly
+        -   Comment out write.csv()
+        -   Convert View() to kable(head()) where eval=TRUE
+
+# MBSStools v1.1.0.9040 (2021-04-21)
+
+-   refactor: Edits to MBSStools\_vignette.Rmd
+    -   Merge pull request 42
 
 # MBSStools v1.1.0.9039 (2021-04-04)
 
