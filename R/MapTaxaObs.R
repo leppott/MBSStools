@@ -41,31 +41,34 @@
 #' wd <- tempdir()
 #' # Create Example Data if Needed
 #' ## Create Directories
-#' myDir.create <- file.path(wd,"Data")
-#' ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory
-#' already exists")
+#' myDir.create <- file.path(wd, "Data")
+#' ifelse(dir.exists(myDir.create) == FALSE
+#'        , dir.create(myDir.create)
+#'        , "Directory already exists")
 #' myDir.create <- file.path(wd,"GIS")
-#' ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory
-#' already exists")
+#' ifelse(dir.exists(myDir.create) == FALSE
+#'        , dir.create(myDir.create)
+#'        , "Directory already exists")
 #' myDir.create <- file.path(wd,"Maps")
-#' ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory
-#' already exists")
+#' ifelse(dir.exists(myDir.create) == FALSE
+#'        , dir.create(myDir.create)
+#'        , "Directory already exists")
 #' ## Create Data
 #' ### Taxa Data
 #' myFiles <- c("AllFish_95to16.xls", "TaxaMapsCrossWalk20170731.xlsx")
-#' file.copy(file.path(path.package("MBSStools"),"extdata",myFiles),
-#' file.path(wd,"Data",myFiles))
+#' file.copy(file.path(path.package("MBSStools"), "extdata", myFiles),
+#' file.path(wd, "Data", myFiles))
 #' ### GIS
-#' unzip(file.path(path.package("MBSStools"),"extdata","MD_GIS.zip"),
-#' exdir=file.path(wd,"GIS"))
+#' unzip(file.path(path.package("MBSStools"), "extdata", "MD_GIS.zip")
+#'       , exdir = file.path(wd, "GIS"))
 #'
 #' # Inputs
-#' Obs <- "AllFish_95to16.xls"
-#' XWalk <- "TaxaMapsCrossWalk20170731.xlsx"
-#' wd <- tempdir()
+#' obs     <- "AllFish_95to16.xls"
+#' xWalk   <- "TaxaMapsCrossWalk20170731.xlsx"
+#' dirMain <- tempdir()
 #'
 #' # Create maps
-#' MapTaxaObs(Obs, XWalk, wd)
+#' MapTaxaObs(obs, xWalk, dirMain)
 #
 #' @export
 MapTaxaObs <- function(obs
@@ -77,16 +80,48 @@ MapTaxaObs <- function(obs
                        , dirMaps = "Maps"
                        , verbose = TRUE
                        ) {
-    # # # # 0. QC
-    # obs <- "AllFish_95to16.xls"
-    # xWalk <- "TaxaMapsCrossWalk2.xlsx"
-    # dirMain <- getwd()
-    # onlymatches <- TRUE
-    # dirData <- "data"
-    # dirGIS <- "GIS"
-    # dirMaps <- "Maps"
-    # verbose <- TRUE
-    # i <- 1
+    # 0. QC
+    boo_QC <- FALSE
+    if(isTRUE(boo_QC)){
+      # Copy files
+      # Set Working Directory
+      wd <- tempdir()
+      # Create Example Data if Needed
+      ## Create Directories
+      myDir.create <- file.path(wd, "Data")
+      ifelse(dir.exists(myDir.create) == FALSE
+            , dir.create(myDir.create)
+            , "Directory already exists")
+      myDir.create <- file.path(wd, "GIS")
+      ifelse(dir.exists(myDir.create) == FALSE
+             , dir.create(myDir.create)
+             , "Directory already exists")
+      myDir.create <- file.path(wd, "Maps")
+      ifelse(dir.exists(myDir.create)==FALSE
+             , dir.create(myDir.create)
+             , "Directory already exists")
+      ## Create Data
+      ### Taxa Data
+      myFiles <- c("AllFish_95to16.xls", "TaxaMapsCrossWalk20170731.xlsx")
+      file.copy(file.path(path.package("MBSStools"), "extdata", myFiles)
+                , file.path(wd, "Data", myFiles))
+      ### GIS
+      unzip(file.path(path.package("MBSStools"), "extdata", "MD_GIS.zip"),
+            exdir=file.path(wd, "GIS"))
+      # Function Inputs
+      obs         <- "AllFish_95to16.xls"
+      xWalk       <- "TaxaMapsCrossWalk20170731.xlsx"
+      dirMain     <- tempdir()
+      onlymatches <- TRUE
+      dirData     <- "Data"
+      dirGIS      <- "GIS"
+      dirMaps     <- "Maps"
+      verbose     <- TRUE
+      i           <- 1
+      # shell.exec(dirMain)
+    }## IF ~ boo_QC ~ END
+
+
 
     # 2021-01-10
     # Define missing variables
@@ -95,20 +130,17 @@ MapTaxaObs <- function(obs
 
     # 1. Define Parameters ####
     #mainDir <- dir
-    if (verbose==TRUE) {
+    if (verbose == TRUE) {
       message(dirMain)
       #flush.console()
-    }
-    # dataDir<-"Data"
-    # gisDir<-"GIS"
-    # mapDir<-"Maps"
+    }## IF ~ verbose ~ END
 
     sh.state  <- "MD_State_Boundary.shp"
     sh.coast  <- "MD_Coast_Hydrology.shp"
     sh.county <- "MD_Boundary_County_Detailed.shp"
 
-    all.taxa <- paste(dirMain,dirData,obs,sep="/")
-    taxa.lu <- paste(dirMain,dirData,xWalk,sep="/")
+    all.taxa <- file.path(dirMain, dirData ,obs)
+    taxa.lu <- file.path(dirMain, dirData, xWalk)
 
     # 2. Testing ####
     # Test for existence of required data subdirectory and data files
@@ -171,7 +203,7 @@ MapTaxaObs <- function(obs
     }##IF.!=.END
 
     # Make the Maps subdirectory if it doesn't exist
-    if (!utils::file_test("-d", file.path(dirMain, dirMaps))) {##IF.dirMaps.START
+    if (!utils::file_test("-d", file.path(dirMain, dirMaps))) {
         if (utils::file_test("-f", file.path(dirMain, dirMaps))) {
             stop("Path can't be created because a file with that name already
                  exists.")
@@ -182,17 +214,23 @@ MapTaxaObs <- function(obs
 
     # 3. Read Data ####
     # Read in Taxon observations
-    df.taxa.obs <- readxl::read_excel(all.taxa,sheet=1,col_names=TRUE,skip=0)
+    df.taxa.obs <- readxl::read_excel(all.taxa
+                                      , sheet = 1
+                                      , col_names = TRUE
+                                      , skip = 0)
     df.taxa.obs <- as.data.frame(df.taxa.obs)
-    df.taxa.obs[,1] <- tolower(df.taxa.obs[,1])
+    df.taxa.obs[, 1] <- tolower(df.taxa.obs[, 1])
     #df.taxa.obs <- as.data.frame(cbind(tolower(df.taxa.obs[,"TaxaName"])
     #, df.taxa.obs[,2:3]))
     colnames(df.taxa.obs)[1] <- "CommonName"
 
     # Read in TaxaMapsCrossWalk.xlsx
-    df.lu.taxa <- readxl::read_excel(taxa.lu,sheet=1,col_names=TRUE,skip=0)
-    df.lu.taxa <- as.data.frame(df.lu.taxa[,c("CommonName","MapName")])
-    df.lu.taxa[,"CommonName"] <- tolower(df.lu.taxa[,"CommonName"])
+    df.lu.taxa <- readxl::read_excel(taxa.lu
+                                     , sheet = 1
+                                     , col_names = TRUE
+                                     , skip = 0)
+    df.lu.taxa <- as.data.frame(df.lu.taxa[, c("CommonName", "MapName")])
+    df.lu.taxa[, "CommonName"] <- tolower(df.lu.taxa[, "CommonName"])
     # df.lu.taxa <- as.data.frame(cbind(tolower(df.lu.taxa[,"CommonName"])
       #,df.lu.taxa[,"MapName"]))
     # colnames(df.lu.taxa)[1:2] <- c("CommonName","MapName")
@@ -242,36 +280,55 @@ MapTaxaObs <- function(obs
                                 , layer = "MD_Boundary_County_Detailed"
                                 , verbose=verbose)
 
-    for (i in seq_len(nrow(map.taxa))) {##FOR.i.START
+    for (i in seq_len(nrow(map.taxa))) {
+      #
       taxon <- as.character(map.taxa$CommonName[i])
       filename <- map.taxa$MapName[i]
-      df.taxon.sites <- subset(df.taxa.obs, df.taxa.obs[,"CommonName"]==taxon)
+      df.taxon.sites <- subset(df.taxa.obs, df.taxa.obs[,"CommonName"] == taxon)
       df.taxon.sites <- subset(df.taxon.sites
                                , !is.na(df.taxon.sites["Latitude83"]))
       ##PLOT.START
-      grDevices::png(file=paste0("Maps/",filename,".png")
-                     , width=8.5*ppi
-                     , height=5.5*ppi
-                     , pointsize=12
-                     , bg="white")
-        plot(state, col="white", border="gray")
-        plot(coastline, add = TRUE, col="light blue", border=FALSE)
-        plot(counties, add = TRUE, col="white", border="darkslategray", lwd=0.5)
+      grDevices::png(file = file.path(dirMain
+                                      , dirMaps
+                                      , paste0(filename, ".png"))
+                     , width = 8.5 * ppi
+                     , height = 5.5 * ppi
+                     , pointsize = 12
+                     , bg = "white")
+        plot(state
+             , col="white"
+             , border = "gray")
+        plot(coastline
+             , add = TRUE
+             , col = "light blue"
+             , border=FALSE)
+        plot(counties
+             , add = TRUE
+             , col = "white"
+             , border = "darkslategray"
+             , lwd = 0.5)
         #xy <- df.taxon.sites[,2:3]
         proj.sites <- rgdal::project(cbind(df.taxon.sites$Longitude83
-                                           ,df.taxon.sites$Latitude83),
+                                           , df.taxon.sites$Latitude83)
+                                     ,
         "+proj=lcc +lat_1=39.45 +lat_2=38.3 +lat_0=37.66666666666666 +lon_0=-77
                 +x_0=400000 +y_0=0 +datum=NAD83 +units=m +no_defs")
-        graphics::points(proj.sites[,1]
-                         , proj.sites[,2]
-                         , pch=21
-                         , col="black"
-                         , bg="green"
-                         , cex=1.0)
+        graphics::points(proj.sites[, 1]
+                         , proj.sites[, 2]
+                         , pch = 21
+                         , col = "black"
+                         , bg = "green"
+                         , cex = 1.0)
       grDevices::dev.off()
       # user feedback
-      if (verbose==TRUE) {##IF.verbose.START
-        message(paste0("Saving map ",i," of ",nrow(map.taxa),"; ",taxon,"."))
+      if (verbose == TRUE) {##IF.verbose.START
+        message(paste0("Saving map "
+                       , i
+                       , " of "
+                       , nrow(map.taxa)
+                       , "; "
+                       , taxon
+                       , "."))
         #flush.console()
       }##IF.verbose.END
       ##PLOT.END
@@ -281,10 +338,10 @@ MapTaxaObs <- function(obs
     # Number on Non-Matches
     n.nomatch <- nrow(df.taxa.nomatch)
     # Save Non-Matches and inform user
-    if (n.nomatch==0) {
+    if (n.nomatch == 0) {
       message(paste0("There are no non-matching taxa names."))
     } else {
-      file.output <- paste0("Maps/Taxa.NoMatch.csv")
+      file.output <- file.path(dirMain, dirMaps, "Taxa.NoMatch.csv")
       utils::write.csv(df.taxa.nomatch, file.output)
       message(paste0("There are "
                      , n.nomatch

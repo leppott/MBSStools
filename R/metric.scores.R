@@ -179,9 +179,10 @@ metric.scores <- function(DF_Metrics
 
   boo_DEBUG <- FALSE
   if(boo_DEBUG==TRUE){##IF~boo_DEBUG~START
-    # bindings for global variables ----
+    # bindings for global variables, QC ----
     myMetric.Values.Fish <- myMetrics.Fish <- myMetric.Values.Bugs.MBSS <-
-      myMetrics.Bugs.MBSS <- thresh <- NULL
+      myMetrics.Bugs.MBSS <- thresh <- Index.Name <- Index.Region <-
+      Metric.Name.Other <- NULL
     # Fish
     DF_Metrics <- myMetric.Values.Fish
     MetricNames <- myMetrics.Fish
@@ -200,6 +201,9 @@ metric.scores <- function(DF_Metrics
     b <- unique(as.matrix(DF_Metrics[,IndexRegion]))[1]
     c <- MetricNames[3]
   }##IF~boo_DEBUG~END
+
+  # bindings for global variables, overall ----
+
 
   # Rename columns based
   if("Index.Name" %in% names(DF_Metrics)==FALSE){

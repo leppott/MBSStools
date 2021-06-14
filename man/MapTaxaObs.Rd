@@ -67,29 +67,32 @@ The R libraries rgdal and readxl are required for this function.
 wd <- tempdir()
 # Create Example Data if Needed
 ## Create Directories
-myDir.create <- file.path(wd,"Data")
-ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory
-already exists")
+myDir.create <- file.path(wd, "Data")
+ifelse(dir.exists(myDir.create) == FALSE
+       , dir.create(myDir.create)
+       , "Directory already exists")
 myDir.create <- file.path(wd,"GIS")
-ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory
-already exists")
+ifelse(dir.exists(myDir.create) == FALSE
+       , dir.create(myDir.create)
+       , "Directory already exists")
 myDir.create <- file.path(wd,"Maps")
-ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory
-already exists")
+ifelse(dir.exists(myDir.create) == FALSE
+       , dir.create(myDir.create)
+       , "Directory already exists")
 ## Create Data
 ### Taxa Data
 myFiles <- c("AllFish_95to16.xls", "TaxaMapsCrossWalk20170731.xlsx")
-file.copy(file.path(path.package("MBSStools"),"extdata",myFiles),
-file.path(wd,"Data",myFiles))
+file.copy(file.path(path.package("MBSStools"), "extdata", myFiles),
+file.path(wd, "Data", myFiles))
 ### GIS
-unzip(file.path(path.package("MBSStools"),"extdata","MD_GIS.zip"),
-exdir=file.path(wd,"GIS"))
+unzip(file.path(path.package("MBSStools"), "extdata", "MD_GIS.zip")
+      , exdir = file.path(wd, "GIS"))
 
 # Inputs
-Obs <- "AllFish_95to16.xls"
-XWalk <- "TaxaMapsCrossWalk20170731.xlsx"
-wd <- tempdir()
+obs     <- "AllFish_95to16.xls"
+xWalk   <- "TaxaMapsCrossWalk20170731.xlsx"
+dirMain <- tempdir()
 
 # Create maps
-MapTaxaObs(Obs, XWalk, wd)
+MapTaxaObs(obs, xWalk, dirMain)
 }
