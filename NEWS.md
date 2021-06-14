@@ -3,7 +3,11 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-06-14 15:24:37
+    #> Last Update: 2021-06-14 15:40:45
+
+# MBSStools v1.1.0.9043 (2021-06-14)
+
+-   refactor: Update license file and README badge, Issue \#41
 
 # MBSStools v1.1.0.9042 (2021-06-14)
 

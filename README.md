@@ -3,7 +3,7 @@ README-MBSStools
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-04-05 12:58:03
+    #> Last Update: 2021-06-14 15:39:48
 
 Suite of tools for data manipulation and calculations for Maryland DNR
 MBSS program.
@@ -14,8 +14,8 @@ MBSS program.
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 
-[![GitHub
-license](https://img.shields.io/github/license/leppott/MBSStools.svg)](https://github.com/leppott/MBSStools/blob/master/LICENSE)
+[![License: GPL (&gt;=
+3)](https://img.shields.io/badge/license-GPL%20(%3E=%203)-blue.svg)](https://cran.r-project.org/web/licenses/GPL%20(%3E=%203))
 
 [![CodeFactor](https://www.codefactor.io/repository/github/leppott/MBSStools/badge)](https://www.codefactor.io/repository/github/leppott/MBSStools)
 [![codecov](https://codecov.io/gh/leppott/MBSStools/branch/master/graph/badge.svg)](https://codecov.io/gh/leppott/MBSStools)

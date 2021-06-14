@@ -16,9 +16,12 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+MBSStools v1.1.0.9043 (2021-06-14)
+================ 
+* refactor: Update license file and README badge, Issue #41
+
 MBSStools v1.1.0.9042 (2021-06-14)
 ================ 
-
 * refactor: Add binding for global variable, metric.scores.R
 * docs: Rename example inputs to match MapTaxaObs function call, Issue #36
     + Issue #17
