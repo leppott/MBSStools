@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9043</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9044</span>
       </span>
     </div>
 
@@ -126,6 +126,30 @@
       <small>Source: <a href='https://github.com/leppott/MBSStools/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="mbsstools-v1109044-2021-06-15" class="section level1">
+<h1 class="page-header" data-toc-text="1.1.0.9044">
+<a href="#mbsstools-v1109044-2021-06-15" class="anchor"></a>MBSStools v1.1.0.9044 (2021-06-15)</h1>
+<ul>
+<li>feat: Add strata function to assign strata based on lat-long, Issue <a href='https://github.com/leppott/MBSStools/issues/39'>#39</a>
+<ul>
+<li>Add function strata</li>
+<li>Add data _GIS_strata.zip</li>
+<li>Add internal data shp_strata_bugs and shp_strata_fish
+<ul>
+<li>Create ProcessData in data-raw for shapefiles</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>style: Trim to 80 characters, NEWS</li>
+<li>docs: Add packages to DESCRIPTION Suggests for strata function, Issue <a href='https://github.com/leppott/MBSStools/issues/39'>#39</a>
+<ul>
+<li>sp</li>
+<li>MazamaSpatialUtils</li>
+</ul>
+</li>
+</ul>
+</div>
     <div id="mbsstools-v1109043-2021-06-14" class="section level1">
 <h1 class="page-header" data-toc-text="1.1.0.9043">
 <a href="#mbsstools-v1109043-2021-06-14" class="anchor"></a>MBSStools v1.1.0.9043 (2021-06-14)</h1>
@@ -748,7 +772,8 @@
 <h1 class="page-header" data-toc-text="1.0.2.9009">
 <a href="#mbsstools-v1029009-2019-05-01" class="anchor"></a>MBSStools v1.0.2.9009 (2019-05-01)</h1>
 <ul>
-<li>Revise “EXCLUDE” column in benthic data from “Y” and "" to TRUE and FALSE. Issue <a href='https://github.com/leppott/MBSStools/issues/25'>#25</a>.
+<li>Revise “EXCLUDE” column in benthic data from “Y” and "" to TRUE and FALSE.<br>
+Issue <a href='https://github.com/leppott/MBSStools/issues/25'>#25</a>.
 <ul>
 <li>data
 <ul>
@@ -911,7 +936,8 @@ Updated to v3.4.0 and no issue. Issue <a href='https://github.com/leppott/MBSSto
 <li><p>Update each function’s description and vignette with the packages needed for that function to work properly.</p></li>
 <li><p>Update Vignette for a few typos and so shows in final package. Also messages=FALSE for XLConnect example.</p></li>
 <li><p>DESCRIPTION. Move rgdal from Depends to Suggests.</p></li>
-<li><p>Fish metric example not working in metric.values(). Issue <a href='https://github.com/leppott/MBSStools/issues/14'>#14</a>. Extra parameter. Removed and works.</p></li>
+<li><p>Fish metric example not working in metric.values(). Issue <a href='https://github.com/leppott/MBSStools/issues/14'>#14</a>.<br>
+Extra parameter. Removed and works.</p></li>
 </ul>
 </div>
     <div id="mbsstools-v1000000-2017-09-24" class="section level1">
@@ -996,7 +1022,8 @@ Updated to v3.4.0 and no issue. Issue <a href='https://github.com/leppott/MBSSto
 <h1 class="page-header" data-toc-text="0.0.0.9010">
 <a href="#mbsstools-v0009010-2017-07-31" class="anchor"></a>MBSStools v0.0.0.9010 (2017-07-31)</h1>
 <ul>
-<li>Updated fish data and crosswalk table examples so have more matched data. Also update help to remind that data has to be on the first worksheet for the Excel file. 20170731.</li>
+<li>Updated fish data and crosswalk table examples so have more matched data.<br>
+Also update help to remind that data has to be on the first worksheet for the Excel file. 20170731.</li>
 </ul>
 </div>
     <div id="mbsstools-v0009009-2017-07-28" class="section level1">
@@ -1011,7 +1038,8 @@ Updated to v3.4.0 and no issue. Issue <a href='https://github.com/leppott/MBSSto
 <a href="#mbsstools-v0009008-2017-07-21" class="anchor"></a>MBSStools v0.0.0.9008 (2017-07-21)</h1>
 <ul>
 <li><p>Added TaxaMapsObs(). Issue <a href='https://github.com/leppott/MBSStools/issues/2'>#2</a>. 20170720.</p></li>
-<li><p>Libraries readxl (suggested) and rgdal (required) added to DESCRIPTION. Maps won’t generate without rgdal loaded. 20170720.</p></li>
+<li><p>Libraries readxl (suggested) and rgdal (required) added to DESCRIPTION.<br>
+Maps won’t generate without rgdal loaded. 20170720.</p></li>
 <li><p>Added example data and GIS files (zipped). 20170721.</p></li>
 </ul>
 </div>
@@ -1019,7 +1047,8 @@ Updated to v3.4.0 and no issue. Issue <a href='https://github.com/leppott/MBSSto
 <h1 class="page-header" data-toc-text="0.0.0.9007">
 <a href="#mbsstools-v0009007-2017-06-23" class="anchor"></a>MBSStools v0.0.0.9007 (2017-06-23)</h1>
 <ul>
-<li>Added “LazyData: true” to DESCRIPTION. Data was not being loaded properly. Issue <a href='https://github.com/leppott/MBSStools/issues/9'>#9</a>. 20170623.</li>
+<li>Added “LazyData: true” to DESCRIPTION. Data was not being loaded properly.<br>
+Issue <a href='https://github.com/leppott/MBSStools/issues/9'>#9</a>. 20170623.</li>
 </ul>
 </div>
     <div id="mbsstools-v0009006-2017-06-23" class="section level1">
@@ -1049,7 +1078,8 @@ Updated to v3.4.0 and no issue. Issue <a href='https://github.com/leppott/MBSSto
 <h1 class="page-header" data-toc-text="0.0.0.9003">
 <a href="#mbsstools-v0009003-2017-04-21" class="anchor"></a>MBSStools v0.0.0.9003 (2017-04-21)</h1>
 <ul>
-<li>FlowSum(). Added Error Handling for misidentified Channels. Updated data MBSS.flow.</li>
+<li>FlowSum(). Added Error Handling for misidentified Channels.<br>
+Updated data MBSS.flow.</li>
 </ul>
 </div>
     <div id="mbsstools-v0009002-2017-04-20" class="section level1">
