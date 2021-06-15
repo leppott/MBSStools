@@ -3,7 +3,21 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-06-14 15:40:45
+    #> Last Update: 2021-06-15 12:45:34
+
+# MBSStools v1.1.0.9044 (2021-06-15)
+
+-   feat: Add strata function to assign strata based on lat-long, Issue
+    \#39
+    -   Add function strata
+    -   Add data \_GIS\_strata.zip
+    -   Add internal data shp\_strata\_bugs and shp\_strata\_fish
+        -   Create ProcessData in data-raw for shapefiles
+-   style: Trim to 80 characters, NEWS
+-   docs: Add packages to DESCRIPTION Suggests for strata function,
+    Issue \#39
+    -   sp
+    -   MazamaSpatialUtils
 
 # MBSStools v1.1.0.9043 (2021-06-14)
 
@@ -330,7 +344,8 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 # MBSStools v1.0.2.9009 (2019-05-01)
 
 -   Revise “EXCLUDE” column in benthic data from “Y” and "" to TRUE and
-    FALSE. Issue \#25.
+    FALSE.  
+    Issue \#25.
     -   data
         -   taxa\_bugs\_family
         -   taxa\_bugs\_genus, ProcessData had additional issues that
@@ -431,7 +446,7 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 -   DESCRIPTION. Move rgdal from Depends to Suggests.
 
--   Fish metric example not working in metric.values(). Issue \#14.
+-   Fish metric example not working in metric.values(). Issue \#14.  
     Extra parameter. Removed and works.
 
 # MBSStools v1.0.0.0000 (2017-09-24)
@@ -497,7 +512,8 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 # MBSStools v0.0.0.9010 (2017-07-31)
 
 -   Updated fish data and crosswalk table examples so have more matched
-    data. Also update help to remind that data has to be on the first
+    data.  
+    Also update help to remind that data has to be on the first
     worksheet for the Excel file. 20170731.
 
 # MBSStools v0.0.0.9009 (2017-07-28)
@@ -510,14 +526,16 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 -   Added TaxaMapsObs(). Issue \#2. 20170720.
 
 -   Libraries readxl (suggested) and rgdal (required) added to
-    DESCRIPTION. Maps won’t generate without rgdal loaded. 20170720.
+    DESCRIPTION.  
+    Maps won’t generate without rgdal loaded. 20170720.
 
 -   Added example data and GIS files (zipped). 20170721.
 
 # MBSStools v0.0.0.9007 (2017-06-23)
 
 -   Added “LazyData: true” to DESCRIPTION. Data was not being loaded
-    properly. Issue \#9. 20170623.
+    properly.  
+    Issue \#9. 20170623.
 
 # MBSStools v0.0.0.9006 (2017-06-23)
 
@@ -540,8 +558,8 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 # MBSStools v0.0.0.9003 (2017-04-21)
 
--   FlowSum(). Added Error Handling for misidentified Channels. Updated
-    data MBSS.flow.
+-   FlowSum(). Added Error Handling for misidentified Channels.  
+    Updated data MBSS.flow.
 
 # MBSStools v0.0.0.9002 (2017-04-20)
 

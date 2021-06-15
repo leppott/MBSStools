@@ -84,6 +84,14 @@ use separate branch with GitHub actions.
 ## Including Data
 All data should have already been created.
 
+### Data Documentation
+Use promptData to get data.r listing for columns.  Short cuts creating documentation.
+
+```{r DocData}
+promptData(data_benthos_MBSS)
+```
+
+
 ## Error Checking
 Need to use testthat but not to that stage yet.
 ```{r, eval=FALSE}

@@ -16,6 +16,18 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+MBSStools v1.1.0.9044 (2021-06-15)
+================ 
+* feat: Add strata function to assign strata based on lat-long, Issue #39
+    + Add function strata
+    + Add data \extdata\MD_GIS_strata.zip
+    + Add internal data shp_strata_bugs and shp_strata_fish
+        - Create ProcessData in data-raw for shapefiles
+* style: Trim to 80 characters, NEWS
+* docs: Add packages to DESCRIPTION Suggests for strata function, Issue #39
+    + sp
+    + MazamaSpatialUtils
+
 MBSStools v1.1.0.9043 (2021-06-14)
 ================ 
 * refactor: Update license file and README badge, Issue #41
@@ -162,7 +174,8 @@ MBSStools v1.1.0.9023 (2020-07-09)
 
 MBSStools v1.1.0.9022 (2020-07-09)
 ================
-* Shiny app, ensure download button is not active until create zip file; Issue #32 
+* Shiny app, ensure download button is not active until create zip file; 
+Issue #32 
 
     + Add shinyjs to DESCRIPTION
 
@@ -337,13 +350,16 @@ MBSStools v1.0.2.9010 (2019-05-01)
 MBSStools v1.0.2.9009 (2019-05-01)
 ================
 
-* Revise "EXCLUDE" column in benthic data from "Y" and "" to TRUE and FALSE.  Issue #25.
+* Revise "EXCLUDE" column in benthic data from "Y" and "" to TRUE and FALSE.  
+Issue #25.
     + data
         - taxa_bugs_family
-        - taxa_bugs_genus, ProcessData had additional issues that weren't present in prior versions.
+        - taxa_bugs_genus, ProcessData had additional issues that weren't 
+        present in prior versions.
     + function; metric.values
         - Function help text
-        - Example use "MetricName.Other" rather than "Metric" to get pertinent metrics.
+        - Example use "MetricName.Other" rather than "Metric" to get pertinent 
+        metrics.
         - Replace EXCLUDE!="Y" with EXCLUDE!=TRUE
 * Vignette
     + Example for installing a package (line 51) had a typo.
@@ -430,18 +446,22 @@ MBSStools v1.0.2.9001 (2017-05-11)
 MBSStools v1.0.2.0000 (2017-10-26)
 ================
 
-* Corrected metric.score() [line 181] for fish for "HIGHLANDS" was incorrectly designated.  These sites were not getting a final FIBI score.
+* Corrected metric.score() [line 181] for fish for "HIGHLANDS" was incorrectly 
+designated.  These sites were not getting a final FIBI score.
 
 MBSStools v1.0.1.0000 (2017-09-26)
 ================
 
-* Update each function's description and vignette with the packages needed for that function to work properly.
+* Update each function's description and vignette with the packages needed for 
+that function to work properly.
 
-* Update Vignette for a few typos and so shows in final package.  Also messages=FALSE for XLConnect example.
+* Update Vignette for a few typos and so shows in final package.  Also 
+messages=FALSE for XLConnect example.
 
 * DESCRIPTION.  Move rgdal from Depends to Suggests.
 
-* Fish metric example not working in metric.values().  Issue #14.  Extra parameter.  Removed and works.
+* Fish metric example not working in metric.values().  Issue #14.  
+Extra parameter.  Removed and works.
 
 MBSStools v1.0.0.0000 (2017-09-24)
 ================
@@ -478,7 +498,8 @@ MBSStools v0.0.0.9016 (2017-09-19)
 MBSStools v0.0.0.9015 (2017-09-13)
 ================
 
-* Fix typo in example for metric.scores(); "Metrics.Bugs.Scores" to "Metrics.Bugs.Scores.MBSS". 20170913.
+* Fix typo in example for metric.scores(); "Metrics.Bugs.Scores" to 
+"Metrics.Bugs.Scores.MBSS". 20170913.
 
 MBSStools v0.0.0.9014 (2017-09-09)
 ================
@@ -512,26 +533,31 @@ MBSStools  0.0.0.9011 (2017-08-22)
 MBSStools v0.0.0.9010 (2017-07-31)
 ================
 
-* Updated fish data and crosswalk table examples so have more matched data.  Also update help to remind that data has to be on the first worksheet for the Excel file.  20170731.
+* Updated fish data and crosswalk table examples so have more matched data.  
+Also update help to remind that data has to be on the first worksheet for the 
+Excel file.  20170731.
 
 MBSStools v0.0.0.9009 (2017-07-28)
 ================
 
-* Updated DESCRIPTION.  "Erik" to "Erik W." and added Matt Ashton as data contributor.  20170728.
+* Updated DESCRIPTION.  "Erik" to "Erik W." and added Matt Ashton as data 
+contributor.  20170728.
 
 MBSStools v0.0.0.9008 (2017-07-21)
 ================
 
 * Added TaxaMapsObs().  Issue #2. 20170720.
 
-* Libraries readxl (suggested) and rgdal (required) added to DESCRIPTION.  Maps won't generate without rgdal loaded. 20170720.
+* Libraries readxl (suggested) and rgdal (required) added to DESCRIPTION.  
+Maps won't generate without rgdal loaded. 20170720.
 
 * Added example data and GIS files (zipped). 20170721.
 
 MBSStools v0.0.0.9007 (2017-06-23)
 ================
 
-* Added "LazyData: true" to DESCRIPTION.  Data was not being loaded properly.  Issue #9.  20170623.
+* Added "LazyData: true" to DESCRIPTION.  Data was not being loaded properly.  
+Issue #9.  20170623.
 
 MBSStools v0.0.0.9006 (2017-06-23)
 ================
@@ -550,17 +576,21 @@ MBSStools v0.0.0.9005 (2017-06-14)
 MBSStools v0.0.0.9004 (2017-04-28)
 ================
 
-* Address issues with PHIcalc from testing.  Removed extra rows from Excel import for data MBSS.PHI.  Added line to convert values to numeric inside MBSS.PHI.  (not complete)
+* Address issues with PHIcalc from testing.  Removed extra rows from Excel 
+import for data MBSS.PHI.  Added line to convert values to numeric inside 
+MBSS.PHI.  (not complete)
 
 MBSStools v0.0.0.9003 (2017-04-21)
 ================
 
-* FlowSum().  Added Error Handling for misidentified Channels.  Updated data MBSS.flow.
+* FlowSum().  Added Error Handling for misidentified Channels.  
+Updated data MBSS.flow.
 
 MBSStools v0.0.0.9002 (2017-04-20)
 ================
 
-* Flow sum calculation completed.  Included Channel Number as grouping variable but sum across channels to get the total site flow.
+* Flow sum calculation completed.  Included Channel Number as grouping variable 
+but sum across channels to get the total site flow.
 
 * PHI, edit script for outlining in RStudio.
 
@@ -568,7 +598,8 @@ MBSStools v0.0.0.9002 (2017-04-20)
 
 * Data.R and folder "data-raw".
 
-* PHI, tweak for created data.  Using Excel to build rda rather than txt file from the Excel.
+* PHI, tweak for created data.  Using Excel to build rda rather than txt file 
+from the Excel.
 
 MBSStools v0.0.0.9001 (2017-03-29)
 ================
