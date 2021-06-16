@@ -3,7 +3,11 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-06-15 12:45:34
+    #> Last Update: 2021-06-16 11:08:25
+
+# MBSStools v1.1.0.9045 (2021-06-16)
+
+-   docs: Tweak help file for strata function, Issue \#39
 
 # MBSStools v1.1.0.9044 (2021-06-15)
 

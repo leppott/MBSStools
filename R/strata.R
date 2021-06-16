@@ -1,40 +1,44 @@
 #' @title Assign MBSS strata
 #'
-#' @description Assign MBSS strata (bugs and fish) using the official MBSS GIS
-#' shapefiles.
+#' @description Assign MBSS strata (BIBI [bugs] and FIBI [fish]) using the MBSS
+#' GIS shapefiles.
 #'
-#' Input is a data frame with columns for latitude and longitude.
+#' @details The results of this function are **provisional** and not official.
+#' Strata should be checked using GIS software (e.g., ArcGIS).
+#' GPS coordinates with low accuracy can affect the assignment of the correct
+#' strata.
 #'
-#' It is assumed this function is being used in the northern and western
-#' hemispheres (i.e., US).  Longitudes will be converted to negative values.
-#'
-#' Locations outside of the input GIS shapefile (e.g., Maryland) will be coded
-#' as 'NA'.
-#'
-#' * BIBI
-#'
-#'     + mbss_strata
-#'
-#' * FIBI
-#'
-#'     + mbss_strata_coldstreams
+#' Input is a data frame with columns for latitude and longitude.  Coordinates
+#' should be decimal degrees.  This function is intended for use in Maryland
+#' (USA) so longitudes will be converted to negative values.
 #'
 #' Default point projection is:
 #' "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
 #'
-#' @details The Shiny app based on the R package MBSStools is included in the R
-#' package. This function launches that app.
+#' Locations outside of the strata GIS shapefiles will be coded as 'NA'.
+#'
+#' The GIS shapefiles are available at:
+#'
+#' https://github.com/leppott/MBSStools_SupportFiles
+#' #'
+#' * BIBI, mbss_strata.shp
+#'
+#' * FIBI, mbss_strata_coldstreams.shp
+#'
+#' The FIBI shapefile was a line layer that has been converted to a polygon
+#' layer using the catchment shapefile from NHDplus version 2 and clipped to the
+#' boundaries of the BIBI shapefile.
 #'
 #' @param data Data frame
 #' @param col_lat Column name for latitude.  Default = "lat"
 #' @param col_lon Column name for longitude.  Default = "lon"
 #'
-#' @return Returns the input data frame with one column for each strata (bugs
-#' and fish).
+#' @return Returns the input data frame with one column for each strata (bibi
+#' and fibi).
 #'
 #' @examples
 #' # random points
-#' myN <- 100
+#' myN <- 250
 #' latitude <- runif(myN, min = 37+53/60, max = 39+43/60)
 #' longitude <- runif(myN, min = -(79+29/60), max = -(75+3/60))
 #'
@@ -47,7 +51,7 @@
 #'
 #' # View Results
 #' head(data_strata)
-#' table(data_strata$strata_bugs, data_strata$strata_fish, useNA = "ifany")
+#' table(data_strata$strata_bibi, data_strata$strata_fibi, useNA = "ifany")
 
 #'
 #' # Plot
@@ -55,25 +59,25 @@
 #' library(rgdal)
 #'
 #' ## subset sites
-#' sites_CP <- data_strata[data_strata[, "strata_fish"] == "Coastal", ]
-#' sites_Pd <- data_strata[data_strata[, "strata_fish"] == "Piedmont", ]
-#' sites_Hi <- data_strata[data_strata[, "strata_fish"] == "Highlands", ]
-#' sites_Cold <- data_strata[data_strata[, "strata_fish"] == "Cold", ]
+#' sites_CP <- data_strata[data_strata[, "strata_fibi"] == "Coastal", ]
+#' sites_Pd <- data_strata[data_strata[, "strata_fibi"] == "Piedmont", ]
+#' sites_Hi <- data_strata[data_strata[, "strata_fibi"] == "Highlands", ]
+#' sites_Cold <- data_strata[data_strata[, "strata_fibi"] == "Cold", ]
 #'
 #' ## Plot
 #' plot(shp_strata_bugs
 #'      , col = "white"
 #'      , border = "darkslategray"
 #'      , lwd = 0.5)
-#' # plot(shp_strata_fish
-#' #      , add = TRUE
-#' #      , col = "white"
-#' #      , border = "red"
-#' #      , lwd = 0.25)
+#  plot(shp_strata_fish
+#       , add = TRUE
+#       , col = "white"
+#       , border = "red"
+#       , lwd = 0.25)
 #' pts_col <- "black"
 #' pts_cex <- 1.0
 #' pts_pch <- 21
-#' pts_bg  <- c("gray", "green", "blue", "purple", "yellow")
+#' pts_bg  <- c("gray", "green", "blue", "orange", "yellow")
 #' graphics::points(data[, col_lon]
 #'                , data[, col_lat]
 #'                , pch = pts_pch
@@ -113,6 +117,8 @@
 #'     , title = "Strata"
 #'     , box.lty = 0
 #'     , bg = "white")
+#' title(main = "Assignment of MBSS strata"
+#'       , sub = paste0(myN, " random points using MBSStools::strata()"))
 #' }
 #
 #' @export
@@ -125,7 +131,7 @@ strata <- function(data
   data[data[, col_lon] > 0, col_lon] <- -data[data[, col_lon] > 0, col_lon]
 
   # Get Strata ----
-  proj_wgs84 <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
+ proj_wgs84 <- "+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"
 
   strata_bugs <- MazamaSpatialUtils::getSpatialData(data[, col_lon]
                                                    , data[, col_lat]
@@ -136,8 +142,8 @@ strata <- function(data
 
 
   # Update Data ----
-  data[, "strata_bugs"] <- strata_bugs[, "Strata"]
-  data[, "strata_fish"] <- strata_fish[, "Strata"]
+  data[, "strata_bibi"] <- strata_bugs[, "Strata"]
+  data[, "strata_fibi"] <- strata_fish[, "Strata"]
 
   # Post QC ----
   # Convert <NA> to NA
