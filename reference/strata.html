@@ -40,19 +40,8 @@
 
 
 <meta property="og:title" content="Assign MBSS strata — strata" />
-<meta property="og:description" content="Assign MBSS strata (bugs and fish) using the official MBSS GIS
-shapefiles.
-Input is a data frame with columns for latitude and longitude.
-It is assumed this function is being used in the northern and western
-hemispheres (i.e., US).  Longitudes will be converted to negative values.
-Locations outside of the input GIS shapefile (e.g., Maryland) will be coded
-as 'NA'.
-* BIBI
-+ mbss_strata
-* FIBI
-+ mbss_strata_coldstreams
-Default point projection is:
-&quot;+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0&quot;" />
+<meta property="og:description" content="Assign MBSS strata (BIBI [bugs] and FIBI [fish]) using the MBSS
+GIS shapefiles." />
 
 
 
@@ -84,7 +73,7 @@ Default point projection is:
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9044</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9045</span>
       </span>
     </div>
 
@@ -141,19 +130,8 @@ Default point projection is:
     </div>
 
     <div class="ref-description">
-    <p>Assign MBSS strata (bugs and fish) using the official MBSS GIS
-shapefiles.</p>
-<p>Input is a data frame with columns for latitude and longitude.</p>
-<p>It is assumed this function is being used in the northern and western
-hemispheres (i.e., US).  Longitudes will be converted to negative values.</p>
-<p>Locations outside of the input GIS shapefile (e.g., Maryland) will be coded
-as 'NA'.</p>
-<p>* BIBI</p>
-<p>+ mbss_strata</p>
-<p>* FIBI</p>
-<p>+ mbss_strata_coldstreams</p>
-<p>Default point projection is:
-"+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"</p>
+    <p>Assign MBSS strata (BIBI [bugs] and FIBI [fish]) using the MBSS
+GIS shapefiles.</p>
     </div>
 
     <pre class="usage"><span class='fu'>strata</span><span class='op'>(</span><span class='va'>data</span>, col_lat <span class='op'>=</span> <span class='st'>"lat"</span>, col_lon <span class='op'>=</span> <span class='st'>"long"</span><span class='op'>)</span></pre>
@@ -177,16 +155,32 @@ as 'NA'.</p>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Returns the input data frame with one column for each strata (bugs
-and fish).</p>
+    <p>Returns the input data frame with one column for each strata (bibi
+and fibi).</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>The Shiny app based on the R package MBSStools is included in the R
-package. This function launches that app.</p>
+    <p>The results of this function are **provisional** and not official.
+Strata should be checked using GIS software (e.g., ArcGIS).
+GPS coordinates with low accuracy can affect the assignment of the correct
+strata.</p>
+<p>Input is a data frame with columns for latitude and longitude.  Coordinates
+should be decimal degrees.  This function is intended for use in Maryland
+(USA) so longitudes will be converted to negative values.</p>
+<p>Default point projection is:
+"+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0"</p>
+<p>Locations outside of the strata GIS shapefiles will be coded as 'NA'.</p>
+<p>The GIS shapefiles are available at:</p>
+<p>https://github.com/leppott/MBSStools_SupportFiles
+#'
+* BIBI, mbss_strata.shp</p>
+<p>* FIBI, mbss_strata_coldstreams.shp</p>
+<p>The FIBI shapefile was a line layer that has been converted to a polygon
+layer using the catchment shapefile from NHDplus version 2 and clipped to the
+boundaries of the BIBI shapefile.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># random points</span>
-<span class='va'>myN</span> <span class='op'>&lt;-</span> <span class='fl'>100</span>
+<span class='va'>myN</span> <span class='op'>&lt;-</span> <span class='fl'>250</span>
 <span class='va'>latitude</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='va'>myN</span>, min <span class='op'>=</span> <span class='fl'>37</span><span class='op'>+</span><span class='fl'>53</span><span class='op'>/</span><span class='fl'>60</span>, max <span class='op'>=</span> <span class='fl'>39</span><span class='op'>+</span><span class='fl'>43</span><span class='op'>/</span><span class='fl'>60</span><span class='op'>)</span>
 <span class='va'>longitude</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/Uniform.html'>runif</a></span><span class='op'>(</span><span class='va'>myN</span>, min <span class='op'>=</span> <span class='op'>-</span><span class='op'>(</span><span class='fl'>79</span><span class='op'>+</span><span class='fl'>29</span><span class='op'>/</span><span class='fl'>60</span><span class='op'>)</span>, max <span class='op'>=</span> <span class='op'>-</span><span class='op'>(</span><span class='fl'>75</span><span class='op'>+</span><span class='fl'>3</span><span class='op'>/</span><span class='fl'>60</span><span class='op'>)</span><span class='op'>)</span>
 
@@ -199,43 +193,38 @@ package. This function launches that app.</p>
 
 <span class='co'># View Results</span>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>data_strata</span><span class='op'>)</span>
-</div><div class='output co'>#&gt;   longitude latitude strata_bugs strata_fish
-#&gt; 1 -75.91149 38.03138     Coastal     Coastal
-#&gt; 2 -75.87437 39.41294     Coastal     Coastal
-#&gt; 3 -77.69266 38.98473        &lt;NA&gt;        &lt;NA&gt;
-#&gt; 4 -78.51496 38.17155        &lt;NA&gt;        &lt;NA&gt;
-#&gt; 5 -77.62860 37.89690        &lt;NA&gt;        &lt;NA&gt;
-#&gt; 6 -76.51801 38.73839     Coastal     Coastal</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>data_strata</span><span class='op'>$</span><span class='va'>strata_bugs</span>, <span class='va'>data_strata</span><span class='op'>$</span><span class='va'>strata_fish</span>, useNA <span class='op'>=</span> <span class='st'>"ifany"</span><span class='op'>)</span>
+</div><div class='output co'>#&gt;   longitude latitude strata_bibi strata_fibi
+#&gt; 1 -77.22724 38.03138        &lt;NA&gt;        &lt;NA&gt;
+#&gt; 2 -77.63346 39.41294   Highlands   Highlands
+#&gt; 3 -76.26053 38.98473     Coastal     Coastal
+#&gt; 4 -76.65626 38.17155     Coastal     Coastal
+#&gt; 5 -77.72592 37.89690        &lt;NA&gt;        &lt;NA&gt;
+#&gt; 6 -75.22963 38.73839        &lt;NA&gt;        &lt;NA&gt;</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>data_strata</span><span class='op'>$</span><span class='va'>strata_bibi</span>, <span class='va'>data_strata</span><span class='op'>$</span><span class='va'>strata_fibi</span>, useNA <span class='op'>=</span> <span class='st'>"ifany"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;            
 #&gt;             Coastal Highlands Piedmont &lt;NA&gt;
-#&gt;   Coastal        34         0        0    0
-#&gt;   Highlands       0         4        0    0
-#&gt;   Piedmont        0         0        5    0
-#&gt;   &lt;NA&gt;            0         0        0   57</div><div class='input'>
+#&gt;   Coastal        64         0        0    0
+#&gt;   Highlands       0        27        0    0
+#&gt;   Piedmont        0         0       15    0
+#&gt;   &lt;NA&gt;            0         0        0  144</div><div class='input'>
 <span class='co'># Plot</span>
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
 <span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://rgdal.r-forge.r-project.org'>rgdal</a></span><span class='op'>)</span>
 
 <span class='co'>## subset sites</span>
-<span class='va'>sites_CP</span> <span class='op'>&lt;-</span> <span class='va'>data_strata</span><span class='op'>[</span><span class='va'>data_strata</span><span class='op'>[</span>, <span class='st'>"strata_fish"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Coastal"</span>, <span class='op'>]</span>
-<span class='va'>sites_Pd</span> <span class='op'>&lt;-</span> <span class='va'>data_strata</span><span class='op'>[</span><span class='va'>data_strata</span><span class='op'>[</span>, <span class='st'>"strata_fish"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Piedmont"</span>, <span class='op'>]</span>
-<span class='va'>sites_Hi</span> <span class='op'>&lt;-</span> <span class='va'>data_strata</span><span class='op'>[</span><span class='va'>data_strata</span><span class='op'>[</span>, <span class='st'>"strata_fish"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Highlands"</span>, <span class='op'>]</span>
-<span class='va'>sites_Cold</span> <span class='op'>&lt;-</span> <span class='va'>data_strata</span><span class='op'>[</span><span class='va'>data_strata</span><span class='op'>[</span>, <span class='st'>"strata_fish"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Cold"</span>, <span class='op'>]</span>
+<span class='va'>sites_CP</span> <span class='op'>&lt;-</span> <span class='va'>data_strata</span><span class='op'>[</span><span class='va'>data_strata</span><span class='op'>[</span>, <span class='st'>"strata_fibi"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Coastal"</span>, <span class='op'>]</span>
+<span class='va'>sites_Pd</span> <span class='op'>&lt;-</span> <span class='va'>data_strata</span><span class='op'>[</span><span class='va'>data_strata</span><span class='op'>[</span>, <span class='st'>"strata_fibi"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Piedmont"</span>, <span class='op'>]</span>
+<span class='va'>sites_Hi</span> <span class='op'>&lt;-</span> <span class='va'>data_strata</span><span class='op'>[</span><span class='va'>data_strata</span><span class='op'>[</span>, <span class='st'>"strata_fibi"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Highlands"</span>, <span class='op'>]</span>
+<span class='va'>sites_Cold</span> <span class='op'>&lt;-</span> <span class='va'>data_strata</span><span class='op'>[</span><span class='va'>data_strata</span><span class='op'>[</span>, <span class='st'>"strata_fibi"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Cold"</span>, <span class='op'>]</span>
 
 <span class='co'>## Plot</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span><span class='op'>(</span><span class='va'>shp_strata_bugs</span>
      , col <span class='op'>=</span> <span class='st'>"white"</span>
      , border <span class='op'>=</span> <span class='st'>"darkslategray"</span>
      , lwd <span class='op'>=</span> <span class='fl'>0.5</span><span class='op'>)</span>
-<span class='co'># plot(shp_strata_fish</span>
-<span class='co'>#      , add = TRUE</span>
-<span class='co'>#      , col = "white"</span>
-<span class='co'>#      , border = "red"</span>
-<span class='co'>#      , lwd = 0.25)</span>
 <span class='va'>pts_col</span> <span class='op'>&lt;-</span> <span class='st'>"black"</span>
 <span class='va'>pts_cex</span> <span class='op'>&lt;-</span> <span class='fl'>1.0</span>
 <span class='va'>pts_pch</span> <span class='op'>&lt;-</span> <span class='fl'>21</span>
-<span class='va'>pts_bg</span>  <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gray"</span>, <span class='st'>"green"</span>, <span class='st'>"blue"</span>, <span class='st'>"purple"</span>, <span class='st'>"yellow"</span><span class='op'>)</span>
+<span class='va'>pts_bg</span>  <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"gray"</span>, <span class='st'>"green"</span>, <span class='st'>"blue"</span>, <span class='st'>"orange"</span>, <span class='st'>"yellow"</span><span class='op'>)</span>
 <span class='fu'>graphics</span><span class='fu'>::</span><span class='fu'><a href='https://rdrr.io/r/graphics/points.html'>points</a></span><span class='op'>(</span><span class='va'>data</span><span class='op'>[</span>, <span class='va'>col_lon</span><span class='op'>]</span>
                , <span class='va'>data</span><span class='op'>[</span>, <span class='va'>col_lat</span><span class='op'>]</span>
                , pch <span class='op'>=</span> <span class='va'>pts_pch</span>
@@ -275,6 +264,8 @@ package. This function launches that app.</p>
     , title <span class='op'>=</span> <span class='st'>"Strata"</span>
     , box.lty <span class='op'>=</span> <span class='fl'>0</span>
     , bg <span class='op'>=</span> <span class='st'>"white"</span><span class='op'>)</span>
+<span class='fu'><a href='https://rdrr.io/r/graphics/title.html'>title</a></span><span class='op'>(</span>main <span class='op'>=</span> <span class='st'>"Assignment of MBSS strata"</span>
+      , sub <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='va'>myN</span>, <span class='st'>" random points using MBSStools::strata()"</span><span class='op'>)</span><span class='op'>)</span>
 <span class='op'>}</span>
 </div></pre>
   </div>
