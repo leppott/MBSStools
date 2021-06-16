@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>run MBSStools Shiny Example — runShiny • MBSStools</title>
+<title>GIS shapefile, MBSS (MSW) strata, bugs — shp_strata_msw • MBSStools</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="run MBSStools Shiny Example — runShiny" />
-<meta property="og:description" content="Launches Shiny app for MBSStools." />
+<meta property="og:title" content="GIS shapefile, MBSS (MSW) strata, bugs — shp_strata_msw" />
+<meta property="og:description" content="A shapefile with polygons for Maryland for MBSS strata for MSW.
+Used with strata function." />
 
 
 
@@ -123,31 +124,68 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>run MBSStools Shiny Example</h1>
-    <small class="dont-index">Source: <a href='https://github.com/leppott/MBSStools/blob/master/R/runShiny.R'><code>R/runShiny.R</code></a></small>
-    <div class="hidden name"><code>runShiny.Rd</code></div>
+    <h1>GIS shapefile, MBSS (MSW) strata, bugs</h1>
+    <small class="dont-index">Source: <a href='https://github.com/leppott/MBSStools/blob/master/R/data.r'><code>R/data.r</code></a></small>
+    <div class="hidden name"><code>shp_strata_msw.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Launches Shiny app for MBSStools.</p>
+    <p>A shapefile with polygons for Maryland for MBSS strata for MSW.
+Used with strata function.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>runShiny</span><span class='op'>(</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='va'>shp_strata_msw</span></pre>
 
 
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>The Shiny app based on the R package MBSStools is included in the R
-package. This function launches that app.</p>
-<p>The Shiny app is online at:
-https://leppott.shinyapps.io/MBSStools</p>
+    <p>The format is:
+ Formal class 'SpatialPolygonsDataFrame' [package "sp"] with 5 slots
+..@ data       :'data.frame':	2 obs. of  4 variables:
+ .. ..$ AREA      : num [1:2] 2.02e+10 1.18e+10
+.. ..$ PERIMETER : num [1:2] 709260 989089
+.. ..$ PROVINCES_: chr [1:2] "-2" "-1"
+.. ..$ Strata    : chr [1:2] "CP" "NCP"
+..@ polygons   :List of 2
+.. ..$ :Formal class 'Polygons' [package "sp"] with 5 slots
+.. .. .. ..@ Polygons :List of 1
+.. .. .. .. ..$ :Formal class 'Polygon' [package "sp"] with 5 slots
+.. .. .. .. .. .. ..@ labpt  : num [1:2] -76.2 38.6
+.. .. .. .. .. .. ..@ area   : num 2.09
+.. .. .. .. .. .. ..@ hole   : logi FALSE
+.. .. .. .. .. .. ..@ ringDir: int 1
+.. .. .. .. .. .. ..@ coords : num [1:9585, 1:2] -77.1 -77.1 -77.1 -77.1 -77.1 ...
+.. .. .. ..@ plotOrder: int 1
+.. .. .. ..@ labpt    : num [1:2] -76.2 38.6
+.. .. .. ..@ ID       : chr "0"
+.. .. .. ..@ area     : num 2.09
+.. .. .. ..$ comment: chr "0"
+.. ..$ :Formal class 'Polygons' [package "sp"] with 5 slots
+.. .. .. ..@ Polygons :List of 1
+.. .. .. .. ..$ :Formal class 'Polygon' [package "sp"] with 5 slots
+.. .. .. .. .. .. ..@ labpt  : num [1:2] -77.5 39.5
+.. .. .. .. .. .. ..@ area   : num 1.24
+.. .. .. .. .. .. ..@ hole   : logi FALSE
+.. .. .. .. .. .. ..@ ringDir: int 1
+.. .. .. .. .. .. ..@ coords : num [1:24274, 1:2] -79 -79 -79 -79 -79 ...
+.. .. .. ..@ plotOrder: int 1
+.. .. .. ..@ labpt    : num [1:2] -77.5 39.5
+.. .. .. ..@ ID       : chr "1"
+.. .. .. ..@ area     : num 1.24
+.. .. .. ..$ comment: chr "0"
+..@ plotOrder  : int [1:2] 1 2
+..@ bbox       : num [1:2, 1:2] -79.5 37.9 -75 39.7
+.. ..- attr(*, "dimnames")=List of 2
+.. .. ..$ : chr [1:2] "x" "y"
+.. .. ..$ : chr [1:2] "min" "max"
+..@ proj4string:Formal class 'CRS' [package "sp"] with 1 slot
+.. .. ..@ projargs: chr "+proj=longlat +datum=WGS84 +no_defs"
+.. .. ..$ comment: chr "GEOGCRS[\"unknown\",    DATUM[\"World Geodetic System 1984\",        ELLIPSOID[\"WGS 84\",6378137,298.25722"| __truncated__
+..$ comment: chr "TRUE"</p>
+    <h2 class="hasAnchor" id="source"><a class="anchor" href="#source"></a>Source</h2>
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'># Run Function</span>
-<span class='fu'>runShiny</span><span class='op'>(</span><span class='op'>)</span>
-<span class='op'>}</span>
-</div></pre>
+    <p>MBSS, manipulated mbss_strata for only two strata (NCP and CP).</p>
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
