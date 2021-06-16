@@ -3,7 +3,15 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-06-16 11:08:25
+    #> Last Update: 2021-06-16 14:11:45
+
+# MBSStools v1.1.0.9046 (2021-06-16)
+
+-   refactor: Add fibi and msw GIS base files to strata(), Issue \#39
+    -   Update ProcessData script
+    -   Add shape files to extdata\_GIS\_strata.zip
+    -   Update data.R
+    -   Update strata function for the new layers
 
 # MBSStools v1.1.0.9045 (2021-06-16)
 

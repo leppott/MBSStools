@@ -20,10 +20,12 @@
 #' The GIS shapefiles are available at:
 #'
 #' https://github.com/leppott/MBSStools_SupportFiles
-#' #'
+#'
 #' * BIBI, mbss_strata.shp
 #'
-#' * FIBI, mbss_strata_coldstreams.shp
+#' * FIBI, mbss_strata_coldstreams.shp converted to mbss_strata_fibi.ship
+#'
+#' * BIBI, MSW, mbss_strata_msw.shp (from mbss_strata.shp)
 #'
 #' The FIBI shapefile was a line layer that has been converted to a polygon
 #' layer using the catchment shapefile from NHDplus version 2 and clipped to the
@@ -34,7 +36,7 @@
 #' @param col_lon Column name for longitude.  Default = "lon"
 #'
 #' @return Returns the input data frame with one column for each strata (bibi
-#' and fibi).
+#' , fibi, and msw).
 #'
 #' @examples
 #' # random points
@@ -60,24 +62,19 @@
 #'
 #' ## subset sites
 #' sites_CP <- data_strata[data_strata[, "strata_fibi"] == "Coastal", ]
-#' sites_Pd <- data_strata[data_strata[, "strata_fibi"] == "Piedmont", ]
+#' sites_EP <- data_strata[data_strata[, "strata_fibi"] == "Piedmont", ]
 #' sites_Hi <- data_strata[data_strata[, "strata_fibi"] == "Highlands", ]
 #' sites_Cold <- data_strata[data_strata[, "strata_fibi"] == "Cold", ]
 #'
 #' ## Plot
-#' plot(shp_strata_bugs
+#' plot(shp_strata_fish
 #'      , col = "white"
 #'      , border = "darkslategray"
 #'      , lwd = 0.5)
-#  plot(shp_strata_fish
-#       , add = TRUE
-#       , col = "white"
-#       , border = "red"
-#       , lwd = 0.25)
 #' pts_col <- "black"
 #' pts_cex <- 1.0
 #' pts_pch <- 21
-#' pts_bg  <- c("gray", "green", "blue", "orange", "yellow")
+#' pts_bg  <- c("gray", "green", "purple", "orange", "blue")
 #' graphics::points(data[, col_lon]
 #'                , data[, col_lat]
 #'                , pch = pts_pch
@@ -90,8 +87,8 @@
 #'               , col = pts_col
 #'               , bg = pts_bg[2]
 #'               , cex = pts_cex)
-#' graphics::points(sites_Pd[, col_lon]
-#'               , sites_Pd[, col_lat]
+#' graphics::points(sites_EP[, col_lon]
+#'               , sites_EP[, col_lat]
 #'               , pch = pts_pch
 #'               , col = pts_col
 #'               , bg = pts_bg[3]
@@ -138,12 +135,16 @@ strata <- function(data
                                                    , shp_strata_bugs)
   strata_fish <- MazamaSpatialUtils::getSpatialData(data[, col_lon]
                                                    , data[, col_lat]
-                                                   , shp_strata_bugs)
+                                                   , shp_strata_fish)
+  strata_msw <- MazamaSpatialUtils::getSpatialData(data[, col_lon]
+                                                    , data[, col_lat]
+                                                    , shp_strata_msw)
 
 
   # Update Data ----
   data[, "strata_bibi"] <- strata_bugs[, "Strata"]
   data[, "strata_fibi"] <- strata_fish[, "Strata"]
+  data[, "strata_msw"]  <- strata_msw[, "Strata"]
 
   # Post QC ----
   # Convert <NA> to NA

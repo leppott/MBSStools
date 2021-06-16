@@ -15,7 +15,7 @@ strata(data, col_lat = "lat", col_lon = "long")
 }
 \value{
 Returns the input data frame with one column for each strata (bibi
-and fibi).
+, fibi, and msw).
 }
 \description{
 Assign MBSS strata (BIBI [bugs] and FIBI [fish]) using the MBSS
@@ -39,10 +39,12 @@ Locations outside of the strata GIS shapefiles will be coded as 'NA'.
 The GIS shapefiles are available at:
 
 https://github.com/leppott/MBSStools_SupportFiles
-#'
+
 * BIBI, mbss_strata.shp
 
-* FIBI, mbss_strata_coldstreams.shp
+* FIBI, mbss_strata_coldstreams.shp converted to mbss_strata_fibi.ship
+
+* BIBI, MSW, mbss_strata_msw.shp (from mbss_strata.shp)
 
 The FIBI shapefile was a line layer that has been converted to a polygon
 layer using the catchment shapefile from NHDplus version 2 and clipped to the
@@ -71,19 +73,19 @@ library(rgdal)
 
 ## subset sites
 sites_CP <- data_strata[data_strata[, "strata_fibi"] == "Coastal", ]
-sites_Pd <- data_strata[data_strata[, "strata_fibi"] == "Piedmont", ]
+sites_EP <- data_strata[data_strata[, "strata_fibi"] == "Piedmont", ]
 sites_Hi <- data_strata[data_strata[, "strata_fibi"] == "Highlands", ]
 sites_Cold <- data_strata[data_strata[, "strata_fibi"] == "Cold", ]
 
 ## Plot
-plot(shp_strata_bugs
+plot(shp_strata_fish
      , col = "white"
      , border = "darkslategray"
      , lwd = 0.5)
 pts_col <- "black"
 pts_cex <- 1.0
 pts_pch <- 21
-pts_bg  <- c("gray", "green", "blue", "orange", "yellow")
+pts_bg  <- c("gray", "green", "purple", "orange", "blue")
 graphics::points(data[, col_lon]
                , data[, col_lat]
                , pch = pts_pch
@@ -96,8 +98,8 @@ graphics::points(sites_CP[, col_lon]
               , col = pts_col
               , bg = pts_bg[2]
               , cex = pts_cex)
-graphics::points(sites_Pd[, col_lon]
-              , sites_Pd[, col_lat]
+graphics::points(sites_EP[, col_lon]
+              , sites_EP[, col_lat]
               , pch = pts_pch
               , col = pts_col
               , bg = pts_bg[3]

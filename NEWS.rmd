@@ -16,6 +16,14 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+MBSStools v1.1.0.9046 (2021-06-16)
+================
+* refactor: Add fibi and msw GIS base files to strata(), Issue #39
+    + Update ProcessData script
+    + Add shape files to extdata\MD_GIS_strata.zip
+    + Update data.R
+    + Update strata function for the new layers
+
 MBSStools v1.1.0.9045 (2021-06-16)
 ================
 * docs: Tweak help file for strata function, Issue #39
