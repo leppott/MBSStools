@@ -195,16 +195,16 @@ boundaries of the BIBI shapefile.</p>
 <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>data_strata</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;   longitude latitude strata_bibi strata_fibi strata_msw
 #&gt; 1 -77.22724 38.03138        &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;
-#&gt; 2 -77.63346 39.41294   Highlands   Highlands        NCP
+#&gt; 2 -77.63346 39.41294    Highland    Highland        NCP
 #&gt; 3 -76.26053 38.98473     Coastal     Coastal         CP
 #&gt; 4 -76.65626 38.17155     Coastal     Coastal         CP
 #&gt; 5 -77.72592 37.89690        &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;
 #&gt; 6 -75.22963 38.73839        &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;</div><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/table.html'>table</a></span><span class='op'>(</span><span class='va'>data_strata</span><span class='op'>$</span><span class='va'>strata_bibi</span>, <span class='va'>data_strata</span><span class='op'>$</span><span class='va'>strata_fibi</span>, useNA <span class='op'>=</span> <span class='st'>"ifany"</span><span class='op'>)</span>
 </div><div class='output co'>#&gt;            
-#&gt;             Coastal Cold Highlands Piedmont &lt;NA&gt;
+#&gt;             Coastal Cold EPiedmont Highland &lt;NA&gt;
 #&gt;   Coastal        64    0         0        0    0
-#&gt;   Highlands       0    9        18        0    0
-#&gt;   Piedmont        0    0         0       15    0
+#&gt;   EPiedmont       0    0        15        0    0
+#&gt;   Highland        0    9         0       18    0
 #&gt;   &lt;NA&gt;            0    0         0        0  144</div><div class='input'>
 <span class='co'># Plot</span>
 <span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
@@ -212,8 +212,8 @@ boundaries of the BIBI shapefile.</p>
 
 <span class='co'>## subset sites</span>
 <span class='va'>sites_CP</span> <span class='op'>&lt;-</span> <span class='va'>data_strata</span><span class='op'>[</span><span class='va'>data_strata</span><span class='op'>[</span>, <span class='st'>"strata_fibi"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Coastal"</span>, <span class='op'>]</span>
-<span class='va'>sites_EP</span> <span class='op'>&lt;-</span> <span class='va'>data_strata</span><span class='op'>[</span><span class='va'>data_strata</span><span class='op'>[</span>, <span class='st'>"strata_fibi"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Piedmont"</span>, <span class='op'>]</span>
-<span class='va'>sites_Hi</span> <span class='op'>&lt;-</span> <span class='va'>data_strata</span><span class='op'>[</span><span class='va'>data_strata</span><span class='op'>[</span>, <span class='st'>"strata_fibi"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Highlands"</span>, <span class='op'>]</span>
+<span class='va'>sites_EP</span> <span class='op'>&lt;-</span> <span class='va'>data_strata</span><span class='op'>[</span><span class='va'>data_strata</span><span class='op'>[</span>, <span class='st'>"strata_fibi"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"EPiedmont"</span>, <span class='op'>]</span>
+<span class='va'>sites_Hi</span> <span class='op'>&lt;-</span> <span class='va'>data_strata</span><span class='op'>[</span><span class='va'>data_strata</span><span class='op'>[</span>, <span class='st'>"strata_fibi"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Highland"</span>, <span class='op'>]</span>
 <span class='va'>sites_Cold</span> <span class='op'>&lt;-</span> <span class='va'>data_strata</span><span class='op'>[</span><span class='va'>data_strata</span><span class='op'>[</span>, <span class='st'>"strata_fibi"</span><span class='op'>]</span> <span class='op'>==</span> <span class='st'>"Cold"</span>, <span class='op'>]</span>
 
 <span class='co'>## Plot</span>
@@ -256,7 +256,7 @@ boundaries of the BIBI shapefile.</p>
               , bg <span class='op'>=</span> <span class='va'>pts_bg</span><span class='op'>[</span><span class='fl'>5</span><span class='op'>]</span>
               , cex <span class='op'>=</span> <span class='va'>pts_cex</span><span class='op'>)</span>
 <span class='fu'><a href='https://rdrr.io/r/graphics/legend.html'>legend</a></span><span class='op'>(</span><span class='st'>"bottomleft"</span>
-    , legend <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"NA"</span>, <span class='st'>"Coastal"</span>, <span class='st'>"Piedmont"</span>, <span class='st'>"Highlands"</span>, <span class='st'>"Coldwater"</span><span class='op'>)</span>
+    , legend <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"NA"</span>, <span class='st'>"Coastal"</span>, <span class='st'>"EPiedmont"</span>, <span class='st'>"Highland"</span>, <span class='st'>"Coldwater"</span><span class='op'>)</span>
     , col <span class='op'>=</span> <span class='va'>pts_col</span>
     , pch <span class='op'>=</span> <span class='va'>pts_pch</span>
     , pt.bg <span class='op'>=</span> <span class='va'>pts_bg</span>
