@@ -75,7 +75,7 @@ files are assumed to be Excel with the data on the first worksheet." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9046</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9048</span>
       </span>
     </div>
 
@@ -208,7 +208,7 @@ There is also a "verbose" flag for printing status messages to the user (this
  is the default).
 Tests for existence of Data, GIS directories and required files. On failure,
 stops and prints missing directories/files to screen.</p>
-<p>The R libraries rgdal and readxl are required for this function.</p>
+<p>The R libraries rgdal, sf, and readxl are required for this function.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Set Working Directory</span>
@@ -243,21 +243,31 @@ stops and prints missing directories/files to screen.</p>
 
 <span class='co'># Create maps</span>
 <span class='fu'>MapTaxaObs</span><span class='op'>(</span><span class='va'>obs</span>, <span class='va'>xWalk</span>, <span class='va'>dirMain</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; <span class='message'>/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//Rtmpg6qHXR</span></div><div class='output co'>#&gt; OGR data source with driver: ESRI Shapefile 
-#&gt; Source: "/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmpg6qHXR/GIS", layer: "MD_State_Boundary"
-#&gt; with 2 features
-#&gt; It has 9 fields
-#&gt; Integer64 fields read as strings:  OBJECTID 
-#&gt; OGR data source with driver: ESRI Shapefile 
-#&gt; Source: "/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmpg6qHXR/GIS", layer: "MD_Coast_Hydrology"
-#&gt; with 1117 features
-#&gt; It has 9 fields
-#&gt; Integer64 fields read as strings:  OBJECTID 
-#&gt; OGR data source with driver: ESRI Shapefile 
-#&gt; Source: "/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/Rtmpg6qHXR/GIS", layer: "MD_Boundary_County_Detailed"
-#&gt; with 24 features
-#&gt; It has 7 fields
-#&gt; Integer64 fields read as strings:  OBJECTID DISTRICT COUNTY_FIP COUNTYNUM </div><div class='output co'>#&gt; <span class='error'>Error in as.double(y): cannot coerce type 'S4' to vector of type 'double'</span></div></pre>
+</div><div class='output co'>#&gt; <span class='message'>/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T//RtmpYcknpo</span></div><div class='output co'>#&gt; Reading layer `MD_State_Boundary' from data source 
+#&gt;   `/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmpYcknpo/GIS' 
+#&gt;   using driver `ESRI Shapefile'
+#&gt; Simple feature collection with 2 features and 9 fields
+#&gt; Geometry type: POLYGON
+#&gt; Dimension:     XY
+#&gt; Bounding box:  xmin: 185215.8 ymin: 24676 xmax: 570274 ymax: 230969.3
+#&gt; Projected CRS: NAD83 / Maryland
+#&gt; Reading layer `MD_Coast_Hydrology' from data source 
+#&gt;   `/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmpYcknpo/GIS' 
+#&gt;   using driver `ESRI Shapefile'
+#&gt; Simple feature collection with 1117 features and 9 fields
+#&gt; Geometry type: POLYGON
+#&gt; Dimension:     XY
+#&gt; Bounding box:  xmin: 218484.5 ymin: 25187.84 xmax: 575093.6 ymax: 228369.4
+#&gt; Projected CRS: NAD83 / Maryland
+#&gt; Reading layer `MD_Boundary_County_Detailed' from data source 
+#&gt;   `/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmpYcknpo/GIS' 
+#&gt;   using driver `ESRI Shapefile'
+#&gt; Simple feature collection with 24 features and 7 fields
+#&gt; Geometry type: MULTIPOLYGON
+#&gt; Dimension:     XY
+#&gt; Bounding box:  xmin: 185218.5 ymin: 25770.69 xmax: 570274.9 ymax: 230946.1
+#&gt; Projected CRS: NAD83 / Maryland</div><div class='output co'>#&gt; <span class='message'>Saving map 1 of 77; alewife.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 2 of 77; american eel.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 3 of 77; american shad.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 4 of 77; banded darter.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 5 of 77; banded killifish.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 6 of 77; black crappie.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 7 of 77; blacknose dace.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 8 of 77; blue ridge sculpin.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 9 of 77; blueback herring.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 10 of 77; bluehead chub.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 11 of 77; bluegill.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 12 of 77; bluntnose minnow.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 13 of 77; brown bullhead.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 14 of 77; brown trout.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 15 of 77; central stoneroller.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 16 of 77; chain pickerel.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 17 of 77; channel catfish.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 18 of 77; common carp.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 19 of 77; common shiner.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 20 of 77; creek chub.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 21 of 77; creek chubsucker.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 22 of 77; cutlip minnow.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 23 of 77; cutthroat trout.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 24 of 77; eastern mudminnow.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 25 of 77; eastern silvery minnow.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 26 of 77; emerald shiner.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 27 of 77; fallfish.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 28 of 77; fantail darter.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 29 of 77; fathead minnow.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 30 of 77; flathead catfish.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 31 of 77; gizzard shad.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 32 of 77; golden redhorse.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 33 of 77; golden shiner.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 34 of 77; goldfish.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 35 of 77; green sunfish.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 36 of 77; greenside darter.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 37 of 77; inland silverside.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 38 of 77; largemouth bass.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 39 of 77; least brook lamprey.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 40 of 77; longear sunfish.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 41 of 77; longnose dace.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 42 of 77; margined madtom.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 43 of 77; mottled sculpin.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 44 of 77; mummichog.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 45 of 77; northern hogsucker.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 46 of 77; northern snakehead.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 47 of 77; pirate perch.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 48 of 77; potomac sculpin.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 49 of 77; pumpkinseed.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 50 of 77; quillback.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 51 of 77; rainbow darter.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 52 of 77; rainbow trout.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 53 of 77; redbreast sunfish.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 54 of 77; redear sunfish.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 55 of 77; redfin pickerel.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 56 of 77; river chub.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 57 of 77; rock bass.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 58 of 77; rosyface shiner.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 59 of 77; rosyside dace.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 60 of 77; satinfin shiner.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 61 of 77; sea lamprey.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 62 of 77; shorthead redhorse.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 63 of 77; silverjaw minnow.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 64 of 77; smallmouth bass.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 65 of 77; spotfin shiner.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 66 of 77; spottail shiner.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 67 of 77; striped bass.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 68 of 77; striped shiner.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 69 of 77; swallowtail shiner.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 70 of 77; tadpole madtom.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 71 of 77; tessellated darter.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 72 of 77; walleye.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 73 of 77; white crappie.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 74 of 77; white perch.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 75 of 77; white sucker.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 76 of 77; yellow bullhead.</span></div><div class='output co'>#&gt; <span class='message'>Saving map 77 of 77; yellow perch.</span></div><div class='output co'>#&gt; <span class='message'>There are 54 non-matching taxa names.</span>
+#&gt; <span class='message'>    The non-matches are saved in a table with the maps.</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
