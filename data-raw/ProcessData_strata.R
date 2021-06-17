@@ -47,6 +47,14 @@ shp_strata_fish_wgs84 <- sp::spTransform(shp_strata_fish
 shp_strata_msw_wgs84 <- sp::spTransform(shp_strata_msw
                                          , CRS = sp::CRS(proj_wgs84))
 
+# Munge
+## Make strata terms consistent with bio data terms
+#
+shp_strata_bugs_wgs84@data[shp_strata_bugs_wgs84@data[, "Strata"] == "Piedmont", "Strata"] <- "EPiedmont"
+shp_strata_bugs_wgs84@data[shp_strata_bugs_wgs84@data[, "Strata"] == "Highlands", "Strata"] <- "Highland"
+#
+shp_strata_fish_wgs84@data[shp_strata_fish_wgs84@data[, "Strata"] == "Piedmont", "Strata"] <- "EPiedmont"
+shp_strata_fish_wgs84@data[shp_strata_fish_wgs84@data[, "Strata"] == "Highlands", "Strata"] <- "Highland"
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # 2. Save as RDA for use in package####

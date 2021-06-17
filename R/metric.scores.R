@@ -12,7 +12,7 @@
 #' Index Region (strata).
 #' @param MetricNames Names of columns of metric values.
 #' @param IndexName Nam of column with index (e.g., MBSS.2005.Bugs)
-#' @param IndexRegion Name of column with relevant bioregion or site class
+#' @param IndexRegion Name of column with relevant bioregion/strata/site class
 #' (e.g., COASTAL).
 #' @param DF_Thresh Data frame of Scoring Thresholds (Index.Name, Index.Region,
 #' Metric, Direction, Thresh.Lo, Thresh.Hi, ScoreRegime)

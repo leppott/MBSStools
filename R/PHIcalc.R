@@ -10,13 +10,13 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #' @param fun.df Data frame of data to be processed.  Must include the columns
 #' specified in the parameter fun.names.
-#' @param fun.names Column names; Optional. Defaults = c("SampID", "BioRegion",
+#' @param fun.names Column names; Optional. Defaults = c("SampID", "Strata",
 #' "Area_acres", "Remote_020", "Shading_0100", "EpiSub_020", "BankStab_020",
 #' "AvgRipWid_m50max", "InStrmHab_020", "InstrmWood_Num", "RiffQual_020",
 #' "Embedd_0100", "Erosn_ExtR_075", "Erosn_ExtL_075", "Erosn_SevR_03",
 #' "Erosn_SevL_03", "RoadDist_m")
 # @param fun.SampID Unique identifier (Station/Site/Sample).
-# @param fun.BioRegion Maryland Bioregion (Highlands, Piedmont, CoastalPlain).
+# @param fun.Strata Maryland Strata (Highland, EPiedmont, Coastal).
 # @param fun.PHICalcYear 1994 or 2000 (2000 is the default but can ).
 # @param fun.Area_acres Watershed area (acres).
 # @param fun.Remote_020 Remoteness (0-20) [1994 only, Replaces with Road
@@ -55,7 +55,7 @@
 #' #write.table(PHI,paste0("PHI_",datetime,".tab"),row.names=FALSE,sep="\t")
 #' @export
 PHIcalc <- function(fun.df,fun.names=c("SampID"
-                                        , "BioRegion"
+                                        , "Strata"
                                         , "Area_acres"
                                         , "Remote_020"
                                         , "Shading_0100"
@@ -76,7 +76,7 @@ PHIcalc <- function(fun.df,fun.names=c("SampID"
   # 0.1. QC column names
   # Define dataframe names
   names.default <- c("SampID"
-                     , "BioRegion"
+                     , "Strata"
                      , "Area_acres"
                      , "Remote_020"
                      , "Shading_0100"
@@ -102,7 +102,7 @@ PHIcalc <- function(fun.df,fun.names=c("SampID"
   names.df <- fun.names
   # create name parameters to be used in the code.
   name.SampID <- names.df[1]
-  name.BioRegion <- names.df[2]
+  name.Strata <- names.df[2]
   name.Area_acres <- names.df[3]
   name.Remote_020 <- names.df[4]
   name.Shading_0100 <- names.df[5]
@@ -127,7 +127,7 @@ PHIcalc <- function(fun.df,fun.names=c("SampID"
   ## will still get error if have a real "character" value (but that is ok)
   fun.df[,names.df[3:17]] <- sapply(fun.df[,names.df[3:17]], as.numeric)
   #
-  # 0.2.1. BioRegion (highlands, piedmont, coastalplain)
+  # 0.2.1. Strata (HIGHLAND, EPIEDMONT, COASTAL)
   # Don't need to check.  If not the proper names then no PHI will be calculated
   # # 0.2.2. 0-3 parameters
   # name.Erosn_SevR_03
@@ -148,6 +148,7 @@ PHIcalc <- function(fun.df,fun.names=c("SampID"
   # name.Embedd_0100
   #
   # 1.0. Data Manipulation.####
+  fun.df[, "Strata"] <- toupper(fun.df[, "Strata"])
   # 1.1. Assign null (NA) values to extra columns
   fun.df[,"Erosn_SevR_02"] <- NA
   fun.df[,"Erosn_SevL_02"] <- NA
@@ -177,99 +178,99 @@ PHIcalc <- function(fun.df,fun.names=c("SampID"
   fun.df[,name.Erosn_SevL_02] <- as.numeric(gsub(3,2
                                                  ,fun.df[,name.Erosn_SevL_02]))
   #
-  # 2.0. Score Metrics (n=3, different for each bioregion)####
+  # 2.0. Score Metrics (n=3, different for each Strata)####
   # 2.1. Highlands
-  boo.BioRegion <- tolower(fun.df[,name.BioRegion])=="highlands"
-    fun.df[,"REMOTE1994"][boo.BioRegion==TRUE] <- fun.df[
-      ,name.Remote_020][boo.BioRegion==TRUE]/20
-    fun.df[,"REMOTE2000"][boo.BioRegion==TRUE] <- (sqrt(fun.df[
-      ,name.RoadDist_m][boo.BioRegion==TRUE])*0.733+0.615)/20
-    fun.df[,"SHADING"][boo.BioRegion==TRUE] <- (asin(sqrt(fun.df[
-      ,name.Shading_0100][boo.BioRegion==TRUE]/100))-0.226)/1.171
-    fun.df[,"EPI"][boo.BioRegion==TRUE] <- (fun.df[
-      ,name.EpiSub_020][boo.BioRegion==TRUE])/18
-    fun.df[,"BANKSTAB1994"][boo.BioRegion==TRUE] <- (sqrt(fun.df[
-      ,name.BankStab_020][boo.BioRegion==TRUE]) - 1)/3.472
-    fun.df[,"BANKSTAB2000"][boo.BioRegion==TRUE] <- (sqrt(((fun.df[
-      ,name.Erosn_ExtR_075][boo.BioRegion==TRUE]/(-15))*fun.df[
-        ,name.Erosn_SevR_02][boo.BioRegion==TRUE])+
+  boo.Strata <- fun.df[,name.Strata]=="HIGHLAND"
+    fun.df[,"REMOTE1994"][boo.Strata==TRUE] <- fun.df[
+      ,name.Remote_020][boo.Strata==TRUE]/20
+    fun.df[,"REMOTE2000"][boo.Strata==TRUE] <- (sqrt(fun.df[
+      ,name.RoadDist_m][boo.Strata==TRUE])*0.733+0.615)/20
+    fun.df[,"SHADING"][boo.Strata==TRUE] <- (asin(sqrt(fun.df[
+      ,name.Shading_0100][boo.Strata==TRUE]/100))-0.226)/1.171
+    fun.df[,"EPI"][boo.Strata==TRUE] <- (fun.df[
+      ,name.EpiSub_020][boo.Strata==TRUE])/18
+    fun.df[,"BANKSTAB1994"][boo.Strata==TRUE] <- (sqrt(fun.df[
+      ,name.BankStab_020][boo.Strata==TRUE]) - 1)/3.472
+    fun.df[,"BANKSTAB2000"][boo.Strata==TRUE] <- (sqrt(((fun.df[
+      ,name.Erosn_ExtR_075][boo.Strata==TRUE]/(-15))*fun.df[
+        ,name.Erosn_SevR_02][boo.Strata==TRUE])+
            ((fun.df[
-             ,name.Erosn_ExtL_075][boo.BioRegion==TRUE]/(-15))*
-              fun.df[,name.Erosn_SevL_02][boo.BioRegion==TRUE]) + 20)-1)/3.472
-    fun.df[,"RIPWID"][boo.BioRegion==TRUE] <- (fun.df[
-      ,name.AvgRipWid_m50max][boo.BioRegion==TRUE])/50
-    fun.df[,"INSTRHAB"][boo.BioRegion==TRUE] <- NA
-    fun.df[,"WOOD"][boo.BioRegion==TRUE] <- NA
-    fun.df[,"RIFFQUAL"][boo.BioRegion==TRUE] <- NA
-    fun.df[,"EMBEDD"][boo.BioRegion==TRUE] <- NA
-    fun.df[,"PHI.denom"][boo.BioRegion==TRUE] <- 5
+             ,name.Erosn_ExtL_075][boo.Strata==TRUE]/(-15))*
+              fun.df[,name.Erosn_SevL_02][boo.Strata==TRUE]) + 20)-1)/3.472
+    fun.df[,"RIPWID"][boo.Strata==TRUE] <- (fun.df[
+      ,name.AvgRipWid_m50max][boo.Strata==TRUE])/50
+    fun.df[,"INSTRHAB"][boo.Strata==TRUE] <- NA
+    fun.df[,"WOOD"][boo.Strata==TRUE] <- NA
+    fun.df[,"RIFFQUAL"][boo.Strata==TRUE] <- NA
+    fun.df[,"EMBEDD"][boo.Strata==TRUE] <- NA
+    fun.df[,"PHI.denom"][boo.Strata==TRUE] <- 5
   #}
   # 2.2. Piedmont
-   boo.BioRegion <- tolower(fun.df[,name.BioRegion])=="piedmont"
-  # # if(tolower(fun.df[,name.Bioregion])=="piedmont") {
-    fun.df[,"REMOTE1994"][boo.BioRegion==TRUE] <- fun.df[
-      ,name.Remote_020][boo.BioRegion==TRUE]/16
-    fun.df[,"REMOTE2000"][boo.BioRegion==TRUE] <- (sqrt(fun.df[
-      ,name.RoadDist_m][boo.BioRegion==TRUE])*0.733+0.615)/16
-    fun.df[,"SHADING"][boo.BioRegion==TRUE] <- ((asin(sqrt(fun.df[
-      ,name.Shading_0100][boo.BioRegion==TRUE]/100))-
+   boo.Strata <- fun.df[,name.Strata]=="EPIEDMONT"
+  # # if(tolower(fun.df[,name.Strata])=="piedmont") {
+    fun.df[,"REMOTE1994"][boo.Strata==TRUE] <- fun.df[
+      ,name.Remote_020][boo.Strata==TRUE]/16
+    fun.df[,"REMOTE2000"][boo.Strata==TRUE] <- (sqrt(fun.df[
+      ,name.RoadDist_m][boo.Strata==TRUE])*0.733+0.615)/16
+    fun.df[,"SHADING"][boo.Strata==TRUE] <- ((asin(sqrt(fun.df[
+      ,name.Shading_0100][boo.Strata==TRUE]/100))-
         (1.7528-0.1990*(log10(fun.df[
-          ,name.Area_acres][boo.BioRegion==TRUE]))))+1.142)/1.405
-    fun.df[,"EPI"][boo.BioRegion==TRUE] <- (fun.df[
-      ,name.EpiSub_020][boo.BioRegion==TRUE] - 1)/17
-    fun.df[,"BANKSTAB1994"][boo.BioRegion==TRUE] <- (sqrt(fun.df[
-      ,name.BankStab_020][boo.BioRegion==TRUE]) - 1)/3.243
-    fun.df[,"BANKSTAB2000"][boo.BioRegion==TRUE] <- (sqrt(((fun.df[
-      ,name.Erosn_ExtR_075][boo.BioRegion==TRUE]/(-15))*fun.df[
-        ,name.Erosn_SevR_02][boo.BioRegion==TRUE])+
-        ((fun.df[,name.Erosn_ExtL_075][boo.BioRegion==TRUE]/(-15))*fun.df[
-          ,name.Erosn_SevL_02][boo.BioRegion==TRUE]) + 20)-1)/3.243
-    fun.df[,"RIPWID"][boo.BioRegion==TRUE] <- NA
-    fun.df[,"INSTRHAB"][boo.BioRegion==TRUE] <- (fun.df[
-      ,name.InStrmHab_020][boo.BioRegion==TRUE]-
-        (9.9876+1.5476*log10(fun.df[,name.Area_acres][boo.BioRegion==TRUE]))+
+          ,name.Area_acres][boo.Strata==TRUE]))))+1.142)/1.405
+    fun.df[,"EPI"][boo.Strata==TRUE] <- (fun.df[
+      ,name.EpiSub_020][boo.Strata==TRUE] - 1)/17
+    fun.df[,"BANKSTAB1994"][boo.Strata==TRUE] <- (sqrt(fun.df[
+      ,name.BankStab_020][boo.Strata==TRUE]) - 1)/3.243
+    fun.df[,"BANKSTAB2000"][boo.Strata==TRUE] <- (sqrt(((fun.df[
+      ,name.Erosn_ExtR_075][boo.Strata==TRUE]/(-15))*fun.df[
+        ,name.Erosn_SevR_02][boo.Strata==TRUE])+
+        ((fun.df[,name.Erosn_ExtL_075][boo.Strata==TRUE]/(-15))*fun.df[
+          ,name.Erosn_SevL_02][boo.Strata==TRUE]) + 20)-1)/3.243
+    fun.df[,"RIPWID"][boo.Strata==TRUE] <- NA
+    fun.df[,"INSTRHAB"][boo.Strata==TRUE] <- (fun.df[
+      ,name.InStrmHab_020][boo.Strata==TRUE]-
+        (9.9876+1.5476*log10(fun.df[,name.Area_acres][boo.Strata==TRUE]))+
         12.805)/15.745
-    fun.df[,"WOOD"][boo.BioRegion==TRUE] <- fun.df[
-      ,name.InstrmWood_Num][boo.BioRegion==TRUE]/12
-    fun.df[,"RIFFQUAL"][boo.BioRegion==TRUE] <- (fun.df[
-      ,name.RiffQual_020][boo.BioRegion==TRUE]-
-        (5.8467+2.4075*log10(fun.df[,name.Area_acres][boo.BioRegion==TRUE]))+
+    fun.df[,"WOOD"][boo.Strata==TRUE] <- fun.df[
+      ,name.InstrmWood_Num][boo.Strata==TRUE]/12
+    fun.df[,"RIFFQUAL"][boo.Strata==TRUE] <- (fun.df[
+      ,name.RiffQual_020][boo.Strata==TRUE]-
+        (5.8467+2.4075*log10(fun.df[,name.Area_acres][boo.Strata==TRUE]))+
         16.252)/19.637
-    fun.df[,"EMBEDD"][boo.BioRegion==TRUE] <- (100 - fun.df[
-      ,name.Embedd_0100][boo.BioRegion==TRUE])/90
-    fun.df[,"PHI.denom"][boo.BioRegion==TRUE] <- 8
+    fun.df[,"EMBEDD"][boo.Strata==TRUE] <- (100 - fun.df[
+      ,name.Embedd_0100][boo.Strata==TRUE])/90
+    fun.df[,"PHI.denom"][boo.Strata==TRUE] <- 8
   # # }
   # 2.3. Coastal Plain
-  boo.BioRegion <- tolower(fun.df[,name.BioRegion])=="coastalplain"
-  # if(tolower(fun.df[,name.BioRegion])=="coastalplain") {
-    fun.df[,"REMOTE1994"][boo.BioRegion==TRUE] <- fun.df[
-      ,name.Remote_020][boo.BioRegion==TRUE]/18.570
-    fun.df[,"REMOTE2000"][boo.BioRegion==TRUE] <- (sqrt(fun.df[
-      ,name.RoadDist_m][boo.BioRegion==TRUE])*0.733+0.615)/18.570
-    fun.df[,"SHADING"][boo.BioRegion==TRUE] <- (asin(sqrt(fun.df[
-      ,name.Shading_0100][boo.BioRegion==TRUE]/100))-0.226)/1.120
-    fun.df[,"EPI"][boo.BioRegion==TRUE] <- (fun.df[
-      ,name.EpiSub_020][boo.BioRegion==TRUE]-
-        (3.5233+2.5821*log10(fun.df[,name.Area_acres][boo.BioRegion==TRUE]))+
+  boo.Strata <- fun.df[,name.Strata]=="COASTAL"
+  # if(tolower(fun.df[,name.Strata])=="coastalplain") {
+    fun.df[,"REMOTE1994"][boo.Strata==TRUE] <- fun.df[
+      ,name.Remote_020][boo.Strata==TRUE]/18.570
+    fun.df[,"REMOTE2000"][boo.Strata==TRUE] <- (sqrt(fun.df[
+      ,name.RoadDist_m][boo.Strata==TRUE])*0.733+0.615)/18.570
+    fun.df[,"SHADING"][boo.Strata==TRUE] <- (asin(sqrt(fun.df[
+      ,name.Shading_0100][boo.Strata==TRUE]/100))-0.226)/1.120
+    fun.df[,"EPI"][boo.Strata==TRUE] <- (fun.df[
+      ,name.EpiSub_020][boo.Strata==TRUE]-
+        (3.5233+2.5821*log10(fun.df[,name.Area_acres][boo.Strata==TRUE]))+
         13.199)/17.213
-    fun.df[,"BANKSTAB1994"][boo.BioRegion==TRUE] <- sqrt(fun.df[
-      ,name.BankStab_020][boo.BioRegion==TRUE])/4.472
-    fun.df[,"BANKSTAB2000"][boo.BioRegion==TRUE] <- (sqrt(((fun.df[
-      ,name.Erosn_ExtR_075][boo.BioRegion==TRUE]/(-15))*fun.df[
-        ,name.Erosn_SevR_02][boo.BioRegion==TRUE])+((fun.df[
-          ,name.Erosn_ExtL_075][boo.BioRegion==TRUE]/(-15))*fun.df[
-            ,name.Erosn_SevL_02][boo.BioRegion==TRUE]) + 20))/4.472
-    fun.df[,"RIPWID"][boo.BioRegion==TRUE] <- NA
-    fun.df[,"INSTRHAB"][boo.BioRegion==TRUE] <- (fun.df[
-      ,name.InStrmHab_020][boo.BioRegion==TRUE]-(0.5505+4.2475*log10(fun.df[
-        ,name.Area_acres][boo.BioRegion==TRUE]))+15.094)/18.023
-    fun.df[,"WOOD"][boo.BioRegion==TRUE] <- (fun.df[
-      ,name.InstrmWood_Num][boo.BioRegion==TRUE]-(-12.24+8.8120*log10(fun.df[
-        ,name.Area_acres][boo.BioRegion==TRUE]))+28.903)/33.803
-    fun.df[,"RIFFQUAL"][boo.BioRegion==TRUE] <- NA
-    fun.df[,"EMBEDD"][boo.BioRegion==TRUE] <- NA
-    fun.df[,"PHI.denom"][boo.BioRegion==TRUE] <- 6
-  # }##IF.fun.Bioregion.END
+    fun.df[,"BANKSTAB1994"][boo.Strata==TRUE] <- sqrt(fun.df[
+      ,name.BankStab_020][boo.Strata==TRUE])/4.472
+    fun.df[,"BANKSTAB2000"][boo.Strata==TRUE] <- (sqrt(((fun.df[
+      ,name.Erosn_ExtR_075][boo.Strata==TRUE]/(-15))*fun.df[
+        ,name.Erosn_SevR_02][boo.Strata==TRUE])+((fun.df[
+          ,name.Erosn_ExtL_075][boo.Strata==TRUE]/(-15))*fun.df[
+            ,name.Erosn_SevL_02][boo.Strata==TRUE]) + 20))/4.472
+    fun.df[,"RIPWID"][boo.Strata==TRUE] <- NA
+    fun.df[,"INSTRHAB"][boo.Strata==TRUE] <- (fun.df[
+      ,name.InStrmHab_020][boo.Strata==TRUE]-(0.5505+4.2475*log10(fun.df[
+        ,name.Area_acres][boo.Strata==TRUE]))+15.094)/18.023
+    fun.df[,"WOOD"][boo.Strata==TRUE] <- (fun.df[
+      ,name.InstrmWood_Num][boo.Strata==TRUE]-(-12.24+8.8120*log10(fun.df[
+        ,name.Area_acres][boo.Strata==TRUE]))+28.903)/33.803
+    fun.df[,"RIFFQUAL"][boo.Strata==TRUE] <- NA
+    fun.df[,"EMBEDD"][boo.Strata==TRUE] <- NA
+    fun.df[,"PHI.denom"][boo.Strata==TRUE] <- 6
+  # }##IF.fun.Strata.END
   #
   # 3.0. More Data Manipulations (post scoring)####
   # 3.1.0. 1994 vs. 2000 parameters.  2000 is primary and used if not NA.

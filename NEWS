@@ -3,7 +3,21 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-06-16 14:11:45
+    #> Last Update: 2021-06-17 09:12:09
+
+# MBSStools v1.1.0.9047 (2021-06-17)
+
+-   refactor: Update GIS files for use with strata for consistency,
+    Issue \#36
+    -   Highlands to Highland
+    -   Piedmont to EPiedmont
+-   refactor: Update PHIcalc for consistency, Issue \#36
+    -   Highlands to Highland
+    -   Piedmont to EPiedmont
+    -   CoastalPlain to Coastal
+    -   BioRegion paramater to Strata
+    -   Add QC check to use uppercase for strata
+-   refactor: Update MBSS.PHI data strata for consistency, Issue \#36
 
 # MBSStools v1.1.0.9046 (2021-06-16)
 

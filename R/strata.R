@@ -62,8 +62,8 @@
 #'
 #' ## subset sites
 #' sites_CP <- data_strata[data_strata[, "strata_fibi"] == "Coastal", ]
-#' sites_EP <- data_strata[data_strata[, "strata_fibi"] == "Piedmont", ]
-#' sites_Hi <- data_strata[data_strata[, "strata_fibi"] == "Highlands", ]
+#' sites_EP <- data_strata[data_strata[, "strata_fibi"] == "EPiedmont", ]
+#' sites_Hi <- data_strata[data_strata[, "strata_fibi"] == "Highland", ]
 #' sites_Cold <- data_strata[data_strata[, "strata_fibi"] == "Cold", ]
 #'
 #' ## Plot
@@ -106,7 +106,7 @@
 #'               , bg = pts_bg[5]
 #'               , cex = pts_cex)
 #' legend("bottomleft"
-#'     , legend = c("NA", "Coastal", "Piedmont", "Highlands", "Coldwater")
+#'     , legend = c("NA", "Coastal", "EPiedmont", "Highland", "Coldwater")
 #'     , col = pts_col
 #'     , pch = pts_pch
 #'     , pt.bg = pts_bg

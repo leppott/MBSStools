@@ -14,7 +14,7 @@ Index Region (strata).}
 
 \item{IndexName}{Nam of column with index (e.g., MBSS.2005.Bugs)}
 
-\item{IndexRegion}{Name of column with relevant bioregion or site class
+\item{IndexRegion}{Name of column with relevant bioregion/strata/site class
 (e.g., COASTAL).}
 
 \item{DF_Thresh}{Data frame of Scoring Thresholds (Index.Name, Index.Region,

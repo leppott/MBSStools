@@ -650,7 +650,7 @@ The format is:
 .. .. ..$ : chr [1:2] "min" "max"
 ..@ proj4string:Formal class 'CRS' [package "sp"] with 1 slot
 .. .. ..@ projargs: chr "+proj=longlat +datum=WGS84 +no_defs"
-.. .. ..$ comment: chr "GEOGCRS[\"unknown\",\n    DATUM[\"World Geodetic System 1984\",\n        ELLIPSOID[\"WGS 84\",6378137,298.25722"| __truncated__
+.. .. ..$ comment: chr "GEOGCRS[\"unknown\",    DATUM[\"World Geodetic System 1984\",        ELLIPSOID[\"WGS 84\",6378137,298.25722"| __truncated__
 ..$ comment: chr "TRUE"
 }
 }
