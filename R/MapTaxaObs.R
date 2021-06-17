@@ -14,7 +14,7 @@
 #' Tests for existence of Data, GIS directories and required files. On failure,
 #' stops and prints missing directories/files to screen.
 #'
-#' The R libraries rgdal and readxl are required for this function.
+#' The R libraries rgdal, sf, and readxl are required for this function.
 #'
 #' @param obs Excel file containing 3 columns: TaxaName, Latitude83, Longitude83
 #' @param xWalk Crosswalk (Excel file) of taxa names between taxa name in
@@ -270,15 +270,23 @@ MapTaxaObs <- function(obs
     ppi <- 72
     #dsn<-paste(dirMain,dirGIS,sep="/")
     dsn <- file.path(dirMain, dirGIS)
-    state     <- rgdal::readOGR(dsn = dsn
-                                , layer = "MD_State_Boundary"
-                                , verbose=verbose)
-    coastline <- rgdal::readOGR(dsn = dsn
-                                , layer = "MD_Coast_Hydrology"
-                                , verbose=verbose)
-    counties  <- rgdal::readOGR(dsn = dsn
-                                , layer = "MD_Boundary_County_Detailed"
-                                , verbose=verbose)
+    # state     <- rgdal::readOGR(dsn = dsn
+    #                             , layer = "MD_State_Boundary"
+    #                             , verbose=verbose)
+    # coastline <- rgdal::readOGR(dsn = dsn
+    #                             , layer = "MD_Coast_Hydrology"
+    #                             , verbose=verbose)
+    # counties  <- rgdal::readOGR(dsn = dsn
+    #                             , layer = "MD_Boundary_County_Detailed"
+    #                             , verbose=verbose)
+
+    # sf version
+    state     <- sf::st_read(dsn = dsn
+                                , layer = "MD_State_Boundary")
+    coastline <- sf::st_read(dsn = dsn
+                                , layer = "MD_Coast_Hydrology")
+    counties  <- sf::st_read(dsn = dsn
+                                , layer = "MD_Boundary_County_Detailed")
 
     for (i in seq_len(nrow(map.taxa))) {
       #
@@ -295,14 +303,14 @@ MapTaxaObs <- function(obs
                      , height = 5.5 * ppi
                      , pointsize = 12
                      , bg = "white")
-        plot(state
+        plot(sf::st_geometry(state)
              , col="white"
              , border = "gray")
-        plot(coastline
+        plot(sf::st_geometry(coastline)
              , add = TRUE
              , col = "light blue"
              , border=FALSE)
-        plot(counties
+        plot(sf::st_geometry(counties)
              , add = TRUE
              , col = "white"
              , border = "darkslategray"

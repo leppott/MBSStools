@@ -16,6 +16,12 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+MBSStools v1.1.0.9048 (2021-06-17)
+================
+* refactor: Update MapTaxaObs function, Issue #17
+    + Issues with state shapefile and rgdal, switch to sf package
+* docs: Add sf package to DESCRIPTION
+
 MBSStools v1.1.0.9047 (2021-06-17)
 ================
 * refactor: Update GIS files for use with strata for consistency, Issue #36

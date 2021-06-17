@@ -3,7 +3,13 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-06-17 09:12:09
+    #> Last Update: 2021-06-17 13:28:18
+
+# MBSStools v1.1.0.9048 (2021-06-17)
+
+-   refactor: Update MapTaxaObs function, Issue \#17
+    -   Issues with state shapefile and rgdal, switch to sf package
+-   docs: Add sf package to DESCRIPTION
 
 # MBSStools v1.1.0.9047 (2021-06-17)
 
