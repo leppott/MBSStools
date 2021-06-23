@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9048</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9049</span>
       </span>
     </div>
 
@@ -85,7 +85,7 @@
       <h1 data-toc-skip>MBSStools - an R toolkit for the MBSS program’s data needs</h1>
                         <h4 class="author"><a href="mailto:Erik.Leppo@tetratech.com" class="email">Erik.Leppo@tetratech.com</a></h4>
             
-            <h4 class="date">2021-06-17</h4>
+            <h4 class="date">2021-06-23</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/leppott/MBSStools/blob/master/vignettes/MBSStools_vignette.Rmd"><code>vignettes/MBSStools_vignette.Rmd</code></a></small>
       <div class="hidden name"><code>MBSStools_vignette.Rmd</code></div>
@@ -2755,20 +2755,14 @@
 <span class="va">contrib.ion</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/IonContrib.html">IonContrib</a></span><span class="op">(</span><span class="va">data.ion</span><span class="op">)</span>
 <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">contrib.ion</span><span class="op">)</span>
 <span class="co"># Calculate Percent Contribution by Ion (data table and reference table)</span>
-<span class="va">contrib.ion.2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/IonContrib.html">IonContrib</a></span><span class="op">(</span><span class="va">data.ion</span>, <span class="va">ref.ion</span><span class="op">)</span></code></pre></div>
-<pre><code>## Warning in if (is.na(ion.ref)) {: the condition has length &gt; 1 and only the
-## first element will be used</code></pre>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">contrib.ion.2</span><span class="op">)</span>
+<span class="va">contrib.ion.2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/IonContrib.html">IonContrib</a></span><span class="op">(</span><span class="va">data.ion</span>, <span class="va">ref.ion</span><span class="op">)</span>
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">contrib.ion.2</span><span class="op">)</span>
 <span class="co"># Calculate Percent Contribution by Ion (data table, reference table, and conductivity values)</span>
 <span class="co"># ## add dummy conductivity values for each sample</span>
 <span class="va">myCond</span> <span class="op">&lt;-</span> <span class="st">"Cond"</span>
 <span class="va">data.ion</span><span class="op">[</span>,<span class="va">myCond</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">4000</span>
-<span class="va">contrib.ion.3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/IonContrib.html">IonContrib</a></span><span class="op">(</span><span class="va">data.ion</span>, <span class="va">ref.ion</span>, <span class="va">myCond</span><span class="op">)</span></code></pre></div>
-<pre><code>## Warning in if (is.na(ion.ref)) {: the condition has length &gt; 1 and only the
-## first element will be used</code></pre>
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">contrib.ion.3</span><span class="op">)</span>
+<span class="va">contrib.ion.3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/IonContrib.html">IonContrib</a></span><span class="op">(</span><span class="va">data.ion</span>, <span class="va">ref.ion</span>, <span class="va">myCond</span><span class="op">)</span>
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">contrib.ion.3</span><span class="op">)</span>
 <span class="co"># Save Results (use write.table())</span>
 <span class="co"># Plot Results</span>
 <span class="va">myIons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Chloride (mg/L)"</span>, <span class="st">"Bromide (mg/L)"</span>, <span class="st">"Nitrate-N (mg/L)"</span>, <span class="st">"Sulfate (mg/L)"</span>, <span class="st">"Sodium (mg/L)"</span>,
@@ -2977,7 +2971,7 @@
 </tbody>
 </table>
 <p>The function returns a dataframe of results that need to be saved (e.g., write.table()). The result table from the example data is shown below.</p>
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools">MBSStools</a></span><span class="op">)</span>
 <span class="co"># data</span>
 <span class="co"># MBSS.PHI = example dataset</span>
@@ -3315,7 +3309,7 @@
 <h1 class="hasAnchor">
 <a href="#shiny" class="anchor"></a>Shiny</h1>
 <p>Included in the package is an example Shiny package to calculate the three IBI’s for MBSS. The the function runShiny() requires the “shinyjs” package.</p>
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools">MBSStools</a></span><span class="op">)</span>
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://deanattali.com/shinyjs/">shinyjs</a></span><span class="op">)</span>
 <span class="fu"><a href="../reference/runShiny.html">runShiny</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
