@@ -52,6 +52,7 @@ FlowSum <- function(df
                                   , "Velocity_m_s")
                     , returnType = "sample") {
   # 0. QC ####
+  df <- as.data.frame(df)
   # 0.1. QC column names
   # test names
   #names(df) %in% df.names

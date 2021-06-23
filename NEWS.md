@@ -3,7 +3,25 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-06-17 13:28:18
+    #> Last Update: 2021-06-23 16:37:35
+
+# MBSStools v1.1.0.9049 (2021-06-22)
+
+-   refactor: Add package to referenced function in MapTaxaObs
+-   refactor: Add global variable bindings
+    -   MapTaxaObs
+    -   metric.scores
+-   refactor: Update map example in Vignette from rgdal to sf
+-   refactor: Update FlowSum to convert input from tibble to data frame
+    -   Example was failing
+-   refactor: Update IonContrib ion.ref default to NULL
+    -   is.na() was causing issues when doing QC check within the
+        function
+-   fix: Fix combining of files in qc\_taxa
+    -   Change order of data frames in merge
+    -   Convert input data frame to taxanames in all caps prior to
+        matching
+-   refactor: Shiny UI, remove semicolon for file delimiter
 
 # MBSStools v1.1.0.9048 (2021-06-17)
 

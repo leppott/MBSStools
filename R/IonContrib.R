@@ -17,7 +17,7 @@
 #'
 #' @param ion.data Input data.  Column names match rows in the ref table
 #' @param ion.ref Reference data for ions; Name (matches columns in data),
-#'  Multiplier, and SortOrder. Default is NA, uses included ref table.
+#'  Multiplier, and SortOrder. Default is NULL, uses included ref table.
 #' @param col.Cond Column name with conductivity in "data".  Default is blank.
 #' If blank only ions present are used to calculate total conductivity for
 #' samples.
@@ -68,7 +68,7 @@
 #'
 #' @export
 IonContrib <- function(ion.data
-                       , ion.ref = NA
+                       , ion.ref = NULL
                        , col.Cond = "") {##FUNCTION.IonContrib.START
   #
   # # # QC
@@ -76,9 +76,9 @@ IonContrib <- function(ion.data
   # ion.ref <- MBSS.Ion.Ref
   # col.Cond <- ""
 
-  if(is.na(ion.ref)) {
+  if(is.null(ion.ref)) {
     ion.ref <- MBSStools::MBSS.Ion.Ref
-  }##IF ~ is.na(ion.ref) ~ END
+  }##IF ~ is.null(ion.ref) ~ END
 
   # 0. Rename Data
   data.calc <- as.data.frame(ion.data)

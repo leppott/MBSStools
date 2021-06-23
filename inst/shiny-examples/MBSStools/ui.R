@@ -19,7 +19,7 @@ library(shinyjs) # used for togglestate of download button
 shinyUI(fluidPage(
 
   # Application title
-  titlePanel("MBSStools, IBI Calculator, v1.1.0.9023"),
+  titlePanel("MBSStools, IBI Calculator, v1.1.0.9049"),
 
   # SideBar
   sidebarLayout(
@@ -33,7 +33,7 @@ shinyUI(fluidPage(
       , checkboxInput('header', 'Header', TRUE)
       , radioButtons('sep', 'Separator',
                      c(Comma=',',
-                       Semicolon=';',
+                       #Semicolon=';',
                        Tab='\t'),
                      ',')
       , radioButtons('quote', 'Quote',

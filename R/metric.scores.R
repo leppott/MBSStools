@@ -177,6 +177,10 @@ metric.scores <- function(DF_Metrics
   #if(missing(myMetric)) {print "Error; Missing 'metric name'."}
   #
 
+  # bindings for global variables, overall ----
+  MetricName.Other <- NULL
+
+  # Debug ----
   boo_DEBUG <- FALSE
   if(boo_DEBUG==TRUE){##IF~boo_DEBUG~START
     # bindings for global variables, QC ----
@@ -201,9 +205,6 @@ metric.scores <- function(DF_Metrics
     b <- unique(as.matrix(DF_Metrics[,IndexRegion]))[1]
     c <- MetricNames[3]
   }##IF~boo_DEBUG~END
-
-  # bindings for global variables, overall ----
-
 
   # Rename columns based
   if("Index.Name" %in% names(DF_Metrics)==FALSE){

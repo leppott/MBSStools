@@ -4,13 +4,13 @@
 \alias{IonContrib}
 \title{Ion Matrix Calculation}
 \usage{
-IonContrib(ion.data, ion.ref = NA, col.Cond = "")
+IonContrib(ion.data, ion.ref = NULL, col.Cond = "")
 }
 \arguments{
 \item{ion.data}{Input data.  Column names match rows in the ref table}
 
 \item{ion.ref}{Reference data for ions; Name (matches columns in data),
-Multiplier, and SortOrder. Default is NA, uses included ref table.}
+Multiplier, and SortOrder. Default is NULL, uses included ref table.}
 
 \item{col.Cond}{Column name with conductivity in "data".  Default is blank.
 If blank only ions present are used to calculate total conductivity for

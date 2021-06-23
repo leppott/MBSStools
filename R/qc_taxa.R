@@ -186,6 +186,8 @@ qc_taxa <- function(DF_User
   names(df_mt) <- toupper(names(df_mt))
   # col_mt <- toupper(col_mt)
   col_taxon <- toupper(col_taxon)
+  # taxa names to ALL CAPS for bugs and fish
+  DF_User[, col_taxon] <- toupper(DF_User[, col_taxon])
 
 
   # Check Numbers
@@ -236,7 +238,8 @@ qc_taxa <- function(DF_User
     df_result <- merge(DF_User, df_mt
                        , by = col_taxon
                        , all.x = TRUE
-                       , suffixes = c("", sfx_NonMBSS))
+                       , suffixes = c(sfx_NonMBSS, ""))
+    #names(df_result) <- gsub(".x$", "", names(df_result))
   } else if(useMBSSTaxaInfo == "only_user"){
     # Reverse and keep _NonMBSS and remove official field
     # # Remove Official Cols
@@ -248,7 +251,7 @@ qc_taxa <- function(DF_User
     df_result <- merge(DF_User, df_mt
                        , by = col_taxon
                        , all.x = TRUE
-                       , suffixes = c(sfx_MBSS, ""))
+                       , suffixes = c("", sfx_MBSS))
 
 
   } else if(useMBSSTaxaInfo == "add_new"){
@@ -261,7 +264,7 @@ qc_taxa <- function(DF_User
     df_result <- merge(DF_User, df_mt
                        , by = col_taxon
                        , all.x = TRUE
-                       , suffixes = c("", sfx_NonMBSS))
+                       , suffixes = c(sfx_NonMBSS,))
     col_match_y <- names(df_result)[grepl(paste0(sfx_NonMBSS,"$")
                                           , names(df_result))]
     col_match_x <- gsub(paste0(sfx_NonMBSS,"$"), "", col_match_y)

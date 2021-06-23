@@ -123,6 +123,11 @@ strata <- function(data
                    , col_lat = "lat"
                    , col_lon = "long") {
   #
+  # bindings for global variables -----
+  shp_strata_bugs <- MBSStools::shp_strata_bugs
+  shp_strata_fish <- MBSStools::shp_strata_fish
+  shp_strata_msw <- MBSStools::shp_strata_msw
+
   # QC ----
   ## convert longitude to negative values long <- -(abs(foo))
   data[data[, col_lon] > 0, col_lon] <- -data[data[, col_lon] > 0, col_lon]

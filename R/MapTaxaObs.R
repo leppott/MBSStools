@@ -106,7 +106,7 @@ MapTaxaObs <- function(obs
       file.copy(file.path(path.package("MBSStools"), "extdata", myFiles)
                 , file.path(wd, "Data", myFiles))
       ### GIS
-      unzip(file.path(path.package("MBSStools"), "extdata", "MD_GIS.zip"),
+      utils::unzip(file.path(path.package("MBSStools"), "extdata", "MD_GIS.zip"),
             exdir=file.path(wd, "GIS"))
       # Function Inputs
       obs         <- "AllFish_95to16.xls"
@@ -126,7 +126,8 @@ MapTaxaObs <- function(obs
     # 2021-01-10
     # Define missing variables
     # bindings for global variables -----
-    CommonName <- MapName <- NULL
+    CommonName <- MapName <- shp_strata_bugs <- shp_strata_fish <-
+      shp_strata_msw <- NULL
 
     # 1. Define Parameters ####
     #mainDir <- dir

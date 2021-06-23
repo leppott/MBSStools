@@ -1,0 +1,26 @@
+Index.Name	strata_r	Site	Date	TAXON	N_TAXA	N_GRIDS	EXCLUDE	Phylum	Class	Order	Family	Tribe	Genus	Other_Taxa	FFG	FAM_TV	Habit	TolVal	FinalTolVal07	TV_Urb
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Nais	3	NA	FALSE	Annelida	Clitellata	Tubificida	Naididae		Nais		FILTERER		BU	8		
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Ancyronyx	2	NA	FALSE	Arthropoda	Insecta	Coleoptera	Elmidae		Ancyronyx		NA		CN	2	7.8	7.8
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Macronychus	2	NA	FALSE	Arthropoda	Insecta	Coleoptera	Elmidae		Macronychus		NA		CN	4	6.8	6.8
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Microcylloepus	1	NA	FALSE	Arthropoda	Insecta	Coleoptera	Elmidae		Microcylloepus		COLLECTOR		CN	2	4.8	4.8
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Cricotopus/Orthocladius	10	NA	FALSE	Arthropoda	Insecta	Diptera	Chironomidae		Cricotopus/Orthocladius		COLLECTOR		SP	6		
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Eukiefferiella	1	NA	FALSE	Arthropoda	Insecta	Diptera	Chironomidae		Eukiefferiella		COLLECTOR		SP	8	6.1	6.1
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Hydrobaenus	1	NA	FALSE	Arthropoda	Insecta	Diptera	Chironomidae		Hydrobaenus		SCRAPER		SP	8	7.2	7.2
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Hydrobaenus	2	NA	TRUE	Arthropoda	Insecta	Diptera	Chironomidae		Hydrobaenus		SCRAPER		SP	8	7.2	7.2
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Parakiefferiella	1	NA	FALSE	Arthropoda	Insecta	Diptera	Chironomidae		Parakiefferiella		COLLECTOR		SP	4	2.1	2.1
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Thienemanniella	1	NA	FALSE	Arthropoda	Insecta	Diptera	Chironomidae		Thienemanniella		COLLECTOR		SP	6	5.1	5.1
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Polypedilum	2	NA	FALSE	Arthropoda	Insecta	Diptera	Chironomidae	Chironomini	Polypedilum		SHREDDER		CB	6	6.3	6.3
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Potthastia	1	NA	FALSE	Arthropoda	Insecta	Diptera	Chironomidae	Diamesini	Potthastia		NA		SP	2	0	0
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Tanytarsus	5	NA	FALSE	Arthropoda	Insecta	Diptera	Chironomidae	Tanytarsini	Tanytarsus		FILTERER		CB	6	4.9	4.9
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Plauditus	51	NA	FALSE	Arthropoda	Insecta	Ephemeroptera	Baetidae		Plauditus				SW	5		
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Maccaffertium	7	NA	FALSE	Arthropoda	Insecta	Ephemeroptera	Heptageniidae		Maccaffertium		SCRAPER		CN	4	4.6	4.6
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Argia	1	NA	FALSE	Arthropoda	Insecta	Odonata	Coenagrionidae		Argia		PREDATOR		CN	8	9.3	9.3
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Perlidae	1	NA	FALSE	Arthropoda	Insecta	Plecoptera	Perlidae				PREDATOR		CN	1	2.2	2.2
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Cheumatopsyche	5	NA	FALSE	Arthropoda	Insecta	Trichoptera	Hydropsychidae		Cheumatopsyche		FILTERER		CN	5	6.5	6.5
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Hydropsyche	1	NA	FALSE	Arthropoda	Insecta	Trichoptera	Hydropsychidae		Hydropsyche		FILTERER		CN	6	7.5	7.5
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Chimarra	1	NA	FALSE	Arthropoda	Insecta	Trichoptera	Philopotamidae		Chimarra		FILTERER		CN	4	4.4	4.4
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Crangonyctidae	1	NA	FALSE	Arthropoda	Malacostraca	Amphipoda	Crangonyctidae				COLLECTOR		SP	6	6.5	6.5
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Gammarus	3	NA	FALSE	Arthropoda	Malacostraca	Amphipoda	Gammaridae		Gammarus		NA		SP	6	6.7	6.7
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Hydrobiidae	2	NA	FALSE	Mollusca	Gastropoda	Mesogastropoda	Hydrobiidae				SCRAPER		CB	8	8	8
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Corbicula	2	NA	FALSE	Mollusca	Pelecypoda	Veneroida	Corbiculidae		Corbicula		FILTERER		BU	6	6	6
+MBSS.2005.Bugs	COASTAL	02-4008	03-27-2020	Prostoma	1	NA	FALSE	Nemertea	Enopla	Hoplonemertea	Tetrastemmatidae		Prostoma		PREDATOR				7.3	7.3

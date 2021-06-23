@@ -146,8 +146,8 @@ shinyServer(function(input, output) {
       # INDEX.NAME to Index.Name
       names(df_data_qc)[names(df_data_qc) %in% "INDEX.NAME"] <- "Index.Name"
       # QC
-      # write.csv(df_data, file.path(".", "Results", "results_data.csv"))
-      # write.csv(df_data_qc, file.path(".", "Results", "results_data_qc.csv"))
+      write.csv(df_data, file.path(".", "Results", "results_data.csv"))
+      write.csv(df_data_qc, file.path(".", "Results", "results_data_qc.csv"))
 
       # Increment the progress bar, and update the detail text.
       incProgress(1/n_inc, detail = "Calculate, Metrics")

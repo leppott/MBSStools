@@ -350,6 +350,7 @@ The taxa distribution map for brown trout is shown below.
 ## library
 library(readxl)
 library(rgdal)
+library
 
 # Set Working Directory
 wd <- getwd()
@@ -367,13 +368,12 @@ ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory alrea
 ## Make copies of datafiles and place into “Data” folder
 ### Taxa Data
 myFiles <- c("AllFish_95to16.xls", "TaxaMapsCrossWalk20170731.xlsx")
-file.copy(file.path(path.package("MBSStools"),"extdata",myFiles),file.path(wd,"Data",myFiles))
+file.copy(file.path(path.package("MBSStools"),"extdata",myFiles)
+          ,file.path(wd,"Data",myFiles))
 
 ### GIS
 # Unzip GIS file in MBSS tools “extdata” folder and place in “GIS” folder
 unzip(file.path(path.package("MBSStools"),"extdata","MD_GIS.zip"),exdir=file.path(wd,"GIS"))
-
-
 
 # data files
 obs <- "AllFish_95to16.xls"
@@ -399,7 +399,6 @@ colnames(df.taxa.obs)[1] <- "CommonName"
 ## Trim to browntrout
 df.taxa.obs <- df.taxa.obs[df.taxa.obs[,"CommonName"]=="brown trout",]
 
-
 # Read in TaxaMapsCrossWalk.xlsx
 df.lu.taxa <- readxl::read_excel(taxa.lu,sheet=1,col_names=TRUE,skip=0)
 df.lu.taxa <- as.data.frame(df.lu.taxa[,c("CommonName","MapName")])
@@ -422,28 +421,27 @@ colnames(df.taxa.match)[1] <- "CommonName"
 # 5. Mapping ####
 ppi <- 72
 dsn <- file.path(dirMain, dirGIS)
-state     <- rgdal::readOGR(dsn = dsn, layer = "MD_State_Boundary", verbose=verbose)
-coastline <- rgdal::readOGR(dsn = dsn, layer = "MD_Coast_Hydrology", verbose=verbose)
-counties  <- rgdal::readOGR(dsn = dsn, layer = "MD_Boundary_County_Detailed", verbose=verbose)
+state     <- sf::st_read(dsn = dsn, layer = "MD_State_Boundary")
+coastline <- sf::st_read(dsn = dsn, layer = "MD_Coast_Hydrology")
+counties  <- sf::st_read(dsn = dsn, layer = "MD_Boundary_County_Detailed")
 
 i<-1
 
 taxon <- as.character(map.taxa$CommonName[i])
-
 
   filename <- map.taxa$MapName[i]
   df.taxon.sites <- subset(df.taxa.obs, df.taxa.obs[,"CommonName"]==taxon)
   df.taxon.sites <- subset(df.taxon.sites, !is.na(df.taxon.sites["Latitude83"]))
 
   
-  plot(state, col="white", border="gray")
-    plot(coastline, add = TRUE, col="light blue", border=FALSE)
-    plot(counties, add = TRUE, col="white", border="darkslategray", lwd=0.5)
-    proj.sites <- rgdal::project(cbind(df.taxon.sites$Longitude83,df.taxon.sites$Latitude83),
-                          "+proj=lcc +lat_1=39.45 +lat_2=38.3 +lat_0=37.66666666666666 +lon_0=-77
+  plot(sf::st_geometry(state), col="white", border="gray")
+    plot(sf::st_geometry(coastline), add = TRUE, col="light blue", border=FALSE)
+    plot(sf::st_geometry(counties), add = TRUE, col="white", border="darkslategray", lwd=0.5)
+    proj.sites <- rgdal::project(cbind(df.taxon.sites$Longitude83
+                                       ,df.taxon.sites$Latitude83)
+, "+proj=lcc +lat_1=39.45 +lat_2=38.3 +lat_0=37.66666666666666 +lon_0=-77
             +x_0=400000 +y_0=0 +datum=NAD83 +units=m +no_defs")
     points(proj.sites[,1], proj.sites[,2], pch=21, col="black", bg="green", cex=1.0)
-        
         
  #reset old working directory
  #setwd <- oldwd
