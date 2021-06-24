@@ -264,7 +264,7 @@ qc_taxa <- function(DF_User
     df_result <- merge(DF_User, df_mt
                        , by = col_taxon
                        , all.x = TRUE
-                       , suffixes = c(sfx_NonMBSS,))
+                       , suffixes = c(sfx_NonMBSS, ""))
     col_match_y <- names(df_result)[grepl(paste0(sfx_NonMBSS,"$")
                                           , names(df_result))]
     col_match_x <- gsub(paste0(sfx_NonMBSS,"$"), "", col_match_y)
@@ -288,9 +288,6 @@ qc_taxa <- function(DF_User
   # Other columns for metric calculation
   # Bugs = EXCLUDE, STRATA_R
   # Fish =
-
-
-
 
 
   # Output

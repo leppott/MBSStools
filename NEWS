@@ -3,9 +3,15 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-06-23 16:37:35
+    #> Last Update: 2021-06-24 14:41:56
 
-# MBSStools v1.1.0.9049 (2021-06-22)
+# MBSStools v1.1.0.9050 (2021-06-24)
+
+-   refactor: Tweak vignette so GitHub Action doesn’t fail
+-   refactor: Update ‘add\_new’ case in `qc_taxa()`
+-   tests: Update testcases for qc\_taxa to match recent changes
+
+# MBSStools v1.1.0.9049 (2021-06-23)
 
 -   refactor: Add package to referenced function in MapTaxaObs
 -   refactor: Add global variable bindings

@@ -9,6 +9,11 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE
+                      , comment = "#>")
+```
+
 # Introduction
 `MBSStools` was created by Tetra Tech, Inc. in 2017 to meet the needs of Maryland Department of Natural Resources (DNR), Maryland Biological Stream Survey (MBSS) staff to complete data manipulations in an efficient and reproducible manner.
 
