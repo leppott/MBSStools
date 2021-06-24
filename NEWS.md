@@ -3,7 +3,12 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-06-24 14:41:56
+    #> Last Update: 2021-06-24 15:10:11
+
+# MBSStools v1.1.0.9051 (2021-06-24)
+
+-   refactor: Add markdown to DESCRIPTION Suggests to avoid build
+    failure on GitHub Actions
 
 # MBSStools v1.1.0.9050 (2021-06-24)
 
