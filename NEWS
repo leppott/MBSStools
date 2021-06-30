@@ -3,7 +3,17 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-06-24 15:10:11
+    #> Last Update: 2021-06-30 12:28:53
+
+# MBSStools v1.1.0.9052 (2021-06-30)
+
+-   refactor: Modify `metric.values()` calculations to use na.rm=TRUE
+    -   All `sum()` and `max()` metrics
+-   refactor: Update example in MapTaxaObs
+    -   Swap `path.package()` for `find.package()`
+-   refactor: Shiny app make download button disabled when click
+    ‘calculate’
+    -   Issue 32
 
 # MBSStools v1.1.0.9051 (2021-06-24)
 

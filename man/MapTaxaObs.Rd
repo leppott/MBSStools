@@ -82,10 +82,12 @@ ifelse(dir.exists(myDir.create) == FALSE
 ## Create Data
 ### Taxa Data
 myFiles <- c("AllFish_95to16.xls", "TaxaMapsCrossWalk20170731.xlsx")
-file.copy(file.path(path.package("MBSStools"), "extdata", myFiles),
+file.copy(file.path(find.package("MBSStools", .libPaths())
+         , "extdata"
+         , myFiles),
 file.path(wd, "Data", myFiles))
 ### GIS
-unzip(file.path(path.package("MBSStools"), "extdata", "MD_GIS.zip")
+unzip(file.path(find.package("MBSStools", .libPaths()), "extdata", "MD_GIS.zip")
       , exdir = file.path(wd, "GIS"))
 
 # Inputs

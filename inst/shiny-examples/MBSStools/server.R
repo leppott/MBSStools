@@ -91,6 +91,10 @@ shinyServer(function(input, output) {
       # Number of increments
       n_inc <- 6
 
+      # enable download button
+      shinyjs::disable("b_downloadData")
+
+
       # sink output
       #fn_sink <- file.path(".", "Results", "results_log.txt")
       file_sink <- file(file.path("."

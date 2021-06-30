@@ -16,6 +16,15 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+MBSStools v1.1.0.9052 (2021-06-30)
+================
+* refactor: Modify `metric.values()` calculations to use na.rm=TRUE
+   + All `sum()` and `max()` metrics
+* refactor: Update example in MapTaxaObs
+   + Swap `path.package()` for `find.package()`
+* refactor: Shiny app make download button disabled when click 'calculate'
+    + Issue 32
+
 MBSStools v1.1.0.9051 (2021-06-24)
 ================
 * refactor: Add markdown to DESCRIPTION Suggests to avoid build failure on

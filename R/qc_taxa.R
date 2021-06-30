@@ -239,7 +239,13 @@ qc_taxa <- function(DF_User
                        , by = col_taxon
                        , all.x = TRUE
                        , suffixes = c(sfx_NonMBSS, ""))
+
     #names(df_result) <- gsub(".x$", "", names(df_result))
+
+    # df_result <- dplyr::left_join(DF_User, df_mt
+    #                              , by = col_taxon
+    #                              , suffix = c(sfx_NonMBSS, ""))
+
   } else if(useMBSSTaxaInfo == "only_user"){
     # Reverse and keep _NonMBSS and remove official field
     # # Remove Official Cols
@@ -254,6 +260,10 @@ qc_taxa <- function(DF_User
                        , suffixes = c("", sfx_MBSS))
 
 
+    # df_result <- dplyr::left_join(DF_User, df_mt
+    #                               , by = col_taxon
+    #                               , suffix = c("", sfx_MBSS))
+
   } else if(useMBSSTaxaInfo == "add_new"){
     # add user info for new taxa to official columns
     # df_result <- df_merge
@@ -265,6 +275,11 @@ qc_taxa <- function(DF_User
                        , by = col_taxon
                        , all.x = TRUE
                        , suffixes = c(sfx_NonMBSS, ""))
+
+    # df_result <- dplyr::left_join(DF_User, df_mt
+    #                               , by = col_taxon
+    #                               , suffix = c(sfx_NonMBSS, ""))
+
     col_match_y <- names(df_result)[grepl(paste0(sfx_NonMBSS,"$")
                                           , names(df_result))]
     col_match_x <- gsub(paste0(sfx_NonMBSS,"$"), "", col_match_y)
