@@ -16,6 +16,10 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+MBSStools v1.1.0.9053 (2021-06-30)
+================
+* docs: Add sf to MapTaxaObs example in vignette
+
 MBSStools v1.1.0.9052 (2021-06-30)
 ================
 * refactor: Modify `metric.values()` calculations to use na.rm=TRUE
@@ -23,7 +27,8 @@ MBSStools v1.1.0.9052 (2021-06-30)
 * refactor: Update example in MapTaxaObs
    + Swap `path.package()` for `find.package()`
 * refactor: Shiny app make download button disabled when click 'calculate'
-    + Issue 32
+    + Issue #32
+* refactor: Tweak Exclude column QC in `metric.values()`, Issue #31
 
 MBSStools v1.1.0.9051 (2021-06-24)
 ================

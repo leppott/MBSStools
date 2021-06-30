@@ -3,7 +3,11 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-06-30 12:28:53
+    #> Last Update: 2021-06-30 12:45:41
+
+# MBSStools v1.1.0.9053 (2021-06-30)
+
+-   docs: Add sf to MapTaxaObs example in vignette
 
 # MBSStools v1.1.0.9052 (2021-06-30)
 
@@ -13,7 +17,8 @@ NEWS-MBSStools
     -   Swap `path.package()` for `find.package()`
 -   refactor: Shiny app make download button disabled when click
     ‘calculate’
-    -   Issue 32
+    -   Issue \#32
+-   refactor: Tweak Exclude column QC in `metric.values()`, Issue \#31
 
 # MBSStools v1.1.0.9051 (2021-06-24)
 
