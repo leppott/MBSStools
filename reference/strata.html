@@ -18,7 +18,7 @@ GIS shapefiles."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0.9054</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0.9055</span>
       </span>
     </div>
 
@@ -121,19 +121,19 @@ boundaries of the BIBI shapefile.</p>
 <span class="r-in"><span class="co"># View Results</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">data_strata</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   longitude latitude strata_bibi strata_fibi strata_msw</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -77.37036 39.67102    Highland    Highland        NCP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -77.07263 38.68456     Coastal     Coastal         CP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 -76.20049 39.65910   EPiedmont   EPiedmont        NCP</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -78.07735 39.41332        &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 -78.51902 39.14460        &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 -77.91078 38.37708        &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 -79.37748 39.38003    Highland        Cold        NCP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 -76.09964 38.10507     Coastal     Coastal         CP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 -79.24849 38.76337        &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 -76.65264 38.62310     Coastal     Coastal         CP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 -78.72006 38.33784        &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 -78.91057 38.00940        &lt;NA&gt;        &lt;NA&gt;       &lt;NA&gt;</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/table.html" class="external-link">table</a></span><span class="op">(</span><span class="va">data_strata</span><span class="op">$</span><span class="va">strata_bibi</span>, <span class="va">data_strata</span><span class="op">$</span><span class="va">strata_fibi</span>, useNA <span class="op">=</span> <span class="st">"ifany"</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>            </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>             Coastal Cold EPiedmont Highland &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Coastal        67    0         0        0    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   EPiedmont       0    0        10        0    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   Highland        0    4         0       17    0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;NA&gt;            0    0         0        0  152</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Coastal        62    0         0        0    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   EPiedmont       0    0        14        0    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   Highland        0    7         0       14    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;NA&gt;            0    0         0        0  153</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Plot</span></span>
 <span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
