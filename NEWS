@@ -3,7 +3,11 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2022-01-12 07:50:36
+    #> Last Update: 2022-01-12 09:58:19
+
+# MBSStools v1.1.0.9055 (2022-01-12)
+
+-   refactor: Update GitHub repo default branch from ‘master’ to ‘main’
 
 # MBSStools v1.1.0.9054 (2022-01-12)
 

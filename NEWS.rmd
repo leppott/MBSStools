@@ -17,6 +17,10 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.1.0.9055 (2022-01-12)
+================
+* refactor: Update GitHub repo default branch from 'master' to 'main'
+
 MBSStools v1.1.0.9054 (2022-01-12)
 ================
 * docs: Update runShiny() documentation with updated URL
