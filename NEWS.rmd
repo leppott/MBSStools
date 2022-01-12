@@ -16,6 +16,11 @@ knitr::opts_chunk$set(
 ```{r, echo = FALSE}
 cat(paste0("Last Update: ",Sys.time()))
 ```
+
+MBSStools v1.1.0.9054 (2022-01-12)
+================
+* docs: Update runShiny() documentation with updated URL
+
 MBSStools v1.1.0.9053 (2021-06-30)
 ================
 * docs: Add sf to MapTaxaObs example in vignette

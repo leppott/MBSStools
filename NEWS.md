@@ -3,7 +3,11 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2021-06-30 12:45:41
+    #> Last Update: 2022-01-12 07:50:36
+
+# MBSStools v1.1.0.9054 (2022-01-12)
+
+-   docs: Update runShiny() documentation with updated URL
 
 # MBSStools v1.1.0.9053 (2021-06-30)
 
@@ -17,8 +21,8 @@ NEWS-MBSStools
     -   Swap `path.package()` for `find.package()`
 -   refactor: Shiny app make download button disabled when click
     ‘calculate’
-    -   Issue \#32
--   refactor: Tweak Exclude column QC in `metric.values()`, Issue \#31
+    -   Issue #32
+-   refactor: Tweak Exclude column QC in `metric.values()`, Issue #31
 
 # MBSStools v1.1.0.9051 (2021-06-24)
 
@@ -28,8 +32,8 @@ NEWS-MBSStools
 # MBSStools v1.1.0.9050 (2021-06-24)
 
 -   refactor: Tweak vignette so GitHub Action doesn’t fail
--   refactor: Update ‘add\_new’ case in `qc_taxa()`
--   tests: Update testcases for qc\_taxa to match recent changes
+-   refactor: Update ‘add_new’ case in `qc_taxa()`
+-   tests: Update testcases for qc_taxa to match recent changes
 
 # MBSStools v1.1.0.9049 (2021-06-23)
 
@@ -43,7 +47,7 @@ NEWS-MBSStools
 -   refactor: Update IonContrib ion.ref default to NULL
     -   is.na() was causing issues when doing QC check within the
         function
--   fix: Fix combining of files in qc\_taxa
+-   fix: Fix combining of files in qc_taxa
     -   Change order of data frames in merge
     -   Convert input data frame to taxanames in all caps prior to
         matching
@@ -51,66 +55,66 @@ NEWS-MBSStools
 
 # MBSStools v1.1.0.9048 (2021-06-17)
 
--   refactor: Update MapTaxaObs function, Issue \#17
+-   refactor: Update MapTaxaObs function, Issue #17
     -   Issues with state shapefile and rgdal, switch to sf package
 -   docs: Add sf package to DESCRIPTION
 
 # MBSStools v1.1.0.9047 (2021-06-17)
 
 -   refactor: Update GIS files for use with strata for consistency,
-    Issue \#36
+    Issue #36
     -   Highlands to Highland
     -   Piedmont to EPiedmont
--   refactor: Update PHIcalc for consistency, Issue \#36
+-   refactor: Update PHIcalc for consistency, Issue #36
     -   Highlands to Highland
     -   Piedmont to EPiedmont
     -   CoastalPlain to Coastal
     -   BioRegion paramater to Strata
     -   Add QC check to use uppercase for strata
--   refactor: Update MBSS.PHI data strata for consistency, Issue \#36
+-   refactor: Update MBSS.PHI data strata for consistency, Issue #36
 
 # MBSStools v1.1.0.9046 (2021-06-16)
 
--   refactor: Add fibi and msw GIS base files to strata(), Issue \#39
+-   refactor: Add fibi and msw GIS base files to strata(), Issue #39
     -   Update ProcessData script
-    -   Add shape files to extdata\_GIS\_strata.zip
+    -   Add shape files to extdata\_GIS_strata.zip
     -   Update data.R
     -   Update strata function for the new layers
 
 # MBSStools v1.1.0.9045 (2021-06-16)
 
--   docs: Tweak help file for strata function, Issue \#39
+-   docs: Tweak help file for strata function, Issue #39
 
 # MBSStools v1.1.0.9044 (2021-06-15)
 
 -   feat: Add strata function to assign strata based on lat-long, Issue
-    \#39
+    #39
     -   Add function strata
-    -   Add data \_GIS\_strata.zip
-    -   Add internal data shp\_strata\_bugs and shp\_strata\_fish
+    -   Add data \_GIS_strata.zip
+    -   Add internal data shp_strata_bugs and shp_strata_fish
         -   Create ProcessData in data-raw for shapefiles
 -   style: Trim to 80 characters, NEWS
 -   docs: Add packages to DESCRIPTION Suggests for strata function,
-    Issue \#39
+    Issue #39
     -   sp
     -   MazamaSpatialUtils
 
 # MBSStools v1.1.0.9043 (2021-06-14)
 
--   refactor: Update license file and README badge, Issue \#41
+-   refactor: Update license file and README badge, Issue #41
 
 # MBSStools v1.1.0.9042 (2021-06-14)
 
 -   refactor: Add binding for global variable, metric.scores.R
 -   docs: Rename example inputs to match MapTaxaObs function call, Issue
-    \#36
-    -   Issue \#17
+    #36
+    -   Issue #17
 -   style: Edit style of MapTaxaObs code
--   refactor: Rework filepath within MapTaxaObs, Issue \#17
+-   refactor: Rework filepath within MapTaxaObs, Issue #17
 
 # MBSStools v1.1.0.9041 (2021-04-21)
 
--   refactor: Edits to MBSStools\_vignette.Rmd
+-   refactor: Edits to MBSStools_vignette.Rmd
     -   Move files to proper folder (vignettes)
     -   Fix code blocks so run properly
         -   Comment out write.csv()
@@ -118,33 +122,33 @@ NEWS-MBSStools
 
 # MBSStools v1.1.0.9040 (2021-04-21)
 
--   refactor: Edits to MBSStools\_vignette.Rmd
+-   refactor: Edits to MBSStools_vignette.Rmd
     -   Merge pull request 42
 
 # MBSStools v1.1.0.9039 (2021-04-04)
 
 -   refactor: Update install code example
     -   README
-    -   MBSStools\_vignette.Rmd
+    -   MBSStools_vignette.Rmd
 -   refactor: Update example, MapTaxaObs
     -   Change getwd() to tempdir()
 
 # MBSStools v1.1.0.9038 (2021-04-04)
 
--   docs: Update spelling and language in MBSStools\_vignette.Rmd
+-   docs: Update spelling and language in MBSStools_vignette.Rmd
 
 # MBSStools v1.1.0.9037 (2021-04-01)
 
 -   style: Fix items from goodpractice::gp()
     -   Trim lines to 80 characters
         -   IonContrib
-        -   test-qc\_taxa
-        -   qc\_taxa
+        -   test-qc_taxa
+        -   qc_taxa
         -   data
         -   MapTaxaObs
         -   server
         -   global
-    -   Replace ‘=’ with ‘&lt;-’
+    -   Replace ‘=’ with ‘\<-’
         -   IonContrib
 -   style: Fix typos
 
@@ -178,7 +182,7 @@ NEWS-MBSStools
 # MBSStools v1.1.0.9033 (2021-01-10)
 
 -   chore: Remove Excel files from data folder
-    -   AllFish\_95to16.xls
+    -   AllFish_95to16.xls
     -   TaxaMapsCrossWalk20170731.xlsx
 -   style: Trim to 80 character lines
     -   FlowSum.R
@@ -193,7 +197,7 @@ NEWS-MBSStools
 # MBSStools v1.1.0.9032 (2020-12-27)
 
 -   docs: DESCRIPTION, add Bug Reports entry
--   tests: qc\_taxa, replace = with &lt;-
+-   tests: qc_taxa, replace = with \<-
 -   refactor: Add foo:: to missing functions.
 
 # MBSStools v1.1.0.9031 (2020-12-24)
@@ -208,7 +212,7 @@ NEWS-MBSStools
 
 # MBSStools v1.1.0.9029 (2020-12-24)
 
-refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
+refactor: CodeFactor change 1:foo() to seq_len(foo()) + MapTaxaObs.R
 
 # MBSStools v1.1.0.9028 (2020-12-24)
 
@@ -240,24 +244,24 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 # MBSStools v1.1.0.9023 (2020-07-09)
 
--   Rebuild vignette with taxa distribution map as image; Issue \#33
+-   Rebuild vignette with taxa distribution map as image; Issue #33
 
 # MBSStools v1.1.0.9022 (2020-07-09)
 
 -   Shiny app, ensure download button is not active until create zip
-    file; Issue \#32
+    file; Issue #32
 
     -   Add shinyjs to DESCRIPTION
 
 # MBSStools v1.1.0.9021 (2020-07-09)
 
--   metric.values; Issue \#30 and \#31
+-   metric.values; Issue #30 and #31
 
     -   Modify Exclude column QC check.
 
 # MBSStools v1.1.0.9020 (2020-07-09)
 
--   metric.values; Issue \#34
+-   metric.values; Issue #34
 
     -   Added Piercer as valid FFG entry.
 
@@ -267,23 +271,23 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 # MBSStools v1.1.0.9019 (2020-07-02)
 
--   metric.values; Issue \#30
+-   metric.values; Issue #30
     -   Add basic QC fixes for non-standard bug files.
 
 # MBSStools v1.1.0.9018 (2020-07-02)
 
--   qc\_taxa
+-   qc_taxa
     -   Fix typo in example.
 
 # MBSStools v1.1.0.9017 (2020-07-01)
 
--   metric.scores; Issue \#29
+-   metric.scores; Issue #29
     -   Fish message about 0 individuals always showing.
         -   Added condition so prints only if relevant.
 
 # MBSStools v1.1.0.9016 (2020-07-01)
 
--   Update taxa\_fish data without an extra column.
+-   Update taxa_fish data without an extra column.
 
 # MBSStools v1.1.0.9015 (2020-06-30)
 
@@ -304,7 +308,7 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 # MBSStools v1.1.0.9012 (2020-06-23)
 
--   Update Shiny app to use qc\_taxa(); Issue \#26
+-   Update Shiny app to use qc_taxa(); Issue #26
 
 # MBSStools v1.1.0.9011 (2020-06-23)
 
@@ -313,29 +317,29 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 # MBSStools v1.1.0.9010 (2020-06-23)
 
 -   metric.values
-    -   QC checks on valid values; Issue \#26
+    -   QC checks on valid values; Issue #26
 
 # MBSStools v1.1.0.9009 (2020-06-23)
 
--   qc\_taxa
-    -   New function; Issue \#13 and \#26
+-   qc_taxa
+    -   New function; Issue #13 and #26
 -   tests
-    -   Add tests for qc\_taxa
+    -   Add tests for qc_taxa
 
 # MBSStools v1.1.0.9008 (2020-05-22)
 
--   taxa\_fish
+-   taxa_fish
     -   Update 2 Species name errors so passes QC check.
 
 # MBSStools v1.1.0.9007 (2020-05-21)
 
 -   Add testing
     -   DESCRIPTION, add testthat to Suggests
-    -   test PHIcalc, Issue \#19
+    -   test PHIcalc, Issue #19
 
 # MBSStools v1.1.0.9006 (2020-05-20)
 
--   metric.scores.R, Issue \#20
+-   metric.scores.R, Issue #20
     -   Update column name checking for user input data frame.
         -   Edit error message to user.
 
@@ -347,7 +351,7 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 # MBSStools v1.1.0.9004 (2020-05-20)
 
--   Shiny App, Issue \#22.
+-   Shiny App, Issue #22.
     -   File upload size increased from 10 to 25 MB.
     -   Output file format, tsv to csv.
     -   Zip file download.
@@ -356,15 +360,15 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 # MBSStools v1.1.0.9003 (2020-05-20)
 
--   Update fish metric scoring for no taxa obsevered, Issue \#26
-    -   taxa\_fish.rda
+-   Update fish metric scoring for no taxa obsevered, Issue #26
+    -   taxa_fish.rda
     -   data.r
     -   metric.scores.r
 
 # MBSStools v1.1.0.9002 (2020-05-18)
 
 -   Update metric.values.
-    -   Error when using R v4.0. Issue \#28.
+    -   Error when using R v4.0. Issue #28.
 
 # MBSStools v1.1.0.9001 (2019-06-13)
 
@@ -377,16 +381,16 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 # MBSStools v1.0.2.9015 (2019-06-13)
 
--   Shiny app, Issue \#22
+-   Shiny app, Issue #22
     -   Remove link to package vignette (doesn’t work on Shiny.io)
 
 # MBSStools v1.0.2.9014 (2019-06-13)
 
--   Additional packages to Suggests for the Shiny app, Issue \#22
+-   Additional packages to Suggests for the Shiny app, Issue #22
 
 # MBSStools v1.0.2.9013 (2019-06-13)
 
--   Complete Shiny app, Issue \#22
+-   Complete Shiny app, Issue #22
 
 # MBSStools v1.0.2.9012 (2019-05-17)
 
@@ -395,9 +399,9 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 # MBSStools v1.0.2.9011 (2019-05-17)
 
--   Update for R v3.6.0, Issue \#27
+-   Update for R v3.6.0, Issue #27
     -   README
-        -   Added extra line to make work devtools::install\_github()
+        -   Added extra line to make work devtools::install_github()
     -   DESCRIPTION
         -   Remove StagedInstall: no
 -   README
@@ -405,26 +409,26 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 # MBSStools v1.0.2.9010 (2019-05-01)
 
--   Shiny app development, Issue \#22
+-   Shiny app development, Issue #22
     -   Not complete.
 
 # MBSStools v1.0.2.9010 (2019-05-01)
 
--   Revise for staged install for R v3.6.0, Issue \#27
+-   Revise for staged install for R v3.6.0, Issue #27
     -   DESCRIPTION
         -   StagedInstall: no
     -   Temporary fix. Still needs to be installed from a local file.
--   Edits to Shiny App. Issue \#22.
+-   Edits to Shiny App. Issue #22.
     -   Incomplete.
 
 # MBSStools v1.0.2.9009 (2019-05-01)
 
--   Revise “EXCLUDE” column in benthic data from “Y” and "" to TRUE and
+-   Revise “EXCLUDE” column in benthic data from “Y” and “” to TRUE and
     FALSE.  
-    Issue \#25.
+    Issue #25.
     -   data
-        -   taxa\_bugs\_family
-        -   taxa\_bugs\_genus, ProcessData had additional issues that
+        -   taxa_bugs_family
+        -   taxa_bugs_genus, ProcessData had additional issues that
             weren’t present in prior versions.
     -   function; metric.values
         -   Function help text
@@ -438,14 +442,14 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 # MBSStools v1.0.2.9008 (2019-02-21)
 
--   Revised scoring thresholds table, per MBSS. Issue \#23.
+-   Revised scoring thresholds table, per MBSS. Issue #23.
 -   metric.scores.R
     -   Update example code to match the MBSS metric names.
     -   Slight tweaking of QC check for column names.
 
 # MBSStools v1.0.2.9007 (2019-02-12)
 
--   Shiny app, Issue \#22
+-   Shiny app, Issue #22
 -   Include function to launch the Shiny app.
     -   runShiny
     -   Add to Vignette.
@@ -453,12 +457,12 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 # MBSStools v1.0.2.9006 (2017-07-31)
 
 -   metric.scores
-    -   Add example of adding narrative to IBI scores. Issue \#21.
+    -   Add example of adding narrative to IBI scores. Issue #21.
 
 # MBSStools v1.0.2.9005 (2017-07-31)
 
 -   DESCRIPTION
-    -   Suggests; XLConnect (MBSStools\_vignette.Rmd)
+    -   Suggests; XLConnect (MBSStools_vignette.Rmd)
     -   Maintainer; <Erik.Leppo@tetratech.com> (Needed if submit to
         CRAN)
     -   Description; make more verbose. (Needed if submit to CRAN)
@@ -495,14 +499,14 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 -   DESCRIPTION
 -   Move dplyr and rgdal from Suggests to Imports
-    -   Packages not always loading. Issue \#15 and Issue \#17
+    -   Packages not always loading. Issue #15 and Issue #17
 -   Modify minimum version of R from 3.3.2 to 3.4.0.
     -   MapTaxaObs did not work in earlier version of R.  
-        Updated to v3.4.0 and no issue. Issue \#17.
+        Updated to v3.4.0 and no issue. Issue #17.
 
 # MBSStools v1.0.2.9001 (2017-05-11)
 
--   Issue \#17 with MapTaxaObs
+-   Issue #17 with MapTaxaObs
 -   Removed extra file in vignette folder.
 -   Update Vignette as doesn’t build in check; commented out MapTaxaObs.
 
@@ -522,7 +526,7 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 -   DESCRIPTION. Move rgdal from Depends to Suggests.
 
--   Fish metric example not working in metric.values(). Issue \#14.  
+-   Fish metric example not working in metric.values(). Issue #14.  
     Extra parameter. Removed and works.
 
 # MBSStools v1.0.0.0000 (2017-09-24)
@@ -599,7 +603,7 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 # MBSStools v0.0.0.9008 (2017-07-21)
 
--   Added TaxaMapsObs(). Issue \#2. 20170720.
+-   Added TaxaMapsObs(). Issue #2. 20170720.
 
 -   Libraries readxl (suggested) and rgdal (required) added to
     DESCRIPTION.  
@@ -611,7 +615,7 @@ refactor: CodeFactor change 1:foo() to seq\_len(foo()) + MapTaxaObs.R
 
 -   Added “LazyData: true” to DESCRIPTION. Data was not being loaded
     properly.  
-    Issue \#9. 20170623.
+    Issue #9. 20170623.
 
 # MBSStools v0.0.0.9006 (2017-06-23)
 

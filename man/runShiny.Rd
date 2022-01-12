@@ -14,7 +14,7 @@ The Shiny app based on the R package MBSStools is included in the R
 package. This function launches that app.
 
 The Shiny app is online at:
-https://leppott.shinyapps.io/MBSStools
+hhttps://tetratech-wtr-wne.shinyapps.io/MBSStools/
 }
 \examples{
 \dontrun{

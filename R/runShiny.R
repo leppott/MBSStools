@@ -6,7 +6,7 @@
 #' package. This function launches that app.
 #'
 #' The Shiny app is online at:
-#' https://leppott.shinyapps.io/MBSStools
+#' hhttps://tetratech-wtr-wne.shinyapps.io/MBSStools/
 #'
 #' @examples
 #' \dontrun{
