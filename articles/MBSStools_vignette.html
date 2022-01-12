@@ -19,6 +19,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-article">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -31,18 +33,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9053</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0.9054</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="../index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
@@ -64,7 +60,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/leppott/MBSStools/">
+  <a href="https://github.com/leppott/MBSStools/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -83,37 +79,37 @@
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>MBSStools - an R toolkit for the MBSS program’s data needs</h1>
-                        <h4 class="author"><a href="mailto:Erik.Leppo@tetratech.com" class="email">Erik.Leppo@tetratech.com</a></h4>
+                        <h4 data-toc-skip class="author"><a href="mailto:Erik.Leppo@tetratech.com" class="email">Erik.Leppo@tetratech.com</a></h4>
             
-            <h4 class="date">2021-06-30</h4>
+            <h4 data-toc-skip class="date">2022-01-12</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/leppott/MBSStools/blob/master/vignettes/MBSStools_vignette.Rmd"><code>vignettes/MBSStools_vignette.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/leppott/MBSStools/blob/HEAD/vignettes/MBSStools_vignette.Rmd" class="external-link"><code>vignettes/MBSStools_vignette.Rmd</code></a></small>
       <div class="hidden name"><code>MBSStools_vignette.Rmd</code></div>
 
     </div>
 
     
     
-<div id="introduction" class="section level1">
-<h1 class="hasAnchor">
-<a href="#introduction" class="anchor"></a>Introduction</h1>
+<div class="section level1">
+<h1 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h1>
 <p><code>MBSStools</code> was created by Tetra Tech, Inc. in 2017 to meet the needs of Maryland Department of Natural Resources (DNR), Maryland Biological Stream Survey (MBSS) staff to complete data manipulations in an efficient and reproducible manner.</p>
 <p>It is envisioned that this library will be a living program and will add additional functions and routines in the future.</p>
 <p>Many of the examples in this vignette are included in the example sections in the corresponding functions. Each function in the <code>MBSStools</code> library includes example data from MBSS.</p>
 </div>
-<div id="installation" class="section level1">
-<h1 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h1>
-<p>The R library is saved on GitHub (<a href="https://github.com/leppott/MBSStools" class="uri">https://github.com/leppott/MBSStools</a>) for ease of updating and distribution. Issues can be tracked, fixed, and code is available for download. Current users of <code>MBSStools</code> can update the library using the same code used to install the library (see below). Devtools is required to download from GitHub. At this time, there are no plans to submit <code>MBSStools</code> to CRAN (R’s library repository).</p>
+<div class="section level1">
+<h1 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h1>
+<p>The R library is saved on GitHub (<a href="https://github.com/leppott/MBSStools" class="external-link uri">https://github.com/leppott/MBSStools</a>) for ease of updating and distribution. Issues can be tracked, fixed, and code is available for download. Current users of <code>MBSStools</code> can update the library using the same code used to install the library (see below). Devtools is required to download from GitHub. At this time, there are no plans to submit <code>MBSStools</code> to CRAN (R’s library repository).</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/">devtools</a></span><span class="op">)</span>
-<span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"leppott/MBSStools"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://devtools.r-lib.org/" class="external-link">devtools</a></span><span class="op">)</span>
+<span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"leppott/MBSStools"</span><span class="op">)</span></code></pre></div>
 <p>To contact the author directly email <a href="mailto:Erik.Leppo@tetratech.com" class="email">Erik.Leppo@tetratech.com</a>.</p>
 </div>
-<div id="packages" class="section level1">
-<h1 class="hasAnchor">
-<a href="#packages" class="anchor"></a>Packages</h1>
+<div class="section level1">
+<h1 id="packages">Packages<a class="anchor" aria-label="anchor" href="#packages"></a>
+</h1>
 <p>Several packages were used to build the functionality in <code>MBSStools</code>.</p>
 <ol style="list-style-type: decimal">
 <li><p>FlowSum; no extra packages</p></li>
@@ -126,11 +122,11 @@
 <p>These packages should install automatically when <code>MBSStools</code> installs. But if you encounter issues with a function not working ensure that the necessary package dependencies are installed.</p>
 <p>To install packages follow the example of the code below for installing <code>dplyr</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"dplyr"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"dplyr"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="contents" class="section level1">
-<h1 class="hasAnchor">
-<a href="#contents" class="anchor"></a>Contents</h1>
+<div class="section level1">
+<h1 id="contents">Contents<a class="anchor" aria-label="anchor" href="#contents"></a>
+</h1>
 <p>There are several functions included in the library each with a particular focus on a dataset and the necessary calculations for data analysis.</p>
 <ol style="list-style-type: decimal">
 <li><p>Index of Biological Integrity (IBI) calculations for fish and benthic macroinvertebrates.</p></li>
@@ -140,17 +136,17 @@
 <li><p>Physical Habitat Index (PHI) calculation.</p></li>
 </ol>
 <p>Example data are included with each function.</p>
-<div id="ibi" class="section level2">
-<h2 class="hasAnchor">
-<a href="#ibi" class="anchor"></a>IBI</h2>
+<div class="section level2">
+<h2 id="ibi">IBI<a class="anchor" aria-label="anchor" href="#ibi"></a>
+</h2>
 <p><code>MBSStools</code> calculates both the benthic macroinvertebrate IBI (BIBI) and fish IBI (FIBI). The IBIs are described in the document Southerland et al. 2005 that is included in the /extdata folder of the library.</p>
 <p>There are two functions; metric.values() to calculate the metrics (e.g., total individuals or total taxa) and metric.scores() that converts the metric values to the appropriate score (e.g., 1, 3, or 5). The functions are the same for fish and benthic macroinvertebrates. Only the argument fun.Community needs to be changed to “bugs” or “fish”.</p>
 <p><code>MBSStools</code> does <strong>not</strong> aggregate or compile taxa lists. Taxa data with site/sample information, counts, phylogenetic (phylum, class, order, etc), and autecological (habit, tolerance value, and function feeding group) information is required as an input to the functions. Fish data needs the additional values of watershed (catchment) area (in acres), average stream width, and reach length.</p>
 <p>A background table (<code>metrics_scoring</code>) is included and provides a table with the metric names and scoring thresholds for each IBI and index region. This table is populated with the appropriate values for the MBSS IBIs. This table can be modified.</p>
 <p>The functions metric.values() and metric.scores() require the <code>dplyr</code> library.</p>
-<div id="ibi-fish" class="section level3">
-<h3 class="hasAnchor">
-<a href="#ibi-fish" class="anchor"></a>IBI, Fish</h3>
+<div class="section level3">
+<h3 id="ibi-fish">IBI, Fish<a class="anchor" aria-label="anchor" href="#ibi-fish"></a>
+</h3>
 <p>Calculates the fish IBI.</p>
 <p>The adjustment of metrics based on watershed area is automatic for fish metrics.</p>
 <p>Fish metric values assumes the following fields (all upper case)</p>
@@ -169,20 +165,20 @@
 <p>** Sites with a single record indicating “No Fish Observed” receive a default score of 1.00.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Metrics, Fish</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools">MBSStools</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools" class="external-link">MBSStools</a></span><span class="op">)</span>
 <span class="co">#(generate values then scores)</span>
 <span class="va">myIndex</span> <span class="op">&lt;-</span> <span class="st">"MBSS.2005.Fish"</span>
 <span class="co"># Thresholds</span>
 <span class="va">thresh</span> <span class="op">&lt;-</span> <span class="va">metrics_scoring</span>
 <span class="co"># get metric names for myIndex</span>
-<span class="op">(</span><span class="va">myMetrics.Fish</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">thresh</span><span class="op">[</span><span class="va">thresh</span><span class="op">[</span>,<span class="st">"Index.Name"</span><span class="op">]</span><span class="op">==</span><span class="va">myIndex</span>,<span class="st">"MetricName.Other"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="op">(</span><span class="va">myMetrics.Fish</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/droplevels.html" class="external-link">droplevels</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">thresh</span><span class="op">[</span><span class="va">thresh</span><span class="op">[</span>,<span class="st">"Index.Name"</span><span class="op">]</span><span class="op">==</span><span class="va">myIndex</span>,<span class="st">"MetricName.Other"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;  [1] "ABUNSQM"   "NUMBENTSP" "PTOL"      "PGEOMIV"   "PROUND"    "PABDOM"   </span>
 <span class="co">#&gt;  [7] "BIOM_MSQ"  "P_LITH"    "P_IS"      "PBROOK"    "PSCULP"</span>
 <span class="co"># Taxa Data</span>
 <span class="va">myDF.Fish</span> <span class="op">&lt;-</span> <span class="va">taxa_fish</span>
 <span class="va">myMetric.Values.Fish</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metric.values.html">metric.values</a></span><span class="op">(</span><span class="va">myDF.Fish</span>, <span class="st">"fish"</span>, <span class="va">myMetrics.Fish</span>, <span class="cn">TRUE</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">myMetric.Values.Fish</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<table class="table">
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">myMetric.Values.Fish</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="4%">
 <col width="5%">
@@ -468,8 +464,8 @@
 <span class="co">#&gt; One or more fish samples (n = 1) had zero organisms and was scored as a 1</span>
 <span class="co">#&gt;                               (metrics and IBI).</span>
 <span class="co"># View Results</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">Metrics.Fish.Scores</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<table class="table">
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">Metrics.Fish.Scores</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="3%">
 <col width="3%">
@@ -861,9 +857,9 @@
 <code class="sourceCode R"><span class="co">#Write results to csv file</span>
 <span class="co">#write.csv(Metrics.Fish.Scores, "Filename.csv")</span></code></pre></div>
 </div>
-<div id="ibi-benthic-macroinvertebrates-mbss" class="section level3">
-<h3 class="hasAnchor">
-<a href="#ibi-benthic-macroinvertebrates-mbss" class="anchor"></a>IBI, Benthic Macroinvertebrates, MBSS</h3>
+<div class="section level3">
+<h3 id="ibi-benthic-macroinvertebrates-mbss">IBI, Benthic Macroinvertebrates, MBSS<a class="anchor" aria-label="anchor" href="#ibi-benthic-macroinvertebrates-mbss"></a>
+</h3>
 <p>Bug metric values assumes the following fields (all upper case)</p>
 <ul>
 <li><p>SITE = MBSS sample identifier.</p></li>
@@ -891,7 +887,7 @@
 <span class="co"># Thresholds</span>
 <span class="va">thresh</span> <span class="op">&lt;-</span> <span class="va">metrics_scoring</span>
 <span class="co"># get metric names for myIndex</span>
-<span class="op">(</span><span class="va">myMetrics.Bugs.MBSS</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">thresh</span><span class="op">[</span><span class="va">thresh</span><span class="op">[</span>,<span class="st">"Index.Name"</span><span class="op">]</span><span class="op">==</span><span class="va">myIndex</span>,<span class="st">"MetricName.Other"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="op">(</span><span class="va">myMetrics.Bugs.MBSS</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/droplevels.html" class="external-link">droplevels</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">thresh</span><span class="op">[</span><span class="va">thresh</span><span class="op">[</span>,<span class="st">"Index.Name"</span><span class="op">]</span><span class="op">==</span><span class="va">myIndex</span>,<span class="st">"MetricName.Other"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt;  [1] "ntaxa"      "nept"       "nephem"     "pintol_urb" "pephem"    </span>
 <span class="co">#&gt;  [6] "nscrape"    "pclimb"     "pchiron"    "pcling"     "ptany"     </span>
 <span class="co">#&gt; [11] "pscrape"    "pswim"      "pdipt"</span>
@@ -909,10 +905,10 @@
 <span class="co"># QC bug count</span>
 <span class="va">Metrics.Bugs.Scores.MBSS</span><span class="op">[</span><span class="va">Metrics.Bugs.Scores.MBSS</span><span class="op">[</span>,<span class="st">"totind"</span><span class="op">]</span><span class="op">&gt;</span><span class="fl">120</span>,<span class="st">"QC_Count"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"LARGE"</span>
 <span class="va">Metrics.Bugs.Scores.MBSS</span><span class="op">[</span><span class="va">Metrics.Bugs.Scores.MBSS</span><span class="op">[</span>,<span class="st">"totind"</span><span class="op">]</span><span class="op">&lt;</span><span class="fl">60</span>,<span class="st">"QC_Count"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"SMALL"</span>
-<span class="va">Metrics.Bugs.Scores.MBSS</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">Metrics.Bugs.Scores.MBSS</span><span class="op">[</span>,<span class="st">"QC_Count"</span><span class="op">]</span><span class="op">)</span>,<span class="st">"QC_Count"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"OK"</span>
+<span class="va">Metrics.Bugs.Scores.MBSS</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">Metrics.Bugs.Scores.MBSS</span><span class="op">[</span>,<span class="st">"QC_Count"</span><span class="op">]</span><span class="op">)</span>,<span class="st">"QC_Count"</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="st">"OK"</span>
 <span class="co"># table of QC_Count</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">Metrics.Bugs.Scores.MBSS</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<table class="table">
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">Metrics.Bugs.Scores.MBSS</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="3%">
 <col width="2%">
@@ -1317,9 +1313,9 @@
 </tbody>
 </table>
 </div>
-<div id="ibi-benthic-macroinvertebrates-msw" class="section level3">
-<h3 class="hasAnchor">
-<a href="#ibi-benthic-macroinvertebrates-msw" class="anchor"></a>IBI, Benthic Macroinvertebrates, MSW</h3>
+<div class="section level3">
+<h3 id="ibi-benthic-macroinvertebrates-msw">IBI, Benthic Macroinvertebrates, MSW<a class="anchor" aria-label="anchor" href="#ibi-benthic-macroinvertebrates-msw"></a>
+</h3>
 <p>The Maryland Stream Wader index is from Stribling et al. 1999. Metric values and scores shown below for example data.</p>
 <ul>
 <li><p>SITE = Sample identifier.</p></li>
@@ -1339,13 +1335,13 @@
 <span class="co"># Thresholds</span>
 <span class="va">thresh</span> <span class="op">&lt;-</span> <span class="va">metrics_scoring</span>
 <span class="co"># get metric names for myIndex</span>
-<span class="op">(</span><span class="va">myMetrics.Bugs.MSW</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/droplevels.html">droplevels</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">thresh</span><span class="op">[</span><span class="va">thresh</span><span class="op">[</span>,<span class="st">"Index.Name"</span><span class="op">]</span><span class="op">==</span><span class="va">myIndex</span>,<span class="st">"MetricName.Other"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="op">(</span><span class="va">myMetrics.Bugs.MSW</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/character.html" class="external-link">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/droplevels.html" class="external-link">droplevels</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html" class="external-link">unique</a></span><span class="op">(</span><span class="va">thresh</span><span class="op">[</span><span class="va">thresh</span><span class="op">[</span>,<span class="st">"Index.Name"</span><span class="op">]</span><span class="op">==</span><span class="va">myIndex</span>,<span class="st">"MetricName.Other"</span><span class="op">]</span><span class="op">)</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "ntaxa"      "nept"       "nephem"     "ndipt"      "pephem"    </span>
 <span class="co">#&gt; [6] "nintol_FAM" "becks"</span>
 <span class="co"># Taxa Data</span>
 <span class="va">myDF.Bugs.MSW</span> <span class="op">&lt;-</span> <span class="va">taxa_bugs_family</span>
 <span class="va">myMetric.Values.Bugs.MSW</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metric.values.html">metric.values</a></span><span class="op">(</span><span class="va">myDF.Bugs.MSW</span>, <span class="st">"bugs"</span>, <span class="va">myMetrics.Bugs.MSW</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">myMetric.Values.Bugs.MSW</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">myMetric.Values.Bugs.MSW</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="6%">
@@ -1613,8 +1609,8 @@
 <span class="co">#&gt; </span>
 <span class="co">#&gt;                                  These samples should be further examined.</span>
 <span class="co"># View Results</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">Metrics.Bugs.Scores.MSW</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<table class="table">
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">Metrics.Bugs.Scores.MSW</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="4%">
 <col width="2%">
@@ -1964,112 +1960,116 @@
 </table>
 </div>
 </div>
-<div id="fish-distribution-maps" class="section level2">
-<h2 class="hasAnchor">
-<a href="#fish-distribution-maps" class="anchor"></a>Fish Distribution Maps</h2>
-<p>The intent of this function is to recreate the taxa distribution maps on the MBSS website: <a href="http://eyesonthebay.dnr.maryland.gov/mbss/fishes.cfm" class="uri">http://eyesonthebay.dnr.maryland.gov/mbss/fishes.cfm</a>. The maps for all taxa can be generated from a single line of code. The maps generated with this function use a ‘crosswalk’ table that converts taxa names to map names.</p>
+<div class="section level2">
+<h2 id="fish-distribution-maps">Fish Distribution Maps<a class="anchor" aria-label="anchor" href="#fish-distribution-maps"></a>
+</h2>
+<p>The intent of this function is to recreate the taxa distribution maps on the MBSS website: <a href="http://eyesonthebay.dnr.maryland.gov/mbss/fishes.cfm" class="external-link uri">http://eyesonthebay.dnr.maryland.gov/mbss/fishes.cfm</a>. The maps for all taxa can be generated from a single line of code. The maps generated with this function use a ‘crosswalk’ table that converts taxa names to map names.</p>
 <p>The function MapTaxaObs() requires the <code>readxl</code> and <code>rgdal</code> packages.</p>
-<div id="data-inputs" class="section level3">
-<h3 class="hasAnchor">
-<a href="#data-inputs" class="anchor"></a>Data inputs</h3>
+<div class="section level3">
+<h3 id="data-inputs">Data inputs<a class="anchor" aria-label="anchor" href="#data-inputs"></a>
+</h3>
 <p>The user will need GIS files for the state of Maryland for State, County, and Water.</p>
 <p>The inputs for this function, besides the three GIS shapefiles, are taxa observations and a taxa name crosswalk (translation) table between taxa names and map names.</p>
 <p>All inputs are included in the <code>MBSStools</code> library and can be copied to the current directory with the code below.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Set Working Directory</span>
-<span class="va">wd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">wd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span>
 <span class="co"># Create Example Data if Needed</span>
 <span class="co">## Create Directories</span>
-<span class="va">myDir.create</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">wd</span>,<span class="st">"Data"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.exists</a></span><span class="op">(</span><span class="va">myDir.create</span><span class="op">)</span><span class="op">==</span><span class="cn">FALSE</span>,<span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="va">myDir.create</span><span class="op">)</span>,<span class="st">"Directory already exists"</span><span class="op">)</span>
-<span class="va">myDir.create</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">wd</span>,<span class="st">"GIS"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.exists</a></span><span class="op">(</span><span class="va">myDir.create</span><span class="op">)</span><span class="op">==</span><span class="cn">FALSE</span>,<span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="va">myDir.create</span><span class="op">)</span>,<span class="st">"Directory already exists"</span><span class="op">)</span>
-<span class="va">myDir.create</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">wd</span>,<span class="st">"Maps"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.exists</a></span><span class="op">(</span><span class="va">myDir.create</span><span class="op">)</span><span class="op">==</span><span class="cn">FALSE</span>,<span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span><span class="op">(</span><span class="va">myDir.create</span><span class="op">)</span>,<span class="st">"Directory already exists"</span><span class="op">)</span>
+<span class="va">myDir.create</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">wd</span>,<span class="st">"Data"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.exists</a></span><span class="op">(</span><span class="va">myDir.create</span><span class="op">)</span><span class="op">==</span><span class="cn">FALSE</span>,<span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">myDir.create</span><span class="op">)</span>,<span class="st">"Directory already exists"</span><span class="op">)</span>
+<span class="va">myDir.create</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">wd</span>,<span class="st">"GIS"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.exists</a></span><span class="op">(</span><span class="va">myDir.create</span><span class="op">)</span><span class="op">==</span><span class="cn">FALSE</span>,<span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">myDir.create</span><span class="op">)</span>,<span class="st">"Directory already exists"</span><span class="op">)</span>
+<span class="va">myDir.create</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">wd</span>,<span class="st">"Maps"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.exists</a></span><span class="op">(</span><span class="va">myDir.create</span><span class="op">)</span><span class="op">==</span><span class="cn">FALSE</span>,<span class="fu"><a href="https://rdrr.io/r/base/files2.html" class="external-link">dir.create</a></span><span class="op">(</span><span class="va">myDir.create</span><span class="op">)</span>,<span class="st">"Directory already exists"</span><span class="op">)</span>
 <span class="co">## Create Data</span>
 <span class="co">### Taxa Data</span>
-<span class="va">myFiles</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"AllFish_95to16.xls"</span>, <span class="st">"TaxaMapsCrossWalk20170731.xlsx"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/base/files.html">file.copy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/find.package.html">path.package</a></span><span class="op">(</span><span class="st">"MBSStools"</span><span class="op">)</span>,<span class="st">"extdata"</span>,<span class="va">myFiles</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">wd</span>,<span class="st">"Data"</span>,<span class="va">myFiles</span><span class="op">)</span><span class="op">)</span>
+<span class="va">myFiles</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"AllFish_95to16.xls"</span>, <span class="st">"TaxaMapsCrossWalk20170731.xlsx"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/files.html" class="external-link">file.copy</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/find.package.html" class="external-link">path.package</a></span><span class="op">(</span><span class="st">"MBSStools"</span><span class="op">)</span>,<span class="st">"extdata"</span>,<span class="va">myFiles</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">wd</span>,<span class="st">"Data"</span>,<span class="va">myFiles</span><span class="op">)</span><span class="op">)</span>
 <span class="co">### GIS</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/unzip.html">unzip</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/find.package.html">path.package</a></span><span class="op">(</span><span class="st">"MBSStools"</span><span class="op">)</span>,<span class="st">"extdata"</span>,<span class="st">"MD_GIS.zip"</span><span class="op">)</span>,exdir<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html">file.path</a></span><span class="op">(</span><span class="va">wd</span>,<span class="st">"GIS"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/utils/unzip.html" class="external-link">unzip</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/find.package.html" class="external-link">path.package</a></span><span class="op">(</span><span class="st">"MBSStools"</span><span class="op">)</span>,<span class="st">"extdata"</span>,<span class="st">"MD_GIS.zip"</span><span class="op">)</span>,exdir<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/file.path.html" class="external-link">file.path</a></span><span class="op">(</span><span class="va">wd</span>,<span class="st">"GIS"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="example-input-data" class="section level3">
-<h3 class="hasAnchor">
-<a href="#example-input-data" class="anchor"></a>Example Input Data</h3>
+<div class="section level3">
+<h3 id="example-input-data">Example Input Data<a class="anchor" aria-label="anchor" href="#example-input-data"></a>
+</h3>
 <p>Observation data with three columns needed for the tool to work (common name, latitude, and longitude). Additional columns can be appended (e.g., SiteYr) and will not affect the functionality.</p>
-<pre><code>#&gt;             CommonName Latitude83 Longitude83
-#&gt; 1    eastern mudminnow     39.055   -76.73417
-#&gt; 2           creek chub     39.055   -76.73417
-#&gt; 3      channel catfish     39.055   -76.73417
-#&gt; 4        glassy darter     39.055   -76.73417
-#&gt; 5 eastern mosquitofish     39.055   -76.73417
-#&gt; 6        golden shiner     39.055   -76.73417</code></pre>
+<pre><code><span class="co">#&gt;             CommonName Latitude83 Longitude83</span>
+<span class="co">#&gt; 1    eastern mudminnow     39.055   -76.73417</span>
+<span class="co">#&gt; 2           creek chub     39.055   -76.73417</span>
+<span class="co">#&gt; 3      channel catfish     39.055   -76.73417</span>
+<span class="co">#&gt; 4        glassy darter     39.055   -76.73417</span>
+<span class="co">#&gt; 5 eastern mosquitofish     39.055   -76.73417</span>
+<span class="co">#&gt; 6        golden shiner     39.055   -76.73417</span></code></pre>
 <p>Crosswalk data with common name and map name.</p>
-<pre><code>#&gt;         CommonName  MapName
-#&gt; 1          alewife  alewife
-#&gt; 2     american eel  amereel
-#&gt; 3    american shad amershad
-#&gt; 4    banded darter bandartr
-#&gt; 5 banded killifish bankilli
-#&gt; 6    black crappie blkcrapi</code></pre>
+<pre><code><span class="co">#&gt;         CommonName  MapName</span>
+<span class="co">#&gt; 1          alewife  alewife</span>
+<span class="co">#&gt; 2     american eel  amereel</span>
+<span class="co">#&gt; 3    american shad amershad</span>
+<span class="co">#&gt; 4    banded darter bandartr</span>
+<span class="co">#&gt; 5 banded killifish bankilli</span>
+<span class="co">#&gt; 6    black crappie blkcrapi</span></code></pre>
 </div>
 </div>
-<div id="map-creation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#map-creation" class="anchor"></a>Map Creation</h2>
+<div class="section level2">
+<h2 id="map-creation">Map Creation<a class="anchor" aria-label="anchor" href="#map-creation"></a>
+</h2>
 <p>The code below can be used to generate the maps (n=131) associated with the 1995 to 2016 data. Any taxa without a match in the crosswalk table (n=54) are listed in a CSV file and the number reported to the user in the R console, but maps are not generated (by default). If the user wants all maps then the parameter ‘onlymatches’ should be set to ‘FALSE’ (as in the example below).</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># Set Working Directory</span>
-<span class="va">wd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">wd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="co"># Inputs</span>
 <span class="va">Obs</span> <span class="op">&lt;-</span> <span class="st">"AllFish_95to16.xls"</span>
 <span class="va">XWalk</span> <span class="op">&lt;-</span> <span class="st">"TaxaMapsCrossWalk20170731.xlsx"</span>
-<span class="va">wd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html">getwd</a></span><span class="op">(</span><span class="op">)</span>
+<span class="va">wd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span>
 
 <span class="co"># Create maps</span>
 <span class="fu"><a href="../reference/MapTaxaObs.html">MapTaxaObs</a></span><span class="op">(</span><span class="va">Obs</span>, <span class="va">XWalk</span>, <span class="va">wd</span>, onlymatches <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code></pre></div>
 <p>The intent behind this function was to recreate the fish taxa distribution maps. But the data inputs are not specific to fish and can be used for benthic macroinvertebrate data.</p>
 <p>The taxa distribution map for brown trout is shown below.</p>
-<pre><code>#&gt; Loading required package: sp
-#&gt; rgdal: version: 1.5-23, (SVN revision 1121)
-#&gt; Geospatial Data Abstraction Library extensions to R successfully loaded
-#&gt; Loaded GDAL runtime: GDAL 3.2.1, released 2020/12/29
-#&gt; Path to GDAL shared files: /Users/runner/work/_temp/Library/rgdal/gdal
-#&gt; GDAL binary built with GEOS: TRUE 
-#&gt; Loaded PROJ runtime: Rel. 7.2.1, January 1st, 2021, [PJ_VERSION: 721]
-#&gt; Path to PROJ shared files: /Users/runner/work/_temp/Library/rgdal/proj
-#&gt; PROJ CDN enabled: FALSE
-#&gt; Linking to sp version:1.4-5
-#&gt; To mute warnings of possible GDAL/OSR exportToProj4() degradation,
-#&gt; use options("rgdal_show_exportToProj4_warnings"="none") before loading rgdal.
-#&gt; Overwritten PROJ_LIB was /Users/runner/work/_temp/Library/rgdal/proj
-#&gt; Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1</code></pre>
+<pre><code><span class="co">#&gt; Loading required package: sp</span>
+<span class="co">#&gt; Please note that rgdal will be retired by the end of 2023,</span>
+<span class="co">#&gt; plan transition to sf/stars/terra functions using GDAL and PROJ</span>
+<span class="co">#&gt; at your earliest convenience.</span>
+<span class="co">#&gt; </span>
+<span class="co">#&gt; rgdal: version: 1.5-28, (SVN revision 1158)</span>
+<span class="co">#&gt; Geospatial Data Abstraction Library extensions to R successfully loaded</span>
+<span class="co">#&gt; Loaded GDAL runtime: GDAL 3.2.1, released 2020/12/29</span>
+<span class="co">#&gt; Path to GDAL shared files: /Users/runner/work/_temp/Library/rgdal/gdal</span>
+<span class="co">#&gt; GDAL binary built with GEOS: TRUE </span>
+<span class="co">#&gt; Loaded PROJ runtime: Rel. 7.2.1, January 1st, 2021, [PJ_VERSION: 721]</span>
+<span class="co">#&gt; Path to PROJ shared files: /Users/runner/work/_temp/Library/rgdal/proj</span>
+<span class="co">#&gt; PROJ CDN enabled: FALSE</span>
+<span class="co">#&gt; Linking to sp version:1.4-6</span>
+<span class="co">#&gt; To mute warnings of possible GDAL/OSR exportToProj4() degradation,</span>
+<span class="co">#&gt; use options("rgdal_show_exportToProj4_warnings"="none") before loading sp or rgdal.</span>
+<span class="co">#&gt; Overwritten PROJ_LIB was /Users/runner/work/_temp/Library/rgdal/proj</span>
+<span class="co">#&gt; Linking to GEOS 3.8.1, GDAL 3.2.1, PROJ 7.2.1; sf_use_s2() is TRUE</span></code></pre>
 <p><img src="MBSStools_vignette_files/figure-html/TaxaMap%20Brown%20Trout-1.png" width="700"></p>
 </div>
-<div id="stream-discharge" class="section level2">
-<h2 class="hasAnchor">
-<a href="#stream-discharge" class="anchor"></a>Stream Discharge</h2>
+<div class="section level2">
+<h2 id="stream-discharge">Stream Discharge<a class="anchor" aria-label="anchor" href="#stream-discharge"></a>
+</h2>
 <p>Calculate stream discharge based on field measurements. Side channels that are properly identified in the data will be included.</p>
 <p>The function FlowSum() requires no additional packages.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools">MBSStools</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools" class="external-link">MBSStools</a></span><span class="op">)</span>
 <span class="co"># data</span>
 <span class="va">MBSS.flow</span> <span class="op">&lt;-</span> <span class="va">MBSS.flow</span>
 <span class="co"># calculate flow</span>
 <span class="va">flow.cell</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/FlowSum.html">FlowSum</a></span><span class="op">(</span><span class="va">MBSS.flow</span>, returnType<span class="op">=</span><span class="st">"cell"</span><span class="op">)</span>
 <span class="va">flow.sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/FlowSum.html">FlowSum</a></span><span class="op">(</span><span class="va">MBSS.flow</span><span class="op">)</span>
 <span class="co"># examine data</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">flow.cell</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/View.html">View</a></span><span class="op">(</span><span class="va">flow.sample</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/View.html" class="external-link">View</a></span><span class="op">(</span><span class="va">flow.cell</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/View.html" class="external-link">View</a></span><span class="op">(</span><span class="va">flow.sample</span><span class="op">)</span>
 <span class="co"># Example Save file (tab delimited text file)</span>
-<span class="va">datetime</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.time</a></span><span class="op">(</span><span class="op">)</span>,<span class="st">"%Y%m%d_%H%M%S"</span><span class="op">)</span>
+<span class="va">datetime</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/format.html" class="external-link">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html" class="external-link">Sys.time</a></span><span class="op">(</span><span class="op">)</span>,<span class="st">"%Y%m%d_%H%M%S"</span><span class="op">)</span>
 <span class="va">myYear</span> <span class="op">&lt;-</span> <span class="st">"15"</span>
 <span class="co">#write.table(flow.sample,paste0("SumFlow",myYear,"_",datetime,".tab"),row.names=FALSE,sep="\t")</span></code></pre></div>
 </div>
-<div id="ion-matrix" class="section level2">
-<h2 class="hasAnchor">
-<a href="#ion-matrix" class="anchor"></a>Ion Matrix</h2>
+<div class="section level2">
+<h2 id="ion-matrix">Ion Matrix<a class="anchor" aria-label="anchor" href="#ion-matrix"></a>
+</h2>
 <p>The IonContrib() function calculates conductivity contribution from provided ion concentrations using Kohlrausch’s Law. If a total conductivity measurement is not provided, the total conductivity is calculated as the sum of all ions present in the data. If the user provides a conductivity measurement, then ion contributions are a percentage of that number. In the latter case, “Other” is added as an ion to capture any percentage of total conductivity not represented by the provided ions. Plotting is done outside of this function.</p>
 <p>Data will need to be in “wide” format. That is, a single record for each sample and the ions to be analyzed in columns.</p>
 <p>A reference table of ions and their equivalent ionic conductance at infinite dilution is provided with the function as “MBSS.Ion.Ref”. The function allows for input of a user supplied data frame if this table needs updating with more ions.</p>
@@ -2229,7 +2229,7 @@
 </tbody>
 </table>
 <p>The columns for the ions need to match the reference table names. The function IonContrib() includes a reference table that is used by default but the user can supply their own reference table.</p>
-<table class="table">
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="4%">
 <col width="6%">
@@ -2363,7 +2363,7 @@
 </table>
 <p>Example code is below. The user would then save the output (e.g., write.csv()).</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools">MBSStools</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools" class="external-link">MBSStools</a></span><span class="op">)</span>
 <span class="co"># Load Data</span>
 <span class="co"># MBSS.Ion.Data = example dataset</span>
 <span class="va">data.ion</span> <span class="op">&lt;-</span> <span class="va">MBSS.Ion.Data</span>
@@ -2375,7 +2375,7 @@
 <pre><code>    Ion contributions calculated from the sum of calculated ion conductivity
     values.</code></pre>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">contrib.ion</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">contrib.ion</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="1%">
@@ -2748,39 +2748,39 @@
 <span class="va">ref.ion</span> <span class="op">&lt;-</span> <span class="va">MBSS.Ion.Ref</span>
 <span class="co"># Calculate Percent Contribution by Ion (data table only)</span>
 <span class="va">contrib.ion</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/IonContrib.html">IonContrib</a></span><span class="op">(</span><span class="va">data.ion</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">contrib.ion</span><span class="op">)</span>
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">contrib.ion</span><span class="op">)</span>
 <span class="co"># Calculate Percent Contribution by Ion (data table and reference table)</span>
 <span class="va">contrib.ion.2</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/IonContrib.html">IonContrib</a></span><span class="op">(</span><span class="va">data.ion</span>, <span class="va">ref.ion</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">contrib.ion.2</span><span class="op">)</span>
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">contrib.ion.2</span><span class="op">)</span>
 <span class="co"># Calculate Percent Contribution by Ion (data table, reference table, and conductivity values)</span>
 <span class="co"># ## add dummy conductivity values for each sample</span>
 <span class="va">myCond</span> <span class="op">&lt;-</span> <span class="st">"Cond"</span>
 <span class="va">data.ion</span><span class="op">[</span>,<span class="va">myCond</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="fl">4000</span>
 <span class="va">contrib.ion.3</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/IonContrib.html">IonContrib</a></span><span class="op">(</span><span class="va">data.ion</span>, <span class="va">ref.ion</span>, <span class="va">myCond</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="va">contrib.ion.3</span><span class="op">)</span>
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="va">contrib.ion.3</span><span class="op">)</span>
 <span class="co"># Save Results (use write.table())</span>
 <span class="co"># Plot Results</span>
-<span class="va">myIons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Chloride (mg/L)"</span>, <span class="st">"Bromide (mg/L)"</span>, <span class="st">"Nitrate-N (mg/L)"</span>, <span class="st">"Sulfate (mg/L)"</span>, <span class="st">"Sodium (mg/L)"</span>,
+<span class="va">myIons</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Chloride (mg/L)"</span>, <span class="st">"Bromide (mg/L)"</span>, <span class="st">"Nitrate-N (mg/L)"</span>, <span class="st">"Sulfate (mg/L)"</span>, <span class="st">"Sodium (mg/L)"</span>,
      <span class="st">"Potassium (mg/L)"</span>, <span class="st">"Magnesium (mg/L)"</span>,  <span class="st">"Calcium (mg/L)"</span> <span class="op">)</span>
-<span class="va">myIons.Contrib</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"PctContrib."</span>,<span class="va">myIons</span><span class="op">)</span>
+<span class="va">myIons.Contrib</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"PctContrib."</span>,<span class="va">myIons</span><span class="op">)</span>
 <span class="va">mySite</span> <span class="op">&lt;-</span> <span class="st">"BELK-101-X"</span>
-<span class="va">data.plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html">subset</a></span><span class="op">(</span><span class="va">contrib.ion</span>, <span class="va">contrib.ion</span><span class="op">[</span>,<span class="st">"Site"</span><span class="op">]</span><span class="op">==</span><span class="va">mySite</span>, select<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Site"</span>,<span class="st">"Cond.Total"</span>,<span class="va">myIons.Contrib</span>,<span class="va">myIons</span><span class="op">)</span><span class="op">)</span>
+<span class="va">data.plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/subset.html" class="external-link">subset</a></span><span class="op">(</span><span class="va">contrib.ion</span>, <span class="va">contrib.ion</span><span class="op">[</span>,<span class="st">"Site"</span><span class="op">]</span><span class="op">==</span><span class="va">mySite</span>, select<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Site"</span>,<span class="st">"Cond.Total"</span>,<span class="va">myIons.Contrib</span>,<span class="va">myIons</span><span class="op">)</span><span class="op">)</span>
 <span class="co">## Plot, one site (with cond value)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/dotchart.html">dotchart</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="va">data.plot</span><span class="op">[</span>,<span class="va">myIons.Contrib</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>, labels<span class="op">=</span><span class="va">myIons</span>, main<span class="op">=</span><span class="va">mySite</span>, xlab<span class="op">=</span><span class="st">"Percent Contribution"</span>, pch<span class="op">=</span><span class="fl">19</span>, pt.cex<span class="op">=</span><span class="fl">1.2</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html">mtext</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Conductivity (uS/cm) = "</span>,<span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">data.plot</span><span class="op">[</span>,<span class="st">"Cond.Total"</span><span class="op">]</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/dotchart.html" class="external-link">dotchart</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="va">data.plot</span><span class="op">[</span>,<span class="va">myIons.Contrib</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>, labels<span class="op">=</span><span class="va">myIons</span>, main<span class="op">=</span><span class="va">mySite</span>, xlab<span class="op">=</span><span class="st">"Percent Contribution"</span>, pch<span class="op">=</span><span class="fl">19</span>, pt.cex<span class="op">=</span><span class="fl">1.2</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Conductivity (uS/cm) = "</span>,<span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">data.plot</span><span class="op">[</span>,<span class="st">"Cond.Total"</span><span class="op">]</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 <span class="co">## Plot all sites using panel.dotplot() in the lattice package</span>
 <span class="co">#</span>
 <span class="co">## Plot as a horizontal bar plot</span>
 <span class="co"># need to change margins to fit labels</span>
 <span class="co">#par(mai=c(1,2,1,1))</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/vector.html">as.vector</a></span><span class="op">(</span><span class="va">data.plot</span><span class="op">[</span>,<span class="va">myIons.Contrib</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>, names.arg<span class="op">=</span><span class="va">myIons</span>, main<span class="op">=</span><span class="va">mySite</span>, xlab<span class="op">=</span><span class="st">"Percent Contribution"</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html" class="external-link">barplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/vector.html" class="external-link">as.vector</a></span><span class="op">(</span><span class="va">data.plot</span><span class="op">[</span>,<span class="va">myIons.Contrib</span><span class="op">]</span><span class="op">)</span><span class="op">)</span>, names.arg<span class="op">=</span><span class="va">myIons</span>, main<span class="op">=</span><span class="va">mySite</span>, xlab<span class="op">=</span><span class="st">"Percent Contribution"</span>
        , axes<span class="op">=</span><span class="cn">TRUE</span>, horiz<span class="op">=</span><span class="cn">TRUE</span>, las<span class="op">=</span><span class="fl">1</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html">mtext</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span><span class="op">(</span><span class="st">"Conductivity (uS/cm) = "</span>,<span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">data.plot</span><span class="op">[</span>,<span class="st">"Cond.Total"</span><span class="op">]</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/graphics/mtext.html" class="external-link">mtext</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"Conductivity (uS/cm) = "</span>,<span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">data.plot</span><span class="op">[</span>,<span class="st">"Cond.Total"</span><span class="op">]</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="MBSStools_vignette_files/figure-html/Ion%20Results%20and%20Charts-1.png" width="700"><img src="MBSStools_vignette_files/figure-html/Ion%20Results%20and%20Charts-2.png" width="700"></p>
 </div>
-<div id="phi" class="section level2">
-<h2 class="hasAnchor">
-<a href="#phi" class="anchor"></a>PHI</h2>
+<div class="section level2">
+<h2 id="phi">PHI<a class="anchor" aria-label="anchor" href="#phi"></a>
+</h2>
 <p>The PHIcalc() function calculates the MBSS Physical Habitat Index (PHI), Paul et al. 2003. The report is included in the /extdata folder of the library.</p>
 <p>There are two versions of the calculation based on pre- and post-2000. The function determines the correct calculation based on the data provided.</p>
 <p>The input is a data frame with column names matching the variables collected in the field along with SampleID, bioregion, and area (acres).</p>
@@ -2967,14 +2967,14 @@
 </table>
 <p>The function returns a dataframe of results that need to be saved (e.g., write.table()). The result table from the example data is shown below.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools">MBSStools</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools" class="external-link">MBSStools</a></span><span class="op">)</span>
 <span class="co"># data</span>
 <span class="co"># MBSS.PHI = example dataset</span>
 <span class="va">myData</span> <span class="op">&lt;-</span> <span class="va">MBSS.PHI</span>
 <span class="co"># calculate PHI</span>
 <span class="va">PHI</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/PHIcalc.html">PHIcalc</a></span><span class="op">(</span><span class="va">myData</span><span class="op">)</span>
-<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">PHI</span><span class="op">)</span><span class="op">)</span></code></pre></div>
-<table class="table">
+<span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html" class="external-link">kable</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">PHI</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<table style="width:100%;" class="table">
 <colgroup>
 <col width="3%">
 <col width="2%">
@@ -3300,13 +3300,13 @@
 </table>
 </div>
 </div>
-<div id="shiny" class="section level1">
-<h1 class="hasAnchor">
-<a href="#shiny" class="anchor"></a>Shiny</h1>
+<div class="section level1">
+<h1 id="shiny">Shiny<a class="anchor" aria-label="anchor" href="#shiny"></a>
+</h1>
 <p>Included in the package is an example Shiny package to calculate the three IBI’s for MBSS. The the function runShiny() requires the “shinyjs” package.</p>
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools">MBSStools</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://deanattali.com/shinyjs/">shinyjs</a></span><span class="op">)</span>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/leppott/MBSStools" class="external-link">MBSStools</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://deanattali.com/shinyjs/" class="external-link">shinyjs</a></span><span class="op">)</span>
 <span class="fu"><a href="../reference/runShiny.html">runShiny</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
 </div>
   </div>
@@ -3322,11 +3322,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Erik W. Leppo.</p>
+  <p></p>
+<p>Developed by Erik W. Leppo.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -3334,6 +3336,8 @@
 
   
 
+
+  
 
   </body>
 </html>

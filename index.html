@@ -22,6 +22,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -34,18 +36,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">MBSStools</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9053</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.1.0.9054</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -67,7 +63,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/leppott/MBSStools/">
+  <a href="https://github.com/leppott/MBSStools/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -84,39 +80,47 @@
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="readme-mbsstools" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#readme-mbsstools" class="anchor"></a>README-MBSStools</h1></div>
+<div class="section level1">
+<div class="page-header"><h1 id="readme-mbsstools">README-MBSStools<a class="anchor" aria-label="anchor" href="#readme-mbsstools"></a>
+</h1></div>
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#&gt; Last Update: 2021-06-14 15:39:48</span></span></code></pre></div>
 <p>Suite of tools for data manipulation and calculations for Maryland DNR MBSS program.</p>
-
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<div class="section level2">
+<h2 id="badges">Badges<a class="anchor" aria-label="anchor" href="#badges"></a>
+</h2>
+<p><a href="https://GitHub.com/leppott/MBSStools/graphs/commit-activity" class="external-link"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance"></a> <a href="https://www.tidyverse.org/lifecycle/#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></p>
+<p><a href="https://cran.r-project.org/web/licenses/GPL%20(%3E=%203)" class="external-link"><img src="https://img.shields.io/badge/license-GPL%20(%3E=%203)-blue.svg" alt="License: GPL (&gt;= 3)"></a></p>
+<p><a href="https://www.codefactor.io/repository/github/leppott/MBSStools" class="external-link"><img src="https://www.codefactor.io/repository/github/leppott/MBSStools/badge" alt="CodeFactor"></a> <a href="https://codecov.io/gh/leppott/MBSStools" class="external-link"><img src="https://codecov.io/gh/leppott/MBSStools/branch/master/graph/badge.svg" alt="codecov"></a> <a href="https://github.com/leppott/MBSStools/actions" class="external-link"><img src="https://github.com/leppott/MBSStools/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></p>
+<p><a href="https://GitHub.com/leppott/MBSStools/issues/" class="external-link"><img src="https://img.shields.io/github/issues/leppott/MBSStools.svg" alt="GitHub issues"></a></p>
+<p><a href="https://GitHub.com/leppott/MBSStools/releases/" class="external-link"><img src="https://img.shields.io/github/release/leppott/MBSStools.svg" alt="GitHub release"></a> <a href="https://GitHub.com/leppott/MBSStools/releases/" class="external-link"><img src="https://img.shields.io/github/downloads/leppott/MBSStools/total.svg" alt="Github all releases"></a></p>
+</div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>To install the current version of this package use the code below to install from GitHub. The use of “force = TRUE” ensures the package is installed even if already present. If the package <code>remotes</code> is missing the code below will install it. Vigenettes are not insalled by default. The use of “build_vignettes = TRUE” will install the vignettes.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html">require</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org">remotes</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span><span class="op">}</span>  <span class="co">#install if needed</span>
-<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"leppott/MBSStools"</span>, force<span class="op">=</span><span class="cn">TRUE</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org" class="external-link">remotes</a></span><span class="op">)</span><span class="op">)</span><span class="op">{</span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span><span class="op">}</span>  <span class="co">#install if needed</span>
+<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"leppott/MBSStools"</span>, force<span class="op">=</span><span class="cn">TRUE</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="purpose" class="section level2">
-<h2 class="hasAnchor">
-<a href="#purpose" class="anchor"></a>Purpose</h2>
+<div class="section level2">
+<h2 id="purpose">Purpose<a class="anchor" aria-label="anchor" href="#purpose"></a>
+</h2>
 <p>To aid MBSS staff with calculations and data manipulations.</p>
 </div>
-<div id="status" class="section level2">
-<h2 class="hasAnchor">
-<a href="#status" class="anchor"></a>Status</h2>
+<div class="section level2">
+<h2 id="status">Status<a class="anchor" aria-label="anchor" href="#status"></a>
+</h2>
 <p>Stable. Minor updates planned in FY2021.</p>
 </div>
-<div id="usage" class="section level2">
-<h2 class="hasAnchor">
-<a href="#usage" class="anchor"></a>Usage</h2>
+<div class="section level2">
+<h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
+</h2>
 <p>By MBSS staff or those using MBSS data.</p>
 </div>
-<div id="documentation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#documentation" class="anchor"></a>Documentation</h2>
+<div class="section level2">
+<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
+</h2>
 <p>Included Vignette and install guide.</p>
 </div>
 </div>
@@ -124,53 +128,51 @@
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/leppott/MBSStools/">https://​github.com/​leppott/​MBSStools/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/leppott/MBSStools/issues">https://​github.com/​leppott/​MBSStools/​issues</a>
-</li>
+<li><a href="https://github.com/leppott/MBSStools/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/leppott/MBSStools/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
 <li><small>GPL (&gt;= 3)</small></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>Erik W. Leppo <br><small class="roles"> Author, maintainer </small>  </li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html#citation">Citing MBSStools</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li><a href="https://GitHub.com/leppott/MBSStools/graphs/commit-activity"><img src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" alt="Maintenance"></a></li>
-<li><a href="https://www.tidyverse.org/lifecycle/#stable"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
-<li><a href="https://cran.r-project.org/web/licenses/GPL%20(%3E=%203)"><img src="https://img.shields.io/badge/license-GPL%20(%3E=%203)-blue.svg" alt="License: GPL (&gt;= 3)"></a></li>
-<li><a href="https://www.codefactor.io/repository/github/leppott/MBSStools"><img src="https://www.codefactor.io/repository/github/leppott/MBSStools/badge" alt="CodeFactor"></a></li>
-<li><a href="https://codecov.io/gh/leppott/MBSStools"><img src="https://codecov.io/gh/leppott/MBSStools/branch/master/graph/badge.svg" alt="codecov"></a></li>
-<li><a href="https://github.com/leppott/MBSStools/actions"><img src="https://github.com/leppott/MBSStools/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://GitHub.com/leppott/MBSStools/issues/"><img src="https://img.shields.io/github/issues/leppott/MBSStools.svg" alt="GitHub issues"></a></li>
-<li><a href="https://GitHub.com/leppott/MBSStools/releases/"><img src="https://img.shields.io/github/release/leppott/MBSStools.svg" alt="GitHub release"></a></li>
-<li><a href="https://GitHub.com/leppott/MBSStools/releases/"><img src="https://img.shields.io/github/downloads/leppott/MBSStools/total.svg" alt="Github all releases"></a></li>
+<li>Erik W. Leppo <br><small class="roles"> Author, maintainer </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
-</div>
+
+
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Erik W. Leppo.</p>
+  <p></p>
+<p>Developed by Erik W. Leppo.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
 </div>
 
       </footer>
@@ -178,6 +180,8 @@
 
   
 
+
+  
 
   </body>
 </html>
