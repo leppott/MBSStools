@@ -3,7 +3,12 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2024-04-05 15:56:08.393988
+    #> Last Update: 2024-04-05 16:00:44.873446
+
+# MBSStools v1.2.0 (2024-04-05)
+
+- refactor: Bump version number for fix in previous commit
+- docs: Create release on GitHub using new version number
 
 # MBSStools v1.1.0.9056 (2024-04-05)
 

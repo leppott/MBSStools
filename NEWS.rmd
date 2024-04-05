@@ -17,6 +17,11 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.2.0 (2024-04-05)
+================
+* refactor: Bump version number for fix in previous commit
+* docs: Create release on GitHub using new version number
+
 MBSStools v1.1.0.9056 (2024-04-05)
 ================
 * fix: Revise family BIBI scoring thresholds, Issue #45
