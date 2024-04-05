@@ -4,6 +4,11 @@
 #' Can generate scores for 1/3/5 (ScoreRegime="135") for MD DNR MBSS FIBI and
 #' BIBI.
 #'
+#' The function reads the upper limit as greater than or equal (>=). For this
+#' reason the Family BIBI thresholds were tweaked and so do not match the
+#' published values.  The published values use greater than (>) and don't match
+#' the mathematical operation used in this function.
+#'
 #' The inputs and outputs have been designed to mimic those used by MBSS staff.
 #'
 #' The R library dplyr is needed for this function.

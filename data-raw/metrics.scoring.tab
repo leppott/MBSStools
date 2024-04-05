@@ -38,24 +38,24 @@ MBSS.2005.Fish	HIGHLAND	pi_tv_toler	Increase	39	80	135	PTOL
 MBSS.2005.Fish	HIGHLAND	pi_genomninvrt	Increase	61	96	135	PGEOMIV
 MBSS.2005.Fish	HIGHLAND	pi_insectivore	Decrease	1	33	135	P_IS
 MBSS.2005.Fish	HIGHLAND	pi_dom01	Increase	38	89	135	PABDOM
-MBSS.2005.Fish	COLD	ni_m2	Increase	0.88	2.2399999999999999	135	ABUNSQM
+MBSS.2005.Fish	COLD	ni_m2	Increase	0.88	2.24	135	ABUNSQM
 MBSS.2005.Fish	COLD	pi_tv_toler	Increase	22	81	135	PTOL
 MBSS.2005.Fish	COLD	pi_brooktrout	Decrease	0.0000000000000001	14	135	PBROOK
 MBSS.2005.Fish	COLD	pi_sculpin	Decrease	0.0000000000000001	44	135	PSCULP
-MSW.1999.Bugs	CP	nt_total	Decrease	8	16	135	ntaxa
-MSW.1999.Bugs	CP	nt_EPT	Decrease	3	6	135	nept
-MSW.1999.Bugs	CP	nt_Ephem	Decrease	1	2	135	nephem
-MSW.1999.Bugs	CP	nt_Dipt	Decrease	2	3	135	ndipt
-MSW.1999.Bugs	CP	pi_Ephem	Decrease	2	11.4	135	pephem
-MSW.1999.Bugs	CP	nt_tv_intol	Decrease	2	5	135	nintol_FAM
-MSW.1999.Bugs	CP	x_Becks	Decrease	4	9	135	becks
-MSW.1999.Bugs	NCP	nt_total	Decrease	9	14	135	ntaxa
-MSW.1999.Bugs	NCP	nt_EPT	Decrease	4	10	135	nept
-MSW.1999.Bugs	NCP	nt_Ephem	Decrease	2	3	135	nephem
-MSW.1999.Bugs	NCP	nt_Dipt	Decrease	2	3	135	ndipt
-MSW.1999.Bugs	NCP	pi_Ephem	Decrease	5.7	20.3	135	pephem
-MSW.1999.Bugs	NCP	nt_tv_intol	Decrease	4	8	135	nintol_FAM
-MSW.1999.Bugs	NCP	x_Becks	Decrease	8	12.5	135	becks
+MSW.1999.Bugs	CP	nt_total	Decrease	8	17	135	ntaxa
+MSW.1999.Bugs	CP	nt_EPT	Decrease	3	7	135	nept
+MSW.1999.Bugs	CP	nt_Ephem	Decrease	1	3	135	nephem
+MSW.1999.Bugs	CP	nt_Dipt	Decrease	2	4	135	ndipt
+MSW.1999.Bugs	CP	pi_Ephem	Decrease	2	11.40001	135	pephem
+MSW.1999.Bugs	CP	nt_tv_intol	Decrease	2	6	135	nintol_FAM
+MSW.1999.Bugs	CP	x_Becks	Decrease	4	9.00001	135	becks
+MSW.1999.Bugs	NCP	nt_total	Decrease	9	15	135	ntaxa
+MSW.1999.Bugs	NCP	nt_EPT	Decrease	4	11	135	nept
+MSW.1999.Bugs	NCP	nt_Ephem	Decrease	2	4	135	nephem
+MSW.1999.Bugs	NCP	nt_Dipt	Decrease	2	4	135	ndipt
+MSW.1999.Bugs	NCP	pi_Ephem	Decrease	5.7	20.30001	135	pephem
+MSW.1999.Bugs	NCP	nt_tv_intol	Decrease	4	9	135	nintol_FAM
+MSW.1999.Bugs	NCP	x_Becks	Decrease	8	12.50001	135	becks
 WSA.2006.Bugs	CPL	pi_nonInsect				100	pi_nonInsect
 WSA.2006.Bugs	CPL	x_Shan_e				100	x_Shan_e
 WSA.2006.Bugs	CPL	nt_ffg_shred				100	nt_ffg_shred

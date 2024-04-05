@@ -7,6 +7,8 @@
 # Erik.Leppo@tetratech.com
 # 20170601
 # 20170907, MBSS fish metric names
+# 20240405, Tomas, update Fam BIBI due to > vs. >= for upper threshold
+# to avoid scientific notation import with column classes specified
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # 0. Prep ####
@@ -17,16 +19,19 @@ wd <- getwd()
 # 1. Get data and Process #####
 # 1.1. Import Data
 myFile <- "metrics.scoring.tab"
-data.import <- read.delim(file.path(".","data-raw",myFile))
+myClasses <- c(rep("character", 4), rep("numeric", 2), rep("character", 2))
+data.import <- read.delim(file.path("data-raw", myFile), colClasses = myClasses)
+# ignore NAs introduced by coercion
 # 1.2. Process Data
 View(data.import)
 names(data.import)
 dim(data.import)
+str(data.import)
 
 ##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # 2. Save as RDA for Use in Package ####
 #
 metrics_scoring <- data.import
-devtools::use_data(metrics_scoring, overwrite = TRUE)
+usethis::use_data(metrics_scoring, overwrite = TRUE)
 
 

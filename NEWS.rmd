@@ -17,6 +17,13 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.1.0.9056 (2024-04-05)
+================
+* fix: Revise family BIBI scoring thresholds, Issue #45
+* test: Added test for extra digits for scoring thresholds
+* refactor: Update vignette for IBI calculations, Issue #45
+    + StringAsFactors default now FALSE so don't have to remove in Vignette
+
 MBSStools v1.1.0.9055 (2022-01-12)
 ================
 * refactor: Update GitHub repo default branch from 'master' to 'main'
