@@ -3,7 +3,12 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2024-04-05 16:00:44.873446
+    #> Last Update: 2024-04-08 12:38:08.080495
+
+# MBSStools v1.2.0.9001 (2024-04-08)
+
+- fix: Update examples and vignette to not use droplevels()
+  - Revised thresholds no longer has levels
 
 # MBSStools v1.2.0 (2024-04-05)
 

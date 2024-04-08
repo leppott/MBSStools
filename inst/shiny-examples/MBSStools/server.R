@@ -162,8 +162,8 @@ shinyServer(function(input, output) {
 
       #myIndex <- input$MMI
       thresh <- MBSStools::metrics_scoring
-      myMetrics <- as.character(droplevels(unique(thresh[thresh[
-        ,"Index.Name"]==myIndex,"MetricName.Other"])))
+      myMetrics <- as.character(unique(thresh[thresh[
+        ,"Index.Name"] == myIndex,"MetricName.Other"]))
       #
      # myCommunity <- Community[match(myIndex, MMIs)]
       myCol_Strata <- col_Strata[match(myIndex, MMIs)]

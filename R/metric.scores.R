@@ -31,8 +31,8 @@
 #' # Thresholds
 #' thresh <- metrics_scoring
 #' # get metric names for myIndex
-#' (myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,
-#' "Index.Name"]==myIndex,"MetricName.Other"]))))
+#' (myMetrics.Fish <- as.character(unique(thresh[thresh[,
+#' "Index.Name"] == myIndex,"MetricName.Other"])))
 #' # Taxa Data
 #' myDF.Fish <- taxa_fish
 #' myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish,
@@ -61,8 +61,8 @@
 #' # Thresholds
 #' thresh <- metrics_scoring
 #' # get metric names for myIndex
-#' (myMetrics.Bugs.MBSS <- as.character(droplevels(unique(thresh[thresh[,
-#' "Index.Name"]==myIndex,"MetricName.Other"]))))
+#' (myMetrics.Bugs.MBSS <- as.character(unique(thresh[thresh[,
+#' "Index.Name"] == myIndex,"MetricName.Other"])))
 #' # Taxa Data
 #' myDF.Bugs.MBSS <- taxa_bugs_genus
 #' myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs",
@@ -102,8 +102,8 @@
 #' # Thresholds
 #' thresh <- metrics_scoring
 #' # get metric names for myIndex
-#' (myMetrics.Bugs.MSW <- as.character(droplevels(unique(thresh[thresh[,
-#' "Index.Name"]==myIndex,"MetricName.Other"]))))
+#' (myMetrics.Bugs.MSW <- as.character(unique(thresh[thresh[,
+#' "Index.Name"] == myIndex,"MetricName.Other"])))
 #' # Taxa Data
 #' myDF.Bugs.MSW <- taxa_bugs_family
 #' myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs",

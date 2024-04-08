@@ -14,7 +14,7 @@ myIndex <- "MBSS.2005.Fish"
 # Thresholds
 thresh <- metrics_scoring
 # get metric names for myIndex
-(myMetrics.Fish <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"MetricName.Other"]))))
+(myMetrics.Fish <- as.character(unique(thresh[thresh[,"Index.Name"] == myIndex,"MetricName.Other"])))
 # Taxa Data
 myDF.Fish <- taxa_fish
 myMetric.Values.Fish <- metric.values(myDF.Fish, "fish", myMetrics.Fish, TRUE)
@@ -31,7 +31,7 @@ myIndex <- "MBSS.2005.Bugs"
 # Thresholds
 thresh <- metrics_scoring
 # get metric names for myIndex
-(myMetrics.Bugs.MBSS <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"MetricName.Other"]))))
+(myMetrics.Bugs.MBSS <- as.character(unique(thresh[thresh[,"Index.Name"] == myIndex,"MetricName.Other"])))
 # Taxa Data
 myDF.Bugs.MBSS <- taxa_bugs_genus
 myMetric.Values.Bugs.MBSS <- metric.values(myDF.Bugs.MBSS, "bugs", myMetrics.Bugs.MBSS)
@@ -54,7 +54,7 @@ myIndex <- "MSW.1999.Bugs"
 # Thresholds
 thresh <- metrics_scoring
 # get metric names for myIndex
-(myMetrics.Bugs.MSW <- as.character(droplevels(unique(thresh[thresh[,"Index.Name"]==myIndex,"MetricName.Other"]))))
+(myMetrics.Bugs.MSW <- as.character(unique(thresh[thresh[,"Index.Name"] == myIndex,"MetricName.Other"])))
 # Taxa Data
 myDF.Bugs.MSW <- taxa_bugs_family
 myMetric.Values.Bugs.MSW <- metric.values(myDF.Bugs.MSW, "bugs", myMetrics.Bugs.MSW)
@@ -126,12 +126,12 @@ head(df.lu.taxa)
 ## ----TaxaMaps Example Code, eval=FALSE----------------------------------------
 #  # Set Working Directory
 #  wd <- getwd()
-#  
+#
 #  # Inputs
 #  Obs <- "AllFish_95to16.xls"
 #  XWalk <- "TaxaMapsCrossWalk20170731.xlsx"
 #  wd <- getwd()
-#  
+#
 #  # Create maps
 #  MapTaxaObs(Obs, XWalk, wd, onlymatches = FALSE)
 
@@ -170,7 +170,7 @@ xWalk <- "TaxaMapsCrossWalk20170731.xlsx"
 
 oldwd <- getwd()
 setwd("..") #resets to vignette dir when run as code chunk
-dirMain <- getwd()  
+dirMain <- getwd()
 dirData = "Data"
 dirGIS = "GIS"
 verbose = TRUE
@@ -228,7 +228,7 @@ taxon <- as.character(map.taxa$CommonName[i])
   df.taxon.sites <- subset(df.taxa.obs, df.taxa.obs[,"CommonName"]==taxon)
   df.taxon.sites <- subset(df.taxon.sites, !is.na(df.taxon.sites["Latitude83"]))
 
-  
+
   plot(state, col="white", border="gray")
     plot(coastline, add = TRUE, col="light blue", border=FALSE)
     plot(counties, add = TRUE, col="white", border="darkslategray", lwd=0.5)
@@ -237,8 +237,8 @@ taxon <- as.character(map.taxa$CommonName[i])
                           "+proj=lcc +lat_1=39.45 +lat_2=38.3 +lat_0=37.66666666666666 +lon_0=-77
             +x_0=400000 +y_0=0 +datum=NAD83 +units=m +no_defs")
     points(proj.sites[,1], proj.sites[,2], pch=21, col="black", bg="green", cex=1.0)
-        
-        
+
+
  #reset old working directory
  #setwd <- oldwd
 
