@@ -36,7 +36,8 @@
 #' + (PHYLUM), CLASS, ORDER, FAMILY, GENUS, OTHER_TAXA, TRIBE, FFG, HABIT,
 #' FINALTOLVAL07
 #'
-#' Valid values for FFG: col, fil, pre, scr, shr, pie
+#' Valid values for FFG: Collector, Filterer, Predator, Scraper, Shredder, and
+#' Piercer
 #'
 #' Valid values for HABIT: BU, CB, CN, SP, SW
 #'

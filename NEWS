@@ -3,9 +3,13 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2024-10-15 12:37:10.670714
+    #> Last Update: 2024-10-15 12:41:32.620089
 
-# MBSStools v1.2.0.9002 (2024-04-08)
+# MBSStools v1.2.0.9003 (2024-10-15)
+
+- refactor: Update FFG text in metric.values, Issue \#47
+
+# MBSStools v1.2.0.9002 (2024-10-15)
 
 - fix: Replace `rgdal` functions with ones from `sf` package, Issue \#44
 - refactor: Remove XLConnect, Issue \#48

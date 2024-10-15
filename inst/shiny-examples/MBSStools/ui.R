@@ -19,7 +19,7 @@ library(shinyjs) # used for togglestate of download button
 shinyUI(fluidPage(
 
   # Application title
-  titlePanel("MBSStools, IBI Calculator, v1.2.0.9002"),
+  titlePanel("MBSStools, IBI Calculator, v1.2.0.9003"),
 
   # SideBar
   sidebarLayout(
