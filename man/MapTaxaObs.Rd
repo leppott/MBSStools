@@ -60,7 +60,9 @@ There is also a "verbose" flag for printing status messages to the user (this
 Tests for existence of Data, GIS directories and required files. On failure,
 stops and prints missing directories/files to screen.
 
-The R libraries rgdal, sf, and readxl are required for this function.
+The R libraries `rgdal`, `sf`, and `readxl` are required for this function.
+The `rgdal` package was deprecated in 2023.  In 2024 revised this fucntion to
+use functions from the `sf` package.
 }
 \examples{
 # Set Working Directory
@@ -97,4 +99,7 @@ dirMain <- tempdir()
 
 # Create maps
 MapTaxaObs(obs, xWalk, dirMain)
+
+# Open folder (Windows only)
+# shell.exec(tempdir())
 }

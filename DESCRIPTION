@@ -4,7 +4,7 @@ Description: Suite of tools for data manipulation and calculations for Maryland
     DNR MBSS program.  Includes functions for calculating FIBI, BIBI (MBSS 
     genus), BIBI (MSW family), PHI, flow sums, ion contributions, and taxa 
     distribution maps.
-Version: 1.2.0.9001
+Version: 1.2.0.9002
 Authors@R: c(
   person("Erik W.", "Leppo", email="Erik.Leppo@tetratech.com", role=c("aut","cre")),
   person("Ann","Roseberry Lincoln", role="ctb"),
@@ -14,10 +14,9 @@ Depends: R (>= 3.4.0)
 License: GPL (>= 3)
 Encoding: UTF-8
 URL: https://github.com/leppott/MBSStools
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 Imports: 
-    dplyr,
-    rgdal
+    dplyr
 Suggests: 
     DT,
     ggplot2,
@@ -30,8 +29,7 @@ Suggests:
     shiny,
     shinyjs,
     sp,
-    testthat,
-    XLConnect
+    testthat
 VignetteBuilder: knitr
 LazyData: true
 BugReports: https://github.com/leppott/MBSStools/issues

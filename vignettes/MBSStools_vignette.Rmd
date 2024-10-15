@@ -329,6 +329,9 @@ head(df.lu.taxa)
 ## Map Creation
 The code below can be used to generate the maps (n=131) associated with the 1995 to 2016 data.  Any taxa without a match in the crosswalk table (n=54) are listed in a CSV file and the number reported to the user in the R console, but maps are not generated (by default).  If the user wants all maps then the parameter 'onlymatches' should be set to 'FALSE' (as in the example below).
 
+Updated in 2024 to replace the `rgdal` package (deprecated in 2023) with the
+`sf` package.
+
 ```{r TaxaMaps Example Code, eval=FALSE}
 # Set Working Directory
 wd <- getwd()
@@ -342,9 +345,15 @@ wd <- getwd()
 MapTaxaObs(Obs, XWalk, wd, onlymatches = FALSE)
 ```
 
-The intent behind this function was to recreate the fish taxa distribution maps.  But the data inputs are not specific to fish and can be used for benthic macroinvertebrate data.
+The intent behind this function was to recreate the fish taxa distribution maps
+on the DNR website.  The data inputs are not specific to fish and can be used
+for benthic macroinvertebrate data.
 
 The taxa distribution map for brown trout is shown below.
+
+Points with latitude and longitude are imported as WGS84 (CRS = 4326) then
+converted to NAD83 Maryland (meters) (CRS = 26985) before plotting using the
+`sf` package.
 
 ```{r TaxaMap Brown Trout, echo=FALSE, results="hide", fig.show='hold', warnings=FALSE, eval=TRUE}
 # example map.
@@ -352,70 +361,83 @@ The taxa distribution map for brown trout is shown below.
 # brntrout.png
 # assume already created directories
 
-## library
+# Packages
+library(MBSStools)
 library(readxl)
-library(rgdal)
 library(sf)
 
 # Set Working Directory
-wd <- getwd()
+wd <- tempdir()
 # Create Example Data if Needed
 ## Create Directories
 ## Create a “Data” folder, a “GIS” folder, and a “Maps” folder
-myDir.create <- file.path(wd,"Data")
-ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
-myDir.create <- file.path(wd,"GIS")
-ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
-myDir.create <- file.path(wd,"Maps")
-ifelse(dir.exists(myDir.create)==FALSE,dir.create(myDir.create),"Directory already exists")
+myDir.create <- file.path(wd, "Data")
+ifelse(dir.exists(myDir.create) == FALSE, 
+       dir.create(myDir.create), 
+       "Directory already exists")
+myDir.create <- file.path(wd, "GIS")
+ifelse(dir.exists(myDir.create) == FALSE,
+       dir.create(myDir.create),
+       "Directory already exists")
+myDir.create <- file.path(wd, "Maps")
+ifelse(dir.exists(myDir.create) ==FALSE,
+       dir.create(myDir.create),
+       "Directory already exists")
 
 ## Create Data
 ## Make copies of datafiles and place into “Data” folder
 ### Taxa Data
 myFiles <- c("AllFish_95to16.xls", "TaxaMapsCrossWalk20170731.xlsx")
-file.copy(file.path(path.package("MBSStools"),"extdata",myFiles)
-          ,file.path(wd,"Data",myFiles))
+file.copy(file.path(path.package("MBSStools"), "extdata", myFiles),
+          file.path(wd, "Data", myFiles))
 
 ### GIS
 # Unzip GIS file in MBSS tools “extdata” folder and place in “GIS” folder
-unzip(file.path(path.package("MBSStools"),"extdata","MD_GIS.zip"),exdir=file.path(wd,"GIS"))
+unzip(file.path(path.package("MBSStools"), "extdata","MD_GIS.zip"), 
+      exdir = file.path(wd, "GIS"))
 
 # data files
 obs <- "AllFish_95to16.xls"
 xWalk <- "TaxaMapsCrossWalk20170731.xlsx"
 
-oldwd <- getwd()
-#setwd("..") resets to vignette dir when run as code chunk
-dirMain <- getwd()  
-dirData = "Data"
-dirGIS = "GIS"
-verbose = TRUE
-onlymatches = TRUE
+dirMain     <- wd  
+dirData     <- "Data"
+dirGIS      <- "GIS"
+verbose     <- TRUE
+onlymatches <- TRUE
 
 all.taxa <- system.file("extdata", obs, package = "MBSStools")
 taxa.lu <- system.file("extdata", xWalk, package = "MBSStools")
 
 # Read in Taxon observations
-df.taxa.obs <- readxl::read_excel(all.taxa,sheet=1,col_names=TRUE,skip=0)
+df.taxa.obs <- readxl::read_excel(all.taxa,
+                                  sheet = 1,
+                                  col_names = TRUE,
+                                  skip = 0)
 df.taxa.obs <- as.data.frame(df.taxa.obs)
-df.taxa.obs[,1] <- tolower(df.taxa.obs[,1])
+df.taxa.obs[,1] <- tolower(df.taxa.obs[, 1])
 colnames(df.taxa.obs)[1] <- "CommonName"
 
 ## Trim to browntrout
-df.taxa.obs <- df.taxa.obs[df.taxa.obs[,"CommonName"]=="brown trout",]
+df.taxa.obs <- df.taxa.obs[df.taxa.obs[, "CommonName"] == "brown trout", ]
 
 # Read in TaxaMapsCrossWalk.xlsx
-df.lu.taxa <- readxl::read_excel(taxa.lu,sheet=1,col_names=TRUE,skip=0)
-df.lu.taxa <- as.data.frame(df.lu.taxa[,c("CommonName","MapName")])
-df.lu.taxa[,"CommonName"] <- tolower(df.lu.taxa[,"CommonName"])
+df.lu.taxa <- readxl::read_excel(taxa.lu,
+                                 sheet = 1,
+                                 col_names = TRUE,
+                                 skip = 0)
+df.lu.taxa <- as.data.frame(df.lu.taxa[, c("CommonName", "MapName")])
+df.lu.taxa[,"CommonName"] <- tolower(df.lu.taxa[, "CommonName"])
 
- # 4. Munge Data ####
+# 4. Munge Data ####
 # Compare TaxaName to CommonName
-taxa.names <- as.vector(df.lu.taxa[,"CommonName"])
-matches <- as.vector(df.taxa.obs[,"CommonName"]) %in% taxa.names
-df.taxa.nomatch <- as.data.frame(unique(sort(df.taxa.obs[,"CommonName"][!matches])))
+taxa.names <- as.vector(df.lu.taxa[, "CommonName"])
+matches <- as.vector(df.taxa.obs[, "CommonName"]) %in% taxa.names
+df.taxa.nomatch <- as.data.frame(
+  unique(sort(df.taxa.obs[,"CommonName"][!matches])))
 colnames(df.taxa.nomatch)[1] <- "CommonName"
-df.taxa.match <- as.data.frame(unique(sort(df.taxa.obs[,"CommonName"][matches])))
+df.taxa.match <- as.data.frame(
+  unique(sort(df.taxa.obs[, "CommonName"][matches])))
 colnames(df.taxa.match)[1] <- "CommonName"
 
 #if (onlymatches == TRUE) {
@@ -435,21 +457,46 @@ i<-1
 taxon <- as.character(map.taxa$CommonName[i])
 
   filename <- map.taxa$MapName[i]
-  df.taxon.sites <- subset(df.taxa.obs, df.taxa.obs[,"CommonName"]==taxon)
+  df.taxon.sites <- subset(df.taxa.obs, df.taxa.obs[, "CommonName"] == taxon)
   df.taxon.sites <- subset(df.taxon.sites, !is.na(df.taxon.sites["Latitude83"]))
 
+  plot(sf::st_geometry(state), 
+       col = "white", 
+       border = "gray")
   
-  plot(sf::st_geometry(state), col="white", border="gray")
-    plot(sf::st_geometry(coastline), add = TRUE, col="light blue", border=FALSE)
-    plot(sf::st_geometry(counties), add = TRUE, col="white", border="darkslategray", lwd=0.5)
-    proj.sites <- rgdal::project(cbind(df.taxon.sites$Longitude83
-                                       ,df.taxon.sites$Latitude83)
-, "+proj=lcc +lat_1=39.45 +lat_2=38.3 +lat_0=37.66666666666666 +lon_0=-77
-            +x_0=400000 +y_0=0 +datum=NAD83 +units=m +no_defs")
-    points(proj.sites[,1], proj.sites[,2], pch=21, col="black", bg="green", cex=1.0)
+  plot(sf::st_geometry(coastline), 
+       add = TRUE, 
+       col = "light blue", 
+       border = FALSE)
+  
+  plot(sf::st_geometry(counties), 
+       add = TRUE, 
+       col = "white",
+       border = "darkslategray", 
+       lwd = 0.5)
+  
+  ## sites
+  # 4326, WGS 84
+  # 6487, NAD83(2011)/Maryland in meters
+  # 6488, NAD83(2011)/Maryland in US survey feet
+  # 26985, NAD83/Maryland                             *this one*
+  # 2248
+  sites_wgs84 <- sf::st_as_sf(df.taxon.sites,
+                             coords = c("Longitude83", "Latitude83"),
+                             crs = 4326)
+  sites_nad83md_m <- sf::st_transform(sites_wgs84, crs = 26985)
+  ### plot
+  plot(sites_nad83md_m,
+       pch = 21, 
+       col = "black", 
+       bg  = "green", 
+       cex = 1.0,
+       type = "p",
+       add = TRUE)
         
- #reset old working directory
- #setwd <- oldwd
+# open temp dir (Windows only)
+#shell.exec(tempdir())
+
 ```
 
 ## Stream Discharge

@@ -14,7 +14,9 @@
 #' Tests for existence of Data, GIS directories and required files. On failure,
 #' stops and prints missing directories/files to screen.
 #'
-#' The R libraries rgdal, sf, and readxl are required for this function.
+#' The R libraries `rgdal`, `sf`, and `readxl` are required for this function.
+#' The `rgdal` package was deprecated in 2023.  In 2024 revised this fucntion to
+#' use functions from the `sf` package.
 #'
 #' @param obs Excel file containing 3 columns: TaxaName, Latitude83, Longitude83
 #' @param xWalk Crosswalk (Excel file) of taxa names between taxa name in
@@ -71,6 +73,9 @@
 #'
 #' # Create maps
 #' MapTaxaObs(obs, xWalk, dirMain)
+#'
+#' # Open folder (Windows only)
+#' # shell.exec(tempdir())
 #
 #' @export
 MapTaxaObs <- function(obs
@@ -122,8 +127,6 @@ MapTaxaObs <- function(obs
       i           <- 1
       # shell.exec(dirMain)
     }## IF ~ boo_QC ~ END
-
-
 
     # 2021-01-10
     # Define missing variables
@@ -273,15 +276,6 @@ MapTaxaObs <- function(obs
     ppi <- 72
     #dsn<-paste(dirMain,dirGIS,sep="/")
     dsn <- file.path(dirMain, dirGIS)
-    # state     <- rgdal::readOGR(dsn = dsn
-    #                             , layer = "MD_State_Boundary"
-    #                             , verbose=verbose)
-    # coastline <- rgdal::readOGR(dsn = dsn
-    #                             , layer = "MD_Coast_Hydrology"
-    #                             , verbose=verbose)
-    # counties  <- rgdal::readOGR(dsn = dsn
-    #                             , layer = "MD_Boundary_County_Detailed"
-    #                             , verbose=verbose)
 
     # sf version
     state     <- sf::st_read(dsn = dsn
@@ -307,30 +301,39 @@ MapTaxaObs <- function(obs
                      , pointsize = 12
                      , bg = "white")
         plot(sf::st_geometry(state)
-             , col="white"
+             , col = "white"
              , border = "gray")
         plot(sf::st_geometry(coastline)
              , add = TRUE
              , col = "light blue"
-             , border=FALSE)
+             , border = FALSE)
         plot(sf::st_geometry(counties)
              , add = TRUE
              , col = "white"
              , border = "darkslategray"
              , lwd = 0.5)
-        #xy <- df.taxon.sites[,2:3]
-        proj.sites <- rgdal::project(cbind(df.taxon.sites$Longitude83
-                                           , df.taxon.sites$Latitude83)
-                                     ,
-        "+proj=lcc +lat_1=39.45 +lat_2=38.3 +lat_0=37.66666666666666 +lon_0=-77
-                +x_0=400000 +y_0=0 +datum=NAD83 +units=m +no_defs")
-        graphics::points(proj.sites[, 1]
-                         , proj.sites[, 2]
-                         , pch = 21
-                         , col = "black"
-                         , bg = "green"
-                         , cex = 1.0)
+
+        ### sites
+        # 4326, WGS 84
+        # 6487, NAD83(2011)/Maryland in meters
+        # 6488, NAD83(2011)/Maryland in US survey feet
+        # 26985, NAD83/Maryland                             *this one*
+        # 2248
+        sites_wgs84 <- sf::st_as_sf(df.taxon.sites,
+                                    coords = c("Longitude83", "Latitude83"),
+                                    crs = 4326)
+        sites_nad83md_m <- sf::st_transform(sites_wgs84, crs = 26985)
+        #### plot
+        plot(sites_nad83md_m,
+             pch = 21,
+             col = "black",
+             bg  = "green",
+             cex = 1.0,
+             type = "p",
+             add = TRUE)
+
       grDevices::dev.off()
+
       # user feedback
       if (verbose == TRUE) {##IF.verbose.START
         message(paste0("Saving map "
@@ -344,7 +347,7 @@ MapTaxaObs <- function(obs
       }##IF.verbose.END
       ##PLOT.END
     }##FOR.i.END
-    #
+
     # 6. Clean up ####
     # Number on Non-Matches
     n.nomatch <- nrow(df.taxa.nomatch)

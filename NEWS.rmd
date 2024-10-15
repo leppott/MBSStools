@@ -17,6 +17,15 @@ knitr::opts_chunk$set(
 cat(paste0("Last Update: ",Sys.time()))
 ```
 
+MBSStools v1.2.0.9002 (2024-04-08)
+================
+
+* fix: Replace `rgdal` functions with ones from `sf` package, Issue #44
+* refactor: Remove XLConnect, Issue #48
+    + DESCRIPTION, Suggests
+    + MBSStools_vignette
+* fixe: Vignette now builds, Issue #33
+
 MBSStools v1.2.0.9001 (2024-04-08)
 ================
 * fix: Update examples and vignette to not use droplevels()

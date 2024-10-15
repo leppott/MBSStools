@@ -3,7 +3,15 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2024-04-08 12:38:08.080495
+    #> Last Update: 2024-10-15 12:37:10.670714
+
+# MBSStools v1.2.0.9002 (2024-04-08)
+
+- fix: Replace `rgdal` functions with ones from `sf` package, Issue \#44
+- refactor: Remove XLConnect, Issue \#48
+  - DESCRIPTION, Suggests
+  - MBSStools_vignette
+- fixe: Vignette now builds, Issue \#33
 
 # MBSStools v1.2.0.9001 (2024-04-08)
 
