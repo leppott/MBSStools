@@ -3,7 +3,11 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2025-02-25 10:05:44.688473
+    #> Last Update: 2025-02-25 10:52:39.193483
+
+# MBSStools v1.3 (2025-02-25)
+
+- refactor: Bump version number prior to reloading Shiny app
 
 # MBSStools v1.2.0.9005 (2025-02-25)
 
