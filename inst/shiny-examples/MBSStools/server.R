@@ -146,7 +146,7 @@ shinyServer(function(input, output) {
         # Nothing
       }## IF ~ community ~ END
 
-      df_data_qc <- qc_taxa(df_data, df_mt, myCommunity, input$QC_Type)
+      df_data_qc <- MBSStools::qc_taxa(df_data, df_mt, myCommunity, input$QC_Type)
       # INDEX.NAME to Index.Name
       names(df_data_qc)[names(df_data_qc) %in% "INDEX.NAME"] <- "Index.Name"
       # QC

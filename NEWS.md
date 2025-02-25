@@ -3,7 +3,20 @@ NEWS-MBSStools
 
 <!-- NEWS.md is generated from NEWS.Rmd. Please edit that file -->
 
-    #> Last Update: 2024-10-15 12:41:32.620089
+    #> Last Update: 2025-02-25 10:05:44.688473
+
+# MBSStools v1.2.0.9005 (2025-02-25)
+
+- fix: Add na.rm = TRUE to all dplyr sum and n_distinct calls in
+  `metric.values`, Issue \#94
+  - bugs, sum, done for any subsetting, added to all sum
+  - bugs, n_distinct, added to all
+  - fish, sum and n_distinct, added to all
+- style: Add spaces around symbols and operators in `metrics.values`
+
+# MBSStools v1.2.0.9004 (2024-12-20)
+
+- style: Rearrange expected column names in global
 
 # MBSStools v1.2.0.9003 (2024-10-15)
 

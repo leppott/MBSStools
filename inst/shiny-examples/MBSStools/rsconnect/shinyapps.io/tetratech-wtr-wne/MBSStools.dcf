@@ -5,7 +5,7 @@ account: tetratech-wtr-wne
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 2566633
-bundleId:
+bundleId: 9226233
 url: https://tetratech-wtr-wne.shinyapps.io/MBSStools/
 asMultiple: FALSE
 asStatic: FALSE

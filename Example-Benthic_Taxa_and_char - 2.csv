@@ -1,0 +1,204 @@
+SITE,TAXON,N_TAXA,EXCLUDE,STRATA_R,INDEX.NAME,Collection.Date,GRIDS,log_c_t,Log.No.,PHYLUM,CLASS,ORDER,FAMILY,GENUS,OTHER_TAXA,TRIBE,FFG,FAM_TV,HABIT,FINALTOLVAL07
+Site 1,ANTOCHA,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Tipulidae,Antocha,,,Collector,4,cn,8
+Site 1,CHEUMATOPSYCHE,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Trichoptera,Hydropsychidae,Cheumatopsyche,,,Filterer,5,cn,6.5
+Site 1,CLINOCERA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Empididae,Clinocera,,,Predator,6,cn,7.4
+Site 1,CRICOTOPUS,9,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Cricotopus,Orthocladiinae,,Shredder,7,"cn, bu",9.6
+Site 1,DIAMESA,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Diamesa,Diamesinae,Diamesini,Collector,7,sp,8.5
+Site 1,DICROTENDIPES,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Dicrotendipes,Chironominae,Chironomini,Collector,7,bu,9
+Site 1,HEMERODROMIA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Empididae,Hemerodromia,Hemerodromiini,Hemerodromiini,Predator,6,"sp, bu",7.9
+Site 1,HYDROBAENUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Hydrobaenus,Orthocladiinae,,Scraper,7,sp,7.2
+Site 1,HYDROPSYCHE,9,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Trichoptera,Hydropsychidae,Hydropsyche,,,Filterer,5,cn,7.5
+Site 1,MICROPSECTRA,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Micropsectra,Chironominae,Tanytarsini,Collector,7,"cb, sp",2.1
+Site 1,ORTHOCLADIINAE,3,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,,Orthocladiinae,,Collector,7,bu,7.6
+Site 1,ORTHOCLADIUS,25,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Orthocladius,Orthocladiinae,,Collector,7,"sp, bu",9.2
+Site 1,PARAKIEFFERIELLA,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Parakiefferiella,Orthocladiinae,,Collector,7,sp,2.1
+Site 1,PARAMETRIOCNEMUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Parametriocnemus,Orthocladiinae,,Collector,7,sp,4.6
+Site 1,PARATANYTARSUS,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Paratanytarsus,Chironominae,Tanytarsini,Collector,7,sp,7.7
+Site 1,PHAENOPSECTRA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Phaenopsectra,Chironominae,Chironomini,Collector,7,cn,8.7
+Site 1,POLYPEDILUM,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Polypedilum,Chironominae,Chironomini,Shredder,7,"cb, cn",6.3
+Site 1,PROSTOMA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Nemertea,Enopla,Hoplonemertea,Tetrastemmatidae,Prostoma,,,Predator,NA,,7.3
+Site 1,RHEOTANYTARSUS,5,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Rheotanytarsus,Chironominae,Tanytarsini,Filterer,7,cn,7.2
+Site 1,STENELMIS,4,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Coleoptera,Elmidae,Stenelmis,,,Scraper,5,cn,7.1
+Site 1,SUBLETTEA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Sublettea,Chironominae,Tanytarsini,Collector,7,,10
+Site 1,SYMPOTTHASTIA,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Sympotthastia,Diamesinae,Diamesini,Collector,7,sp,8.2
+Site 1,TANYTARSUS,29,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Tanytarsus,Chironominae,Tanytarsini,Filterer,7,"cb, cn",4.9
+Site 1,THIENEMANNIMYIA GROUP,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Thienemannimyia group,Orthocladiinae,,Predator,7,sp,8.2
+Site 1,TVETENIA,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,1,R,47,Arthropoda,Insecta,Diptera,Chironomidae,Tvetenia,Orthocladiinae,,Collector,7,sp,5.1
+Site 2,ANTOCHA,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Tipulidae,Antocha,,,Collector,4,cn,8
+Site 2,CHEUMATOPSYCHE,5,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Trichoptera,Hydropsychidae,Cheumatopsyche,,,Filterer,5,cn,6.5
+Site 2,CHIMARRA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Trichoptera,Philopotamidae,Chimarra,,,Filterer,3,cn,4.4
+Site 2,CRICOTOPUS,5,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Cricotopus,Orthocladiinae,,Shredder,7,"cn, bu",9.6
+Site 2,CRYPTOCHIRONOMUS,4,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Cryptochironomus,Chironominae,Chironomini,Predator,7,"sp, bu",7.6
+Site 2,DIAMESA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Diamesa,Diamesinae,Diamesini,Collector,7,sp,8.5
+Site 2,DIAMESINAE,1,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,,Diamesinae,Diamesini,Collector,7,,7.1
+Site 2,DICROTENDIPES,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Dicrotendipes,Chironominae,Chironomini,Collector,7,bu,9
+Site 2,HEMERODROMIA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Empididae,Hemerodromia,Hemerodromiini,Hemerodromiini,Predator,6,"sp, bu",7.9
+Site 2,HYDROBAENUS,7,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Hydrobaenus,Orthocladiinae,,Scraper,7,sp,7.2
+Site 2,HYDROPSYCHE,8,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Trichoptera,Hydropsychidae,Hydropsyche,,,Filterer,5,cn,7.5
+Site 2,LUMBRICULIDAE,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Annelida,Oligochaeta,Lumbriculida,Lumbriculidae,,,,Collector,10,bu,6.6
+Site 2,LYPE,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Trichoptera,Psychomyiidae,Lype,,,Scraper,2,cn,4.7
+Site 2,MICROTENDIPES,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Microtendipes,Chironominae,Chironomini,Filterer,7,cn,4.9
+Site 2,NAIDIDAE,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Annelida,Oligochaeta,Haplotaxida,Naididae,,,,Collector,10,bu,8.5
+Site 2,ORTHOCLADIINAE,3,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,,Orthocladiinae,,Collector,7,bu,7.6
+Site 2,ORTHOCLADIUS,22,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Orthocladius,Orthocladiinae,,Collector,7,"sp, bu",9.2
+Site 2,PARAKIEFFERIELLA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Parakiefferiella,Orthocladiinae,,Collector,7,sp,2.1
+Site 2,PARAMETRIOCNEMUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Parametriocnemus,Orthocladiinae,,Collector,7,sp,4.6
+Site 2,PARATANYTARSUS,8,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Paratanytarsus,Chironominae,Tanytarsini,Collector,7,sp,7.7
+Site 2,RHEOCRICOTOPUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Rheocricotopus,Orthocladiinae,,Collector,7,sp,6.2
+Site 2,RHEOTANYTARSUS,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Rheotanytarsus,Chironominae,Tanytarsini,Filterer,7,cn,7.2
+Site 2,STENELMIS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Coleoptera,Elmidae,Stenelmis,,,Scraper,5,cn,7.1
+Site 2,SYMPOTTHASTIA,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Sympotthastia,Diamesinae,Diamesini,Collector,7,sp,8.2
+Site 2,TANYTARSINI,3,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,,Chironominae,Tanytarsini,Collector,7,,3.5
+Site 2,TANYTARSUS,18,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Tanytarsus,Chironominae,Tanytarsini,Filterer,7,"cb, cn",4.9
+Site 2,THIENEMANNIMYIA GROUP,4,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,48,Arthropoda,Insecta,Diptera,Chironomidae,Thienemannimyia group,Orthocladiinae,,Predator,7,sp,8.2
+Site 3,CHEUMATOPSYCHE,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Trichoptera,Hydropsychidae,Cheumatopsyche,,,Filterer,5,cn,6.5
+Site 3,CHIMARRA,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Trichoptera,Philopotamidae,Chimarra,,,Filterer,3,cn,4.4
+Site 3,CHIRONOMIDAE,2,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,,,,,7,,6.6
+Site 3,CRICOTOPUS,14,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Cricotopus,Orthocladiinae,,Shredder,7,"cn, bu",9.6
+Site 3,DIAMESA,4,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Diamesa,Diamesinae,Diamesini,Collector,7,sp,8.5
+Site 3,DIAMESINAE,3,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,,Diamesinae,Diamesini,Collector,7,,7.1
+Site 3,DICROTENDIPES,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Dicrotendipes,Chironominae,Chironomini,Collector,7,bu,9
+Site 3,DIPLOCLADIUS,4,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Diplocladius,Orthocladiinae,,Collector,7,sp,5.9
+Site 3,HEMERODROMIA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Empididae,Hemerodromia,Hemerodromiini,Hemerodromiini,Predator,6,"sp, bu",7.9
+Site 3,HYDROBAENUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Hydrobaenus,Orthocladiinae,,Scraper,7,sp,7.2
+Site 3,MICROTENDIPES,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Microtendipes,Chironominae,Chironomini,Filterer,7,cn,4.9
+Site 3,NAIDIDAE,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Annelida,Oligochaeta,Haplotaxida,Naididae,,,,Collector,10,bu,8.5
+Site 3,ORTHOCLADIINAE,3,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,,Orthocladiinae,,Collector,7,bu,7.6
+Site 3,ORTHOCLADIUS,23,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Orthocladius,Orthocladiinae,,Collector,7,"sp, bu",9.2
+Site 3,OULIMNIUS,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Coleoptera,Elmidae,Oulimnius,,,Scraper,5,cn,2.7
+Site 3,PARAKIEFFERIELLA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Parakiefferiella,Orthocladiinae,,Collector,7,sp,2.1
+Site 3,PARAMETRIOCNEMUS,5,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Parametriocnemus,Orthocladiinae,,Collector,7,sp,4.6
+Site 3,PARATANYTARSUS,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Paratanytarsus,Chironominae,Tanytarsini,Collector,7,sp,7.7
+Site 3,POLYPEDILUM,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Polypedilum,Chironominae,Chironomini,Shredder,7,"cb, cn",6.3
+Site 3,POTTHASTIA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Potthastia,Diamesinae,Diamesini,Collector,7,sp,0
+Site 3,RHEOTANYTARSUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Rheotanytarsus,Chironominae,Tanytarsini,Filterer,7,cn,7.2
+Site 3,SIMULIUM,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Simuliidae,Simulium,Simuliini,Simuliini,Filterer,7,cn,5.7
+Site 3,STENELMIS,4,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Coleoptera,Elmidae,Stenelmis,,,Scraper,5,cn,7.1
+Site 3,SUBLETTEA,6,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Sublettea,Chironominae,Tanytarsini,Collector,7,,10
+Site 3,SYMPOTTHASTIA,8,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Sympotthastia,Diamesinae,Diamesini,Collector,7,sp,8.2
+Site 3,TANYTARSUS,8,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Tanytarsus,Chironominae,Tanytarsini,Filterer,7,"cb, cn",4.9
+Site 3,THIENEMANNIELLA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Thienemanniella,Orthocladiinae,,Collector,7,sp,5.1
+Site 3,THIENEMANNIMYIA GROUP,5,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Thienemannimyia group,Orthocladiinae,,Predator,7,sp,8.2
+Site 3,TVETENIA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,7,R,49,Arthropoda,Insecta,Diptera,Chironomidae,Tvetenia,Orthocladiinae,,Collector,7,sp,5.1
+Site 4,AMPHINEMURA,7,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Plecoptera,Nemouridae,Amphinemura,,,Shredder,2,"sp, cn",3
+Site 4,ANTOCHA,5,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Tipulidae,Antocha,,,Collector,4,cn,8
+Site 4,CAENIS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Ephemeroptera,Caenidae,Caenis,,,Collector,7,sp,2.1
+Site 4,CAPNIIDAE,7,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Plecoptera,Capniidae,,,,Shredder,2,"sp, cn",3.7
+Site 4,CHEUMATOPSYCHE,8,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Trichoptera,Hydropsychidae,Cheumatopsyche,,,Filterer,5,cn,6.5
+Site 4,CHIMARRA,5,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Trichoptera,Philopotamidae,Chimarra,,,Filterer,3,cn,4.4
+Site 4,CLINOCERA,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Empididae,Clinocera,,,Predator,6,cn,7.4
+Site 4,CRICOTOPUS,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,Cricotopus,Orthocladiinae,,Shredder,7,"cn, bu",9.6
+Site 4,DIAMESA,4,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,Diamesa,Diamesinae,Diamesini,Collector,7,sp,8.5
+Site 4,DIPHETOR,8,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Ephemeroptera,Baetidae,Diphetor,,,Collector,5,"sw, cn",2.3
+Site 4,MICROTENDIPES,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,Microtendipes,Chironominae,Chironomini,Filterer,7,cn,4.9
+Site 4,NEOPHYLAX,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Trichoptera,Uenoidae,Neophylax,,,Scraper,3,cn,2.7
+Site 4,ORTHOCLADIINAE,5,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,,Orthocladiinae,,Collector,7,bu,7.6
+Site 4,ORTHOCLADIUS,20,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,Orthocladius,Orthocladiinae,,Collector,7,"sp, bu",9.2
+Site 4,OULIMNIUS,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Coleoptera,Elmidae,Oulimnius,,,Scraper,5,cn,2.7
+Site 4,PARAKIEFFERIELLA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,Parakiefferiella,Orthocladiinae,,Collector,7,sp,2.1
+Site 4,PARAMETRIOCNEMUS,5,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,Parametriocnemus,Orthocladiinae,,Collector,7,sp,4.6
+Site 4,PLECOPTERA,1,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Plecoptera,,,,,,NA,,2.4
+Site 4,POLYPEDILUM,4,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,Polypedilum,Chironominae,Chironomini,Shredder,7,"cb, cn",6.3
+Site 4,RHEOCRICOTOPUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,Rheocricotopus,Orthocladiinae,,Collector,7,sp,6.2
+Site 4,RHEOTANYTARSUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,Rheotanytarsus,Chironominae,Tanytarsini,Filterer,7,cn,7.2
+Site 4,STENONEMA,4,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Ephemeroptera,Heptageniidae,Stenonema,,,Scraper,3,cn,4.6
+Site 4,SYMPOTTHASTIA,16,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,Sympotthastia,Diamesinae,Diamesini,Collector,7,sp,8.2
+Site 4,TANYTARSUS,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,Tanytarsus,Chironominae,Tanytarsini,Filterer,7,"cb, cn",4.9
+Site 4,THIENEMANNIELLA,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,Thienemanniella,Orthocladiinae,,Collector,7,sp,5.1
+Site 4,THIENEMANNIMYIA GROUP,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,Thienemannimyia group,Orthocladiinae,,Predator,7,sp,8.2
+Site 4,TIPULA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Tipulidae,Tipula,,,Shredder,4,bu,6.7
+Site 4,TVETENIA,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,50,Arthropoda,Insecta,Diptera,Chironomidae,Tvetenia,Orthocladiinae,,Collector,7,sp,5.1
+Site 5,AMPHINEMURA,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Plecoptera,Nemouridae,Amphinemura,,,Shredder,2,"sp, cn",3
+Site 5,ARGIA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Odonata,Coenagrionidae,Argia,,,Predator,8,"cn, cb, sp",9.3
+Site 5,CAENIS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Ephemeroptera,Caenidae,Caenis,,,Collector,7,sp,2.1
+Site 5,CAPNIIDAE,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Plecoptera,Capniidae,,,,Shredder,2,"sp, cn",3.7
+Site 5,CHEUMATOPSYCHE,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Trichoptera,Hydropsychidae,Cheumatopsyche,,,Filterer,5,cn,6.5
+Site 5,CHIMARRA,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Trichoptera,Philopotamidae,Chimarra,,,Filterer,3,cn,4.4
+Site 5,CHIRONOMIDAE,2,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,,,,,7,,6.6
+Site 5,CLINOCERA,5,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Empididae,Clinocera,,,Predator,6,cn,7.4
+Site 5,CORYNONEURA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,Corynoneura,Orthocladiinae,,Collector,7,sp,4.1
+Site 5,CRANGONYX,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Malacostraca,Amphipoda,Crangonyctidae,Crangonyx,Crustacea,,Collector,4,sp,6.7
+Site 5,CRICOTOPUS,4,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,Cricotopus,Orthocladiinae,,Shredder,7,"cn, bu",9.6
+Site 5,DIAMESINAE,1,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,,Diamesinae,Diamesini,Collector,7,,7.1
+Site 5,DICROTENDIPES,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,Dicrotendipes,Chironominae,Chironomini,Collector,7,bu,9
+Site 5,DIPHETOR,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Ephemeroptera,Baetidae,Diphetor,,,Collector,5,"sw, cn",2.3
+Site 5,DIPLOCLADIUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,Diplocladius,Orthocladiinae,,Collector,7,sp,5.9
+Site 5,GAMMARUS,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Malacostraca,Amphipoda,Gammaridae,Gammarus,Crustacea,,Shredder,6,sp,6.7
+Site 5,HYDROPTILA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Trichoptera,Hydroptilidae,Hydroptila,Hydroptilini,Hydroptilini,Scraper,4,cn,6
+Site 5,MICROTENDIPES,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,Microtendipes,Chironominae,Chironomini,Filterer,7,cn,4.9
+Site 5,NAIDIDAE,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Annelida,Oligochaeta,Haplotaxida,Naididae,,,,Collector,10,bu,8.5
+Site 5,NEOPHYLAX,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Trichoptera,Uenoidae,Neophylax,,,Scraper,3,cn,2.7
+Site 5,OPTIOSERVUS,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Coleoptera,Elmidae,Optioservus,,,Scraper,5,cn,5.4
+Site 5,ORTHOCLADIINAE,1,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,,Orthocladiinae,,Collector,7,bu,7.6
+Site 5,ORTHOCLADIUS,17,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,Orthocladius,Orthocladiinae,,Collector,7,"sp, bu",9.2
+Site 5,PROSTOIA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Plecoptera,Nemouridae,Prostoia,,,Shredder,2,"sp, cn",4.5
+Site 5,PSEPHENUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Coleoptera,Psephenidae,Psephenus,,,Scraper,4,cn,4.4
+Site 5,RHEOTANYTARSUS,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,Rheotanytarsus,Chironominae,Tanytarsini,Filterer,7,cn,7.2
+Site 5,STENONEMA,4,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Ephemeroptera,Heptageniidae,Stenonema,,,Scraper,3,cn,4.6
+Site 5,SUBLETTEA,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,Sublettea,Chironominae,Tanytarsini,Collector,7,,10
+Site 5,SYMPOTTHASTIA,26,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,Sympotthastia,Diamesinae,Diamesini,Collector,7,sp,8.2
+Site 5,TANYTARSUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,Tanytarsus,Chironominae,Tanytarsini,Filterer,7,"cb, cn",4.9
+Site 5,THIENEMANNIMYIA GROUP,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,Thienemannimyia group,Orthocladiinae,,Predator,7,sp,8.2
+Site 5,TVETENIA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,51,Arthropoda,Insecta,Diptera,Chironomidae,Tvetenia,Orthocladiinae,,Collector,7,sp,5.1
+Site 6,AMPHINEMURA,41,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Plecoptera,Nemouridae,Amphinemura,,,Shredder,2,"sp, cn",3
+Site 6,ANTOCHA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Diptera,Tipulidae,Antocha,,,Collector,4,cn,8
+Site 6,BAETIS,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Ephemeroptera,Baetidae,Baetis,,,Collector,5,"sw, cb, cn",3.9
+Site 6,BRILLIA,4,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Diptera,Chironomidae,Brillia,Orthocladiinae,,Shredder,7,"bu, sp",7.4
+Site 6,CAPNIIDAE,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Plecoptera,Capniidae,,,,Shredder,2,"sp, cn",3.7
+Site 6,CHEUMATOPSYCHE,4,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Trichoptera,Hydropsychidae,Cheumatopsyche,,,Filterer,5,cn,6.5
+Site 6,CHIMARRA,7,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Trichoptera,Philopotamidae,Chimarra,,,Filterer,3,cn,4.4
+Site 6,CLINOCERA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Diptera,Empididae,Clinocera,,,Predator,6,cn,7.4
+Site 6,DIAMESA,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Diptera,Chironomidae,Diamesa,Diamesinae,Diamesini,Collector,7,sp,8.5
+Site 6,GAMMARUS,13,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Malacostraca,Amphipoda,Gammaridae,Gammarus,Crustacea,,Shredder,6,sp,6.7
+Site 6,HEMERODROMIA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Diptera,Empididae,Hemerodromia,Hemerodromiini,Hemerodromiini,Predator,6,"sp, bu",7.9
+Site 6,HYDROPSYCHE,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Trichoptera,Hydropsychidae,Hydropsyche,,,Filterer,5,cn,7.5
+Site 6,NEOPHYLAX,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Trichoptera,Uenoidae,Neophylax,,,Scraper,3,cn,2.7
+Site 6,OPTIOSERVUS,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Coleoptera,Elmidae,Optioservus,,,Scraper,5,cn,5.4
+Site 6,ORTHOCLADIUS,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Diptera,Chironomidae,Orthocladius,Orthocladiinae,,Collector,7,"sp, bu",9.2
+Site 6,PARATANYTARSUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Diptera,Chironomidae,Paratanytarsus,Chironominae,Tanytarsini,Collector,7,sp,7.7
+Site 6,POLYPEDILUM,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Diptera,Chironomidae,Polypedilum,Chironominae,Chironomini,Shredder,7,"cb, cn",6.3
+Site 6,PROSTOIA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Plecoptera,Nemouridae,Prostoia,,,Shredder,2,"sp, cn",4.5
+Site 6,PROSTOMA,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Nemertea,Enopla,Hoplonemertea,Tetrastemmatidae,Prostoma,,,Predator,NA,,7.3
+Site 6,RHYACOPHILA,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Trichoptera,Rhyacophilidae,Rhyacophila,,,Predator,1,cn,2.1
+Site 6,STENELMIS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Coleoptera,Elmidae,Stenelmis,,,Scraper,5,cn,7.1
+Site 6,STENONEMA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Ephemeroptera,Heptageniidae,Stenonema,,,Scraper,3,cn,4.6
+Site 6,SYMPOTTHASTIA,9,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Diptera,Chironomidae,Sympotthastia,Diamesinae,Diamesini,Collector,7,sp,8.2
+Site 6,THIENEMANNIMYIA GROUP,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Diptera,Chironomidae,Thienemannimyia group,Orthocladiinae,,Predator,7,sp,8.2
+Site 6,TVETENIA,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,3,R,52,Arthropoda,Insecta,Diptera,Chironomidae,Tvetenia,Orthocladiinae,,Collector,7,sp,5.1
+Site 7,ANCYRONYX,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Coleoptera,Elmidae,Ancyronyx,,,Scraper,5,"cn, sp",7.8
+Site 7,ANTOCHA,5,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Tipulidae,Antocha,,,Collector,4,cn,8
+Site 7,BRILLIA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Brillia,Orthocladiinae,,Shredder,7,"bu, sp",7.4
+Site 7,CHAETOCLADIUS,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Chaetocladius,Orthocladiinae,,Collector,7,sp,7
+Site 7,CHEUMATOPSYCHE,3,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Trichoptera,Hydropsychidae,Cheumatopsyche,,,Filterer,5,cn,6.5
+Site 7,CHIMARRA,5,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Trichoptera,Philopotamidae,Chimarra,,,Filterer,3,cn,4.4
+Site 7,CHIRONOMIDAE,1,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,,,,,7,,6.6
+Site 7,CRICOTOPUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Cricotopus,Orthocladiinae,,Shredder,7,"cn, bu",9.6
+Site 7,DIAMESA,4,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Diamesa,Diamesinae,Diamesini,Collector,7,sp,8.5
+Site 7,DIAMESINAE,1,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,,Diamesinae,Diamesini,Collector,7,,7.1
+Site 7,DICROTENDIPES,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Dicrotendipes,Chironominae,Chironomini,Collector,7,bu,9
+Site 7,DIPLOCLADIUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Diplocladius,Orthocladiinae,,Collector,7,sp,5.9
+Site 7,FERRISSIA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Mollusca,Gastropoda,Basommatophora,Ancylidae,Ferrissia,Mollusca,,Scraper,7,cb,7
+Site 7,GAMMARUS,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Malacostraca,Amphipoda,Gammaridae,Gammarus,Crustacea,,Shredder,6,sp,6.7
+Site 7,GLOSSOSOMA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Trichoptera,Glossosomatidae,Glossosoma,Glossosomatini,Glossosomatini,Scraper,1,cn,0
+Site 7,HEMERODROMIA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Empididae,Hemerodromia,Hemerodromiini,Hemerodromiini,Predator,6,"sp, bu",7.9
+Site 7,HYALELLA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Malacostraca,Amphipoda,Hyalellidae,Hyalella,Crustacea,,Shredder,8,sp,4.2
+Site 7,HYDROPSYCHE,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Trichoptera,Hydropsychidae,Hydropsyche,,,Filterer,5,cn,7.5
+Site 7,LYPE,11,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Trichoptera,Psychomyiidae,Lype,,,Scraper,2,cn,4.7
+Site 7,MACRONYCHUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Coleoptera,Elmidae,Macronychus,,,Scraper,5,cn,6.8
+Site 7,MICROPSECTRA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Micropsectra,Chironominae,Tanytarsini,Collector,7,"cb, sp",2.1
+Site 7,MICROTENDIPES,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Microtendipes,Chironominae,Chironomini,Filterer,7,cn,4.9
+Site 7,NAIDIDAE,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Annelida,Oligochaeta,Haplotaxida,Naididae,,,,Collector,10,bu,8.5
+Site 7,ORTHOCLADIINAE,4,TRUE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,,Orthocladiinae,,Collector,7,bu,7.6
+Site 7,ORTHOCLADIUS,12,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Orthocladius,Orthocladiinae,,Collector,7,"sp, bu",9.2
+Site 7,PARAKIEFFERIELLA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Parakiefferiella,Orthocladiinae,,Collector,7,sp,2.1
+Site 7,PARAMETRIOCNEMUS,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Parametriocnemus,Orthocladiinae,,Collector,7,sp,4.6
+Site 7,PARATANYTARSUS,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Paratanytarsus,Chironominae,Tanytarsini,Collector,7,sp,7.7
+Site 7,PHAENOPSECTRA,5,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Phaenopsectra,Chironominae,Chironomini,Collector,7,cn,8.7
+Site 7,POTTHASTIA,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Potthastia,Diamesinae,Diamesini,Collector,7,sp,0
+Site 7,RHEOCRICOTOPUS,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Rheocricotopus,Orthocladiinae,,Collector,7,sp,6.2
+Site 7,RHEOTANYTARSUS,9,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Rheotanytarsus,Chironominae,Tanytarsini,Filterer,7,cn,7.2
+Site 7,RHYACOPHILA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Trichoptera,Rhyacophilidae,Rhyacophila,,,Predator,1,cn,2.1
+Site 7,SUBLETTEA,2,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Sublettea,Chironominae,Tanytarsini,Collector,7,,10
+Site 7,SYMPOTTHASTIA,12,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Sympotthastia,Diamesinae,Diamesini,Collector,7,sp,8.2
+Site 7,TANYTARSUS,6,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Tanytarsus,Chironominae,Tanytarsini,Filterer,7,"cb, cn",4.9
+Site 7,TVETENIA,1,FALSE,HIGHLAND,MBSS.2005.Bugs,3-Mar-00,8,R,53,Arthropoda,Insecta,Diptera,Chironomidae,Tvetenia,Orthocladiinae,,Collector,7,sp,5.1

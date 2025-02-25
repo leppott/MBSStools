@@ -157,15 +157,37 @@ qc_taxa <- function(DF_User
   # run the proper sub function
   if (fun.Community == "bugs") {##IF.START
     url_mt <- "https://github.com/leppott/MBSStools_SupportFiles/raw/master/Data/CHAR_Bugs.csv"
-    col_mt <- c("Taxon", "Phylum", "Class", "Order", "Family", "Genus"
-                , "Other_Taxa", "Tribe", "FFG", "FAM_TV", "Habit"
-                , "FinalTolVal07", "Comment")
+    col_mt <- c("Taxon",
+                "Phylum",
+                "Class",
+                "Order",
+                "Family",
+                "Genus",
+                "Other_Taxa",
+                "Tribe",
+                "FFG",
+                "FAM_TV",
+                "Habit",
+                "FinalTolVal07",
+                "Comment")
     col_taxon <- col_mt[1]
   } else if(fun.Community == "fish"){
     url_mt <- "https://github.com/leppott/MBSStools_SupportFiles/raw/master/Data/CHAR_Fish.csv"
-    col_mt <- c("SPECIES", "TYPE", "PTOLR", "NATIVE", "TROPHIC", "SILT"
-                , "PIRHALLA","DATE.ADDED", "REASON", "SOURCE", "FAM", "GENUS"
-                , "SP_SCI", "IN_KEY", "APPROX_ID" )
+    col_mt <- c("SPECIES",
+                "TYPE",
+                "PTOLR",
+                "NATIVE",
+                "TROPHIC",
+                "SILT",
+                "PIRHALLA",
+                "DATE.ADDED",
+                "REASON",
+                "SOURCE",
+                "FAM",
+                "GENUS",
+                "SP_SCI",
+                "IN_KEY",
+                "APPROX_ID")
     col_taxon <- col_mt[1]
   } else {
     msg <- "Valid values for fun.Community are 'bugs' or 'fish'."
